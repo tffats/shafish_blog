@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block disqus %}
+<div id="vssue"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/vssue/dist/vssue.min.css">
+<!-- OR: vue full build (runtime + compiler)  -->
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+<!-- Vssue Github build -->
+<script src="https://unpkg.com/vssue/dist/vssue.github.min.js"></script>
+
+<script>
+    new Vue({
+      el: '#vssue',
+
+      data: {
+        title: 'shafish.cn',
+
+        options: {
+          owner: 'shafishcn',
+          repo: 'blog_comment_by_issue',
+          clientId: 'f49fcb8c02a7868c8690',
+          clientSecret: '5940fc487ff4e7237a01a28c0fe3775140bf05b2', // only required for some of the platforms
+        },
+      },
+
+      template: `<vssue :title="title" :options="options"></vssue>`,
+    })
+  </script>
+{% endblock %}

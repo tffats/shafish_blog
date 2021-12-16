@@ -55,27 +55,18 @@ extra:
 extra_css:
   - stylesheets/extra.css
 
+#extra_javascript:
+
 markdown_extensions:
-  # 强调
-  - admonition
-  - pymdownx.details
+  - abbr
+  - attr_list
+  - pymdownx.snippets 
   - pymdownx.superfences
-  - md_in_html
-  # highlight
+  - pymdownx.tabbed
+  - admonition
+  - pymdownx.details  
   - pymdownx.highlight:
       anchor_linenums: true
-      auto_title: true
-  - pymdownx.inlinehilite
-  - pymdownx.superfences
-  - pymdownx.keys
-  - pymdownx.smartsymbols
-  - pymdownx.snippets
-  - pymdownx.superfences
-  - pymdownx.tabbed:
-      alternate_style: true 
-  - pymdownx.tasklist:
-      custom_checkbox: true
-      clickable_checkbox: true      
 
 nav:
   - 技术:
