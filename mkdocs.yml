@@ -20,11 +20,15 @@ theme:
   palette:
     - media: "(prefers-color-scheme: light)" 
       scheme: default
+      primary: teal
+      accent: teal
       toggle:
         icon: material/weather-night
         name: 关灯
     - media: "(prefers-color-scheme: dark)" 
       scheme: slate
+      primary: blue grey
+      accent: blue
       toggle:
         icon: material/weather-sunny
         name: 开灯
@@ -36,12 +40,14 @@ theme:
     - navigation.tabs.sticky
     #- navigation.sections
     #- navigation.expand  # 每次刷新都展开子节点
-    - navigation.indexes  # 无效？？
+    #- navigation.indexes  # 无效？？
     #- toc.integrate  # 目录展开在字节点下
     - navigation.top # 一键回顶 top
     - search.suggest
     - search.highlight
     #- header.autohide
+    - content.code.annotate
+    - header.autohide
 
 plugins:
   - search
@@ -67,6 +73,21 @@ markdown_extensions:
   - pymdownx.details  
   - pymdownx.highlight:
       anchor_linenums: true
+  - pymdownx.inlinehilite
+  - tables
+  - footnotes
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde  
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - md_in_html
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true  
 
 nav:
   - 技术:
@@ -79,3 +100,4 @@ nav:
       - 12月份: 
         - nginx使用记录: blog/2021/12/nginx_record.md
   - 生活: life/index.md
+  - 关于: about.md
