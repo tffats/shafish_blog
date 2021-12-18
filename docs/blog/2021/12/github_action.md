@@ -3,11 +3,12 @@
 
 ref:
 
-- http://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html
+- [GitHub Actions 入门教程-阮一峰](http://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html)
+- [GitHub Actions官方文档](https://docs.github.com/en/actions/quickstart)
 
-用法和概念基本都是参考 阮一峰 的这篇文章，所以在这里纯粹是记录下使用。
+用法和概念基本都是参考 阮一峰 的那篇文章，所以在这里纯粹是记录下使用。
 
-## 概念介绍
+## 一、概念介绍
 
 ### workflow
 
@@ -25,15 +26,16 @@ ref:
 
 动作。每个 step 可以依次执行一个或多个命令（action）。
 部署项目过程中的服务器登录、运行环境的部署、代码拉取、运行部署脚本等操作，在github action中都被看作为是一个个的action。
-其中的大部分操作都是可以被复用的：比如环境部署，基本就只有软件对应系统和版本的区别。
+
+其中的大部分action都是可以被复用的：比如环境部署，基本就只有软件对应系统和版本的区别。
 所以Github Action中使用到的action是可以直接引用他人写好的 action滴，可以在下面列出的仓库中找找：
 
 - [Github官方市场](https://github.com/marketplace?type=actions)
-- [awesome actions] (https://github.com/sdras/awesome-actions)
+- [Awesome actions](https://github.com/sdras/awesome-actions)
 
-## Workflow定义
+## 二、Workflow定义
 
-在代码仓库的.github/workflows目录下定义，后缀名统一为.yml，Github会自动运行这些yml文件。
+在代码仓库的.github/workflows目录下定义工作流文件，文件后缀名统一为`yml`，Github会自动运行这些工作流文件。
 
 ### 基本配置字段
 
@@ -104,9 +106,9 @@ jobs:
         echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
 ```
 
-## 示例
+## 三、示例
 
-### ci.yml熟悉
+### 1. ci.yml熟悉
 
 ``` yml
 # .github/workflows/ci.yml
@@ -165,5 +167,54 @@ jobs:
           TARGET: /root/node-server # 打包后的 dist 文件夹将放在 /root/node-server
 ```
 
-### 把mkdocs部署到github page
+### 2. 把mkdocs部署到github page
+
+``` shell
+# 初始化一个mkdocs-metereal项目
+mkdir -p /home/shafish/Project/blog/shafish.cn && cd $_
+mkdocs init .
+# 添加mkdocs.yml的theme为material
+vim mkdocs.yml
+# 创建github workflow
+mkdir -p .github/workflows
+touch .github/workflows/ci.yml
+# 提交到github仓库
+# 现在github网站上创建个仓库
+git remote add origin git@github.com:用户名/仓库名.git
+git branch -M main
+git push -u origin main
+# ok，访问https://用户名.github.io/ 即可
+# 如果出现问题，在Github网站仓库中的Actions选项查看执行logs。
+```
+
+``` yml title="mkdocs.yml"
+theme:
+  name: material
+```
+
+``` yml title="ci.yml"
+name: blog_ci 
+on:
+  push:
+    branches: 
+      - master
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@v2
+
+      - name: Set up Python3.x
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: pip install mkdocs-material mkdocs-git-revision-date-plugin
+      
+      - name: Deploy
+        run: mkdocs gh-deploy --force
+```
 

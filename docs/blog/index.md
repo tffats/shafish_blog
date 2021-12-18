@@ -826,7 +826,7 @@ markdown_extensions:
 
     ``` css
     [data-md-color-scheme="shafish"] {
-        --md-primary-fg-color:        #EE0F0F;
+        --md-primary-fg-color:        #252632;
         --md-primary-fg-color--light: #ECB7B7;
         --md-primary-fg-color--dark:  #90030C;
     }
@@ -969,15 +969,18 @@ ref:[Vssue](https://vssue.js.org/zh/guide/)
 <script>
     new Vue({
       el: '#vssue',
-
+   
       data: {
-        title: 'shafish.cn',
-
+        title: options => `${options.prefix}${document.URL}`,
+        
         options: {
           owner: 'shafishcn',
-          repo: 'blog_comment_by_issue',
+          repo: 'shafish_blog',
           clientId: 'xxx',
           clientSecret: 'xxx', // only required for some of the platforms
+          prefix: '[BlogComment]',
+          labels: [':sunny:'],
+          issueContent: ({ url }) =>`这个 Issue 由 Vssue 自动创建，用来存储该页面的评论：${url}`
         },
       },
 
@@ -988,6 +991,9 @@ ref:[Vssue](https://vssue.js.org/zh/guide/)
 ```
 
 ### 三、插件
+
+https://facelessuser.github.io/pymdown-extensions/extensions
+
 
 #### 1. 显示文件最后修改时间
 
@@ -1002,3 +1008,9 @@ plugins:
 ```
 
 ### 四、部署
+
+[Github action部署到github page](2021/12/github_action.md)
+
+[Jenkins部署到服务器](2021/12/jenkins.md)
+
+使用action部署到github page的方式会把Content tap、评论还有某些样式都搞失效（不知道是哪方面的bug），写一些简单的markdown内容可以用这个部署。

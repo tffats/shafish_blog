@@ -18,20 +18,23 @@ theme:
   #favicon: assets/favicon.png
   # 网站字体
   palette:
-    - media: "(prefers-color-scheme: light)" 
-      scheme: default
-      primary: teal
-      accent: teal
-      toggle:
-        icon: material/weather-night
-        name: 关灯
-    - media: "(prefers-color-scheme: dark)" 
-      scheme: slate
-      primary: blue grey
-      accent: blue
-      toggle:
-        icon: material/weather-sunny
-        name: 开灯
+    scheme: slate
+    primary:  deep orange
+    accent: deep orange
+    #- media: "(prefers-color-scheme: light)" 
+      #scheme: default
+      #primary: teal
+     #accent: teal
+     #toggle:
+        #icon: material/weather-night
+        #name: 关灯
+    #- media: "(prefers-color-scheme: dark)" 
+      #scheme: slate
+      #primary:  deep orange
+      #accent: deep orange
+      #toggle:
+        #icon: material/weather-sunny
+        #name: 开灯
   features:
     - navigation.instant # without fully reloading the page
     - navigation.tracking
@@ -62,6 +65,7 @@ extra:
 
 extra_css:
   - stylesheets/extra.css
+  - stylesheets/vssue.css
 
 #extra_javascript:
 
@@ -104,6 +108,7 @@ nav:
     - 2021年:
       - blog/2021/index.md
       - 12月份: 
+        - jenkins部署: blog/2021/12/jenkins.md 
         - github action使用: blog/2021/12/github_action.md 
         - nginx使用记录: blog/2021/12/nginx_record.md
   - 生活: life/index.md
