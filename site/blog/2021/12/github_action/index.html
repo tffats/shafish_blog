@@ -1,0 +1,961 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Just write something about Work、Technology and Life.">
+      
+      
+      
+        <meta name="author" content="shafish">
+      
+      
+        <link rel="canonical" href="https://shafish.cn/blog/2021/12/github_action/">
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.2.2">
+    
+    
+      
+        <title>github action使用 - shafish.cn</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.1118c9be.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ba0d045b.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <script>function __prefix(e){return new URL("../../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#github-action" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-announce">
+          <div class="md-announce__inner md-grid md-typeset">
+            
+  通知：啦啦啦，shafish用新博客啦！！
+
+          </div>
+        </aside>
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="shafish.cn" class="md-header__button md-logo" aria-label="shafish.cn" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            shafish.cn
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              github action使用
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="关灯"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="关灯" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="blue"  aria-label="开灯"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="开灯" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../" class="md-tabs__link md-tabs__link--active">
+        技术
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../../life/" class="md-tabs__link">
+      生活
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../../about/" class="md-tabs__link">
+      关于
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="shafish.cn" class="md-nav__button md-logo" aria-label="shafish.cn" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    shafish.cn
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      <label class="md-nav__link" for="__nav_1">
+        技术
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="技术" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          技术
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../" class="md-nav__link">
+        技术区简述
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" checked>
+      
+      <label class="md-nav__link" for="__nav_1_2">
+        2021年
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="2021年" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          2021年
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        2021年
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_2" type="checkbox" id="__nav_1_2_2" checked>
+      
+      <label class="md-nav__link" for="__nav_1_2_2">
+        12月份
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="12月份" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          12月份
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          github action使用
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        github action使用
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#概念介绍" class="md-nav__link">
+    概念介绍
+  </a>
+  
+    <nav class="md-nav" aria-label="概念介绍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    workflow
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#job" class="md-nav__link">
+    job
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step" class="md-nav__link">
+    step
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action" class="md-nav__link">
+    action
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow定义" class="md-nav__link">
+    Workflow定义
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow定义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#基本配置字段" class="md-nav__link">
+    基本配置字段
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#示例" class="md-nav__link">
+    示例
+  </a>
+  
+    <nav class="md-nav" aria-label="示例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ciyml熟悉" class="md-nav__link">
+    ci.yml熟悉
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#把mkdocs部署到github-page" class="md-nav__link">
+    把mkdocs部署到github page
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nginx_record/" class="md-nav__link">
+        nginx使用记录
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../life/" class="md-nav__link">
+        生活
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/" class="md-nav__link">
+        关于
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#概念介绍" class="md-nav__link">
+    概念介绍
+  </a>
+  
+    <nav class="md-nav" aria-label="概念介绍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    workflow
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#job" class="md-nav__link">
+    job
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step" class="md-nav__link">
+    step
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action" class="md-nav__link">
+    action
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow定义" class="md-nav__link">
+    Workflow定义
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow定义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#基本配置字段" class="md-nav__link">
+    基本配置字段
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#示例" class="md-nav__link">
+    示例
+  </a>
+  
+    <nav class="md-nav" aria-label="示例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ciyml熟悉" class="md-nav__link">
+    ci.yml熟悉
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#把mkdocs部署到github-page" class="md-nav__link">
+    把mkdocs部署到github page
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="github-action">Github Action<a class="headerlink" href="#github-action" title="Permanent link">🐟</a></h1>
+<p>ref:</p>
+<ul>
+<li>http://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html</li>
+</ul>
+<p>用法和概念基本都是参考 阮一峰 的这篇文章，所以在这里纯粹是记录下使用。</p>
+<h2 id="概念介绍">概念介绍<a class="headerlink" href="#概念介绍" title="Permanent link">🐟</a></h2>
+<h3 id="workflow">workflow<a class="headerlink" href="#workflow" title="Permanent link">🐟</a></h3>
+<p>工作流。持续集成一次运行的过程，就是一个 workflow。</p>
+<h3 id="job">job<a class="headerlink" href="#job" title="Permanent link">🐟</a></h3>
+<p>任务。一个 workflow 由一个或多个 jobs 构成，含义是一次持续集成的运行，可以完成多个任务。</p>
+<h3 id="step">step<a class="headerlink" href="#step" title="Permanent link">🐟</a></h3>
+<p>步骤。每个 job 由多个 step 构成，一步步完成。</p>
+<h3 id="action">action<a class="headerlink" href="#action" title="Permanent link">🐟</a></h3>
+<p>动作。每个 step 可以依次执行一个或多个命令（action）。
+部署项目过程中的服务器登录、运行环境的部署、代码拉取、运行部署脚本等操作，在github action中都被看作为是一个个的action。
+其中的大部分操作都是可以被复用的：比如环境部署，基本就只有软件对应系统和版本的区别。
+所以Github Action中使用到的action是可以直接引用他人写好的 action滴，可以在下面列出的仓库中找找：</p>
+<ul>
+<li><a href="https://github.com/marketplace?type=actions">Github官方市场</a></li>
+<li>[awesome actions] (https://github.com/sdras/awesome-actions)</li>
+</ul>
+<h2 id="workflow定义">Workflow定义<a class="headerlink" href="#workflow定义" title="Permanent link">🐟</a></h2>
+<p>在代码仓库的.github/workflows目录下定义，后缀名统一为.yml，Github会自动运行这些yml文件。</p>
+<h3 id="基本配置字段">基本配置字段<a class="headerlink" href="#基本配置字段" title="Permanent link">🐟</a></h3>
+<ul>
+<li><code>name</code>：指定workflow 的名称。</li>
+<li><code>on.&lt;push|pull_request&gt;.&lt;tags|branches&gt;</code>：触发所在工作流执行的条件，比如 某个分支发生push/pull时。</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a># masterf分支发生push时触发工作流执行
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>on:
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>  push:
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>    branches:    
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>      - master
+</code></pre></div>
+<ul>
+<li><code>jobs.&lt;job_id&gt;.name</code>：需要执行的一项或多项任务。</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a># job_id 对应特定的任务，my_first_job、my_second_job
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a># name 是任务的说明
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>jobs:
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>  my_first_job:
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>    name: My first job
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>  my_second_job:
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>    name: My second job
+</code></pre></div>
+<ul>
+<li><code>jobs.&lt;job_id&gt;.needs</code>：指定当前任务的运行顺序。</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a># job1必须先于job2完成，而job3等待job1和job2的完成才能运行。因此，这个 workflow 的运行顺序依次为：job1、job2、job3
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>jobs:
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>  job1:
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>  job2:
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>    needs: job1
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>  job3:
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>    needs: [job1, job2]
+</code></pre></div>
+<ul>
+<li><code>jobs.&lt;job_id&gt;.runs-on</code>：指定运行所需要的虚拟机环境。</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a># 可选的环境如下：
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>ubuntu-latest，ubuntu-18.04或ubuntu-16.04
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>windows-latest，windows-2019或windows-2016
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a>macOS-latest或macOS-10.14
+</code></pre></div>
+<ul>
+<li>
+<p><code>jobs.&lt;job_id&gt;.steps</code>：指定每个 Job 的运行步骤，可以包含一个或多个步骤，步骤包含name、env、run三个字段。</p>
+</li>
+<li>
+<p>完整的工作流定义：</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>name: Greeting from Mona
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>on: push
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>jobs:
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>  my-job:
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>    name: My Job
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>    runs-on: ubuntu-latest
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>    steps: # 定义了个 echo变量值 的job
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a>    - name: Print a greeting
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a>      env:
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a>        MY_VAR: Hi there! My name is
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a>        FIRST_NAME: Mona
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a>        MIDDLE_NAME: The
+<a id="__codelineno-4-14" name="__codelineno-4-14"></a>        LAST_NAME: Octocat
+<a id="__codelineno-4-15" name="__codelineno-4-15"></a>      run: |
+<a id="__codelineno-4-16" name="__codelineno-4-16"></a>        echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
+</code></pre></div>
+<h2 id="示例">示例<a class="headerlink" href="#示例" title="Permanent link">🐟</a></h2>
+<h3 id="ciyml熟悉">ci.yml熟悉<a class="headerlink" href="#ciyml熟悉" title="Permanent link">🐟</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a># .github/workflows/ci.yml
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>name: GitHub Actions Build and Deploy Demo
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>on:
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>  push:
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>    branches:
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a>      - master
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a>jobs:
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a>  build-and-deploy:
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a>    runs-on: ubuntu-latest
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a>    steps:
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a>    - name: Checkout
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a>      uses: actions/checkout@master # 获取源码
+<a id="__codelineno-5-13" name="__codelineno-5-13"></a>
+<a id="__codelineno-5-14" name="__codelineno-5-14"></a>    - name: Build and Deploy
+<a id="__codelineno-5-15" name="__codelineno-5-15"></a>      uses: JamesIves/github-pages-deploy-action@master # 构建和部署
+<a id="__codelineno-5-16" name="__codelineno-5-16"></a>      env:
+<a id="__codelineno-5-17" name="__codelineno-5-17"></a>        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+<a id="__codelineno-5-18" name="__codelineno-5-18"></a>        BRANCH: gh-pages
+<a id="__codelineno-5-19" name="__codelineno-5-19"></a>        FOLDER: build
+<a id="__codelineno-5-20" name="__codelineno-5-20"></a>        BUILD_SCRIPT: npm install &amp;&amp; npm run build
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>name: Build app and deploy to aliyun
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>on:
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>  #监听push操作
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>  push:
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>    branches:
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a>      # master分支，你也可以改成其他分支
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a>      - master
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a>jobs:
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a>  build:
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a>
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a>    runs-on: ubuntu-latest
+<a id="__codelineno-6-12" name="__codelineno-6-12"></a>
+<a id="__codelineno-6-13" name="__codelineno-6-13"></a>    steps:
+<a id="__codelineno-6-14" name="__codelineno-6-14"></a>    - uses: actions/checkout@v1
+<a id="__codelineno-6-15" name="__codelineno-6-15"></a>    - name: Install Node.js
+<a id="__codelineno-6-16" name="__codelineno-6-16"></a>      uses: actions/setup-node@v1
+<a id="__codelineno-6-17" name="__codelineno-6-17"></a>      with:
+<a id="__codelineno-6-18" name="__codelineno-6-18"></a>        node-version: &#39;12.16.2&#39;
+<a id="__codelineno-6-19" name="__codelineno-6-19"></a>    - name: Install npm dependencies
+<a id="__codelineno-6-20" name="__codelineno-6-20"></a>      run: npm install
+<a id="__codelineno-6-21" name="__codelineno-6-21"></a>    - name: Run build task
+<a id="__codelineno-6-22" name="__codelineno-6-22"></a>      run: npm run build
+<a id="__codelineno-6-23" name="__codelineno-6-23"></a>    - name: Deploy to Server
+<a id="__codelineno-6-24" name="__codelineno-6-24"></a>      uses: easingthemes/ssh-deploy@v2.1.5
+<a id="__codelineno-6-25" name="__codelineno-6-25"></a>      env:
+<a id="__codelineno-6-26" name="__codelineno-6-26"></a>          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+<a id="__codelineno-6-27" name="__codelineno-6-27"></a>          ARGS: &#39;-rltgoDzvO --delete&#39;
+<a id="__codelineno-6-28" name="__codelineno-6-28"></a>          SOURCE: dist # 这是要复制到阿里云静态服务器的文件夹名称
+<a id="__codelineno-6-29" name="__codelineno-6-29"></a>          REMOTE_HOST: &#39;118.190.217.8&#39; # 你的阿里云公网地址
+<a id="__codelineno-6-30" name="__codelineno-6-30"></a>          REMOTE_USER: root # 阿里云登录后默认为 root 用户，并且所在文件夹为 root
+<a id="__codelineno-6-31" name="__codelineno-6-31"></a>          TARGET: /root/node-server # 打包后的 dist 文件夹将放在 /root/node-server
+</code></pre></div>
+<h3 id="把mkdocs部署到github-page">把mkdocs部署到github page<a class="headerlink" href="#把mkdocs部署到github-page" title="Permanent link">🐟</a></h3>
+                
+                  
+                    
+
+<hr>
+<div class="md-source-date">
+  <small>
+    
+      最后更新: 2021-12-18
+    
+  </small>
+</div>
+                  
+                
+              
+              
+<div id="vssue"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/vssue/dist/vssue.min.css">
+<!-- OR: vue full build (runtime + compiler)  -->
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+<!-- Vssue Github build -->
+<script src="https://unpkg.com/vssue/dist/vssue.github.min.js"></script>
+
+<script>
+    new Vue({
+      el: '#vssue',
+
+      data: {
+        title: 'shafish.cn',
+        prefix: '[BlogComment]',
+
+        options: {
+          owner: 'shafishcn',
+          repo: 'shafish_blog',
+          clientId: 'f49fcb8c02a7868c8690',
+          clientSecret: '5940fc487ff4e7237a01a28c0fe3775140bf05b2', // only required for some of the platforms
+        },
+      },
+
+      template: `<vssue :title="title" :options="options"></vssue>`,
+    })
+  </script>
+
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../" class="md-footer__link md-footer__link--prev" aria-label="上一页: 2021年" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              2021年
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../nginx_record/" class="md-footer__link md-footer__link--next" aria-label="下一页: nginx使用记录" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              nginx使用记录
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2018 - 2021 shafish
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+      <a href="mailto:<shafish_cn@163.com>" target="_blank" rel="noopener" title="发送邮件" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M476 3.2 12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.annotate", "header.autohide", "toc.separate"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.2b46852b.min.js"></script>
+      
+    
+  </body>
+</html>

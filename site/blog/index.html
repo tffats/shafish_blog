@@ -1,0 +1,1962 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Just write something about Work、Technology and Life.">
+      
+      
+      
+        <meta name="author" content="shafish">
+      
+      
+        <link rel="canonical" href="https://shafish.cn/blog/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.2.2">
+    
+    
+      
+        <title>技术区简述 - shafish.cn</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.1118c9be.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ba0d045b.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#技术区简述" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-announce">
+          <div class="md-announce__inner md-grid md-typeset">
+            
+  通知：啦啦啦，shafish用新博客啦！！
+
+          </div>
+        </aside>
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="shafish.cn" class="md-header__button md-logo" aria-label="shafish.cn" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            shafish.cn
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              技术区简述
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="关灯"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="关灯" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="blue"  aria-label="开灯"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="开灯" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
+        技术
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../life/" class="md-tabs__link">
+      生活
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../about/" class="md-tabs__link">
+      关于
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="shafish.cn" class="md-nav__button md-logo" aria-label="shafish.cn" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    shafish.cn
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      <label class="md-nav__link" for="__nav_1">
+        技术
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="技术" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          技术
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          技术区简述
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        技术区简述
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mkdocs_material使用记录" class="md-nav__link">
+    mkdocs_material使用记录
+  </a>
+  
+    <nav class="md-nav" aria-label="mkdocs_material使用记录">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#一markdown使用" class="md-nav__link">
+    一、markdown使用
+  </a>
+  
+    <nav class="md-nav" aria-label="一、markdown使用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-显示术语提示" class="md-nav__link">
+    1. 显示术语提示
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-引入独立的术语表忽略" class="md-nav__link">
+    2. 引入独立的术语表（忽略）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-提示警告栏" class="md-nav__link">
+    3. 提示、警告栏
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-按钮" class="md-nav__link">
+    4. 按钮
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-代码块" class="md-nav__link">
+    5. 代码块
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-内容标签栏" class="md-nav__link">
+    6. 内容标签栏
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-表格" class="md-nav__link">
+    7. 表格
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-注脚" class="md-nav__link">
+    8. 注脚
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-格式化处理" class="md-nav__link">
+    9. 格式化处理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-图标" class="md-nav__link">
+    10. 图标
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-图片" class="md-nav__link">
+    11. 图片
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-列表" class="md-nav__link">
+    12. 列表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-mathjax" class="md-nav__link">
+    13. MathJax
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#二mkdocsyml记录" class="md-nav__link">
+    二、mkdocs.yml记录
+  </a>
+  
+    <nav class="md-nav" aria-label="二、mkdocs.yml记录">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-调整颜色" class="md-nav__link">
+    1. 调整颜色
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-调整字体" class="md-nav__link">
+    2. 调整字体
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-logofavicon" class="md-nav__link">
+    3. logo、favicon
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-导航栏" class="md-nav__link">
+    4. 导航栏
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-搜索" class="md-nav__link">
+    5. 搜索
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-网站访问统计" class="md-nav__link">
+    6. 网站访问统计
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-生成分享卡片" class="md-nav__link">
+    7. 生成分享卡片
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-顶部隐藏发布通知" class="md-nav__link">
+    8. 顶部隐藏、发布通知
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-网站底部设置" class="md-nav__link">
+    9. 网站底部设置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-评论系统-vssue" class="md-nav__link">
+    10. 评论系统-Vssue
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#三插件" class="md-nav__link">
+    三、插件
+  </a>
+  
+    <nav class="md-nav" aria-label="三、插件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-显示文件最后修改时间" class="md-nav__link">
+    1. 显示文件最后修改时间
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#四部署" class="md-nav__link">
+    四、部署
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" >
+      
+      <label class="md-nav__link" for="__nav_1_2">
+        2021年
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="2021年" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          2021年
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2021/" class="md-nav__link">
+        2021年
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_2" type="checkbox" id="__nav_1_2_2" >
+      
+      <label class="md-nav__link" for="__nav_1_2_2">
+        12月份
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="12月份" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          12月份
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2021/12/github_action/" class="md-nav__link">
+        github action使用
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2021/12/nginx_record/" class="md-nav__link">
+        nginx使用记录
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../life/" class="md-nav__link">
+        生活
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        关于
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mkdocs_material使用记录" class="md-nav__link">
+    mkdocs_material使用记录
+  </a>
+  
+    <nav class="md-nav" aria-label="mkdocs_material使用记录">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#一markdown使用" class="md-nav__link">
+    一、markdown使用
+  </a>
+  
+    <nav class="md-nav" aria-label="一、markdown使用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-显示术语提示" class="md-nav__link">
+    1. 显示术语提示
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-引入独立的术语表忽略" class="md-nav__link">
+    2. 引入独立的术语表（忽略）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-提示警告栏" class="md-nav__link">
+    3. 提示、警告栏
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-按钮" class="md-nav__link">
+    4. 按钮
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-代码块" class="md-nav__link">
+    5. 代码块
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-内容标签栏" class="md-nav__link">
+    6. 内容标签栏
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-表格" class="md-nav__link">
+    7. 表格
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-注脚" class="md-nav__link">
+    8. 注脚
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-格式化处理" class="md-nav__link">
+    9. 格式化处理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-图标" class="md-nav__link">
+    10. 图标
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-图片" class="md-nav__link">
+    11. 图片
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-列表" class="md-nav__link">
+    12. 列表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-mathjax" class="md-nav__link">
+    13. MathJax
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#二mkdocsyml记录" class="md-nav__link">
+    二、mkdocs.yml记录
+  </a>
+  
+    <nav class="md-nav" aria-label="二、mkdocs.yml记录">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-调整颜色" class="md-nav__link">
+    1. 调整颜色
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-调整字体" class="md-nav__link">
+    2. 调整字体
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-logofavicon" class="md-nav__link">
+    3. logo、favicon
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-导航栏" class="md-nav__link">
+    4. 导航栏
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-搜索" class="md-nav__link">
+    5. 搜索
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-网站访问统计" class="md-nav__link">
+    6. 网站访问统计
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-生成分享卡片" class="md-nav__link">
+    7. 生成分享卡片
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-顶部隐藏发布通知" class="md-nav__link">
+    8. 顶部隐藏、发布通知
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-网站底部设置" class="md-nav__link">
+    9. 网站底部设置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-评论系统-vssue" class="md-nav__link">
+    10. 评论系统-Vssue
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#三插件" class="md-nav__link">
+    三、插件
+  </a>
+  
+    <nav class="md-nav" aria-label="三、插件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-显示文件最后修改时间" class="md-nav__link">
+    1. 显示文件最后修改时间
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#四部署" class="md-nav__link">
+    四、部署
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="技术区简述">技术区简述<a class="headerlink" href="#技术区简述" title="Permanent link">🐟</a></h1>
+<h2 id="mkdocs_material使用记录">mkdocs_material使用记录<a class="headerlink" href="#mkdocs_material使用记录" title="Permanent link">🐟</a></h2>
+<h3 id="一markdown使用">一、markdown使用<a class="headerlink" href="#一markdown使用" title="Permanent link">🐟</a></h3>
+<h4 id="1-显示术语提示">1. 显示术语提示<a class="headerlink" href="#1-显示术语提示" title="Permanent link">🐟</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a># mkdocs.yml 相关配置
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>markdown_extensions:
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>  - abbr
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>  - pymdownx.snippets
+</code></pre></div>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Show</label><div class="tabbed-content">
+<p>The <abbr title="Hyper Text Markup Language">HTML</abbr> specification is maintained by the <abbr title="World Wide Web Consortium">W3C</abbr>.</p>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Code</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>The HTML specification is maintained by the W3C.
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>*[HTML]: Hyper Text Markup Language
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>*[W3C]: World Wide Web Consortium
+</code></pre></div>
+</div>
+</div>
+<h4 id="2-引入独立的术语表忽略">2. 引入独立的术语表（忽略）<a class="headerlink" href="#2-引入独立的术语表忽略" title="Permanent link">🐟</a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>显示效果跟上面示例1是一样的，区别是使用<code>--8&lt;--</code>可以把术语的说明 独立在另外的文件，不必跟术语在同一文件中。</p>
+</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a># mkdocs.yml 相关配置
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>markdown_extensions:
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>  - abbr
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>  - pymdownx.snippets
+</code></pre></div>
+<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Code</label><div class="tabbed-content">
+<p>术语文件中引入术语表： <code>--8&lt;-- "includes/abbreviations.md"</code>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>The HTML specification is maintained by the W3C.
+</code></pre></div></p>
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Code</label><div class="tabbed-content">
+<p>术语表:<code>includes/abbreviations.md</code>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>*[HTML]: Hyper Text Markup Language
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>*[W3C]: World Wide Web Consortium
+</code></pre></div></p>
+</div>
+</div>
+<h4 id="3-提示警告栏">3. 提示、警告栏<a class="headerlink" href="#3-提示警告栏" title="Permanent link">🐟</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a># mkdocs.yml 相关配置
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>markdown_extensions:
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>  - admonition
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>  - pymdownx.details
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>  - pymdownx.superfences
+</code></pre></div>
+<div class="tabbed-set" data-tabs="3:12"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">note</label><div class="tabbed-content">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>默认note标签。Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+massa, nec semper lorem quam in massa.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Phasellus posuere in sem ut cursus</p>
+<p>自定义标题的note标签。Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+massa, nec semper lorem quam in massa.</p>
+</div>
+<div class="admonition note">
+<p>木有标题的note标签。Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+massa, nec semper lorem quam in massa.</p>
+</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>!!! note
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>    默认note标签。Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>    massa, nec semper lorem quam in massa.
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a>!!! note &quot;Phasellus posuere in sem ut cursus&quot;
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a>
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a>    自定义标题的note标签。Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a>    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a>    massa, nec semper lorem quam in massa.
+<a id="__codelineno-6-12" name="__codelineno-6-12"></a>
+<a id="__codelineno-6-13" name="__codelineno-6-13"></a>!!! note &quot;&quot;
+<a id="__codelineno-6-14" name="__codelineno-6-14"></a>
+<a id="__codelineno-6-15" name="__codelineno-6-15"></a>    木有标题的note标签。Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+<a id="__codelineno-6-16" name="__codelineno-6-16"></a>    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+<a id="__codelineno-6-17" name="__codelineno-6-17"></a>    massa, nec semper lorem quam in massa.
+</code></pre></div>
+</div>
+<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">abstract</label><div class="tabbed-content">
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<p>abstract, summary, tldr.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor massa, nec semper lorem quam in massa.</p>
+</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>!!! abstract
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor massa, nec semper lorem quam in massa.
+</code></pre></div>
+</div>
+<input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><label for="__tabbed_3_3">info</label><div class="tabbed-content">
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor massa, nec semper lorem quam in massa.</p>
+</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>!!! info
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a>    info, todo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor massa, nec semper lorem quam in massa.
+</code></pre></div>
+</div>
+<input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><label for="__tabbed_3_4">tip</label><div class="tabbed-content">
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor massa, nec semper lorem quam in massa.</p>
+</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>!!! tip
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a>    tip, hint, important.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor massa, nec semper lorem quam in massa.
+</code></pre></div>
+</div>
+<input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><label for="__tabbed_3_5">success</label><div class="tabbed-content">
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor massa, nec semper lorem quam in massa.</p>
+</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>!!! success
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a>    success, check, done.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor massa, nec semper lorem quam in massa.
+</code></pre></div>
+</div>
+<input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><label for="__tabbed_3_6">question</label><div class="tabbed-content">
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor massa, nec semper lorem quam in massa.</p>
+</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a>!!! question
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a>    question, help, faq.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor massa, nec semper lorem quam in massa.
+</code></pre></div>
+</div>
+<input id="__tabbed_3_7" name="__tabbed_3" type="radio" /><label for="__tabbed_3_7">warning</label><div class="tabbed-content">
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor massa, nec semper lorem quam in massa.</p>
+</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>!!! warning
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a>    warning, caution, attention.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor massa, nec semper lorem quam in massa.
+</code></pre></div>
+</div>
+<input id="__tabbed_3_8" name="__tabbed_3" type="radio" /><label for="__tabbed_3_8">failure</label><div class="tabbed-content">
+<div class="admonition failure">
+<p class="admonition-title">Failure</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor massa, nec semper lorem quam in massa.</p>
+</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a>!!! failure
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a>
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a>    failure, fail, missing.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor massa, nec semper lorem quam in massa.
+</code></pre></div>
+</div>
+<input id="__tabbed_3_9" name="__tabbed_3" type="radio" /><label for="__tabbed_3_9">danger</label><div class="tabbed-content">
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor massa, nec semper lorem quam in massa.</p>
+</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a>!!! danger
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a>
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a>    danger, error.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor massa, nec semper lorem quam in massa.
+</code></pre></div>
+</div>
+<input id="__tabbed_3_10" name="__tabbed_3" type="radio" /><label for="__tabbed_3_10">bug</label><div class="tabbed-content">
+<div class="admonition bug">
+<p class="admonition-title">Bug</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor massa, nec semper lorem quam in massa.</p>
+</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a>!!! bug
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a>
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a>    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor massa, nec semper lorem quam in massa.
+</code></pre></div>
+</div>
+<input id="__tabbed_3_11" name="__tabbed_3" type="radio" /><label for="__tabbed_3_11">example</label><div class="tabbed-content">
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor massa, nec semper lorem quam in massa.</p>
+</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a>!!! example
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a>    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor massa, nec semper lorem quam in massa.
+</code></pre></div>
+</div>
+<input id="__tabbed_3_12" name="__tabbed_3" type="radio" /><label for="__tabbed_3_12">quote</label><div class="tabbed-content">
+<div class="admonition quote">
+<p class="admonition-title">Quote</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor massa, nec semper lorem quam in massa.</p>
+</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a>!!! quote
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a>    quote, cite.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor massa, nec semper lorem quam in massa.
+</code></pre></div>
+</div>
+</div>
+<h4 id="4-按钮">4. 按钮<a class="headerlink" href="#4-按钮" title="Permanent link">🐟</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a># mkdocs.yml 相关配置
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a>markdown_extensions:
+<a id="__codelineno-18-3" name="__codelineno-18-3"></a>  - attr_list
+</code></pre></div>
+<div class="tabbed-set" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">普通按钮</label><div class="tabbed-content">
+<p><a class="md-button" href="#">Subscribe to our newsletter</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a>[<span class="nt">Subscribe to our newsletter</span>](<span class="na">#</span>){ .md-button }
+</code></pre></div>
+</div>
+<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">primary 按钮</label><div class="tabbed-content">
+<p><a class="md-button md-button--primary" href="#">Subscribe to our newsletter</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a>[<span class="nt">Subscribe to our newsletter</span>](<span class="na">#</span>){ .md-button .md-button--primary }
+</code></pre></div>
+</div>
+</div>
+<h4 id="5-代码块">5. 代码块<a class="headerlink" href="#5-代码块" title="Permanent link">🐟</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a># mkdocs.yml 相关配置
+<a id="__codelineno-21-2" name="__codelineno-21-2"></a>markdown_extensions:
+<a id="__codelineno-21-3" name="__codelineno-21-3"></a>  - pymdownx.highlight:
+<a id="__codelineno-21-4" name="__codelineno-21-4"></a>      anchor_linenums: true
+<a id="__codelineno-21-5" name="__codelineno-21-5"></a>  - pymdownx.inlinehilite
+<a id="__codelineno-21-6" name="__codelineno-21-6"></a>  - pymdownx.snippets
+<a id="__codelineno-21-7" name="__codelineno-21-7"></a>  - pymdownx.superfences
+</code></pre></div>
+<div class="tabbed-set" data-tabs="5:4"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">指定文件名</label><div class="tabbed-content">
+<div class="highlight"><span class="filename">bubble_sort.py</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="k">def</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)):</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3"></a>        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">i</span><span class="p">):</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4"></a>            <span class="k">if</span> <span class="n">items</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">items</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]:</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5"></a>                <span class="n">items</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">items</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">items</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a>    ``` py title=&quot;bubble_sort.py&quot;
+<a id="__codelineno-23-2" name="__codelineno-23-2"></a>    def bubble_sort(items):
+<a id="__codelineno-23-3" name="__codelineno-23-3"></a>        for i in range(len(items)):
+<a id="__codelineno-23-4" name="__codelineno-23-4"></a>            for j in range(len(items) - 1 - i):
+<a id="__codelineno-23-5" name="__codelineno-23-5"></a>                if items[j] &gt; items[j + 1]:
+<a id="__codelineno-23-6" name="__codelineno-23-6"></a>                    items[j], items[j + 1] = items[j + 1], items[j]
+<a id="__codelineno-23-7" name="__codelineno-23-7"></a>    ```
+</code></pre></div>
+</div>
+<input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><label for="__tabbed_5_2">显示行数</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1">1</a></span>
+<span class="normal"><a href="#__codelineno-24-2">2</a></span>
+<span class="normal"><a href="#__codelineno-24-3">3</a></span>
+<span class="normal"><a href="#__codelineno-24-4">4</a></span>
+<span class="normal"><a href="#__codelineno-24-5">5</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="k">def</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)):</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3"></a>        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">i</span><span class="p">):</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4"></a>            <span class="k">if</span> <span class="n">items</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">items</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]:</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5"></a>                <span class="n">items</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">items</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">items</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+</code></pre></div>
+</td></tr></table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a>    ``` py linenums=&quot;1&quot;
+<a id="__codelineno-25-2" name="__codelineno-25-2"></a>    def bubble_sort(items):
+<a id="__codelineno-25-3" name="__codelineno-25-3"></a>        for i in range(len(items)):
+<a id="__codelineno-25-4" name="__codelineno-25-4"></a>            for j in range(len(items) - 1 - i):
+<a id="__codelineno-25-5" name="__codelineno-25-5"></a>                if items[j] &gt; items[j + 1]:
+<a id="__codelineno-25-6" name="__codelineno-25-6"></a>                    items[j], items[j + 1] = items[j + 1], items[j]
+<a id="__codelineno-25-7" name="__codelineno-25-7"></a>    ```
+</code></pre></div>
+</div>
+<input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><label for="__tabbed_5_3">指定某两行高亮</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1">1</a></span>
+<span class="normal"><a href="#__codelineno-26-2">2</a></span>
+<span class="normal"><a href="#__codelineno-26-3">3</a></span>
+<span class="normal"><a href="#__codelineno-26-4">4</a></span>
+<span class="normal"><a href="#__codelineno-26-5">5</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="k">def</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2"></a><span class="hll">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)):</span>
+</span><a id="__codelineno-26-3" name="__codelineno-26-3"></a>        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">i</span><span class="p">):</span>
+<a id="__codelineno-26-4" name="__codelineno-26-4"></a><span class="hll">            <span class="k">if</span> <span class="n">items</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">items</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]:</span>
+</span><a id="__codelineno-26-5" name="__codelineno-26-5"></a>                <span class="n">items</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">items</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">items</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+</code></pre></div>
+</td></tr></table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a>    ``` py linenums=&quot;1&quot; hl_lines=&quot;2 4&quot;
+<a id="__codelineno-27-2" name="__codelineno-27-2"></a>    def bubble_sort(items):
+<a id="__codelineno-27-3" name="__codelineno-27-3"></a>        for i in range(len(items)):
+<a id="__codelineno-27-4" name="__codelineno-27-4"></a>            for j in range(len(items) - 1 - i):
+<a id="__codelineno-27-5" name="__codelineno-27-5"></a>                if items[j] &gt; items[j + 1]:
+<a id="__codelineno-27-6" name="__codelineno-27-6"></a>                    items[j], items[j + 1] = items[j + 1], items[j]
+<a id="__codelineno-27-7" name="__codelineno-27-7"></a>    ```
+</code></pre></div>
+</div>
+<input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><label for="__tabbed_5_4">指定连续行高亮</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1">1</a></span>
+<span class="normal"><a href="#__codelineno-28-2">2</a></span>
+<span class="normal"><a href="#__codelineno-28-3">3</a></span>
+<span class="normal"><a href="#__codelineno-28-4">4</a></span>
+<span class="normal"><a href="#__codelineno-28-5">5</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="k">def</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2"></a><span class="hll">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)):</span>
+</span><a id="__codelineno-28-3" name="__codelineno-28-3"></a><span class="hll">        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">i</span><span class="p">):</span>
+</span><a id="__codelineno-28-4" name="__codelineno-28-4"></a><span class="hll">            <span class="k">if</span> <span class="n">items</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">items</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]:</span>
+</span><a id="__codelineno-28-5" name="__codelineno-28-5"></a><span class="hll">                <span class="n">items</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">items</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">items</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+</span></code></pre></div>
+</td></tr></table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a>    ``` py linenums=&quot;1&quot; hl_lines=&quot;2-5&quot;
+<a id="__codelineno-29-2" name="__codelineno-29-2"></a>    def bubble_sort(items):
+<a id="__codelineno-29-3" name="__codelineno-29-3"></a>        for i in range(len(items)):
+<a id="__codelineno-29-4" name="__codelineno-29-4"></a>            for j in range(len(items) - 1 - i):
+<a id="__codelineno-29-5" name="__codelineno-29-5"></a>                if items[j] &gt; items[j + 1]:
+<a id="__codelineno-29-6" name="__codelineno-29-6"></a>                    items[j], items[j + 1] = items[j + 1], items[j]
+<a id="__codelineno-29-7" name="__codelineno-29-7"></a>    ```
+</code></pre></div>
+</div>
+</div>
+<h4 id="6-内容标签栏">6. 内容标签栏<a class="headerlink" href="#6-内容标签栏" title="Permanent link">🐟</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1"></a># mkdocs.yml 相关配置
+<a id="__codelineno-30-2" name="__codelineno-30-2"></a>markdown_extensions:
+<a id="__codelineno-30-3" name="__codelineno-30-3"></a>  - pymdownx.superfences
+<a id="__codelineno-30-4" name="__codelineno-30-4"></a>  - pymdownx.tabbed:
+<a id="__codelineno-30-5" name="__codelineno-30-5"></a>      alternate_style: true 
+</code></pre></div>
+<div class="tabbed-set" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">Show</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">C</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<a id="__codelineno-31-2" name="__codelineno-31-2"></a>
+<a id="__codelineno-31-3" name="__codelineno-31-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-31-4" name="__codelineno-31-4"></a><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello world!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-31-5" name="__codelineno-31-5"></a><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-31-6" name="__codelineno-31-6"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</div>
+<input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><label for="__tabbed_7_2">C++</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<a id="__codelineno-32-2" name="__codelineno-32-2"></a>
+<a id="__codelineno-32-3" name="__codelineno-32-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-32-4" name="__codelineno-32-4"></a><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello world!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-32-5" name="__codelineno-32-5"></a><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-32-6" name="__codelineno-32-6"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><label for="__tabbed_6_2">Code</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1"></a>=== &quot;C&quot;
+<a id="__codelineno-33-2" name="__codelineno-33-2"></a>
+<a id="__codelineno-33-3" name="__codelineno-33-3"></a>    ``` c
+<a id="__codelineno-33-4" name="__codelineno-33-4"></a>    #include &lt;stdio.h&gt;
+<a id="__codelineno-33-5" name="__codelineno-33-5"></a>
+<a id="__codelineno-33-6" name="__codelineno-33-6"></a>    int main(void) {
+<a id="__codelineno-33-7" name="__codelineno-33-7"></a>    printf(&quot;Hello world!\n&quot;);
+<a id="__codelineno-33-8" name="__codelineno-33-8"></a>    return 0;
+<a id="__codelineno-33-9" name="__codelineno-33-9"></a>    }
+<a id="__codelineno-33-10" name="__codelineno-33-10"></a>    ```
+<a id="__codelineno-33-11" name="__codelineno-33-11"></a>
+<a id="__codelineno-33-12" name="__codelineno-33-12"></a>=== &quot;C++&quot;
+<a id="__codelineno-33-13" name="__codelineno-33-13"></a>
+<a id="__codelineno-33-14" name="__codelineno-33-14"></a>    ``` c++
+<a id="__codelineno-33-15" name="__codelineno-33-15"></a>    #include &lt;iostream&gt;
+<a id="__codelineno-33-16" name="__codelineno-33-16"></a>
+<a id="__codelineno-33-17" name="__codelineno-33-17"></a>    int main(void) {
+<a id="__codelineno-33-18" name="__codelineno-33-18"></a>    std::cout &lt;&lt; &quot;Hello world!&quot; &lt;&lt; std::endl;
+<a id="__codelineno-33-19" name="__codelineno-33-19"></a>    return 0;
+<a id="__codelineno-33-20" name="__codelineno-33-20"></a>    }
+<a id="__codelineno-33-21" name="__codelineno-33-21"></a>    ```
+</code></pre></div>
+</div>
+</div>
+<h4 id="7-表格">7. 表格<a class="headerlink" href="#7-表格" title="Permanent link">🐟</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1"></a># mkdocs.yml 相关配置
+<a id="__codelineno-34-2" name="__codelineno-34-2"></a>markdown_extensions:
+<a id="__codelineno-34-3" name="__codelineno-34-3"></a>  - tables
+</code></pre></div>
+<div class="tabbed-set" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><label for="__tabbed_8_1">Show</label><div class="tabbed-content">
+<table>
+<thead>
+<tr>
+<th align="center">Method</th>
+<th align="center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>GET</code></td>
+<td align="center">Fetch resource</td>
+</tr>
+<tr>
+<td align="center"><code>PUT</code></td>
+<td align="center">Update resource</td>
+</tr>
+<tr>
+<td align="center"><code>DELETE</code></td>
+<td align="center">Delete resource</td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><label for="__tabbed_8_2">Code</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1"></a>| Method      | Description                          |
+<a id="__codelineno-35-2" name="__codelineno-35-2"></a>| :-----------: | :------------------------------------: |
+<a id="__codelineno-35-3" name="__codelineno-35-3"></a>| <span class="sb">`GET`</span>       |      Fetch resource  |
+<a id="__codelineno-35-4" name="__codelineno-35-4"></a>| <span class="sb">`PUT`</span>       |     Update resource |
+<a id="__codelineno-35-5" name="__codelineno-35-5"></a>| <span class="sb">`DELETE`</span>    |     Delete resource |
+</code></pre></div>
+</div>
+</div>
+<h4 id="8-注脚">8. 注脚<a class="headerlink" href="#8-注脚" title="Permanent link">🐟</a></h4>
+<p>在本页的底部显示注脚内容</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1"></a># mkdocs.yml 相关配置
+<a id="__codelineno-36-2" name="__codelineno-36-2"></a>markdown_extensions:
+<a id="__codelineno-36-3" name="__codelineno-36-3"></a>  - footnotes
+</code></pre></div>
+<div class="tabbed-set" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><label for="__tabbed_9_1">Show</label><div class="tabbed-content">
+<p>Lorem ipsum<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> dolor sit amet, consectetur adipiscing elit.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
+</div>
+<input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><label for="__tabbed_9_2">Code</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1"></a>Lorem ipsum[^1] dolor sit amet, consectetur adipiscing elit.[^2]
+<a id="__codelineno-37-2" name="__codelineno-37-2"></a>
+<a id="__codelineno-37-3" name="__codelineno-37-3"></a>[<span class="nl">^1</span>]: <span class="na">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+<a id="__codelineno-37-4" name="__codelineno-37-4"></a>[<span class="nl">^2</span>]: <span class="na">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+</code></pre></div>
+</div>
+</div>
+<h4 id="9-格式化处理">9. 格式化处理<a class="headerlink" href="#9-格式化处理" title="Permanent link">🐟</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1"></a># mkdocs.yml 相关配置
+<a id="__codelineno-38-2" name="__codelineno-38-2"></a>markdown_extensions:
+<a id="__codelineno-38-3" name="__codelineno-38-3"></a>  - pymdownx.critic
+<a id="__codelineno-38-4" name="__codelineno-38-4"></a>  - pymdownx.caret
+<a id="__codelineno-38-5" name="__codelineno-38-5"></a>  - pymdownx.keys
+<a id="__codelineno-38-6" name="__codelineno-38-6"></a>  - pymdownx.mark
+<a id="__codelineno-38-7" name="__codelineno-38-7"></a>  - pymdownx.tilde
+</code></pre></div>
+<div class="tabbed-set" data-tabs="10:2"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><label for="__tabbed_10_1">删除线、下划线、注释、高亮</label><div class="tabbed-content">
+<p>Text can be <del class="critic">deleted</del> and replacement text <ins class="critic">added</ins>. This can also be
+combined into <del class="critic">one</del><ins class="critic">a single</ins> operation. <mark class="critic">Highlighting</mark> is also
+possible <span class="critic comment">and comments can be added inline</span>.</p>
+<mark class="critic block">
+<p>Formatting can also be applied to blocks by putting the opening and closing
+tags on separate lines and adding new lines between the tags and the content.</p>
+</mark>
+<ul>
+<li>H<sub>2</sub>0</li>
+<li>A<sup>T</sup>A</li>
+</ul>
+</div>
+<input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><label for="__tabbed_10_2">Code</label><div class="tabbed-content">
+<p>ref: https://github.com/squidfunk/mkdocs-material/edit/master/docs/reference/formatting.md</p>
+</div>
+</div>
+<h4 id="10-图标">10. 图标<a class="headerlink" href="#10-图标" title="Permanent link">🐟</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1"></a># mkdocs.yml 相关配置
+<a id="__codelineno-39-2" name="__codelineno-39-2"></a>markdown_extensions:
+<a id="__codelineno-39-3" name="__codelineno-39-3"></a>  - pymdownx.emoji:
+<a id="__codelineno-39-4" name="__codelineno-39-4"></a>      emoji_index: !!python/name:materialx.emoji.twemoji
+<a id="__codelineno-39-5" name="__codelineno-39-5"></a>      emoji_generator: !!python/name:materialx.emoji.to_svg
+</code></pre></div>
+<div class="tabbed-set" data-tabs="11:2"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><label for="__tabbed_11_1">Show</label><div class="tabbed-content">
+<p><img alt="😄" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f604.svg" title=":smile:" /> </p>
+</div>
+<input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><label for="__tabbed_11_2">Code</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1"></a>:smile: 
+</code></pre></div>
+</div>
+</div>
+<p>支持以下图标：</p>
+<ul>
+<li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 12c0-2.03-.67-3.91-2-5.62v11.25c1.33-1.66 2-3.54 2-5.63m-3.37 7H6.38c.68.55 1.57 1 2.67 1.41 1.09.39 2.08.59 2.95.59.88 0 1.86-.2 2.95-.59 1.1-.41 1.99-.86 2.68-1.41M11 17 7 9v8h4m6-8-4 8h4V9m-5 5.53L15.75 7h-7.5L12 14.53M17.63 5C15.97 3.67 14.09 3 12 3s-3.97.67-5.62 2h11.25M5 17.63V6.38C3.67 8.09 3 9.97 3 12c0 2.09.67 3.97 2 5.63M23 12c0 3.03-1.06 5.63-3.22 7.78C17.63 21.94 15.03 23 12 23c-3.03 0-5.62-1.06-7.78-3.22C2.06 17.63 1 15.03 1 12c0-3.03 1.06-5.62 3.22-7.78S8.97 1 12 1c3.03 0 5.63 1.06 7.78 3.22C21.94 6.38 23 8.97 23 12z"/></svg></span> – <a href="https://materialdesignicons.com/">Material Design</a></li>
+<li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M397.8 32H50.2C22.7 32 0 54.7 0 82.2v347.6C0 457.3 22.7 480 50.2 480h347.6c27.5 0 50.2-22.7 50.2-50.2V82.2c0-27.5-22.7-50.2-50.2-50.2zm-45.4 284.3c0 4.2-3.6 6-7.8 7.8-16.7 7.2-34.6 13.7-53.8 13.7-26.9 0-39.4-16.7-71.7-16.7-23.3 0-47.8 8.4-67.5 17.3-1.2.6-2.4.6-3.6 1.2V385c0 1.8 0 3.6-.6 4.8v1.2c-2.4 8.4-10.2 14.3-19.1 14.3-11.3 0-20.3-9-20.3-20.3V166.4c-7.8-6-13.1-15.5-13.1-26.3 0-18.5 14.9-33.5 33.5-33.5 18.5 0 33.5 14.9 33.5 33.5 0 10.8-4.8 20.3-13.1 26.3v18.5c1.8-.6 3.6-1.2 5.4-2.4 18.5-7.8 40.6-14.3 61.5-14.3 22.7 0 40.6 6 60.9 13.7 4.2 1.8 8.4 2.4 13.1 2.4 22.7 0 47.8-16.1 53.8-16.1 4.8 0 9 3.6 9 7.8v140.3z"/></svg></span> – <a href="https://fontawesome.com/icons?d=gallery&amp;m=free">FontAwesome</a></li>
+<li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></span> – <a href="https://octicons.github.com/">Octicons</a></li>
+</ul>
+<h4 id="11-图片">11. 图片<a class="headerlink" href="#11-图片" title="Permanent link">🐟</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1"></a># mkdocs.yml 相关配置
+<a id="__codelineno-41-2" name="__codelineno-41-2"></a>markdown_extensions:
+<a id="__codelineno-41-3" name="__codelineno-41-3"></a>  - attr_list
+<a id="__codelineno-41-4" name="__codelineno-41-4"></a>  - md_in_html
+</code></pre></div>
+<div class="tabbed-set" data-tabs="12:3"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><label for="__tabbed_12_1">markdown格式展示图片</label><div class="tabbed-content">
+<p><img align="left" alt="Image title" src="https://dummyimage.com/300x200/eee/aaa" /></p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+massa, nec semper lorem quam in massa.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1"></a>![<span class="nt">Image title</span>](<span class="na">https://dummyimage.com/300x200/eee/aaa</span>){ align=left }
+<a id="__codelineno-42-2" name="__codelineno-42-2"></a>
+<a id="__codelineno-42-3" name="__codelineno-42-3"></a>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+<a id="__codelineno-42-4" name="__codelineno-42-4"></a>nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+<a id="__codelineno-42-5" name="__codelineno-42-5"></a>massa, nec semper lorem quam in massa.
+</code></pre></div>
+</div>
+<input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><label for="__tabbed_12_2">添加图片说明</label><div class="tabbed-content">
+<p><figure markdown> 
+    <img alt="Image title" src="https://dummyimage.com/600x400/" width="300" />
+    <figcaption>Image 说明</figcaption>
+</figure></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1"></a><span class="p">&lt;</span><span class="nt">figure</span> <span class="na">markdown</span><span class="p">&gt;</span> 
+<a id="__codelineno-43-2" name="__codelineno-43-2"></a>    ![Image title](https://dummyimage.com/600x400/){ width=&quot;300&quot; }
+<a id="__codelineno-43-3" name="__codelineno-43-3"></a>    <span class="p">&lt;</span><span class="nt">figcaption</span><span class="p">&gt;</span>Image 说明<span class="p">&lt;/</span><span class="nt">figcaption</span><span class="p">&gt;</span>
+<a id="__codelineno-43-4" name="__codelineno-43-4"></a><span class="p">&lt;/</span><span class="nt">figure</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_12_3" name="__tabbed_12" type="radio" /><label for="__tabbed_12_3">懒加载图片</label><div class="tabbed-content">
+<p><img alt="Image title" loading="lazy" src="https://dummyimage.com/600x400/" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1"></a>![<span class="nt">Image title</span>](<span class="na">https://dummyimage.com/600x400/</span>){ loading=lazy }
+</code></pre></div>
+</div>
+</div>
+<h4 id="12-列表">12. 列表<a class="headerlink" href="#12-列表" title="Permanent link">🐟</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1"></a># mkdocs.yml 相关配置
+<a id="__codelineno-45-2" name="__codelineno-45-2"></a>markdown_extensions:
+<a id="__codelineno-45-3" name="__codelineno-45-3"></a>  - def_list
+<a id="__codelineno-45-4" name="__codelineno-45-4"></a>  - pymdownx.tasklist:
+<a id="__codelineno-45-5" name="__codelineno-45-5"></a>      custom_checkbox: true
+</code></pre></div>
+<div class="tabbed-set" data-tabs="13:4"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><label for="__tabbed_13_1">无序列表</label><div class="tabbed-content">
+<ul>
+<li>
+<p>Nulla et rhoncus turpis. Mauris ultricies elementum leo. Duis efficitur
+accumsan nibh eu mattis. Vivamus tempus velit eros, porttitor placerat nibh
+lacinia sed. Aenean in finibus diam.</p>
+<ul>
+<li>Duis mollis est eget nibh volutpat, fermentum aliquet dui mollis.</li>
+<li>Nam vulputate tincidunt fringilla.</li>
+<li>Nullam dignissim ultrices urna non auctor.</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1"></a><span class="k">-</span> Nulla et rhoncus turpis. Mauris ultricies elementum leo. Duis efficitur
+<a id="__codelineno-46-2" name="__codelineno-46-2"></a>accumsan nibh eu mattis. Vivamus tempus velit eros, porttitor placerat nibh
+<a id="__codelineno-46-3" name="__codelineno-46-3"></a>lacinia sed. Aenean in finibus diam.
+<a id="__codelineno-46-4" name="__codelineno-46-4"></a>
+<a id="__codelineno-46-5" name="__codelineno-46-5"></a>    <span class="k">*</span> Duis mollis est eget nibh volutpat, fermentum aliquet dui mollis.
+<a id="__codelineno-46-6" name="__codelineno-46-6"></a>    <span class="k">*</span> Nam vulputate tincidunt fringilla.
+<a id="__codelineno-46-7" name="__codelineno-46-7"></a>    <span class="k">*</span> Nullam dignissim ultrices urna non auctor.
+</code></pre></div>
+</div>
+<input id="__tabbed_13_2" name="__tabbed_13" type="radio" /><label for="__tabbed_13_2">有序列表</label><div class="tabbed-content">
+<ol>
+<li>
+<p>Vivamus id mi enim. Integer id turpis sapien. Ut condimentum lobortis
+    sagittis. Aliquam purus tellus, faucibus eget urna at, iaculis venenatis
+    nulla. Vivamus a pharetra leo.</p>
+<ol>
+<li>
+<p>Vivamus venenatis porttitor tortor sit amet rutrum. Pellentesque aliquet
+    quam enim, eu volutpat urna rutrum a. Nam vehicula nunc mauris, a
+    ultricies libero efficitur sed.</p>
+</li>
+<li>
+<p>Morbi eget dapibus felis. Vivamus venenatis porttitor tortor sit amet
+    rutrum. Pellentesque aliquet quam enim, eu volutpat urna rutrum a.</p>
+<ol>
+<li>Mauris dictum mi lacus</li>
+<li>Ut sit amet placerat ante</li>
+<li>Suspendisse ac eros arcu</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1"></a><span class="k">1.</span>  Vivamus id mi enim. Integer id turpis sapien. Ut condimentum lobortis
+<a id="__codelineno-47-2" name="__codelineno-47-2"></a>    sagittis. Aliquam purus tellus, faucibus eget urna at, iaculis venenatis
+<a id="__codelineno-47-3" name="__codelineno-47-3"></a>    nulla. Vivamus a pharetra leo.
+<a id="__codelineno-47-4" name="__codelineno-47-4"></a>
+<a id="__codelineno-47-5" name="__codelineno-47-5"></a>    <span class="k">1.</span>  Vivamus venenatis porttitor tortor sit amet rutrum. Pellentesque aliquet
+<a id="__codelineno-47-6" name="__codelineno-47-6"></a>        quam enim, eu volutpat urna rutrum a. Nam vehicula nunc mauris, a
+<a id="__codelineno-47-7" name="__codelineno-47-7"></a>        ultricies libero efficitur sed.
+<a id="__codelineno-47-8" name="__codelineno-47-8"></a>
+<a id="__codelineno-47-9" name="__codelineno-47-9"></a>    <span class="k">2.</span>  Morbi eget dapibus felis. Vivamus venenatis porttitor tortor sit amet
+<a id="__codelineno-47-10" name="__codelineno-47-10"></a>        rutrum. Pellentesque aliquet quam enim, eu volutpat urna rutrum a.
+<a id="__codelineno-47-11" name="__codelineno-47-11"></a>
+<a id="__codelineno-47-12" name="__codelineno-47-12"></a>        <span class="k">1.</span>  Mauris dictum mi lacus
+<a id="__codelineno-47-13" name="__codelineno-47-13"></a>        <span class="k">2.</span>  Ut sit amet placerat ante
+<a id="__codelineno-47-14" name="__codelineno-47-14"></a>        <span class="k">3.</span>  Suspendisse ac eros arcu 
+</code></pre></div>
+</div>
+<input id="__tabbed_13_3" name="__tabbed_13" type="radio" /><label for="__tabbed_13_3">使用定义列表</label><div class="tabbed-content">
+<dl>
+<dt><code>Lorem ipsum dolor sit amet</code></dt>
+<dd>
+<p>Sed sagittis eleifend rutrum. Donec vitae suscipit est. Nullam tempus
+tellus non sem sollicitudin, quis rutrum leo facilisis.</p>
+</dd>
+<dt><code>Cras arcu libero</code></dt>
+<dd>
+<p>Aliquam metus eros, pretium sed nulla venenatis, faucibus auctor ex. Proin
+ut eros sed sapien ullamcorper consequat. Nunc ligula ante.</p>
+<p>Duis mollis est eget nibh volutpat, fermentum aliquet dui mollis.
+Nam vulputate tincidunt fringilla.
+Nullam dignissim ultrices urna non auctor.</p>
+</dd>
+</dl>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1"></a><span class="sb">`Lorem ipsum dolor sit amet`</span>
+<a id="__codelineno-48-2" name="__codelineno-48-2"></a>
+<a id="__codelineno-48-3" name="__codelineno-48-3"></a>:   Sed sagittis eleifend rutrum. Donec vitae suscipit est. Nullam tempus
+<a id="__codelineno-48-4" name="__codelineno-48-4"></a>    tellus non sem sollicitudin, quis rutrum leo facilisis.
+<a id="__codelineno-48-5" name="__codelineno-48-5"></a>
+<a id="__codelineno-48-6" name="__codelineno-48-6"></a><span class="sb">`Cras arcu libero`</span>
+<a id="__codelineno-48-7" name="__codelineno-48-7"></a>
+<a id="__codelineno-48-8" name="__codelineno-48-8"></a>:   Aliquam metus eros, pretium sed nulla venenatis, faucibus auctor ex. Proin
+<a id="__codelineno-48-9" name="__codelineno-48-9"></a>    ut eros sed sapien ullamcorper consequat. Nunc ligula ante.
+<a id="__codelineno-48-10" name="__codelineno-48-10"></a>
+<a id="__codelineno-48-11" name="__codelineno-48-11"></a>    Duis mollis est eget nibh volutpat, fermentum aliquet dui mollis.
+<a id="__codelineno-48-12" name="__codelineno-48-12"></a>    Nam vulputate tincidunt fringilla.
+<a id="__codelineno-48-13" name="__codelineno-48-13"></a>    Nullam dignissim ultrices urna non auctor.
+</code></pre></div>
+</div>
+<input id="__tabbed_13_4" name="__tabbed_13" type="radio" /><label for="__tabbed_13_4">任务列表</label><div class="tabbed-content">
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Vestibulum convallis sit amet nisi a tincidunt<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> In hac habitasse platea dictumst</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> In scelerisque nibh non dolor mollis congue sed et metus</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Praesent sed risus massa</li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Aenean pretium efficitur erat, donec pharetra, ligula non scelerisque</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1"></a><span class="k">- [x]</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit
+<a id="__codelineno-49-2" name="__codelineno-49-2"></a><span class="k">- [ ]</span> Vestibulum convallis sit amet nisi a tincidunt
+<a id="__codelineno-49-3" name="__codelineno-49-3"></a>    <span class="k">* [x]</span> In hac habitasse platea dictumst
+<a id="__codelineno-49-4" name="__codelineno-49-4"></a>    <span class="k">* [x]</span> In scelerisque nibh non dolor mollis congue sed et metus
+<a id="__codelineno-49-5" name="__codelineno-49-5"></a>    <span class="k">* [ ]</span> Praesent sed risus massa
+<a id="__codelineno-49-6" name="__codelineno-49-6"></a><span class="k">- [ ]</span> Aenean pretium efficitur erat, donec pharetra, ligula non scelerisque
+</code></pre></div>
+</div>
+</div>
+<h4 id="13-mathjax">13. MathJax<a class="headerlink" href="#13-mathjax" title="Permanent link">🐟</a></h4>
+<p>略</p>
+<h3 id="二mkdocsyml记录">二、mkdocs.yml记录<a class="headerlink" href="#二mkdocsyml记录" title="Permanent link">🐟</a></h3>
+<h4 id="1-调整颜色">1. 调整颜色<a class="headerlink" href="#1-调整颜色" title="Permanent link">🐟</a></h4>
+<style>
+.md-typeset button[data-md-color-accent] > code {
+    background-color: var(--md-code-bg-color);
+    color: var(--md-accent-fg-color);
+}
+
+.md-typeset button[data-md-color-primary] > code {
+    background-color: var(--md-code-bg-color);
+    color: var(--md-primary-fg-color);
+}
+</style>
+
+<div class="tabbed-set" data-tabs="14:4"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio" /><label for="__tabbed_14_1">调整主题颜色</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1"></a># mkdocs.yml 相关配置
+<a id="__codelineno-50-2" name="__codelineno-50-2"></a>theme:
+<a id="__codelineno-50-3" name="__codelineno-50-3"></a>    palette:
+<a id="__codelineno-50-4" name="__codelineno-50-4"></a>        scheme: default
+</code></pre></div>
+<p>只有两个选项可选：default（亮主题）、slate（暗主题）</p>
+<p><div class="mdx-switch">
+<button data-md-color-scheme="default"><code>default</code></button>
+<button data-md-color-scheme="slate"><code>slate</code></button>
+</div></p>
+<p><script>
+var buttons = document.querySelectorAll("button[data-md-color-scheme]")
+buttons.forEach(function(button) {
+    button.addEventListener("click", function() {
+    var attr = this.getAttribute("data-md-color-scheme")
+    document.body.setAttribute("data-md-color-scheme", attr)
+    var name = document.querySelector("#__code_1 code span:nth-child(7)")
+    name.textContent = attr
+    })
+})
+</script></p>
+</div>
+<input id="__tabbed_14_2" name="__tabbed_14" type="radio" /><label for="__tabbed_14_2">调整主色调</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1"></a># mkdocs.yml 相关配置
+<a id="__codelineno-51-2" name="__codelineno-51-2"></a>theme:
+<a id="__codelineno-51-3" name="__codelineno-51-3"></a>    palette:
+<a id="__codelineno-51-4" name="__codelineno-51-4"></a>        primary: indigo
+</code></pre></div>
+<p><div class="mdx-switch">
+<button data-md-color-primary="red"><code>red</code></button>
+<button data-md-color-primary="pink"><code>pink</code></button>
+<button data-md-color-primary="purple"><code>purple</code></button>
+<button data-md-color-primary="deep-purple"><code>deep purple</code></button>
+<button data-md-color-primary="indigo"><code>indigo</code></button>
+<button data-md-color-primary="blue"><code>blue</code></button>
+<button data-md-color-primary="light-blue"><code>light blue</code></button>
+<button data-md-color-primary="cyan"><code>cyan</code></button>
+<button data-md-color-primary="teal"><code>teal</code></button>
+<button data-md-color-primary="green"><code>green</code></button>
+<button data-md-color-primary="light-green"><code>light green</code></button>
+<button data-md-color-primary="lime"><code>lime</code></button>
+<button data-md-color-primary="yellow"><code>yellow</code></button>
+<button data-md-color-primary="amber"><code>amber</code></button>
+<button data-md-color-primary="orange"><code>orange</code></button>
+<button data-md-color-primary="deep-orange"><code>deep orange</code></button>
+<button data-md-color-primary="brown"><code>brown</code></button>
+<button data-md-color-primary="grey"><code>grey</code></button>
+<button data-md-color-primary="blue-grey"><code>blue grey</code></button>
+<button data-md-color-primary="black"><code>black</code></button>
+<button data-md-color-primary="white"><code>white</code></button>
+</div></p>
+<p><script>
+var buttons = document.querySelectorAll("button[data-md-color-primary]")
+buttons.forEach(function(button) {
+    button.addEventListener("click", function() {
+    var attr = this.getAttribute("data-md-color-primary")
+    document.body.setAttribute("data-md-color-primary", attr)
+    var name = document.querySelector("#__code_2 code span:nth-child(7)")
+    name.textContent = attr.replace("-", " ")
+    })
+})
+</script></p>
+</div>
+<input id="__tabbed_14_3" name="__tabbed_14" type="radio" /><label for="__tabbed_14_3">调整hovered、buttons、scrollbars颜色</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1"></a># mkdocs.yml 相关配置
+<a id="__codelineno-52-2" name="__codelineno-52-2"></a>theme:
+<a id="__codelineno-52-3" name="__codelineno-52-3"></a>    palette:
+<a id="__codelineno-52-4" name="__codelineno-52-4"></a>        accent: indigo
+</code></pre></div>
+<p><div class="mdx-switch">
+<button data-md-color-accent="red"><code>red</code></button>
+<button data-md-color-accent="pink"><code>pink</code></button>
+<button data-md-color-accent="purple"><code>purple</code></button>
+<button data-md-color-accent="deep-purple"><code>deep purple</code></button>
+<button data-md-color-accent="indigo"><code>indigo</code></button>
+<button data-md-color-accent="blue"><code>blue</code></button>
+<button data-md-color-accent="light-blue"><code>light blue</code></button>
+<button data-md-color-accent="cyan"><code>cyan</code></button>
+<button data-md-color-accent="teal"><code>teal</code></button>
+<button data-md-color-accent="green"><code>green</code></button>
+<button data-md-color-accent="light-green"><code>light green</code></button>
+<button data-md-color-accent="lime"><code>lime</code></button>
+<button data-md-color-accent="yellow"><code>yellow</code></button>
+<button data-md-color-accent="amber"><code>amber</code></button>
+<button data-md-color-accent="orange"><code>orange</code></button>
+<button data-md-color-accent="deep-orange"><code>deep orange</code></button>
+</div></p>
+<p><script>
+var buttons = document.querySelectorAll("button[data-md-color-accent]")
+buttons.forEach(function(button) {
+    button.addEventListener("click", function() {
+    var attr = this.getAttribute("data-md-color-accent")
+    document.body.setAttribute("data-md-color-accent", attr)
+    var name = document.querySelector("#__code_3 code span:nth-child(7)")
+    name.textContent = attr.replace("-", " ")
+    })
+})
+</script></p>
+</div>
+<input id="__tabbed_14_4" name="__tabbed_14" type="radio" /><label for="__tabbed_14_4">自定义颜色</label><div class="tabbed-content">
+<p>定义一个叫shafish的主题色调
+<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1"></a># mkdocs.yml 相关配置
+<a id="__codelineno-53-2" name="__codelineno-53-2"></a>theme:
+<a id="__codelineno-53-3" name="__codelineno-53-3"></a>    palette:
+<a id="__codelineno-53-4" name="__codelineno-53-4"></a>        scheme: shafish
+<a id="__codelineno-53-5" name="__codelineno-53-5"></a>    extra_css:
+<a id="__codelineno-53-6" name="__codelineno-53-6"></a>        - stylesheets/extra.css # docs/stylesheets/extra.css
+</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1"></a><span class="o">[</span><span class="nt">data-md-color-scheme</span><span class="o">=</span><span class="s2">&quot;shafish&quot;</span><span class="o">]</span> <span class="p">{</span>
+<a id="__codelineno-54-2" name="__codelineno-54-2"></a>    <span class="nv">--md-primary-fg-color</span><span class="p">:</span>        <span class="mh">#EE0F0F</span><span class="p">;</span>
+<a id="__codelineno-54-3" name="__codelineno-54-3"></a>    <span class="nv">--md-primary-fg-color--light</span><span class="p">:</span> <span class="mh">#ECB7B7</span><span class="p">;</span>
+<a id="__codelineno-54-4" name="__codelineno-54-4"></a>    <span class="nv">--md-primary-fg-color--dark</span><span class="p">:</span>  <span class="mh">#90030C</span><span class="p">;</span>
+<a id="__codelineno-54-5" name="__codelineno-54-5"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<h4 id="2-调整字体">2. 调整字体<a class="headerlink" href="#2-调整字体" title="Permanent link">🐟</a></h4>
+<p>支持：<a href="https://fonts.google.com/">Google Font </a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1"></a># mkdocs.yml 相关配置
+<a id="__codelineno-55-2" name="__codelineno-55-2"></a>theme:
+<a id="__codelineno-55-3" name="__codelineno-55-3"></a>    font:
+<a id="__codelineno-55-4" name="__codelineno-55-4"></a>        text: Roboto  # 常规字体
+<a id="__codelineno-55-5" name="__codelineno-55-5"></a>        code: Roboto Mono  #代码块字体
+</code></pre></div>
+<h4 id="3-logofavicon">3. logo、favicon<a class="headerlink" href="#3-logofavicon" title="Permanent link">🐟</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-56-1" name="__codelineno-56-1"></a># mkdocs.yml 相关配置
+<a id="__codelineno-56-2" name="__codelineno-56-2"></a>theme:
+<a id="__codelineno-56-3" name="__codelineno-56-3"></a>    logo: assets/logo.png # logo
+<a id="__codelineno-56-4" name="__codelineno-56-4"></a>    favicon: images/favicon.png  # favicon
+</code></pre></div>
+<h4 id="4-导航栏">4. 导航栏<a class="headerlink" href="#4-导航栏" title="Permanent link">🐟</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1"></a># mkdocs.yml 相关配置
+<a id="__codelineno-57-2" name="__codelineno-57-2"></a>theme:
+<a id="__codelineno-57-3" name="__codelineno-57-3"></a>  features:
+<a id="__codelineno-57-4" name="__codelineno-57-4"></a>    - navigation.instant # 点击内部链接时，不用全部刷新页面
+<a id="__codelineno-57-5" name="__codelineno-57-5"></a>    - navigation.tracking # 在url中使用标题定位锚点
+<a id="__codelineno-57-6" name="__codelineno-57-6"></a>    - navigation.tabs # 顶部显示导航顶层nav（也就是第一个节点）
+<a id="__codelineno-57-7" name="__codelineno-57-7"></a>    - navigation.tabs.sticky # 滚动是隐藏顶部nav，需要配合navigation.tabs使用
+<a id="__codelineno-57-8" name="__codelineno-57-8"></a>    - navigation.sections # nav节点缩进
+<a id="__codelineno-57-9" name="__codelineno-57-9"></a>    - navigation.expand # 不折叠左侧nav节点
+<a id="__codelineno-57-10" name="__codelineno-57-10"></a>    - navigation.indexes # 指定节点index pages
+<a id="__codelineno-57-11" name="__codelineno-57-11"></a>    - toc.integrate # 右侧生产目录
+<a id="__codelineno-57-12" name="__codelineno-57-12"></a>    - navigation.top # 一键回顶部
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1"></a><span class="gu">// md文件头部设置隐藏nav或者toc</span>
+<a id="__codelineno-58-2" name="__codelineno-58-2"></a><span class="gu">---</span>
+<a id="__codelineno-58-3" name="__codelineno-58-3"></a>hide:
+<a id="__codelineno-58-4" name="__codelineno-58-4"></a>  <span class="k">-</span> navigation
+<a id="__codelineno-58-5" name="__codelineno-58-5"></a><span class="gu">  - toc</span>
+<a id="__codelineno-58-6" name="__codelineno-58-6"></a><span class="gu">---</span>
+<a id="__codelineno-58-7" name="__codelineno-58-7"></a>
+<a id="__codelineno-58-8" name="__codelineno-58-8"></a>xxx
+</code></pre></div>
+<h4 id="5-搜索">5. 搜索<a class="headerlink" href="#5-搜索" title="Permanent link">🐟</a></h4>
+<p>ref：<a href="https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/">https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/</a></p>
+<h4 id="6-网站访问统计">6. 网站访问统计<a class="headerlink" href="#6-网站访问统计" title="Permanent link">🐟</a></h4>
+<p>谷歌示例</p>
+<ul>
+<li><a href="https://developers.google.com/analytics">Google Analytics</a></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1"></a># mkdocs.yml 相关配置
+<a id="__codelineno-59-2" name="__codelineno-59-2"></a>extra:
+<a id="__codelineno-59-3" name="__codelineno-59-3"></a>  analytics:
+<a id="__codelineno-59-4" name="__codelineno-59-4"></a>    provider: google
+<a id="__codelineno-59-5" name="__codelineno-59-5"></a>    property: G-XXXXXXXXXX
+</code></pre></div>
+<h4 id="7-生成分享卡片">7. 生成分享卡片<a class="headerlink" href="#7-生成分享卡片" title="Permanent link">🐟</a></h4>
+<p>太高级了，现在还用不上。</p>
+<p>ref: <a href="https://squidfunk.github.io/mkdocs-material/setup/setting-up-social-cards/">https://squidfunk.github.io/mkdocs-material/setup/setting-up-social-cards/</a></p>
+<h4 id="8-顶部隐藏发布通知">8. 顶部隐藏、发布通知<a class="headerlink" href="#8-顶部隐藏发布通知" title="Permanent link">🐟</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-60-1" name="__codelineno-60-1"></a># mkdocs.yml 相关配置
+<a id="__codelineno-60-2" name="__codelineno-60-2"></a>theme:
+<a id="__codelineno-60-3" name="__codelineno-60-3"></a>  features:
+<a id="__codelineno-60-4" name="__codelineno-60-4"></a>    - header.autohide
+<a id="__codelineno-60-5" name="__codelineno-60-5"></a>  custom_dir: overrides  # 自定义主题设置。overrides目录与docs目录同级
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-61-1" name="__codelineno-61-1"></a><span class="c">&lt;!-- overrides/main.html文件内容 --&gt;</span>
+<a id="__codelineno-61-2" name="__codelineno-61-2"></a>{% extends &quot;base.html&quot; %}
+<a id="__codelineno-61-3" name="__codelineno-61-3"></a>
+<a id="__codelineno-61-4" name="__codelineno-61-4"></a>{% block announce %}
+<a id="__codelineno-61-5" name="__codelineno-61-5"></a>  <span class="c">&lt;!-- Add announcement here, including arbitrary HTML --&gt;</span>
+<a id="__codelineno-61-6" name="__codelineno-61-6"></a>  通知：啦啦啦，shafish用新博客啦！！
+<a id="__codelineno-61-7" name="__codelineno-61-7"></a>{% endblock %}
+</code></pre></div>
+<h4 id="9-网站底部设置">9. 网站底部设置<a class="headerlink" href="#9-网站底部设置" title="Permanent link">🐟</a></h4>
+<div class="tabbed-set" data-tabs="15:2"><input checked="checked" id="__tabbed_15_1" name="__tabbed_15" type="radio" /><label for="__tabbed_15_1">声明保留版权</label><div class="tabbed-content">
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-62-1" name="__codelineno-62-1"></a># mkdocs.yml 相关配置
+<a id="__codelineno-62-2" name="__codelineno-62-2"></a>copyright: Copyright &amp;copy; 2017 - 2020 shafish.cn
+</code></pre></div>
+或者 在main.html中自定义：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-63-1" name="__codelineno-63-1"></a>{% extends &quot;base.html&quot; %}
+<a id="__codelineno-63-2" name="__codelineno-63-2"></a>
+<a id="__codelineno-63-3" name="__codelineno-63-3"></a>{% block copyright %}
+<a id="__codelineno-63-4" name="__codelineno-63-4"></a><span class="c">&lt;!-- Add copyright here, including arbitrary HTML --&gt;</span>
+<a id="__codelineno-63-5" name="__codelineno-63-5"></a>{% endblock %}
+</code></pre></div></p>
+</div>
+<input id="__tabbed_15_2" name="__tabbed_15" type="radio" /><label for="__tabbed_15_2">右下角加个联系方式</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-64-1" name="__codelineno-64-1"></a># mkdocs.yml 相关配置
+<a id="__codelineno-64-2" name="__codelineno-64-2"></a>extra:
+<a id="__codelineno-64-3" name="__codelineno-64-3"></a>    social:
+<a id="__codelineno-64-4" name="__codelineno-64-4"></a>        -   icon: fontawesome/solid/paper-plane
+<a id="__codelineno-64-5" name="__codelineno-64-5"></a>            link: mailto:&lt;shafish_cn@163.com&gt;
+<a id="__codelineno-64-6" name="__codelineno-64-6"></a>            name: 邮箱地址
+</code></pre></div>
+</div>
+</div>
+<h4 id="10-评论系统-vssue">10. 评论系统-Vssue<a class="headerlink" href="#10-评论系统-vssue" title="Permanent link">🐟</a></h4>
+<p>ref:<a href="https://vssue.js.org/zh/guide/">Vssue</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-65-1" name="__codelineno-65-1"></a><span class="c">&lt;!-- overrides/main.html --&gt;</span>
+<a id="__codelineno-65-2" name="__codelineno-65-2"></a>{% block disqus %}
+<a id="__codelineno-65-3" name="__codelineno-65-3"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;vssue&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-65-4" name="__codelineno-65-4"></a>
+<a id="__codelineno-65-5" name="__codelineno-65-5"></a><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://unpkg.com/vssue/dist/vssue.min.css&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-65-6" name="__codelineno-65-6"></a><span class="c">&lt;!-- OR: vue full build (runtime + compiler)  --&gt;</span>
+<a id="__codelineno-65-7" name="__codelineno-65-7"></a><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://unpkg.com/vue/dist/vue.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<a id="__codelineno-65-8" name="__codelineno-65-8"></a><span class="c">&lt;!-- Vssue Github build --&gt;</span>
+<a id="__codelineno-65-9" name="__codelineno-65-9"></a><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://unpkg.com/vssue/dist/vssue.github.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<a id="__codelineno-65-10" name="__codelineno-65-10"></a>
+<a id="__codelineno-65-11" name="__codelineno-65-11"></a><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<a id="__codelineno-65-12" name="__codelineno-65-12"></a>    <span class="ow">new</span> <span class="nx">Vue</span><span class="p">({</span>
+<a id="__codelineno-65-13" name="__codelineno-65-13"></a>      <span class="nx">el</span><span class="o">:</span> <span class="s1">&#39;#vssue&#39;</span><span class="p">,</span>
+<a id="__codelineno-65-14" name="__codelineno-65-14"></a>
+<a id="__codelineno-65-15" name="__codelineno-65-15"></a>      <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+<a id="__codelineno-65-16" name="__codelineno-65-16"></a>        <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;shafish.cn&#39;</span><span class="p">,</span>
+<a id="__codelineno-65-17" name="__codelineno-65-17"></a>
+<a id="__codelineno-65-18" name="__codelineno-65-18"></a>        <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+<a id="__codelineno-65-19" name="__codelineno-65-19"></a>          <span class="nx">owner</span><span class="o">:</span> <span class="s1">&#39;shafishcn&#39;</span><span class="p">,</span>
+<a id="__codelineno-65-20" name="__codelineno-65-20"></a>          <span class="nx">repo</span><span class="o">:</span> <span class="s1">&#39;blog_comment_by_issue&#39;</span><span class="p">,</span>
+<a id="__codelineno-65-21" name="__codelineno-65-21"></a>          <span class="nx">clientId</span><span class="o">:</span> <span class="s1">&#39;xxx&#39;</span><span class="p">,</span>
+<a id="__codelineno-65-22" name="__codelineno-65-22"></a>          <span class="nx">clientSecret</span><span class="o">:</span> <span class="s1">&#39;xxx&#39;</span><span class="p">,</span> <span class="c1">// only required for some of the platforms</span>
+<a id="__codelineno-65-23" name="__codelineno-65-23"></a>        <span class="p">},</span>
+<a id="__codelineno-65-24" name="__codelineno-65-24"></a>      <span class="p">},</span>
+<a id="__codelineno-65-25" name="__codelineno-65-25"></a>
+<a id="__codelineno-65-26" name="__codelineno-65-26"></a>      <span class="nx">template</span><span class="o">:</span> <span class="sb">`&lt;vssue :title=&quot;title&quot; :options=&quot;options&quot;&gt;&lt;/vssue&gt;`</span><span class="p">,</span>
+<a id="__codelineno-65-27" name="__codelineno-65-27"></a>    <span class="p">})</span>
+<a id="__codelineno-65-28" name="__codelineno-65-28"></a>  <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<a id="__codelineno-65-29" name="__codelineno-65-29"></a>{% endblock %}
+</code></pre></div>
+<h3 id="三插件">三、插件<a class="headerlink" href="#三插件" title="Permanent link">🐟</a></h3>
+<h4 id="1-显示文件最后修改时间">1. 显示文件最后修改时间<a class="headerlink" href="#1-显示文件最后修改时间" title="Permanent link">🐟</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-66-1" name="__codelineno-66-1"></a>$ pip install mkdocs-git-revision-date-plugin
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-67-1" name="__codelineno-67-1"></a># mkdocs.yml 相关配置
+<a id="__codelineno-67-2" name="__codelineno-67-2"></a>plugins:
+<a id="__codelineno-67-3" name="__codelineno-67-3"></a>  - git-revision-date
+</code></pre></div>
+<h3 id="四部署">四、部署<a class="headerlink" href="#四部署" title="Permanent link">🐟</a></h3>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+                
+                  
+                    
+
+<hr>
+<div class="md-source-date">
+  <small>
+    
+      最后更新: 2021-12-18
+    
+  </small>
+</div>
+                  
+                
+              
+              
+<div id="vssue"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/vssue/dist/vssue.min.css">
+<!-- OR: vue full build (runtime + compiler)  -->
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+<!-- Vssue Github build -->
+<script src="https://unpkg.com/vssue/dist/vssue.github.min.js"></script>
+
+<script>
+    new Vue({
+      el: '#vssue',
+
+      data: {
+        title: 'shafish.cn',
+        prefix: '[BlogComment]',
+
+        options: {
+          owner: 'shafishcn',
+          repo: 'shafish_blog',
+          clientId: 'f49fcb8c02a7868c8690',
+          clientSecret: '5940fc487ff4e7237a01a28c0fe3775140bf05b2', // only required for some of the platforms
+        },
+      },
+
+      template: `<vssue :title="title" :options="options"></vssue>`,
+    })
+  </script>
+
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+      
+        
+        <a href="2021/" class="md-footer__link md-footer__link--next" aria-label="下一页: 2021年" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              2021年
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2018 - 2021 shafish
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+      <a href="mailto:<shafish_cn@163.com>" target="_blank" rel="noopener" title="发送邮件" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M476 3.2 12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.annotate", "header.autohide", "toc.separate"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.2b46852b.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1856 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Just write something about Work、Technology and Life.">
+      
+      
+      
+        <meta name="author" content="shafish">
+      
+      
+        <link rel="canonical" href="https://shafish.cn/blog/2021/12/nginx_record/">
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.2.2">
+    
+    
+      
+        <title>nginx使用记录 - shafish.cn</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.1118c9be.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ba0d045b.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <script>function __prefix(e){return new URL("../../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#一安装依赖库" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-announce">
+          <div class="md-announce__inner md-grid md-typeset">
+            
+  通知：啦啦啦，shafish用新博客啦！！
+
+          </div>
+        </aside>
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="shafish.cn" class="md-header__button md-logo" aria-label="shafish.cn" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            shafish.cn
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              nginx使用记录
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="关灯"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="关灯" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="blue"  aria-label="开灯"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="开灯" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../" class="md-tabs__link md-tabs__link--active">
+        技术
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../../life/" class="md-tabs__link">
+      生活
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../../about/" class="md-tabs__link">
+      关于
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="shafish.cn" class="md-nav__button md-logo" aria-label="shafish.cn" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    shafish.cn
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      <label class="md-nav__link" for="__nav_1">
+        技术
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="技术" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          技术
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../" class="md-nav__link">
+        技术区简述
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" checked>
+      
+      <label class="md-nav__link" for="__nav_1_2">
+        2021年
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="2021年" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          2021年
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        2021年
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_2" type="checkbox" id="__nav_1_2_2" checked>
+      
+      <label class="md-nav__link" for="__nav_1_2_2">
+        12月份
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="12月份" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          12月份
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github_action/" class="md-nav__link">
+        github action使用
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          nginx使用记录
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        nginx使用记录
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#一安装依赖库" class="md-nav__link">
+    一、安装依赖库
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#二configure配置" class="md-nav__link">
+    二、configure配置
+  </a>
+  
+    <nav class="md-nav" aria-label="二、configure配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1路径相关参数" class="md-nav__link">
+    1.路径相关参数：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2编译相关参数" class="md-nav__link">
+    2.编译相关参数：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3相关常用软件库配置参数" class="md-nav__link">
+    3.相关（常用）软件库配置参数：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4模块相关参数又分为五大模块" class="md-nav__link">
+    4.模块相关参数：又分为五大模块
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#三编译安装" class="md-nav__link">
+    三、编译安装
+  </a>
+  
+    <nav class="md-nav" aria-label="三、编译安装">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#示例a" class="md-nav__link">
+    示例a
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#示例b" class="md-nav__link">
+    示例b
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#示例c" class="md-nav__link">
+    示例c
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#四为已安装的nginx动态添加模块" class="md-nav__link">
+    四、为已安装的Nginx动态添加模块
+  </a>
+  
+    <nav class="md-nav" aria-label="四、为已安装的Nginx动态添加模块">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#加ngx_http_google_filter_module" class="md-nav__link">
+    加ngx_http_google_filter_module
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#五nginx命令" class="md-nav__link">
+    五、nginx命令
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#六nginx基本的配置" class="md-nav__link">
+    六、nginx基本的配置
+  </a>
+  
+    <nav class="md-nav" aria-label="六、nginx基本的配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1用于调试问题定位的配置" class="md-nav__link">
+    1.用于调试、问题定位的配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2运行必备配置" class="md-nav__link">
+    2.运行必备配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3性能优化配置" class="md-nav__link">
+    3.性能优化配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4事件类型配置" class="md-nav__link">
+    4.事件类型配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#七nginx-http模块配置" class="md-nav__link">
+    七、nginx http模块配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1模块变量" class="md-nav__link">
+    1.模块变量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2虚拟主机与请求的分发" class="md-nav__link">
+    2.虚拟主机与请求的分发
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3文件路径的定义" class="md-nav__link">
+    3.文件路径的定义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4内存及磁盘资源的分配" class="md-nav__link">
+    4.内存及磁盘资源的分配
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5网络连接的设置" class="md-nav__link">
+    5.网络连接的设置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6mime类型的设置" class="md-nav__link">
+    6.MIME类型的设置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7对客户端请求的限制" class="md-nav__link">
+    7.对客户端请求的限制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8文件操作的优化" class="md-nav__link">
+    8.文件操作的优化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9对客户端请求的特殊处理" class="md-nav__link">
+    9.对客户端请求的特殊处理
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../life/" class="md-nav__link">
+        生活
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/" class="md-nav__link">
+        关于
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#一安装依赖库" class="md-nav__link">
+    一、安装依赖库
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#二configure配置" class="md-nav__link">
+    二、configure配置
+  </a>
+  
+    <nav class="md-nav" aria-label="二、configure配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1路径相关参数" class="md-nav__link">
+    1.路径相关参数：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2编译相关参数" class="md-nav__link">
+    2.编译相关参数：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3相关常用软件库配置参数" class="md-nav__link">
+    3.相关（常用）软件库配置参数：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4模块相关参数又分为五大模块" class="md-nav__link">
+    4.模块相关参数：又分为五大模块
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#三编译安装" class="md-nav__link">
+    三、编译安装
+  </a>
+  
+    <nav class="md-nav" aria-label="三、编译安装">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#示例a" class="md-nav__link">
+    示例a
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#示例b" class="md-nav__link">
+    示例b
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#示例c" class="md-nav__link">
+    示例c
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#四为已安装的nginx动态添加模块" class="md-nav__link">
+    四、为已安装的Nginx动态添加模块
+  </a>
+  
+    <nav class="md-nav" aria-label="四、为已安装的Nginx动态添加模块">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#加ngx_http_google_filter_module" class="md-nav__link">
+    加ngx_http_google_filter_module
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#五nginx命令" class="md-nav__link">
+    五、nginx命令
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#六nginx基本的配置" class="md-nav__link">
+    六、nginx基本的配置
+  </a>
+  
+    <nav class="md-nav" aria-label="六、nginx基本的配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1用于调试问题定位的配置" class="md-nav__link">
+    1.用于调试、问题定位的配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2运行必备配置" class="md-nav__link">
+    2.运行必备配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3性能优化配置" class="md-nav__link">
+    3.性能优化配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4事件类型配置" class="md-nav__link">
+    4.事件类型配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#七nginx-http模块配置" class="md-nav__link">
+    七、nginx http模块配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1模块变量" class="md-nav__link">
+    1.模块变量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2虚拟主机与请求的分发" class="md-nav__link">
+    2.虚拟主机与请求的分发
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3文件路径的定义" class="md-nav__link">
+    3.文件路径的定义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4内存及磁盘资源的分配" class="md-nav__link">
+    4.内存及磁盘资源的分配
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5网络连接的设置" class="md-nav__link">
+    5.网络连接的设置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6mime类型的设置" class="md-nav__link">
+    6.MIME类型的设置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7对客户端请求的限制" class="md-nav__link">
+    7.对客户端请求的限制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8文件操作的优化" class="md-nav__link">
+    8.文件操作的优化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9对客户端请求的特殊处理" class="md-nav__link">
+    9.对客户端请求的特殊处理
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>nginx使用记录</h1>
+                
+                <details class="abstract" open="open">
+<summary>Abstract</summary>
+<p>仅做笔记，为了有个小小印象。</p>
+</details>
+<h2 id="一安装依赖库">一、安装依赖库<a class="headerlink" href="#一安装依赖库" title="Permanent link">🐟</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo pacman -S wget gcc-c++ ncurses ncurses-devel cmake make perl bison openssl openssl-devel <span class="se">\</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>gcc* libxml2 libxml2-devel curl-devel libjpeg* libpng* freetype* autoconf automake zlib* fiex* <span class="se">\</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>libxml* libmcrypt* libtool-ltdl-devel* libaio libaio-devel bzr libtool
+</code></pre></div>
+<h2 id="二configure配置">二、configure配置<a class="headerlink" href="#二configure配置" title="Permanent link">🐟</a></h2>
+<p>使用<code>configure</code>指定配置项，可以用<code>./configure --help</code>查看，对应参数分为四大类：</p>
+<h3 id="1路径相关参数">1.路径相关参数：<a class="headerlink" href="#1路径相关参数" title="Permanent link">🐟</a></h3>
+<ul>
+<li><code>--prefix=path</code>：安装的根目录，缺省默认目录为：<code>/usr/local/nginx</code>，该目录指下面出现到的<prefix>，bulingbuling。</li>
+<li><code>--sbin-path=path</code>：nginx相关二进制文件路径，<code>&lt;prefix&gt;/sbin/nginx</code></li>
+<li><code>--conf-path=path</code>：nginx配置文件路径，<code>&lt;prefix&gt;/conf/nginx.conf</code></li>
+<li><code>--error-log-path=PATH</code>：error日志文件路径，<code>&lt;prefix&gt;/logs/error.log</code></li>
+<li><code>--pid-path=PATH</code>：pid文件的存放路径，文件以ascii码存放nginx master进程id，master之后会讲到（非常重要），<code>&lt;prefix&gt;/logs/nginx.pid</code></li>
+<li><code>--lock-path=PATH</code>：lock文件的存放路径，<code>&lt;prefix&gt;/logs/nginx.lock</code></li>
+<li><code>--builddir=DIR</code>：configura命令执行和程序编译时产生临时文件的存放目录，<code>&lt;prefix&gt;/objs</code></li>
+<li><code>--with-perl_modules_path=PATH</code>：perl module存放路径</li>
+<li><code>--with-perl=PATH</code>：perl binary存放路径，执行perl脚本需要此设置</li>
+<li><code>--http-log-path=PATH</code>：access日志存放路径，会记录每个http请求的访问记录，<code>&lt;prefix&gt;/logs/access.log</code></li>
+<li><code>--http-client-body-temp-path=PATH</code>：保存http请求包体等临时内容，<code>&lt;prefix&gt;/client_body_temp</code></li>
+<li><code>--http-proxy-temp-path=PATH</code>：做反向代理时，上游服务器的http请求包体，<code>&lt;prefix&gt;/proxy_temp</code></li>
+<li><code>--http-fastcgi-temp-path=PATH</code>：fastcgi临时文件存放目录，<code>&lt;prefix&gt;/fastcgi_temp</code></li>
+<li><code>--http-uwsgi-temp-path=PATH</code>：uwsgi临时文件存放目录，<code>&lt;prefix&gt;/uwsgi_temp</code></li>
+<li><code>--http-scgi-temp-path=PATH</code>：scgi临时文件存放目录，<code>&lt;prefix&gt;/scgi_temp</code></li>
+</ul>
+<h3 id="2编译相关参数">2.编译相关参数：<a class="headerlink" href="#2编译相关参数" title="Permanent link">🐟</a></h3>
+<ul>
+<li><code>--with-cc=PATH</code>：c编译器的路径</li>
+<li><code>--with-cpp=PATH</code>：c预编译器的路径</li>
+<li><code>--with-cc-opt=OPTIONS</code>：在nginx编译时指定一些编译选项</li>
+<li><code>--with-ld-opt=OPTIONS</code>：加入生成二进制执行文件前的一些指定的链接文件</li>
+<li><code>--with-cpu-opt=CPU</code>：指定cpu处理器架构，pentium, pentiumpro, pentium3, pentium4, athlon, opteron, amd64, sparc32, sparc64, ppc64</li>
+</ul>
+<h3 id="3相关常用软件库配置参数">3.相关（常用）软件库配置参数：<a class="headerlink" href="#3相关常用软件库配置参数" title="Permanent link">🐟</a></h3>
+<ul>
+<li>pcre库<ul>
+<li><code>--without-pcre</code>：设置配置文件中不使用正则表达式</li>
+<li><code>--with-pcre</code>：强制使用pcre库</li>
+<li><code>--with-pcre=DIR</code>：指定pcre库的源码目录，编译nginx时进入该目录编译pcre</li>
+<li><code>--with-pcre-opt=OPTIONS</code>：编译pcre时指定编译选项</li>
+</ul>
+</li>
+<li>openssl库<ul>
+<li><code>--with-openssl=DIR</code>：指定openssl库的源码目录，编译nginx时进入该目录编译openssl。如需要https支持，需要安装该库</li>
+<li><code>--with-openssl-opt=OPTIONS</code>：编译openssl时指定编译选项</li>
+</ul>
+</li>
+<li>atomic原子库<ul>
+<li><code>--with-libatomic</code>：强制使用atomic库</li>
+<li><code>--with-libatomic=DIR</code>：atomic库所在位置</li>
+</ul>
+</li>
+<li>散列函数库<ul>
+<li><code>--with-MD5=DIR</code>：指定md5库源码目录，编译nginx时进入该目录编译md5。（没特殊需求，可用nginx自带的md5算法）</li>
+<li><code>--with-MD5-opt=OPTIONS</code>：编译md5时指定编译选项</li>
+<li><code>--with-MD5-asm</code>：使用md5的汇编源码</li>
+<li><code>--with-SHA1=DIR</code>：指定SHA1库源码目录，编译nginx时进入该目录编译SHA1。（openssl有sha1的实现，已经安装openssl直接用）</li>
+<li><code>--with-SHA1-opt=OPTIONS</code>：编译SHA1时指定编译选项</li>
+<li><code>--with-SHA1-asm</code>：使用SHA1的汇编源码</li>
+</ul>
+</li>
+<li>zlib库<ul>
+<li><code>--with-zlib=DIR</code>：指定zlib库源码目录，编译nginx时进入该目录编译zlib。（需要gzip压缩，就需该库支持）</li>
+<li><code>--with-zlib-opt=OPTIONS</code>：编译zlib时指定编译选项</li>
+<li><code>--with-zlib-asm=CPU</code>：指定对特定cpu职业zlib汇编优化功能，pentium, pentiumpro。</li>
+</ul>
+</li>
+<li>。。。</li>
+</ul>
+<h3 id="4模块相关参数又分为五大模块">4.模块相关参数：又分为五大模块<a class="headerlink" href="#4模块相关参数又分为五大模块" title="Permanent link">🐟</a></h3>
+<ul>
+<li>事件模块（具体事件驱动特点，另说）<ul>
+<li><code>--with-rtsig_module</code>：使用rtsig module处理事件驱动</li>
+<li><code>--with-select_module</code>：使用select 多路复用module处理事件渠道</li>
+<li><code>--without-select_module</code>：不安装select module</li>
+<li><code>--with-poll_module</code>：使用poll module处理事件驱动</li>
+<li><code>--without-poll_module</code>：不安装poll module</li>
+<li><code>--with-aio_module</code>：使用aio处理事件驱动，只能再freebsd系统中使用</li>
+</ul>
+</li>
+<li>默认安装进http模块（nginx安装时默认安装的http相关功能，如果不需要就用<code>--without-http-xxx</code>去除）<ul>
+<li><code>--without-http_chatset_module</code>：不安装http chatset模块，模块可以将服务器发出的http响应重编码</li>
+<li><code>--without-http_gzip_module</code>：不安装gzip模块，模块可以对响应内容进行压缩</li>
+<li><code>--without-http_ssi_module</code>：不安装ssi模块，模块可以在响应中加入特定内容</li>
+<li><code>--without-http_userid_module</code>：不安装userid模块，模块可以根据请求头的字段信息进行用户认证，确定请求是否合法</li>
+<li><code>--without-http_access_module</code>：不安装access模块，模块可以根据ip显示客户端访问</li>
+<li><code>--without-http_auth_basic_module</code>：不安装auth basic模块，模块可以提高简单的用户名、密码认证</li>
+<li><code>--without-http_autoindex_module</code>：不安装autoindex模块，模块提供简单的目录浏览功能</li>
+<li><code>--without-http_geo_module</code>：不安装geo模块，模块可以根据不同地区响应不同内容</li>
+<li><code>--without-http_map_module</code>：不安装map模块，模块可以创建key-value映射表</li>
+<li><code>--without-http_split_clients_module</code>：不安装split client模块，模块可以根据客户端信息（ip、header信息、cookie等）区分处理</li>
+<li><code>--without-http_referer_module</code>：不安装referer模块，模块可根据请求的referer字段拒绝请求</li>
+<li><code>--without-http_rewrite_module</code>：不安装rewrite模块，模块提供重定向功能</li>
+<li><code>--without-http_proxy_module</code>：不安装proxy模块，模块提供反代理功能</li>
+<li><code>--without-http_fastcgi_module</code>：不安装fastcgi模块，</li>
+<li><code>--without-http_uwsgi_module</code>：不安装uwsgi模块，</li>
+<li><code>--without-http_scgi_module</code>：不安装scgi模块，</li>
+<li><code>--without-http_memecached_module</code>：不安装memecached模块，缓存</li>
+<li><code>--without-http_limit_zone_module</code>：不安装limit zone模块，模块可以限制ip并发连接数量，比如设置一个ip只能一个连接</li>
+<li><code>--without-http_limit_req_module</code>：不安装limit req模块，模块可以限制ip并发请求数量</li>
+<li><code>--without-http_empty_gif_module</code>：不安装empty gif模块，模块可以在接收到无效请求时返回一个1*1像素的图片</li>
+<li><code>--without-http_browser_module</code>：不安装browser模块，模块可根据请求中的user-agent字段识别浏览器</li>
+<li><code>--without-http_upstream_ip_hash_module</code>：不安装upstream ip hash模块，模块可以对ip进行哈希，让请求转发给对应ip响应，负载均衡用。</li>
+<li>。。。</li>
+</ul>
+</li>
+<li>不默认安装进http模块（nginx安装时默认不会安装的http功能，如果需要就用<code>--with-http-xxx</code>添加）<ul>
+<li><code>--with-http_ssl_module</code>：安装ssl模块，模块提供https服务（需要在config设置时配置openssl库）</li>
+<li><code>--with-http_realip_module</code>：安装realip模块，模块可以从请求header中获取客户端真正ip</li>
+<li><code>--with-http_addition_module</code>：安装addition模块，模块可以在响应头部、尾部添加内容</li>
+<li><code>--with-http_xslt_module</code>：安装xslt模块，模块可以响应xml时加入xsl渲染（需要在config设置时配置libxml2库、libxslt库）</li>
+<li><code>--with-http_image_filter_module</code>：安装image filter模块，模块可以将图片（jpeg、png、gif）实时压缩为指定大小进行响应（libgd库）</li>
+<li><code>--with-http_geoip_module</code>：安装geoip模块，模块可以根据ip获取对应实际地理位置</li>
+<li><code>--with-http_sub_module</code>：安装sub模块，模块可以替换响应的指定字符串</li>
+<li><code>--with-http_dav_module</code>：安装ssl模块，模块可以让nginx支持webdav标准，使用put、delete、copy、move等请求</li>
+<li><code>--with-http_mp4_module</code>：安装mp4模块</li>
+<li><code>--with-http_gzip_static_module</code>：安装gzip static模块，不同gzip模块，static的可以在进行gzip压缩前检查是否存在该响应的缓存，减少cpu压缩压力</li>
+<li><code>--with-http_random_index_module</code>：安装random index模块，模块可以在客户端访问某目录时，随机返回该目录中某个文件</li>
+<li><code>--with-http_secure_link_module</code>：安装secure link模块，模块可以验证请求是否有效</li>
+<li><code>--with-http_degradation_module</code>：安装degradation模块，模块针对特殊系统做调用优化（非linux）</li>
+<li><code>--with-http_sub_status_module</code>：安装sub status模块，模块可以提供nginx运行时性能统计信息</li>
+<li><code>--with-google_perftools_module</code>：安装google perftool模块，模块提供谷歌性能测试工具</li>
+<li>。。。</li>
+</ul>
+</li>
+<li>mail模块<ul>
+<li><code>--with-mail</code>：安装邮件服务器的反代模块，使用imap、pop3、smtp等协议</li>
+<li><code>--with-mail_ssl_module</code>：模块可以让协议基于https使用（openssl库）</li>
+<li><code>--without-mail_imap_module</code>：不使用imap协议</li>
+<li><code>--without-mail_pop3_module</code>：不使用pop3协议</li>
+<li><code>--without-mail_smtp_module</code>：不使用smtp协议</li>
+</ul>
+</li>
+<li>其他<ul>
+<li><code>--with-debug</code>：nginx研究、调试用</li>
+<li><code>--add-module=PATH</code>：在nginx中加入第三方模块</li>
+<li><code>--without-http</code>：禁用http服务</li>
+<li><code>--without-http-cache</code>：禁用http的缓存服务</li>
+<li><code>--without-file-aio</code>：文件异步io处理</li>
+<li><code>--with-ipv6</code>：支持ipv6</li>
+<li><code>--user=USER</code>：指定worker进程运行时所属的用户（非root）</li>
+<li><code>--group=GROUP</code>：指定worker进程运行时所属的用户组</li>
+</ul>
+</li>
+</ul>
+<h2 id="三编译安装">三、编译安装<a class="headerlink" href="#三编译安装" title="Permanent link">🐟</a></h2>
+<ul>
+<li>进入nginx目录</li>
+<li>配置：<code>./configure [options]</code></li>
+<li>编译：<code>make</code></li>
+<li>将编译好的二进制运行文件复制到配置好的目录：<code>make install</code></li>
+</ul>
+<blockquote>
+<p>这里重点介绍下configure配置：
+根据前面的<code>configure配置</code>选择自己需要的库、功能，先使用系统包管理器安装依赖库，再配置configure。
+下面展示几个示例：</p>
+</blockquote>
+<h3 id="示例a">示例a<a class="headerlink" href="#示例a" title="Permanent link">🐟</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nb">cd</span> /home/shafish/software
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>wget https://nginx.org/download/nginx-1.20.2.tar.gz
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>tar -zxvf nginx-1.20.2.tar.gz
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="nb">cd</span> nginx-1.20.2
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="c1"># pcre 重定向时使用正则匹配</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="c1"># openssl 使用https</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a>sudo pacman -S pcre* openssl*
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a>./configure --prefix<span class="o">=</span>/usr/local/nginx-1.20.2 <span class="se">\ </span><span class="c1"># 指定安装的根目录</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a>--with-http_ssl_module  <span class="se">\ </span><span class="c1"># 安装ssl</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a>--with-http_spdy_module <span class="se">\ </span><span class="c1"># SPDY可以缩短网页的加载时间</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a>--with-http_stub_status_module <span class="se">\ </span><span class="c1"># nginx监控模块</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a>--with-pcre <span class="se">\ </span><span class="c1"># 启用pcre</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a>sudo make
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a>sudo make install
+</code></pre></div>
+<h3 id="示例b">示例b<a class="headerlink" href="#示例b" title="Permanent link">🐟</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nb">cd</span> /home/shafish/software
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>wget https://nginx.org/download/nginx-1.20.2.tar.gz
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>tar -zxvf nginx-1.20.2.tar.gz
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="nb">cd</span> nginx-1.20.2
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="c1"># 安装openssl库</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>sudo pacman -S openssl*
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="c1"># 下载第三方库的源码，对库进行编译使用</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a>wget http://labs.frickle.com/files/ngx_cache_purge-1.3.tar.gz
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a>tar -xzvf ngx_cache_purge-1.3.tar.gz
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a>./configure --prefix<span class="o">=</span>/usr/local/nginx-1.20.2 <span class="se">\ </span><span class="c1"># 指定安装的根目录</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a>–with-http_stub_status_module <span class="se">\ </span><span class="c1"># 启用 nginx 状态模块</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a>–with-http_ssl_module <span class="se">\ </span><span class="c1"># 启用 SSL 模块</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a>–with-http_realip_module <span class="se">\ </span><span class="c1"># 启用 realip 模块（将用户 IP 转发给后端服务器）</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16"></a>–add-module<span class="o">=</span>./ngx_cache_purge-1.3 <span class="c1"># 添加缓存清除扩展模块</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17"></a>
+<a id="__codelineno-2-18" name="__codelineno-2-18"></a>sudo make
+<a id="__codelineno-2-19" name="__codelineno-2-19"></a>sudo make install
+</code></pre></div>
+<h3 id="示例c">示例c<a class="headerlink" href="#示例c" title="Permanent link">🐟</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>--prefix<span class="o">=</span>/usr/local/nginx --user<span class="o">=</span>www --group<span class="o">=</span>www --with-http_stub_status_module --with-http_v2_module --with-http_ssl_module --with-http_gzip_static_module --with-http_realip_module --with-http_flv_module --with-http_mp4_module --with-openssl<span class="o">=</span>../openssl-1.0.2p --with-pcre<span class="o">=</span>../pcre-8.42 --with-pcre-jit --with-ld-opt<span class="o">=</span>-ljemalloc
+</code></pre></div>
+<h2 id="四为已安装的nginx动态添加模块">四、为已安装的Nginx动态添加模块<a class="headerlink" href="#四为已安装的nginx动态添加模块" title="Permanent link">🐟</a></h2>
+<p>安好nginx后，过个几个月，再加多几个需求，对吧，你懂的。</p>
+<p>nginx添加模块还是要重新编译才行。</p>
+<h3 id="加ngx_http_google_filter_module">加ngx_http_google_filter_module<a class="headerlink" href="#加ngx_http_google_filter_module" title="Permanent link">🐟</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># 进入nginx安装目录，看上面示例a b</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="nb">cd</span> <span class="nb">cd</span> /home/shafish/software/nginx-1.20.2
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="c1"># 下载需要的模块源码</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>git clone https://github.com/cuber/ngx_http_google_filter_module
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="c1"># 查看安装时的配置</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>./nginx -V
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="c1"># ./configure --prefix=/usr/local/nginx-1.20.2 –with-http_stub_status_module –with-http_ssl_module –with-http_realip_module –add-module=./ngx_cache_purge-1.3</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="c1"># 加入新模块配置</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a>./configure --prefix<span class="o">=</span>/usr/local/nginx-1.20.2 –with-http_stub_status_module –with-http_ssl_module –with-http_realip_module –add-module<span class="o">=</span>./ngx_cache_purge-1.3 <span class="se">\ </span>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a>--add-module<span class="o">=</span>/usr/local/nginx/ngx_http_google_filter_module
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="c1"># 执行编译</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a>sudo make
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="c1"># 替换nginx二进制文件，木有make install哟</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14"></a>mv ./sbin/nginx ./sbin/nginx.bak
+<a id="__codelineno-4-15" name="__codelineno-4-15"></a>cp ./objs/nginx ./sbin/
+<a id="__codelineno-4-16" name="__codelineno-4-16"></a>./nginx -V
+</code></pre></div>
+<h2 id="五nginx命令">五、nginx命令<a class="headerlink" href="#五nginx命令" title="Permanent link">🐟</a></h2>
+<blockquote>
+<p>默认安装路径：<code>--prefix=/usr/local/nginx</code></p>
+</blockquote>
+<ul>
+<li>启动nginx：<code>/usr/local/nginx/sbin/nginx</code> （默认加载的是/usr/local/nginx/conf/nginx.conf配置）</li>
+<li>启动时指定配置：<code>/usr/local/nginx/sbin/nginx -c /tmp/nginx.conf</code> （-c指定配置文件路径）</li>
+<li>测试配置文件是否正确：<code>/usr/local/nginx/sbin/nginx -t</code></li>
+<li>显示编译阶段用的参数：<code>/usr/local/nginx/sbin/nginx -V</code></li>
+<li>“优雅”地停止服务：<code>/usr/local/nginx/sbin/nginx -s quit</code></li>
+<li>运行时重载配置文件：<code>/usr/local/nginx/sbin/nginx -s reload</code></li>
+<li>不重启升级nginx版本：</li>
+</ul>
+<h2 id="六nginx基本的配置">六、nginx基本的配置<a class="headerlink" href="#六nginx基本的配置" title="Permanent link">🐟</a></h2>
+<h3 id="1用于调试问题定位的配置">1.用于调试、问题定位的配置<a class="headerlink" href="#1用于调试问题定位的配置" title="Permanent link">🐟</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">配置项目</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>daemon on|off;</code></td>
+<td align="left">是否以守护进程方式运行Nginx（默认on）</td>
+</tr>
+<tr>
+<td align="left"><code>master_process on|off;</code></td>
+<td align="left">是否以master/worker方式工作（默认on）</td>
+</tr>
+<tr>
+<td align="left"><code>error_log /path/file level;</code></td>
+<td align="left">大于或等于该级别的日志都会被输出到/path/file文件中。level取值：debug、info、notice、warn、error、crit、alert、emerg</td>
+</tr>
+<tr>
+<td align="left"><code>debug_connection[IP|CIDR]</code></td>
+<td align="left">必须放在events{...}中才有效，仅仅来自规定的ip请求才会输出debug日志</td>
+</tr>
+<tr>
+<td align="left"><code>worker_rlimit_core size;</code></td>
+<td align="left">限制coredump核心转储文件的大小</td>
+</tr>
+<tr>
+<td align="left"><code>working_directory path;</code></td>
+<td align="left">指定coredump文件生成目录</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2运行必备配置">2.运行必备配置<a class="headerlink" href="#2运行必备配置" title="Permanent link">🐟</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">配置项目</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>env VAR|VAR=VALUE</code></td>
+<td align="left">定义环境变量(env TESTPATH=/tmp/;)</td>
+</tr>
+<tr>
+<td align="left"><code>include/path/file;</code></td>
+<td align="left">嵌入其他配置文件(相对目录：即nginx.conf所在的目录)</td>
+</tr>
+<tr>
+<td align="left"><code>pid path/file;</code></td>
+<td align="left">保存master进程id的pid文件路径</td>
+</tr>
+<tr>
+<td align="left"><code>user username[groupname];</code></td>
+<td align="left">Nginx worker进程运行的用户及用户组</td>
+</tr>
+<tr>
+<td align="left"><code>worker_rlimit_nofile limit;</code></td>
+<td align="left">指定Nginx worker进程可以打开的最大句柄描述符个数</td>
+</tr>
+<tr>
+<td align="left"><code>worker_rlimit_sigpending limit;</code></td>
+<td align="left">设置每个用户发往Nginx的信号队列的大小</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3性能优化配置">3.性能优化配置<a class="headerlink" href="#3性能优化配置" title="Permanent link">🐟</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">配置项目</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>worker_processes number;</code></td>
+<td align="left">Nginx worker进程个数(一般跟核数相同即可)</td>
+</tr>
+<tr>
+<td align="left"><code>worker_cpu_affinity cpumask[cpumask...]</code></td>
+<td align="left">[Linux]绑定Nginx worker进程到指定的CPU内核</td>
+</tr>
+<tr>
+<td align="left"><code>ssl_engine device;</code></td>
+<td align="left">SSL硬件加速(openssl engine -t查看是否有加速设备)</td>
+</tr>
+<tr>
+<td align="left"><code>timer_resolution t;</code></td>
+<td align="left">系统调用gettimeofday的执行频率(时间能准一点)</td>
+</tr>
+<tr>
+<td align="left"><code>worker_priority nice;</code></td>
+<td align="left">Nginx worker进程优先级设置，–20~+19，–20是最高优先级，+19是最低优先级</td>
+</tr>
+<tr>
+<td align="left"><code>worker_rlimit_sigpending limit;</code></td>
+<td align="left">设置每个用户发往Nginx的信号队列的大小</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4事件类型配置">4.事件类型配置<a class="headerlink" href="#4事件类型配置" title="Permanent link">🐟</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">配置项目</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>accept_mutex[on|off];</code></td>
+<td align="left">默认on，是否打开accept锁，负载均衡锁</td>
+</tr>
+<tr>
+<td align="left"><code>lock_file path/file;</code></td>
+<td align="left">lock文件的路径，文件锁</td>
+</tr>
+<tr>
+<td align="left"><code>accept_mutex_delay Nms;</code></td>
+<td align="left">使用accept锁后到真正建立连接之间的延迟时间，如果有一个worker进程试图取accept锁而没有取到，它至少要等accept_mutex_delay定义的时间间隔后才能再次试图取锁</td>
+</tr>
+<tr>
+<td align="left"><code>multi_accept[on|off];</code></td>
+<td align="left">默认off，批量建立新连接</td>
+</tr>
+<tr>
+<td align="left"><code>use[kqueue|rtsig|epoll|/dev/poll|select|poll|eventport];</code></td>
+<td align="left">选择事件模型，默认会自动使用最适合的事件模型</td>
+</tr>
+<tr>
+<td align="left"><code>worker_connections number;</code></td>
+<td align="left">每个worker的最大连接数</td>
+</tr>
+</tbody>
+</table>
+<h3 id="七nginx-http模块配置">七、nginx http模块配置<a class="headerlink" href="#七nginx-http模块配置" title="Permanent link">🐟</a></h3>
+<p>nginx主要靠ngx_http_core_module模块实现。</p>
+<h3 id="1模块变量">1.模块变量<a class="headerlink" href="#1模块变量" title="Permanent link">🐟</a></h3>
+<p><img alt="" src="../imgs/nginx/nginx_http_variable1.png" /></p>
+<p><img alt="" src="../imgs/nginx/nginx_http_variable2.png" /></p>
+<h3 id="2虚拟主机与请求的分发">2.虚拟主机与请求的分发<a class="headerlink" href="#2虚拟主机与请求的分发" title="Permanent link">🐟</a></h3>
+<p>每个server块都是一个虚拟主机。</p>
+<ul>
+<li>监听端口：<code>listen address:port[default(deprecated in 0.8.21)|default_server|[backlog=num|rcvbuf=size|sndbuf=size|accept_filter=filter|deferred|bind|ipv6only=[on|off]|ssl]];</code></li>
+<li><code>default/default_server</code>：将所在的server块作为nginx默认虚拟主机，否则默认是选配置中第一个server块der（当一个请求无法匹配配置文件中的所有主机域名时，就会选用默认的虚拟主机）。</li>
+<li><code>backlog=num</code>：表示TCP中backlog队列的大小，如果backlog队列已满，还有新的客户端试图通过三次握手建立TCP连接，这时客户端将会建立连接失败。</li>
+<li><code>rcvbuf=size</code>：设置监听句柄的SO_RCVBUF参数。</li>
+<li><code>sndbuf=size</code>：设置监听句柄的SO_SNDBUF参数。</li>
+<li><code>deferred</code>：适用于大并发，当请求数据来临时，worker进程才会开始处理这个连接。</li>
+<li><code>bind</code>：绑定当前端口/地址对，同时对一个端口监听多个地址时才会生效。</li>
+<li><code>ssl</code>：在当前监听的端口上建立的连接必须基于SSL协议。</li>
+</ul>
+<blockquote>
+<p>在开始处理一个HTTP请求时，Nginx会取出header头中的Host，与每个server中的server_name进行匹配，以此决定到底由哪一个server块来处理这个请求。</p>
+</blockquote>
+<ul>
+<li>主机名称：<code>server_name name[...];</code></li>
+<li>
+<p>多域名对应一个服务器ip，可以根据server块中定义的server_name来处理对应域名的请求。</p>
+</li>
+<li>
+<p>设置散列桶占用的内存大小：<code>server_names_hash_bucket_size size;</code></p>
+</li>
+<li>
+<p>Nginx使用散列表来存储server name，提高快速寻找到相应server name的能力。</p>
+</li>
+<li>
+<p><code>server_names_hash_max_size</code></p>
+</li>
+<li>
+<p>默认：512，越大，消耗的内存就越多，但散列key的冲突率则会降低，server name检索速度也更快。</p>
+</li>
+<li>
+<p>重定向主机名称的处理：<code>server_name_in_redirect on|off;</code></p>
+</li>
+<li>
+<p>默认：on，表示在重定向请求时会使用server_name里配置的第一个主机名代替原先请求中的Host头部。</p>
+</li>
+<li>
+<p>uri请求匹配：<code>location[=|~|~*|^~|@]/uri/{...}</code></p>
+</li>
+<li><code>=</code>：把URI作为字符串进行匹配。
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="nv">location</span> <span class="o">=</span> / <span class="o">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>  <span class="c1"># 只有当用户请求是/时，才会使用该location下的配置</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>  …
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="o">}</span>
+</code></pre></div></li>
+<li><code>~</code>：表示匹配URI时是字母大小写敏感的。</li>
+<li><code>~*</code>：表示匹配URI时忽略字母大小写问题。</li>
+<li><code>^~</code>：表示匹配URI时只需要其前半部分与uri参数匹配即可。
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>location ^~ /images/ <span class="o">{</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>  <span class="c1"># 以/images/开始的请求都会匹配上</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>  …
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="o">}</span>
+</code></pre></div></li>
+<li><code>@</code>：表示仅用于Nginx服务内部请求之间的重定向，不直接处理用户请求。</li>
+<li><code>正则表达式</code>：用正则匹配呗。
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>location ~* <span class="se">\.</span><span class="o">(</span>gif<span class="p">|</span>jpg<span class="p">|</span>jpeg<span class="o">)</span>$ <span class="o">{</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>  <span class="c1"># 匹配以 .gif、.jpg、.jpeg结尾的请求</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>  …
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="o">}</span>
+</code></pre></div></li>
+</ul>
+<h3 id="3文件路径的定义">3.文件路径的定义<a class="headerlink" href="#3文件路径的定义" title="Permanent link">🐟</a></h3>
+<ul>
+<li>指定根目录：<code>root path;</code></li>
+<li>
+<p>默认：root html
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>location /download/ <span class="o">{</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>  <span class="c1"># 请求的URI是/download/index/test.html，服务器返回/opt/web/html/download/index/test.html文件的内容</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a>  root /opt/web/html/<span class="p">;</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="o">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>将uri请求目录映射为根目录：<code>alias path;</code>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>location /conf <span class="o">{</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a>  <span class="c1"># 请求的URI是/conf/nginx.conf，服务器返回/usr/local/nginx/conf/nginx.conf，将/conf映射为了/usr/local/nginx/conf/</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a>  <span class="nb">alias</span> /usr/local/nginx/conf/<span class="p">;</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="o">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>访问首页：<code>index file...;</code></p>
+</li>
+<li>
+<p>默认：index index.html;</p>
+</li>
+<li>
+<p>根据HTTP返回码重定向页面：<code>error_page code[code...][=|=answer-code]uri|@named_location</code>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>error_page <span class="m">404</span> /404.html<span class="p">;</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a>error_page <span class="m">502</span> <span class="m">503</span> <span class="m">504</span> /50x.html<span class="p">;</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a>error_page <span class="m">403</span> http://example.com/forbidden.html<span class="p">;</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="c1"># 重定向到另一个location中进行处理</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a>error_page <span class="nv">404</span> <span class="o">=</span> @fallback<span class="p">;</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a>
+<a id="__codelineno-10-7" name="__codelineno-10-7"></a>location @fallback <span class="o">(</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8"></a>  proxy_pass http://backend<span class="p">;</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="o">)</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>是否允许递归使用error_page：<code>recursive_error_pages[on|off];</code></p>
+</li>
+<li>
+<p>默认：recursive_error_pages off;</p>
+</li>
+<li>
+<p>寻找文件：<code>try_files path1[path2] uri;</code>
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="c1"># 按照顺序找这些文件，文件存在就返回，结束请求，如果都找不到就进入设置好的重定向处理。</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a>try_files /system/maintenance.html <span class="nv">$uri</span> <span class="nv">$uri</span>/index.html <span class="nv">$uri</span>.html @other<span class="p">;</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a>location @other <span class="o">{</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a>  proxy_pass http://backend<span class="p">;</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="o">}</span>
+</code></pre></div></p>
+</li>
+</ul>
+<h3 id="4内存及磁盘资源的分配">4.内存及磁盘资源的分配<a class="headerlink" href="#4内存及磁盘资源的分配" title="Permanent link">🐟</a></h3>
+<blockquote>
+<p>处理请求时内存、磁盘资源分配的配置项</p>
+</blockquote>
+<ul>
+<li>HTTP包体只存储到磁盘文件中：<code>client_body_in_file_only on|clean|off;</code></li>
+<li>默认：client_body_in_file_only off;</li>
+<li>
+<p>当设置为on|clean时，请求包体会存储在磁盘文件中。</p>
+</li>
+<li>
+<p>HTTP包体尽量写入到一个内存buffer中：<code>client_body_in_single_buffer on|off;</code></p>
+</li>
+<li>默认：client_body_in_single_buffer off;</li>
+<li>
+<p>如果包体内容大过client_body_buffer_size，包体内容就存储在磁盘文件中</p>
+</li>
+<li>
+<p>存储HTTP头部的内存buffer大小：<code>client_header_buffer_size size;</code></p>
+</li>
+<li>默认：client_header_buffer_size 1k;</li>
+<li>
+<p>正常情况下Nginx接收用户请求中HTTP header部分（包括HTTP行和HTTP头部）时分配的内存buffer大小</p>
+</li>
+<li>
+<p>存储超大HTTP头部的内存buffer大小：<code>large_client_header_buffers number size;</code></p>
+</li>
+<li>默认：large_client_header_buffers 48k;</li>
+<li>
+<p>定义了Nginx接收一个超大HTTP头部请求的buffer个数和每个buffer的大小</p>
+</li>
+<li>
+<p>存储HTTP包体的内存buffer大小：<code>client_body_buffer_size size;</code></p>
+</li>
+<li>默认：client_body_buffer_size 8k/16k;</li>
+<li>
+<p>定义了Nginx接收HTTP包体的内存缓冲区大小</p>
+</li>
+<li>
+<p>HTTP包体的临时存放目录：<code>client_body_temp_path dir-path[level1[level2[level3]]]</code></p>
+</li>
+<li>
+<p>client_body_temp_path /opt/nginx/client_temp 1 2;</p>
+</li>
+<li>
+<p>指定为连接成功的请求分配内存池初始大小：<code>connection_pool_size size;</code></p>
+</li>
+<li>
+<p>默认：connection_pool_size 256;</p>
+</li>
+<li>
+<p>开始处理请求，为每个请求分配的内存池大小：<code>request_pool_size size;</code></p>
+</li>
+<li>默认：request_pool_size 4k;</li>
+</ul>
+<h3 id="5网络连接的设置">5.网络连接的设置<a class="headerlink" href="#5网络连接的设置" title="Permanent link">🐟</a></h3>
+<ul>
+<li>读取HTTP头部的超时时间：<code>client_header_timeout time（默认单位：秒）;</code></li>
+<li>默认：client_header_timeout 60;</li>
+<li>读取HTTP包体的超时时间：<code>client_body_timeout time（默认单位：秒）;</code></li>
+<li>默认：client_body_timeout 60;</li>
+<li>发送响应的超时时间：<code>send_timeout time;</code></li>
+<li>默认：send_timeout 60;</li>
+<li><code>reset_timeout_connection on|off;</code></li>
+<li>默认：reset_timeout_connection off;</li>
+<li>
+<p>连接超时，直接向用户发送RST重置包，而不是四次挥手关闭连接。</p>
+</li>
+<li>
+<p><code>lingering_close off|on|always;</code></p>
+</li>
+<li>默认：lingering_close on;</li>
+<li>控制Nginx关闭用户连接的方式。</li>
+<li>always表示关闭用户连接前必须无条件地处理连接上所有用户发送的数据</li>
+<li>off表示关闭连接时完全不管连接上是否已经有准备就绪的来自用户的数据</li>
+<li>
+<p>on是中间值，一般情况下在关闭连接前都会处理连接上的用户发送的数据</p>
+</li>
+<li>
+<p><code>lingering_time time;</code>  </p>
+</li>
+<li>默认：lingering_time 30s;</li>
+<li>
+<p>跟用户文件上传相关，如果经过lingering_time后，上传还在继续，则会关闭连接</p>
+</li>
+<li>
+<p><code>lingering_timeout time;</code></p>
+</li>
+<li>默认：lingering_timeout 5s;</li>
+<li>
+<p>关闭连接前，检测是否有用户发送的数据到达服务器</p>
+</li>
+<li>
+<p>对某些浏览器禁用keepalive功能：<code>keepalive_disable[msie6|safari|none]...</code></p>
+</li>
+<li>默认：keepalive_disablemsie6 safari</li>
+<li>
+<p>让多个请求复用一个HTTP长连接，这个功能对服务器的性能提高是很有帮助的</p>
+</li>
+<li>
+<p>keepalive超时时间：<code>keepalive_timeout time（默认单位：秒）;</code></p>
+</li>
+<li>默认：keepalive_timeout 75;</li>
+<li>
+<p>一个keepalive连接在闲置超过一定时间后（默认的是75秒），服务器和浏览器都会去关闭这个连接。</p>
+</li>
+<li>
+<p>一个keepalive长连接上允许承载的请求最大数：<code>keepalive_requests n;</code></p>
+</li>
+<li>
+<p>默认：keepalive_requests 100;</p>
+</li>
+<li>
+<p>对keepalive连接是否使用TCP_NODELAY选项：<code>tcp_nodelay on|off;</code></p>
+</li>
+<li>
+<p>默认：tcp_nodelay on;</p>
+</li>
+<li>
+<p><code>tcp_nopush on|off;</code></p>
+</li>
+<li>默认：tcp_nopush off;</li>
+<li>打开tcp_nopush后，将会在发送响应时把整个响应包头放到一个TCP包中发送</li>
+</ul>
+<h3 id="6mime类型的设置">6.MIME类型的设置<a class="headerlink" href="#6mime类型的设置" title="Permanent link">🐟</a></h3>
+<ul>
+<li>
+<p>MIME type与文件扩展的映射：<code>type{...};</code>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="nx">types</span> <span class="p">{</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a>  <span class="nx">text</span><span class="o">/</span><span class="nx">html</span> <span class="nx">html</span><span class="p">;</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a>  <span class="nx">text</span><span class="o">/</span><span class="nx">html</span> <span class="nx">conf</span><span class="p">;</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a>  <span class="nx">image</span><span class="o">/</span><span class="nx">gif</span> <span class="nx">gif</span><span class="p">;</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a>  <span class="nx">image</span><span class="o">/</span><span class="nx">jpeg</span> <span class="nx">jpg</span><span class="p">;</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="p">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>默认MIME type：<code>default_type MIME-type;</code></p>
+</li>
+<li>
+<p>默认：default_type text/plain;</p>
+</li>
+<li>
+<p><code>types_hash_bucket_size size;</code></p>
+</li>
+<li>默认：types_hash_bucket_size 32|64|128;</li>
+<li>
+<p>设置每个散列桶占用的内存大小，快速寻找到相应MIME type，使用散列表来存储MIMEtype与文件扩展名</p>
+</li>
+<li>
+<p><code>types_hash_max_size size;</code></p>
+</li>
+<li>默认：types_hash_max_size 1024;</li>
+<li>types_hash_max_size越大，就会消耗更多的内存，但散列key的冲突率会降低，检索速度就更快</li>
+</ul>
+<h3 id="7对客户端请求的限制">7.对客户端请求的限制<a class="headerlink" href="#7对客户端请求的限制" title="Permanent link">🐟</a></h3>
+<ul>
+<li>
+<p>按HTTP方法名限制用户请求：<code>limit_except method...{...}</code>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="c1"># 禁止GET方法和HEAD方法，允许其他HTTP方法</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a>limit_except GET <span class="o">{</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a>  allow <span class="m">192</span>.168.1.0/32<span class="p">;</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a>  deny all<span class="p">;</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="o">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>HTTP请求包体的最大值：<code>client_max_body_size size;</code></p>
+</li>
+<li>默认：client_max_body_size 1m;</li>
+<li>
+<p>可以告诉用户请求过大不被接受</p>
+</li>
+<li>
+<p>对请求的限速：<code>limit_rate speed;</code></p>
+</li>
+<li>默认：limit_rate 0;</li>
+<li>
+<p>限制每秒传输的字节数</p>
+</li>
+<li>
+<p>超过多大后限速：<code>limit_rate_after time;</code></p>
+</li>
+<li>默认：limit_rate_after 1m;   </li>
+</ul>
+<h3 id="8文件操作的优化">8.文件操作的优化<a class="headerlink" href="#8文件操作的优化" title="Permanent link">🐟</a></h3>
+<ul>
+<li>sendfile系统调用：<code>sendfile on|off;</code></li>
+<li>默认：sendfile off;</li>
+<li>
+<p>减少内核态与用户态间的文件复制次数（零拷贝）</p>
+</li>
+<li>
+<p>AIO系统调用：<code>aio on|off;</code></p>
+</li>
+<li>是否在FreeBSD或Linux系统上启用内核级别的异步文件I/O功能</li>
+<li>
+<p>与sendfile功能是互斥的</p>
+</li>
+<li>
+<p><code>directio size|off;</code></p>
+</li>
+<li>默认：directio off;</li>
+<li>读取文件，缓冲区大小为size，通常对大文件的读取速度有优化作用。</li>
+<li>
+<p>与sendfile功能是互斥的</p>
+</li>
+<li>
+<p><code>directio_alignment size;</code></p>
+</li>
+<li>默认：directio_alignment 512;</li>
+<li>
+<p>与directio配合使用，指定以directio方式读取文件时的对齐方式（4k对齐等）</p>
+</li>
+<li>
+<p>打开文件缓存：<code>open_file_cache max=N[inactive=time]|off;</code></p>
+</li>
+<li>
+<p>默认：open_file_cache off;</p>
+</li>
+<li>
+<p>是否缓存打开文件错误的信息：<code>open_file_cache_errors on|off;</code></p>
+</li>
+<li>默认：open_file_cache_errors off;</li>
+<li>
+<p>是否在文件缓存中缓存打开文件时出现的找不到路径、没有权限等错误信息</p>
+</li>
+<li>
+<p>不被淘汰的最小访问次数：<code>open_file_cache_min_uses number;</code></p>
+</li>
+<li>默认：open_file_cache_min_uses 1;</li>
+<li>
+<p>与open_file_cache中的inactive参数配合使用。如果在inactive指定的时间段内，访问次数超过了open_file_cache_min_uses指定的最小次数，那么将不会被淘汰出缓存</p>
+</li>
+<li>
+<p>检验缓存中元素有效性的频率：<code>open_file_cache_valid time;</code></p>
+</li>
+<li>默认：open_file_cache_valid 60s;</li>
+<li>默认为每60秒检查一次缓存中的元素是否仍有效</li>
+</ul>
+<h3 id="9对客户端请求的特殊处理">9.对客户端请求的特殊处理<a class="headerlink" href="#9对客户端请求的特殊处理" title="Permanent link">🐟</a></h3>
+<ul>
+<li>忽略不合法的HTTP头部：<code>ignore_invalid_headers on|off;</code></li>
+<li>默认：ignore_invalid_headers off;</li>
+<li>
+<p>off表示允许不合法的请求头</p>
+</li>
+<li>
+<p>HTTP头部是否允许下划线：<code>underscores_in_headers on|off;</code></p>
+</li>
+<li>默认：underscores_in_headers off;</li>
+<li>
+<p>off表示不允许有下划线</p>
+</li>
+<li>
+<p>对If-Modified-Since头部的处理策略：<code>if_modified_since[off|exact|before];</code></p>
+</li>
+<li>默认：if_modified_since exact;</li>
+<li>
+<p>上次请求获取内容的时间</p>
+</li>
+<li>
+<p>文件未找到时是否记录到error日志：<code>log_not_found on|off;</code></p>
+</li>
+<li>
+<p>默认：log_not_found on;</p>
+</li>
+<li>
+<p>合并请求中相邻的/：<code>merge_slashes on|off;</code></p>
+</li>
+<li>
+<p>默认：merge_slashes on;</p>
+</li>
+<li>
+<p>DNS解析地址：<code>resolver address...;</code></p>
+</li>
+<li>DNS解析的超时时间：<code>resolver_timeout time;</code></li>
+<li>默认：resolver_timeout 30s;</li>
+</ul>
+                
+                  
+                    
+
+<hr>
+<div class="md-source-date">
+  <small>
+    
+      最后更新: 2021-12-17
+    
+  </small>
+</div>
+                  
+                
+              
+              
+<div id="vssue"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/vssue/dist/vssue.min.css">
+<!-- OR: vue full build (runtime + compiler)  -->
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+<!-- Vssue Github build -->
+<script src="https://unpkg.com/vssue/dist/vssue.github.min.js"></script>
+
+<script>
+    new Vue({
+      el: '#vssue',
+
+      data: {
+        title: 'shafish.cn',
+        prefix: '[BlogComment]',
+
+        options: {
+          owner: 'shafishcn',
+          repo: 'shafish_blog',
+          clientId: 'f49fcb8c02a7868c8690',
+          clientSecret: '5940fc487ff4e7237a01a28c0fe3775140bf05b2', // only required for some of the platforms
+        },
+      },
+
+      template: `<vssue :title="title" :options="options"></vssue>`,
+    })
+  </script>
+
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../github_action/" class="md-footer__link md-footer__link--prev" aria-label="上一页: github action使用" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              github action使用
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../../../life/" class="md-footer__link md-footer__link--next" aria-label="下一页: 生活" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              生活
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2018 - 2021 shafish
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+      <a href="mailto:<shafish_cn@163.com>" target="_blank" rel="noopener" title="发送邮件" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M476 3.2 12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.annotate", "header.autohide", "toc.separate"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.2b46852b.min.js"></script>
+      
+    
+  </body>
+</html>
