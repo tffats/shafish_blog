@@ -40,7 +40,7 @@ theme:
     - navigation.tabs.sticky
     #- navigation.sections
     #- navigation.expand  # 每次刷新都展开子节点
-    #- navigation.indexes  # 无效？？
+    - navigation.indexes  # 无效？？
     #- toc.integrate  # 目录展开在字节点下
     - navigation.top # 一键回顶 top
     - search.suggest
@@ -48,9 +48,11 @@ theme:
     #- header.autohide
     - content.code.annotate
     - header.autohide
+    - toc.separate
 
 plugins:
   - search
+  - git-revision-date
 
 extra:
   social:
@@ -85,7 +87,11 @@ markdown_extensions:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
   - md_in_html
+  - meta
   - def_list
+  - toc:
+      permalink:  🐟 # ⚓︎ # 显示锚点
+      slugify: !!python/name:pymdownx.slugs.uslugify # 显示一些Unicode的标识符（可能是罗马希腊那些什么鬼符号）
   - pymdownx.tasklist:
       custom_checkbox: true  
 
@@ -96,8 +102,9 @@ nav:
      # - blog/2022/index.md
       #- 第一篇文章: blog/2022/1.md
     - 2021年:
-      #- blog/2021/index.md
+      - blog/2021/index.md
       - 12月份: 
+        - github action使用: blog/2021/12/github_action.md 
         - nginx使用记录: blog/2021/12/nginx_record.md
   - 生活: life/index.md
   - 关于: about.md

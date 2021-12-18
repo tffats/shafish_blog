@@ -3,6 +3,9 @@ hide:
   - toc
 ---
 
-技术区2021年简述
+# 2021年
 
-## hello
+## 12月份
+
+- [github action使用](12/github_action.md)
+- [nginx使用记录](12/nginx_record.md)

@@ -814,7 +814,7 @@ markdown_extensions:
 
 === "自定义颜色"
 
-    定义一个叫shafish的色调
+    定义一个叫shafish的主题色调
     ``` yml
     # mkdocs.yml 相关配置
     theme:
@@ -943,6 +943,7 @@ theme:
 === "右下角加个联系方式"
 
     ``` yml
+    # mkdocs.yml 相关配置
     extra:
         social:
             -   icon: fontawesome/solid/paper-plane
@@ -988,3 +989,16 @@ ref:[Vssue](https://vssue.js.org/zh/guide/)
 
 ### 三、插件
 
+#### 1. 显示文件最后修改时间
+
+``` shell
+$ pip install mkdocs-git-revision-date-plugin
+```
+
+``` yml
+# mkdocs.yml 相关配置
+plugins:
+  - git-revision-date
+```
+
+### 四、部署
