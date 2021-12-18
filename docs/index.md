@@ -4,7 +4,7 @@
 
 - 旅游
 
-- ci test2
+- ci test3
 
 https://shafishcn.github.io/shafish_blog/
 
