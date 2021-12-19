@@ -5,6 +5,9 @@ site_author: shafish
 site_description: >-
   Just write something about Work、Technology and Life.
 
+repo_url: https://github.com/shafishcn/shafish_blog
+repo_name: shafishcn/shafish_blog
+edit_uri: edit/main/docs/
 copyright: Copyright &copy; 2018 - 2021 shafish
 
 theme:
@@ -17,6 +20,8 @@ theme:
     #code: Roboto Mono
   #favicon: assets/favicon.png
   # 网站字体
+  icon:
+    repo: fontawesome/brands/github
   palette:
     scheme: slate
     primary:  deep orange
@@ -36,14 +41,14 @@ theme:
         #icon: material/weather-sunny
         #name: 开灯
   features:
-    - navigation.instant # without fully reloading the page
+    #- navigation.instant # without fully reloading the page
     - navigation.tracking
     - navigation.tabs # nav top目录显示在标题栏
     - navigation.tabs
     - navigation.tabs.sticky
     #- navigation.sections
     #- navigation.expand  # 每次刷新都展开子节点
-    - navigation.indexes  # 无效？？
+    - navigation.indexes  # 跟navigation.instant不兼容
     #- toc.integrate  # 目录展开在字节点下
     - navigation.top # 一键回顶 top
     - search.suggest
@@ -105,6 +110,9 @@ nav:
     #- 2022:
      # - blog/2022/index.md
       #- 第一篇文章: blog/2022/1.md
+    - 会更新区: 
+      - mkdocs使用记录: blog/mkdocs.md  
+      - i3wm使用记录: blog/i3wm.md  
     - 2021年:
       - blog/2021/index.md
       - 12月份: 
