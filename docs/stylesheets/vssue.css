@@ -14,7 +14,7 @@
  }
  .vssue {
    width: 100%;
-   color: #000000;
+   color: #ffffff;
    font-size: 16px;
    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
    padding: 10px;
@@ -282,7 +282,7 @@
    overflow: hidden;
    border-top-left-radius: 5px;
    border-top-right-radius: 5px;
-   border: 1px solid #eaecef;
+   border: 1px solid #6c7481;
    border-bottom: none;
  }
  .vssue .vssue-comments .vssue-comment .vssue-comment-header .vssue-comment-created-at {
@@ -292,7 +292,7 @@
  }
  .vssue .vssue-comments .vssue-comment .vssue-comment-main {
    padding: 15px;
-   border: 1px solid #eaecef;
+   border: 1px solid #6c7481;
  }
  .vssue .vssue-comments .vssue-comment .vssue-comment-main .vssue-edit-comment-input {
    resize: none;
@@ -306,7 +306,7 @@
    overflow: hidden;
    border-bottom-left-radius: 5px;
    border-bottom-right-radius: 5px;
-   border: 1px solid #eaecef;
+   border: 1px solid #6c7481;
    border-top: none;
  }
  .vssue .vssue-comments .vssue-comment .vssue-comment-footer .vssue-comment-hint {

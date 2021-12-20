@@ -7,6 +7,7 @@ hide:
 
 ## 12月份
 
-- [jenkins部署](12/jenkins.md)
+- [archivebox使用](12/archivebox.md)
+- [jenkins部署(未完)](12/jenkins.md)
 - [github action使用](12/github_action.md)
 - [nginx使用记录](12/nginx_record.md)
