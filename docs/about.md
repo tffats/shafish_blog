@@ -1,3 +1,7 @@
+---
+disqus: ""
+---
+
 :bell:这配色，精心挑选，匠心制作，没毛病铁子:bell:
 
 终于正式使用静态博客啦 :sparkler:  来一起嗨起来:tada: :tada: :tada:

@@ -5,7 +5,7 @@
 
 ### 1. 显示术语提示
 
-``` yml
+``` yaml
 # mkdocs.yml 相关配置
 markdown_extensions:
   - abbr
@@ -33,7 +33,7 @@ markdown_extensions:
 !!! note
     显示效果跟上面示例1是一样的，区别是使用`--8<--`可以把术语的说明 独立在另外的文件，不必跟术语在同一文件中。
 
-``` yml
+``` yaml
 # mkdocs.yml 相关配置
 markdown_extensions:
   - abbr
@@ -58,7 +58,7 @@ markdown_extensions:
 
 ### 3. 提示、警告栏
 
-``` yml
+``` yaml
 # mkdocs.yml 相关配置
 markdown_extensions:
   - admonition
@@ -230,7 +230,7 @@ markdown_extensions:
 
 ### 4. 按钮
 
-``` yml
+``` yaml
 # mkdocs.yml 相关配置
 markdown_extensions:
   - attr_list
@@ -254,7 +254,7 @@ markdown_extensions:
 
 ### 5. 代码块
 
-``` yml
+``` yaml
 # mkdocs.yml 相关配置
 markdown_extensions:
   - pymdownx.highlight:
@@ -345,7 +345,7 @@ markdown_extensions:
     ```
 ### 6. 内容标签栏
 
-``` yml
+``` yaml
 # mkdocs.yml 相关配置
 markdown_extensions:
   - pymdownx.superfences
@@ -405,7 +405,7 @@ markdown_extensions:
 
 ### 7. 表格
 
-``` yml
+``` yaml
 # mkdocs.yml 相关配置
 markdown_extensions:
   - tables
@@ -432,7 +432,7 @@ markdown_extensions:
 ### 8. 注脚
 在本页的底部显示注脚内容
 
-``` yml
+``` yaml
 # mkdocs.yml 相关配置
 markdown_extensions:
   - footnotes
@@ -456,7 +456,7 @@ markdown_extensions:
 
 ### 9. 格式化处理
 
-``` yml
+``` yaml
 # mkdocs.yml 相关配置
 markdown_extensions:
   - pymdownx.critic
@@ -484,11 +484,11 @@ markdown_extensions:
 
 === "Code"
 
-    ref: https://github.com/squidfunk/mkdocs-material/edit/master/docs/reference/formatting.md
+    ![](imgs/mkdocs/formate.png)
 
 ### 10. 图标
 
-``` yml
+``` yaml
 # mkdocs.yml 相关配置
 markdown_extensions:
   - pymdownx.emoji:
@@ -498,12 +498,12 @@ markdown_extensions:
 
 === "Show"
 
-    :smile: 
+    :smile:  :dart:
 
 === "Code"
 
     ``` markdown
-    :smile: 
+    :smile:  :dart:
     ```
 支持以下图标：
 
@@ -511,13 +511,14 @@ markdown_extensions:
 - :fontawesome-brands-font-awesome: – [FontAwesome]
 - :octicons-mark-github-16: – [Octicons]
 
-  [Material Design]: https://materialdesignicons.com/
-  [FontAwesome]: https://fontawesome.com/icons?d=gallery&m=free
-  [Octicons]: https://octicons.github.com/
+[Material Design]: https://materialdesignicons.com/
+[FontAwesome]: https://fontawesome.com/icons?d=gallery&m=free
+[Octicons]: https://octicons.github.com/
 
+github：https://github.com/zhangjw-THU/Emoji
 ### 11. 图片
 
-``` yml
+``` yaml
 # mkdocs.yml 相关配置
 markdown_extensions:
   - attr_list
@@ -564,7 +565,7 @@ markdown_extensions:
 
 ### 12. 列表
 
-``` yml
+``` yaml
 # mkdocs.yml 相关配置
 markdown_extensions:
   - def_list
@@ -698,7 +699,7 @@ markdown_extensions:
 
 === "调整主题颜色"
 
-    ``` yml
+    ``` yaml
     # mkdocs.yml 相关配置
     theme:
         palette:
@@ -726,7 +727,7 @@ markdown_extensions:
 
 === "调整主色调"
 
-    ``` yml
+    ``` yaml
     # mkdocs.yml 相关配置
     theme:
         palette:
@@ -772,7 +773,7 @@ markdown_extensions:
 
 === "调整hovered、buttons、scrollbars颜色"
 
-    ``` yml
+    ``` yaml
     # mkdocs.yml 相关配置
     theme:
         palette:
@@ -814,7 +815,7 @@ markdown_extensions:
 === "自定义颜色"
 
     定义一个叫shafish的主题色调
-    ``` yml
+    ``` yaml
     # mkdocs.yml 相关配置
     theme:
         palette:
@@ -835,7 +836,7 @@ markdown_extensions:
 
 支持：[Google Font ](https://fonts.google.com/)
 
-``` yml
+``` yaml
 # mkdocs.yml 相关配置
 theme:
     font:
@@ -845,7 +846,7 @@ theme:
 
 ### 3. logo、favicon
 
-``` yml
+``` yaml
 # mkdocs.yml 相关配置
 theme:
     logo: assets/logo.png # logo
@@ -854,7 +855,7 @@ theme:
 
 ### 4. 导航栏
 
-``` yml
+``` yaml
 # mkdocs.yml 相关配置
 theme:
   features:
@@ -869,17 +870,6 @@ theme:
     - navigation.top # 一键回顶部
 ```
 
-``` markdown
-// md文件头部设置隐藏nav或者toc
----
-hide:
-  - navigation
-  - toc
----
-
-xxx
-```
-
 ### 5. 搜索
 
 ref：[https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/](https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/)
@@ -889,7 +879,7 @@ ref：[https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/
 
 - [Google Analytics](https://developers.google.com/analytics)
 
-``` yml
+``` yaml
 # mkdocs.yml 相关配置
 extra:
   analytics:
@@ -897,14 +887,62 @@ extra:
     property: G-XXXXXXXXXX
 ```
 
-### 7. 生成分享卡片
-太高级了，现在还用不上。
+### 7. metadata设置
 
-ref: [https://squidfunk.github.io/mkdocs-material/setup/setting-up-social-cards/](https://squidfunk.github.io/mkdocs-material/setup/setting-up-social-cards/)
+可以设置特定的key-value到markdown文档中，mkdocs再进行对应解析
+``` yaml
+markdown_extensions:
+  - meta
+```
+
+=== "页面标题"
+    ``` markdown
+    ---
+    title: Lorem ipsum dolor sit amet 
+
+    ---
+
+    # Document title
+    ...
+    ```
+
+=== "页面描述"
+    ``` markdown
+    ---
+    description: Nullam urna elit, malesuada eget finibus ut, ac tortor. 
+
+    ---
+
+    # Document title
+    ...
+    ```
+
+=== "隐藏nav、toc"
+
+    ``` markdown
+    ---
+    hide:
+        - navigation
+        - toc
+    ---
+
+    # Document title
+    ```
+
+=== "隐藏评论"
+
+    ``` markdown
+    ---
+    disqus: ""
+    ---
+
+    # Document title
+    ...
+    ```
 
 ### 8. 顶部隐藏、发布通知
 
-``` yml
+``` yaml
 # mkdocs.yml 相关配置
 theme:
   features:
@@ -926,7 +964,7 @@ theme:
 
 === "声明保留版权"
 
-    ``` yml
+    ``` yaml
     # mkdocs.yml 相关配置
     copyright: Copyright &copy; 2017 - 2020 shafish.cn
     ```
@@ -941,7 +979,7 @@ theme:
 
 === "右下角加个联系方式"
 
-    ``` yml
+    ``` yaml
     # mkdocs.yml 相关配置
     extra:
         social:
@@ -989,6 +1027,40 @@ ref:[Vssue](https://vssue.js.org/zh/guide/)
 {% endblock %}
 ```
 
+### 11. blocks
+
+=== "使用方法"
+
+    ``` html
+    <!-- overrides/main.html -->
+    {% extends "base.html" %}
+
+    {% block blockName %}
+        xxx
+    {% endblock %}
+    ```
+
+=== "设置标题-htmltitle"
+
+    ``` html
+    {% extends "base.html" %}
+
+    {% block htmltitle %}
+        xxx
+    {% endblock %}
+    ```
+
+=== "通知栏-announce"
+
+    ``` html
+    {% extends "base.html" %}
+
+    {% block announce %}
+        xxx
+    {% endblock %}
+    ```    
+
+
 ## 三、插件
 
 https://facelessuser.github.io/pymdown-extensions/extensions
@@ -1000,7 +1072,7 @@ https://facelessuser.github.io/pymdown-extensions/extensions
 $ pip install mkdocs-git-revision-date-plugin
 ```
 
-``` yml
+``` yaml
 # mkdocs.yml 相关配置
 plugins:
   - git-revision-date

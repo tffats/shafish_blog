@@ -37,7 +37,12 @@ services:
         environment:
             - ALLOWED_HOSTS=*                   # add any config options you want as env vars
             - MEDIA_MAX_SIZE=750m
-            - TIMEOUT=360
+            #- SAVE_WARC=False
+            #- SAVE_PDF=False
+            #- SAVE_SCREENSHOT=False
+            #- SAVE_MEDIA=False
+            - SAVE_ARCHIVE_DOT_ORG=False
+            - TIMEOUT=1500
             - SEARCH_BACKEND_ENGINE=sonic     # uncomment these if you enable sonic below
             - SEARCH_BACKEND_HOST_NAME=sonic
             - SEARCH_BACKEND_PASSWORD=xxxxabc
@@ -106,6 +111,11 @@ services:
     #         ./data/wayback:/webarchive
 ```
 
+``` shell
+# 运行
+docker-compose up -d
+```
+
 文件设置了容器对外暴露本地8800端口，可以做个nginx反代，或者直接放行服务器8800访问，自己搞。
 
 执行过程会提示输入用户名、邮箱、密码的，这个就是管理员帐号，登录管理后台用的。
@@ -124,4 +134,8 @@ services:
 
 ![item详细](imgs/archivebox/archivebox_add4.png){ loading=lazy }
 
-最后可以看到下载到本地的内容能展示多种类型，html、pdf、原生等等，直接用singlefile也就是第一个就好。
+最后可以看到下载到本地的内容能展示多种类型，html、pdf、原生等等，直接用singlefile也就是第一个就好。或者在Archive method中选singlefile(推荐使用)
+
+## 三、配置
+
+https://github.com/ArchiveBox/ArchiveBox/wiki/Configuration

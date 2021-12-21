@@ -24,7 +24,7 @@ theme:
     repo: fontawesome/brands/github
   palette:
     scheme: slate
-    primary:  deep orange
+    primary:  deep orange  # 使用root自定义 # 算了deep orange还挺好看的
     accent: deep orange
     #- media: "(prefers-color-scheme: light)" 
       #scheme: default
