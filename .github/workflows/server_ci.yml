@@ -41,5 +41,5 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SERVER_KEY }}
           script: |
-            cd /www/wwwroot/shafish.cn/ && rm ./*
+            cd /www/wwwroot/shafish.cn/ && rm -rf ./*
             tar -zxvf /home/rsync/site.tar.gz -C ./ && mv site/* ./
