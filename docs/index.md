@@ -6,6 +6,8 @@
 
 - ci test3
 
+- test in my host
+
 https://shafishcn.github.io/shafish_blog/
 
 - 。。。
