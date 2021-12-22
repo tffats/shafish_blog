@@ -32,7 +32,7 @@ jobs:
           FOLDER: ./site.tar.gz
           SERVER_IP: ${{ secrets.SERVER_HOST }}
           USERNAME: ${{ secrets.SERVER_USERNAME }}
-          SERVER_DESTINATION: /www/wwwroot/shafish.cn
+          SERVER_DESTINATION: /home/rsync
 
       - name: execute script 
         uses: appleboy/ssh-action@master
@@ -41,5 +41,5 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SERVER_KEY }}
           script: |
-            cd /www/wwwroot/shafish.cn/
-            tar -zxvf site.tar.gz && mv -f site/* ./
+            cd /www/wwwroot/shafish.cn/ && rm ./*
+            tar -zxvf /home/rsync/site.tar.gz -C ./ && mv site/* ./
