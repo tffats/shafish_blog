@@ -42,5 +42,4 @@ jobs:
           key: ${{ secrets.SERVER_KEY }}
           script: |
             cd /www/wwwroot/shafish.cn/
-            shopt -s extglob && rm -rf !(.user.ini|site.tar.gz) 
-            tar -zxvf site.tar.gz && mv site/* ./
+            tar -zxvf site.tar.gz && mv -f site/* ./
