@@ -32,4 +32,4 @@ jobs:
           FOLDER: ./site
           SERVER_IP: ${{ secrets.SERVER_HOST }}
           USERNAME: ${{ secrets.SERVER_USERNAME }}
-          SERVER_DESTINATION: /www/wwwroot/shafish.cn
+          SERVER_DESTINATION: /home/rsync
