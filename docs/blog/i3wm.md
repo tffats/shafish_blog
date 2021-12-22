@@ -8,6 +8,8 @@ https://i3wm.org/docs/userguide.html
 
 ref: https://github.com/greshake/i3status-rust
 
+![](./imgs/i3wm/i3status-rust.png)
+
 - 1.安装
 
 ``` shell
@@ -111,8 +113,8 @@ icons = "awesome"
 [[block]]
 block = "net"
 device = "wlp1s0"
-format = "{ssid} {speed_down;K*b}"
-interval = 5
+format = "{ssid} {speed_down;K*b} {speed_up:K*b}"
+interval = 1
 
 [[block]]
 block = "disk_space"

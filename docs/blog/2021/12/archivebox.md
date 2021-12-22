@@ -134,7 +134,7 @@ docker-compose up -d
 
 ![item详细](imgs/archivebox/archivebox_add4.png){ loading=lazy }
 
-最后可以看到下载到本地的内容能展示多种类型，html、pdf、原生等等，直接用singlefile也就是第一个就好。或者在Archive method中选singlefile(推荐使用)
+最后可以看到下载到本地的内容能展示多种类型，html、pdf、原生等等，直接用singlefile也就是第一个就好。或者在Archive method中选前四个就行(推荐使用)
 
 ## 三、配置
 

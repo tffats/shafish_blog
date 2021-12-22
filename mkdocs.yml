@@ -60,7 +60,10 @@ theme:
 
 plugins:
   - search
-  - git-revision-date
+  - git-revision-date-localized:
+      type: datetime
+      fallback_to_build_date: true
+      enable_creation_date: true
 
 extra:
   social:

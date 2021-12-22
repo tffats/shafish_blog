@@ -218,3 +218,17 @@ jobs:
         run: mkdocs gh-deploy --force
 ```
 
+## 四、把mkdocs部署到云服务器
+
+### 1. 新建部署用户
+提供给Github action执行ssh、rsync等命令。
+
+``` shell
+useradd -s /bin/bash -G www -c for_github_action_remote_deployment rsync
+```
+
+### 2. 配置用户ssh信息
+
+### 3. 配置Github action环境变量
+
+### 4. 部署文件

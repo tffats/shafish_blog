@@ -1,0 +1,35 @@
+name: Built and pushed to the server
+on:
+  push:
+    branches:
+      - master
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout master 
+        uses: actions/checkout@v2
+
+      - name: Set up Python3.x
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: pip install mkdocs-material mkdocs-git-revision-date-localized-plugin
+
+      - name: Build
+        run: mkdocs build
+
+      - name: Deploy to Server
+        uses: AEnterprise/rsync-deploy@v1.0
+        env:
+          DEPLOY_KEY: ${{ secrets.SERVER_KEY }}
+          ARGS: -avz --delete --exclude='.user.ini' --exclude='.htaccess'
+          SERVER_PORT: ${{ secrets.SERVER_PORT }}
+          FOLDER: ./site
+          SERVER_IP: ${{ secrets.SERVER_HOST }}
+          USERNAME: ${{ secrets.SERVER_USERNAME }}
+          SERVER_DESTINATION: /www/wwwroot/shafish.cn
