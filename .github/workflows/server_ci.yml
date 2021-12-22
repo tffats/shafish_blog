@@ -23,13 +23,26 @@ jobs:
       - name: Build
         run: mkdocs build
 
-      - name: Deploy to Server
+      - name: upload build file to my host
         uses: AEnterprise/rsync-deploy@v1.0
         env:
           DEPLOY_KEY: ${{ secrets.SERVER_KEY }}
           ARGS: -avz --delete --exclude='.user.ini' --exclude='.htaccess'
           SERVER_PORT: ${{ secrets.SERVER_PORT }}
-          FOLDER: ./site
+          FOLDER: ./site.tar.gz
           SERVER_IP: ${{ secrets.SERVER_HOST }}
           USERNAME: ${{ secrets.SERVER_USERNAME }}
-          SERVER_DESTINATION: /home/rsync
+          SERVER_DESTINATION: /www/wwwroot/shafish.cn
+
+      - name: execute script 
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          key: ${{ secrets.SERVER_KEY }}
+          script: |
+            cd /www/wwwroot/shafish.cn/
+            rm -rf !(.user.ini|site.tar.gz) 
+            tar -zxvf site.tar.gz 
+            mv site/* ./
+
