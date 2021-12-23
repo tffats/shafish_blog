@@ -3,6 +3,19 @@
 
 ## 一、markdown使用
 
+### 0. 版本与升级
+
+!!! tip
+
+    版本升级须知：[https://squidfunk.github.io/mkdocs-material/upgrade/#upgrading-from-7x-to-8x](https://squidfunk.github.io/mkdocs-material/upgrade/#upgrading-from-7x-to-8x)
+
+``` shell
+# 查看当前安装的版本号
+pip show mkdocs-material
+# 升级到最新版本
+pip install --upgrade mkdocs-material
+```
+
 ### 1. 显示术语提示
 
 ``` yaml
@@ -485,6 +498,10 @@ markdown_extensions:
 === "Code"
 
     ![](imgs/mkdocs/formate.png)
+    ``` markdown 
+    - H~2~0
+    - A^T^A
+    ``` 
 
 ### 10. 图标
 
@@ -510,12 +527,13 @@ markdown_extensions:
 - :material-material-design: – [Material Design]
 - :fontawesome-brands-font-awesome: – [FontAwesome]
 - :octicons-mark-github-16: – [Octicons]
+- github markdown：[https://github.com/zhangjw-THU/Emoji](https://github.com/zhangjw-THU/Emoji)
+- github commit：[https://github.com/shafishcn/git-commit-emoji-cn](https://github.com/shafishcn/git-commit-emoji-cn)
 
 [Material Design]: https://materialdesignicons.com/
 [FontAwesome]: https://fontawesome.com/icons?d=gallery&m=free
 [Octicons]: https://octicons.github.com/
 
-github：https://github.com/zhangjw-THU/Emoji
 ### 11. 图片
 
 ``` yaml
@@ -706,7 +724,7 @@ markdown_extensions:
             scheme: default
     ```
 
-    只有两个选项可选：default（亮主题）、slate（暗主题）
+    默认只有两个选项可选：default（亮主题）、slate（暗主题）
 
     <div class="mdx-switch">
     <button data-md-color-scheme="default"><code>default</code></button>
@@ -812,7 +830,7 @@ markdown_extensions:
     </script>
 
 
-=== "自定义颜色"
+=== "自定义主题颜色"
 
     定义一个叫shafish的主题色调
     ``` yaml
@@ -859,13 +877,13 @@ theme:
 # mkdocs.yml 相关配置
 theme:
   features:
-    - navigation.instant # 点击内部链接时，不用全部刷新页面
+    #- navigation.instant # 点击内部链接时，不用全部刷新页面
     - navigation.tracking # 在url中使用标题定位锚点
     - navigation.tabs # 顶部显示导航顶层nav（也就是第一个节点）
     - navigation.tabs.sticky # 滚动是隐藏顶部nav，需要配合navigation.tabs使用
     - navigation.sections # nav节点缩进
     - navigation.expand # 不折叠左侧nav节点
-    - navigation.indexes # 指定节点index pages
+    - navigation.indexes # 指定节点index pages ，跟instant不兼容
     - toc.integrate # 右侧生产目录
     - navigation.top # 一键回顶部
 ```
@@ -931,9 +949,10 @@ markdown_extensions:
 
 === "隐藏评论"
 
+    请先看第10点详细说明。
     ``` markdown
     ---
-    disqus: ""
+    vssue: ""
     ---
 
     # Document title
@@ -992,52 +1011,139 @@ theme:
 
 ref:[Vssue](https://vssue.js.org/zh/guide/)
 
-``` html
-<!-- overrides/main.html -->
-{% block disqus %}
-<div id="vssue"></div>
+mkdocs-material 8.x将评论改为了自定义，需要在 `mkdocs.yml ` 中设置custom_dir目录，重写partials/content.html中的内容。
 
-<link rel="stylesheet" href="https://unpkg.com/vssue/dist/vssue.min.css">
-<!-- OR: vue full build (runtime + compiler)  -->
-<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
-<!-- Vssue Github build -->
-<script src="https://unpkg.com/vssue/dist/vssue.github.min.js"></script>
+=== "overrides/partials/content.html"
 
-<script>
-    new Vue({
-      el: '#vssue',
-   
-      data: {
-        title: options => `${options.prefix}${document.URL}`,
-        
-        options: {
-          owner: 'shafishcn',
-          repo: 'shafish_blog',
-          clientId: 'xxx',
-          clientSecret: 'xxx', // only required for some of the platforms
-          prefix: '[BlogComment]',
-          labels: [':sunny:'],
-          issueContent: ({ url }) =>`这个 Issue 由 Vssue 自动创建，用来存储该页面的评论：${url}`
+    ``` html
+    <!--
+    Copyright (c) 2016-2021 Martin Donath <martin.donath@squidfunk.com>
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to
+    deal in the Software without restriction, including without limitation the
+    rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+    sell copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+    The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+    IN THE SOFTWARE.
+    -->
+
+    <!-- Edit button -->
+    {% if page.edit_url %}
+    <a
+    href="{{ page.edit_url }}"
+    title="{{ lang.t('edit.link.title') }}"
+    class="md-content__button md-icon"
+    >
+    {% include ".icons/material/pencil.svg" %}
+    </a>
+    {% endif %}
+
+    <!--
+    Hack: check whether the content contains a h1 headline. If it
+    doesn't, the page title (or respectively site name) is used
+    as the main headline.
+    -->
+    {% if not "\x3ch1" in page.content %}
+    <h1>{{ page.title | d(config.site_name, true)}}</h1>
+    {% endif %}
+
+    <!-- Markdown content -->
+    {{ page.content }}
+
+    <!-- Source file information -->
+    {% if page and page.meta and (
+    page.meta.git_revision_date_localized or
+    page.meta.revision_date
+    ) %}
+    {% include "partials/source-file.html" %}
+    {% endif %}
+
+    <!-- Get setting from mkdocs.yml, but allow page-level overrides -->
+    <!-- 在不需要评论的页面设置 `vssue: "" ` 这个meta信息（需在mkdocs.yml中添加meta 这个pythonmarkdown 插件）即可关闭该页面的评论功能，比如在about页面关闭评论:
+
+    ---
+    vssue: ""
+    ---
+
+    # about
+
+    -->
+    {% set vssue = config.extra.vssue %}
+    {% if page and page.meta and page.meta.vssue is string %}
+    {% set vssue = page.meta.vssue %}
+    {% endif %}
+
+    <!-- Inject Disqus into current page -->
+    {% if not page.is_homepage and vssue %}
+        <div id="vssue"></div>
+
+        <!--<link rel="stylesheet" href="https://unpkg.com/vssue/dist/vssue.min.css">
+    OR: vue full build (runtime + compiler)  -->
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <!-- Vssue Github build -->
+    <script src="https://unpkg.com/vssue/dist/vssue.github.min.js"></script>
+
+    <script>
+        new Vue({
+        el: '#vssue',
+    
+        data: {
+            title: options => `${options.prefix}${document.title}`,
+            
+            options: {
+            owner: 'shafishcn',
+            repo: 'shafish_blog',
+            clientId: 'xxx',
+            clientSecret: 'xxx', // only required for some of the platforms
+            prefix: '[BlogComment]',
+            labels: [':sunny:'],
+            issueContent: ({ url }) =>`这个 Issue 由 Vssue 自动创建，用来存储该页面的评论：${url}`
+            },
         },
-      },
 
-      template: `<vssue :title="title" :options="options"></vssue>`,
-    })
-  </script>
-{% endblock %}
-```
+        template: `<vssue :title="title" :options="options"></vssue>`,
+        })
+    </script>
+    {% endif %}
+    ```
+
+=== "mkdocs.yml"
+
+    ``` yaml
+    theme:
+        custom_dir: overrides
+    extra:
+        vssue: shafish  # 随便填值，主要是设置{% set vssue = config.extra.vssue %}时，vssue初始值可用
+    ```
 
 ### 11. blocks
+
+ref: https://squidfunk.github.io/mkdocs-material/customization/
 
 === "使用方法"
 
     ``` html
-    <!-- overrides/main.html -->
+    <!-- overrides/main.html ， 弄之前先配置好mkdocs.yml的custom_dir-->
     {% extends "base.html" %}
 
     {% block blockName %}
         xxx
     {% endblock %}
+    ```
+
+=== "mkdocs.yml"
+
+    ``` yaml
+    theme:
+        custom_dir: overrides
     ```
 
 === "设置标题-htmltitle"
@@ -1069,13 +1175,16 @@ https://facelessuser.github.io/pymdown-extensions/extensions
 ### 1. 显示文件最后修改时间
 
 ``` shell
-$ pip install mkdocs-git-revision-date-plugin
+$ pip install mkdocs-git-revision-date-localized-plugin
 ```
 
 ``` yaml
 # mkdocs.yml 相关配置
 plugins:
-  - git-revision-date
+  - git-revision-date-localized:
+      type: datetime
+      fallback_to_build_date: true
+      enable_creation_date: true
 ```
 
 ## 四、部署
@@ -1083,5 +1192,3 @@ plugins:
 [Github action部署到github page](2021/12/github_action.md)
 
 [Jenkins部署到服务器](2021/12/jenkins.md)
-
-使用action部署到github page的方式会把Content tap、评论还有某些样式都搞失效（不知道是哪方面的bug），写一些简单的markdown内容可以用这个部署。
