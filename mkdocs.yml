@@ -70,6 +70,7 @@ extra:
     - icon: fontawesome/solid/paper-plane
       link: mailto:<shafish_cn@163.com>
       name: 发送邮件
+  vssue: shafish
 
 extra_css:
   - stylesheets/extra.css
@@ -81,8 +82,13 @@ markdown_extensions:
   - abbr
   - attr_list
   - pymdownx.snippets 
-  - pymdownx.superfences
-  - pymdownx.tabbed
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true 
   - admonition
   - pymdownx.details  
   - pymdownx.highlight:

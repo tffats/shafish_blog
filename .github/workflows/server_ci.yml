@@ -12,16 +12,18 @@ jobs:
       - name: Checkout master 
         uses: actions/checkout@v2
 
-      #- name: Set up Python3.x
-        #uses: actions/setup-python@v2
-        #with:
-          #python-version: 3.x
+      - name: Set up Python3.x
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
 
-      #- name: Install dependencies
-        #run: pip install mkdocs-material mkdocs-git-revision-date-localized-plugin
+      - name: Install dependencies
+        run: pip install mkdocs-material mkdocs-git-revision-date-localized-plugin
 
-      #- name: Build
-        #run: mkdocs build
+      - name: Build
+        run: |
+          mkdocs build
+          tar -zcvf ./site.tar.gz ./site
 
       - name: upload build file to my host
         uses: AEnterprise/rsync-deploy@v1.0

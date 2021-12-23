@@ -1,5 +1,5 @@
 ---
-disqus: ""
+vssue: ""
 ---
 
 :bell:这配色，精心挑选，匠心制作，没毛病铁子:bell:
@@ -17,5 +17,3 @@ disqus: ""
 最后本着多学习学习前端zhishi的态度，在docsify和mkdocs中选了后者，文档也比较全面，一天时间搭好还写了使用文档弄了github action。总之整挺好，不出意外会一直用下去。
 
 之前的typecho还保留着，不过用了默认的主题，旧主题中设置的很多样式没解析出来，后续处理下失效的图片链接就这样了，闲的无聊可以去康康：[https://blog.shafish.cn/](https://blog.shafish.cn/)
-
-background-color: var(--darkreader-bg--md-primary-fg-color);
