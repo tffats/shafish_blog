@@ -62,7 +62,7 @@ plugins:
   - search
   - git-revision-date-localized:
       type: datetime
-      fallback_to_build_date: true
+      #fallback_to_build_date: true
       enable_creation_date: true
 
 extra:
@@ -76,7 +76,8 @@ extra_css:
   - stylesheets/extra.css
   - stylesheets/vssue.css
 
-#extra_javascript:
+extra_javascript:
+  - javascripts/extra.js
 
 markdown_extensions:
   - abbr

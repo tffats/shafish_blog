@@ -1,3 +1,7 @@
+---
+title: i3wm使用记录
+---
+
 # i3wm使用记录
 
 https://wiki.archlinux.org/title/I3_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)

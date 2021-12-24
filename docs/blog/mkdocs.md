@@ -1,3 +1,6 @@
+---
+title: Mkdocs Material使用记录
+---
 
 # Mkdocs Material使用记录
 

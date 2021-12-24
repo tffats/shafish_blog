@@ -1,3 +1,8 @@
+---
+title: nginx使用记录
+---
+
+# nginx使用记录
 
 ???+ abstract
 	仅做笔记，为了有个小小印象。

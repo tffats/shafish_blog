@@ -1,3 +1,7 @@
+---
+title: Jenkins部署
+---
+
 # Jenkins部署
 
 ## jenkin安装

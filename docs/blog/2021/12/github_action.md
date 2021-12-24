@@ -1,3 +1,6 @@
+---
+title: Github Action使用记录
+---
 
 # Github Action
 
@@ -5,6 +8,7 @@ ref:
 
 - [GitHub Actions 入门教程-阮一峰](http://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html)
 - [GitHub Actions官方文档](https://docs.github.com/en/actions/quickstart)
+- [Github Actions语法](https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#about-yaml-syntax-for-workflows)
 
 用法和概念基本都是参考 阮一峰 的那篇文章，所以在这里纯粹是记录下使用。
 
@@ -35,7 +39,7 @@ ref:
 
 ## 二、Workflow定义
 
-在代码仓库的.github/workflows目录下定义工作流文件，文件后缀名统一为`yml`，Github会自动运行这些工作流文件。
+在代码仓库的.github/workflows目录下定义工作流文件，文件后缀名统一为`yml`，Github会根据触发条件运行这些工作流文件。
 
 ### 基本配置字段
 
@@ -229,6 +233,8 @@ jobs:
 sudo useradd -s /bin/bash –d  /home/rsync -m -G www -c for_github_action_remote_deployment rsync
 # 设置rsync用户密码
 sudo passwd rsync
+# 修改站点目录组权限
+sudo chmod -R 775 /www/wwwroot/shafish.cn
 ```
 
 ### 2. 配置用户ssh信息
@@ -259,7 +265,7 @@ cat shafishcn
 | 变量      | 变量值                          |
 | :-----------: | :------------------------------------: |
 | `SERVER_HOST`       |      服务器ip  |
-| `SERVER_KEY`       |     第2步中复制的密钥shafishcn内容 |
+| `SERVER_KEY`       |     第2步中的shafishcn私钥内容 |
 | `SERVER_PORT`    |     ssh端口，默认22 |
 | `SERVER_USERNAME`    |   rsync   |
 
@@ -321,7 +327,9 @@ jobs:
 
 ![](./imgs/githubaction/ciresult.png)
 
-!!! tip "https://github.com/shafishcn/shafish_blog/tree/main/.github/workflows"
+!!! tip "项目工作流文件"
+
+https://github.com/shafishcn/shafish_blog/tree/main/.github/workflows
 
   - ci.yml为github page部署：https://shafishcn.github.io/shafish_blog/
   - server_ci.yml是在下的服务器：https://shafish.cn/
