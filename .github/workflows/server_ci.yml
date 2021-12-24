@@ -25,7 +25,6 @@ jobs:
 
       - name: Build
         run: |
-
           mkdocs build
           tar -zcvf ./site.tar.gz ./site
 

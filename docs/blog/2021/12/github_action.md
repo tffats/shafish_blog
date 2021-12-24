@@ -279,6 +279,9 @@ on:
       - master # 提交到master分支时触发执行
       - main # 提交到main分支时触发执行
 
+env:
+  TZ: Asia/Shanghai # 设置当前环境时区
+
 jobs:
   deploy:
     runs-on: ubuntu-latest # github action提供的容器环境

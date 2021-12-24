@@ -61,7 +61,7 @@ theme:
 plugins:
   - search
   - git-revision-date-localized:
-      type: datetime
+      type: timeago
       enable_creation_date: true
 
 extra:
