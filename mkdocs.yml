@@ -60,9 +60,10 @@ theme:
 
 plugins:
   - search
-  - git-revision-date-localized:
-      type: timeago
-      enable_creation_date: true
+  - git-revision-date
+  #- git-revision-date-localized:
+      #type: timeago
+      #enable_creation_date: true
 
 extra:
   social:
