@@ -1,0 +1,1426 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Just write something about Work、Technology and Life.">
+      
+      
+        <meta name="author" content="shafish">
+      
+      
+        <link rel="canonical" href="https://shafish.cn/blog/2021/12/github_action/">
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.3">
+    
+    
+      
+        <title>Github Action使用记录 - shafish.cn</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.edf004c2.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ff6e42">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/vssue.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#github-action" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../.." title="shafish.cn" class="md-header__button md-logo" aria-label="shafish.cn" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            shafish.cn
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Github Action使用记录
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/shafishcn/shafish_blog/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    shafishcn/shafish_blog
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../" class="md-tabs__link md-tabs__link--active">
+        技术
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../../life/" class="md-tabs__link">
+      生活
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../../about/" class="md-tabs__link">
+      关于
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="shafish.cn" class="md-nav__button md-logo" aria-label="shafish.cn" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    shafish.cn
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/shafishcn/shafish_blog/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    shafishcn/shafish_blog
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../">技术</a>
+          
+            <label for="__nav_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="技术" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          技术
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_2">
+          会更新区
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="会更新区" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          会更新区
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mkdocs/" class="md-nav__link">
+        mkdocs使用记录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../i3wm/" class="md-nav__link">
+        i3wm使用记录
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_3" type="checkbox" id="__nav_1_3" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../">2021年</a>
+          
+            <label for="__nav_1_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="2021年" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          2021年
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_3_2" type="checkbox" id="__nav_1_3_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_3_2">
+          12月份
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="12月份" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          12月份
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../archivebox/" class="md-nav__link">
+        archivebox使用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jenkins/" class="md-nav__link">
+        jenkins部署
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          github action使用
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        github action使用
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#一概念介绍" class="md-nav__link">
+    一、概念介绍
+  </a>
+  
+    <nav class="md-nav" aria-label="一、概念介绍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    workflow
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#job" class="md-nav__link">
+    job
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step" class="md-nav__link">
+    step
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action" class="md-nav__link">
+    action
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#二workflow定义" class="md-nav__link">
+    二、Workflow定义
+  </a>
+  
+    <nav class="md-nav" aria-label="二、Workflow定义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#基本配置字段" class="md-nav__link">
+    基本配置字段
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#三示例" class="md-nav__link">
+    三、示例
+  </a>
+  
+    <nav class="md-nav" aria-label="三、示例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-ciyml熟悉" class="md-nav__link">
+    1. ci.yml熟悉
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-把mkdocs部署到github-page" class="md-nav__link">
+    2. 把mkdocs部署到github page
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#四把mkdocs部署到云服务器" class="md-nav__link">
+    四、把mkdocs部署到云服务器
+  </a>
+  
+    <nav class="md-nav" aria-label="四、把mkdocs部署到云服务器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-新建部署用户" class="md-nav__link">
+    1. 新建部署用户
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-配置用户ssh信息" class="md-nav__link">
+    2. 配置用户ssh信息
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-配置github-action环境变量" class="md-nav__link">
+    3. 配置Github action环境变量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-部署文件" class="md-nav__link">
+    4. 部署文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-提交改动进行测试" class="md-nav__link">
+    5. 提交改动进行测试
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nginx_record/" class="md-nav__link">
+        nginx使用记录
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../life/" class="md-nav__link">
+        生活
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/" class="md-nav__link">
+        关于
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#一概念介绍" class="md-nav__link">
+    一、概念介绍
+  </a>
+  
+    <nav class="md-nav" aria-label="一、概念介绍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    workflow
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#job" class="md-nav__link">
+    job
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step" class="md-nav__link">
+    step
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action" class="md-nav__link">
+    action
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#二workflow定义" class="md-nav__link">
+    二、Workflow定义
+  </a>
+  
+    <nav class="md-nav" aria-label="二、Workflow定义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#基本配置字段" class="md-nav__link">
+    基本配置字段
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#三示例" class="md-nav__link">
+    三、示例
+  </a>
+  
+    <nav class="md-nav" aria-label="三、示例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-ciyml熟悉" class="md-nav__link">
+    1. ci.yml熟悉
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-把mkdocs部署到github-page" class="md-nav__link">
+    2. 把mkdocs部署到github page
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#四把mkdocs部署到云服务器" class="md-nav__link">
+    四、把mkdocs部署到云服务器
+  </a>
+  
+    <nav class="md-nav" aria-label="四、把mkdocs部署到云服务器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-新建部署用户" class="md-nav__link">
+    1. 新建部署用户
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-配置用户ssh信息" class="md-nav__link">
+    2. 配置用户ssh信息
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-配置github-action环境变量" class="md-nav__link">
+    3. 配置Github action环境变量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-部署文件" class="md-nav__link">
+    4. 部署文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-提交改动进行测试" class="md-nav__link">
+    5. 提交改动进行测试
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                <!--
+  Copyright (c) 2016-2021 Martin Donath <martin.donath@squidfunk.com>
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Edit button -->
+
+<a
+  href="https://github.com/shafishcn/shafish_blog/edit/main/docs/blog/2021/12/github_action.md"
+  title="编辑此页"
+  class="md-content__button md-icon"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+<!--
+  Hack: check whether the content contains a h1 headline. If it
+  doesn't, the page title (or respectively site name) is used
+  as the main headline.
+-->
+
+
+<!-- Markdown content -->
+<h1 id="github-action">Github Action<a class="headerlink" href="#github-action" title="Permanent link">🐟</a></h1>
+<p>ref:</p>
+<ul>
+<li><a href="http://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html">GitHub Actions 入门教程-阮一峰</a></li>
+<li><a href="https://docs.github.com/en/actions/quickstart">GitHub Actions官方文档</a></li>
+<li><a href="https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#about-yaml-syntax-for-workflows">Github Actions语法</a></li>
+</ul>
+<p>用法和概念基本都是参考 阮一峰 的那篇文章，所以在这里纯粹是记录下使用。</p>
+<h2 id="一概念介绍">一、概念介绍<a class="headerlink" href="#一概念介绍" title="Permanent link">🐟</a></h2>
+<h3 id="workflow">workflow<a class="headerlink" href="#workflow" title="Permanent link">🐟</a></h3>
+<p>工作流。持续集成一次运行的过程，就是一个 workflow。</p>
+<h3 id="job">job<a class="headerlink" href="#job" title="Permanent link">🐟</a></h3>
+<p>任务。一个 workflow 由一个或多个 jobs 构成，含义是一次持续集成的运行，可以完成多个任务。</p>
+<h3 id="step">step<a class="headerlink" href="#step" title="Permanent link">🐟</a></h3>
+<p>步骤。每个 job 由多个 step 构成，一步步完成。</p>
+<h3 id="action">action<a class="headerlink" href="#action" title="Permanent link">🐟</a></h3>
+<p>动作。每个 step 可以依次执行一个或多个命令（action）。
+部署项目过程中的服务器登录、运行环境的部署、代码拉取、运行部署脚本等操作，在github action中都被看作为是一个个的action。</p>
+<p>其中的大部分action都是可以被复用的：比如环境部署，基本就只有软件对应系统和版本的区别。
+所以Github Action中使用到的action是可以直接引用他人写好的 action滴，可以在下面列出的仓库中找找：</p>
+<ul>
+<li><a href="https://github.com/marketplace?type=actions">Github官方市场</a></li>
+<li><a href="https://github.com/sdras/awesome-actions">Awesome actions</a></li>
+</ul>
+<h2 id="二workflow定义">二、Workflow定义<a class="headerlink" href="#二workflow定义" title="Permanent link">🐟</a></h2>
+<p>在代码仓库的.github/workflows目录下定义工作流文件，文件后缀名统一为<code>yml</code>，Github会根据触发条件运行这些工作流文件。</p>
+<h3 id="基本配置字段">基本配置字段<a class="headerlink" href="#基本配置字段" title="Permanent link">🐟</a></h3>
+<ul>
+<li><code>name</code>：指定workflow 的名称。</li>
+<li><code>on.&lt;push|pull_request&gt;.&lt;tags|branches&gt;</code>：触发所在工作流执行的条件，比如 某个分支发生push/pull时。</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># masterf分支发生push时触发工作流执行</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="nt">on</span><span class="p">:</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>  <span class="nt">push</span><span class="p">:</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="nt">branches</span><span class="p">:</span>    
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">master</span>
+</code></pre></div>
+<ul>
+<li><code>jobs.&lt;job_id&gt;.name</code>：需要执行的一项或多项任务。</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># job_id 对应特定的任务，my_first_job、my_second_job</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="c1"># name 是任务的说明</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="nt">jobs</span><span class="p">:</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>  <span class="nt">my_first_job</span><span class="p">:</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">My first job</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>  <span class="nt">my_second_job</span><span class="p">:</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">My second job</span>
+</code></pre></div>
+<ul>
+<li><code>jobs.&lt;job_id&gt;.needs</code>：指定当前任务的运行顺序。</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># job1必须先于job2完成，而job3等待job1和job2的完成才能运行。因此，这个 workflow 的运行顺序依次为：job1、job2、job3</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="nt">jobs</span><span class="p">:</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>  <span class="nt">job1</span><span class="p">:</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>  <span class="nt">job2</span><span class="p">:</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>    <span class="nt">needs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">job1</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>  <span class="nt">job3</span><span class="p">:</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>    <span class="nt">needs</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">job1</span><span class="p p-Indicator">,</span> <span class="nv">job2</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+<ul>
+<li><code>jobs.&lt;job_id&gt;.runs-on</code>：指定运行所需要的虚拟机环境。</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># 可选的环境如下：</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest，ubuntu-18.04或ubuntu-16.04</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="l l-Scalar l-Scalar-Plain">windows-latest，windows-2019或windows-2016</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="l l-Scalar l-Scalar-Plain">macOS-latest或macOS-10.14</span>
+</code></pre></div>
+<ul>
+<li>
+<p><code>jobs.&lt;job_id&gt;.steps</code>：指定每个 Job 的运行步骤，可以包含一个或多个步骤，步骤包含name、env、run三个字段。</p>
+</li>
+<li>
+<p>完整的工作流定义：</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Greeting from Mona</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="nt">on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">push</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="nt">jobs</span><span class="p">:</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>  <span class="nt">my-job</span><span class="p">:</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">My Job</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>    <span class="nt">steps</span><span class="p">:</span> <span class="c1"># 定义了个 echo变量值 的job</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a>    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Print a greeting</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a>      <span class="nt">env</span><span class="p">:</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a>        <span class="nt">MY_VAR</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Hi there! My name is</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a>        <span class="nt">FIRST_NAME</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Mona</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a>        <span class="nt">MIDDLE_NAME</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">The</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14"></a>        <span class="nt">LAST_NAME</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Octocat</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15"></a>      <span class="nt">run</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16"></a>        <span class="no">echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.</span>
+</code></pre></div>
+<h2 id="三示例">三、示例<a class="headerlink" href="#三示例" title="Permanent link">🐟</a></h2>
+<h3 id="1-ciyml熟悉">1. ci.yml熟悉<a class="headerlink" href="#1-ciyml熟悉" title="Permanent link">🐟</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1"># .github/workflows/ci.yml</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">GitHub Actions Build and Deploy Demo</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="nt">on</span><span class="p">:</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>  <span class="nt">push</span><span class="p">:</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>    <span class="nt">branches</span><span class="p">:</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">master</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="nt">jobs</span><span class="p">:</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a>  <span class="nt">build-and-deploy</span><span class="p">:</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a>    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a>    <span class="nt">steps</span><span class="p">:</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a>    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Checkout</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a>      <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@master</span> <span class="c1"># 获取源码</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13"></a>
+<a id="__codelineno-5-14" name="__codelineno-5-14"></a>    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Build and Deploy</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15"></a>      <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">JamesIves/github-pages-deploy-action@master</span> <span class="c1"># 构建和部署</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16"></a>      <span class="nt">env</span><span class="p">:</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17"></a>        <span class="nt">ACCESS_TOKEN</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.ACCESS_TOKEN }}</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18"></a>        <span class="nt">BRANCH</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gh-pages</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19"></a>        <span class="nt">FOLDER</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">build</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20"></a>        <span class="nt">BUILD_SCRIPT</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">npm install &amp;&amp; npm run build</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Build app and deploy to aliyun</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="nt">on</span><span class="p">:</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>  <span class="c1">#监听push操作</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>  <span class="nt">push</span><span class="p">:</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>    <span class="nt">branches</span><span class="p">:</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a>      <span class="c1"># master分支，你也可以改成其他分支</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">master</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="nt">jobs</span><span class="p">:</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a>  <span class="nt">build</span><span class="p">:</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a>    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a>    <span class="nt">steps</span><span class="p">:</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12"></a>    <span class="p p-Indicator">-</span> <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v1</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13"></a>    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install Node.js</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14"></a>      <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/setup-node@v1</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15"></a>      <span class="nt">with</span><span class="p">:</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16"></a>        <span class="nt">node-version</span><span class="p">:</span> <span class="s">&#39;12.16.2&#39;</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17"></a>    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install npm dependencies</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18"></a>      <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">npm install</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19"></a>    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Run build task</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20"></a>      <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">npm run build</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21"></a>    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Deploy to Server</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22"></a>      <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">easingthemes/ssh-deploy@v2.1.5</span>
+<a id="__codelineno-6-23" name="__codelineno-6-23"></a>      <span class="nt">env</span><span class="p">:</span>
+<a id="__codelineno-6-24" name="__codelineno-6-24"></a>        <span class="nt">SSH_PRIVATE_KEY</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.SERVER_SSH_KEY }}</span>
+<a id="__codelineno-6-25" name="__codelineno-6-25"></a>        <span class="nt">ARGS</span><span class="p">:</span> <span class="s">&#39;-rltgoDzvO</span><span class="nv"> </span><span class="s">--delete&#39;</span>
+<a id="__codelineno-6-26" name="__codelineno-6-26"></a>        <span class="nt">SOURCE</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dist</span> <span class="c1"># 这是要复制到阿里云静态服务器的文件夹名称</span>
+<a id="__codelineno-6-27" name="__codelineno-6-27"></a>        <span class="nt">REMOTE_HOST</span><span class="p">:</span> <span class="s">&#39;118.190.217.8&#39;</span> <span class="c1"># 你的阿里云公网地址</span>
+<a id="__codelineno-6-28" name="__codelineno-6-28"></a>        <span class="nt">REMOTE_USER</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">root</span> <span class="c1"># 阿里云登录后默认为 root 用户，并且所在文件夹为 root</span>
+<a id="__codelineno-6-29" name="__codelineno-6-29"></a>        <span class="nt">TARGET</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/root/node-server</span> <span class="c1"># 打包后的 dist 文件夹将放在 /root/node-server</span>
+</code></pre></div>
+<h3 id="2-把mkdocs部署到github-page">2. 把mkdocs部署到github page<a class="headerlink" href="#2-把mkdocs部署到github-page" title="Permanent link">🐟</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="c1"># 初始化一个mkdocs-metereal项目</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>mkdir -p /home/shafish/Project/blog/shafish.cn <span class="o">&amp;&amp;</span> <span class="nb">cd</span> <span class="nv">$_</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>mkdocs init .
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="c1"># 添加mkdocs.yml的theme为material</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a>vim mkdocs.yml
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="c1"># 创建github workflow</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a>mkdir -p .github/workflows
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a>touch .github/workflows/ci.yml
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="c1"># 提交到github仓库</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="c1"># 现在github网站上创建个仓库</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a>git remote add origin git@github.com:用户名/仓库名.git
+<a id="__codelineno-7-12" name="__codelineno-7-12"></a>git branch -M main
+<a id="__codelineno-7-13" name="__codelineno-7-13"></a>git push -u origin main
+<a id="__codelineno-7-14" name="__codelineno-7-14"></a><span class="c1"># ok，访问https://用户名.github.io/ 即可</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15"></a><span class="c1"># 如果出现问题，在Github网站仓库中的Actions选项查看执行logs。</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">mkdocs.yml</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="nt">theme</span><span class="p">:</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">material</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">ci.yml</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">blog_ci</span> 
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="nt">on</span><span class="p">:</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a>  <span class="nt">push</span><span class="p">:</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a>    <span class="nt">branches</span><span class="p">:</span> 
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">master</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">main</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="nt">jobs</span><span class="p">:</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a>  <span class="nt">deploy</span><span class="p">:</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9"></a>    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10"></a>    <span class="nt">steps</span><span class="p">:</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Checkout master</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12"></a>        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13"></a>
+<a id="__codelineno-9-14" name="__codelineno-9-14"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Set up Python3.x</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15"></a>        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v2</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16"></a>        <span class="nt">with</span><span class="p">:</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17"></a>          <span class="nt">python-version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3.x</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18"></a>
+<a id="__codelineno-9-19" name="__codelineno-9-19"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install dependencies</span>
+<a id="__codelineno-9-20" name="__codelineno-9-20"></a>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pip install mkdocs-material</span>
+<a id="__codelineno-9-21" name="__codelineno-9-21"></a>
+<a id="__codelineno-9-22" name="__codelineno-9-22"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Deploy</span>
+<a id="__codelineno-9-23" name="__codelineno-9-23"></a>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mkdocs gh-deploy --force</span>
+</code></pre></div>
+<h2 id="四把mkdocs部署到云服务器">四、把mkdocs部署到云服务器<a class="headerlink" href="#四把mkdocs部署到云服务器" title="Permanent link">🐟</a></h2>
+<h3 id="1-新建部署用户">1. 新建部署用户<a class="headerlink" href="#1-新建部署用户" title="Permanent link">🐟</a></h3>
+<p>提供给Github action执行ssh、rsync等命令。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="c1"># -s为用户登录设置shell</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="c1"># -d -m 为用户创建主用户目录</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="c1"># -G 把rsync添加到www组中，方便后续操作www用户资源</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="c1"># -c 用户说明</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a>sudo useradd -s /bin/bash –d  /home/rsync -m -G www -c for_github_action_remote_deployment rsync
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="c1"># 设置rsync用户密码</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7"></a>sudo passwd rsync
+<a id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="c1"># 修改站点目录组权限</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9"></a>sudo chmod -R <span class="m">775</span> /www/wwwroot/shafish.cn
+</code></pre></div>
+<h3 id="2-配置用户ssh信息">2. 配置用户ssh信息<a class="headerlink" href="#2-配置用户ssh信息" title="Permanent link">🐟</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="c1"># 登录rsync用户</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a>su - rsync
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="c1"># 创建.ssh目录，保存公私钥等信息</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a>mkdir -p ~/.ssh <span class="o">&amp;&amp;</span> <span class="nb">cd</span> ~/.ssh
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="c1"># 生成密钥信息，shafishcn为文件名，自行填写</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="c1"># 一路回车，最终生成shafishcn（私钥）和shafishcn.pub（公钥）</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7"></a>ssh-keygen -t rsa -f shafishcn 
+<a id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="c1"># 配置连接信息</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9"></a>cat shafishcn.pub &gt;&gt; authorized_keys
+<a id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="c1"># 复制私钥，github action ssh登录到服务器时用到</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11"></a>cat shafishcn
+</code></pre></div>
+<h3 id="3-配置github-action环境变量">3. 配置Github action环境变量<a class="headerlink" href="#3-配置github-action环境变量" title="Permanent link">🐟</a></h3>
+<p>打开仓库 --&gt; Settings --&gt;  Secrets（侧边栏中）--&gt;Actions（为Secrets子项）--&gt;New repository secret</p>
+<ul>
+<li>Name：环境变量名称</li>
+<li>Value：变量值</li>
+</ul>
+<p><img alt="" src="https://picture.cdn.shafish.cn/blog/github-action-2021-12-secret1.png" /></p>
+<table>
+<thead>
+<tr>
+<th align="center">变量</th>
+<th align="center">变量值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>SERVER_HOST</code></td>
+<td align="center">服务器ip</td>
+</tr>
+<tr>
+<td align="center"><code>SERVER_KEY</code></td>
+<td align="center">第2步中的shafishcn私钥内容</td>
+</tr>
+<tr>
+<td align="center"><code>SERVER_PORT</code></td>
+<td align="center">ssh端口，默认22</td>
+</tr>
+<tr>
+<td align="center"><code>SERVER_USERNAME</code></td>
+<td align="center">rsync</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-部署文件">4. 部署文件<a class="headerlink" href="#4-部署文件" title="Permanent link">🐟</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Built and pushed to the server</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="nt">on</span><span class="p">:</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a>  <span class="nt">push</span><span class="p">:</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a>    <span class="nt">branches</span><span class="p">:</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">master</span> <span class="c1"># 提交到master分支时触发执行</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">main</span> <span class="c1"># 提交到main分支时触发执行</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7"></a>
+<a id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="nt">env</span><span class="p">:</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9"></a>  <span class="nt">TZ</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Asia/Shanghai</span> <span class="c1"># 设置当前环境时区</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10"></a>
+<a id="__codelineno-12-11" name="__codelineno-12-11"></a><span class="nt">jobs</span><span class="p">:</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12"></a>  <span class="nt">deploy</span><span class="p">:</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13"></a>    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span> <span class="c1"># github action提供的容器环境</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14"></a>    <span class="nt">steps</span><span class="p">:</span>
+<a id="__codelineno-12-15" name="__codelineno-12-15"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Checkout master</span>  <span class="c1"># 拉仓库代码到容器中（以下的所有操作都以仓库所在目录为根目录）</span>
+<a id="__codelineno-12-16" name="__codelineno-12-16"></a>        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
+<a id="__codelineno-12-17" name="__codelineno-12-17"></a>
+<a id="__codelineno-12-18" name="__codelineno-12-18"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Set up Python3.x</span> <span class="c1"># 容器安装python3环境</span>
+<a id="__codelineno-12-19" name="__codelineno-12-19"></a>        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v2</span>
+<a id="__codelineno-12-20" name="__codelineno-12-20"></a>        <span class="nt">with</span><span class="p">:</span>
+<a id="__codelineno-12-21" name="__codelineno-12-21"></a>          <span class="nt">python-version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3.x</span>
+<a id="__codelineno-12-22" name="__codelineno-12-22"></a>
+<a id="__codelineno-12-23" name="__codelineno-12-23"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install dependencies</span> <span class="c1"># 容器安装mkdocs material和用到的插件</span>
+<a id="__codelineno-12-24" name="__codelineno-12-24"></a>        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pip install mkdocs-material mkdocs-git-revision-date-localized-plugin</span>
+<a id="__codelineno-12-25" name="__codelineno-12-25"></a>
+<a id="__codelineno-12-26" name="__codelineno-12-26"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Build</span> <span class="c1"># 在容器中执行mkdocs 构建命令，构建成功生成html文件会保存在site文件夹中，执行tar将其压缩为site.tar.gz</span>
+<a id="__codelineno-12-27" name="__codelineno-12-27"></a>        <span class="nt">run</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+<a id="__codelineno-12-28" name="__codelineno-12-28"></a>          <span class="no">mkdocs build</span>
+<a id="__codelineno-12-29" name="__codelineno-12-29"></a>          <span class="no">tar -zcvf ./site.tar.gz ./site</span>
+<a id="__codelineno-12-30" name="__codelineno-12-30"></a>
+<a id="__codelineno-12-31" name="__codelineno-12-31"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">upload build file to my host</span> <span class="c1"># 读取第3步配置的信息，调用rsync命令将site.tar.gz推送到SERVER_HOST服务器的rsync家目录</span>
+<a id="__codelineno-12-32" name="__codelineno-12-32"></a>        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">AEnterprise/rsync-deploy@v1.0</span>
+<a id="__codelineno-12-33" name="__codelineno-12-33"></a>        <span class="nt">env</span><span class="p">:</span>
+<a id="__codelineno-12-34" name="__codelineno-12-34"></a>          <span class="nt">DEPLOY_KEY</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.SERVER_KEY }}</span>
+<a id="__codelineno-12-35" name="__codelineno-12-35"></a>          <span class="nt">ARGS</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">-avz --delete --exclude=&#39;.user.ini&#39;</span>
+<a id="__codelineno-12-36" name="__codelineno-12-36"></a>          <span class="nt">SERVER_PORT</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.SERVER_PORT }}</span>
+<a id="__codelineno-12-37" name="__codelineno-12-37"></a>          <span class="nt">FOLDER</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">./site.tar.gz</span>
+<a id="__codelineno-12-38" name="__codelineno-12-38"></a>          <span class="nt">SERVER_IP</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.SERVER_HOST }}</span>
+<a id="__codelineno-12-39" name="__codelineno-12-39"></a>          <span class="nt">USERNAME</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.SERVER_USERNAME }}</span>
+<a id="__codelineno-12-40" name="__codelineno-12-40"></a>          <span class="nt">SERVER_DESTINATION</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/home/rsync</span>
+<a id="__codelineno-12-41" name="__codelineno-12-41"></a>
+<a id="__codelineno-12-42" name="__codelineno-12-42"></a>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">execute script</span> <span class="c1"># ssh登录SERVER_HOST服务器，将site.tar.gz解压到网站根目录</span>
+<a id="__codelineno-12-43" name="__codelineno-12-43"></a>        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">appleboy/ssh-action@master</span>
+<a id="__codelineno-12-44" name="__codelineno-12-44"></a>        <span class="nt">with</span><span class="p">:</span>
+<a id="__codelineno-12-45" name="__codelineno-12-45"></a>          <span class="nt">host</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.SERVER_HOST }}</span>
+<a id="__codelineno-12-46" name="__codelineno-12-46"></a>          <span class="nt">username</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.SERVER_USERNAME }}</span>
+<a id="__codelineno-12-47" name="__codelineno-12-47"></a>          <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.SERVER_KEY }}</span>
+<a id="__codelineno-12-48" name="__codelineno-12-48"></a>          <span class="nt">script</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+<a id="__codelineno-12-49" name="__codelineno-12-49"></a>            <span class="no">cd /www/wwwroot/shafish.cn/ &amp;&amp; rm -rf ./*</span>
+<a id="__codelineno-12-50" name="__codelineno-12-50"></a>            <span class="no">tar -zxvf /home/rsync/site.tar.gz -C ./ &amp;&amp; mv site/* ./</span>
+</code></pre></div>
+<h3 id="5-提交改动进行测试">5. 提交改动进行测试<a class="headerlink" href="#5-提交改动进行测试" title="Permanent link">🐟</a></h3>
+<p>略</p>
+<p><img alt="" src="https://picture.cdn.shafish.cn/blog/github-action-2021-12-ciresult.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">项目工作流文件</p>
+</div>
+<p>https://github.com/shafishcn/shafish_blog/tree/main/.github/workflows</p>
+<ul>
+<li>ci.yml为github page部署：https://shafishcn.github.io/shafish_blog/</li>
+<li>server_ci.yml是在下的服务器：https://shafish.cn/</li>
+</ul>
+
+<!-- Source file information -->
+
+  <!--
+  Copyright (c) 2016-2021 Martin Donath <martin.donath@squidfunk.com>
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Source file information -->
+<hr />
+<div class="md-source-file">
+  <small>
+
+    <!-- mkdocs-git-revision-date-localized-plugin -->
+    
+      最后更新:
+      2021-12-25
+    
+  </small>
+</div>
+
+
+<!-- Get setting from mkdocs.yml, but allow page-level overrides -->
+
+
+
+<!-- Inject Disqus into current page -->
+
+    <div id="vssue"></div>
+
+    <!--<link rel="stylesheet" href="https://unpkg.com/vssue/dist/vssue.min.css">
+ OR: vue full build (runtime + compiler)  -->
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+<!-- Vssue Github build -->
+<script src="https://unpkg.com/vssue/dist/vssue.github.min.js"></script>
+
+<script>
+    new Vue({
+      el: '#vssue',
+   
+      data: {
+        title: options => `${options.prefix}${document.title}`,
+        
+        options: {
+          owner: 'shafishcn',
+          repo: 'shafish_blog',
+          clientId: 'f1ccfedcce534122af88',//'f49fcb8c02a7868c8690',//
+          clientSecret: '1c301b1dd2616bfa68853a8c27684fd069b97dcd',//'5940fc487ff4e7237a01a28c0fe3775140bf05b2', // only required for some of the platforms
+          prefix: '[BlogComment]',
+          labels: [':sunny:'],
+          issueContent: ({ url }) =>`这个 Issue 由 Vssue 自动创建，用来存储该页面的评论：${url}`
+        },
+      },
+
+      template: `<vssue :title="title" :options="options"></vssue>`,
+    })
+</script>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="页脚">
+      
+        
+        <a href="../jenkins/" class="md-footer__link md-footer__link--prev" aria-label="上一页: jenkins部署" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              jenkins部署
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../nginx_record/" class="md-footer__link md-footer__link--next" aria-label="下一页: nginx使用记录" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              nginx使用记录
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2018 - 2021 shafish
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    <a href="mailto:<shafish_cn@163.com>" target="_blank" rel="noopener" title="发送邮件" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M476 3.2 12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.annotate", "header.autohide", "toc.separate"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "search": "../../../../assets/javascripts/workers/search.0bbba5b5.min.js"}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.e1a181d9.min.js"></script>
+      
+        <script src="../../../../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

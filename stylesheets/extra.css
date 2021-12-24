@@ -1,0 +1,53 @@
+.md-grid {
+    max-width: 1440px; 
+}
+
+:root {
+    --md-primary-fg-color:        #EF5A57;
+    --md-primary-fg-color--light: #ECB7B7;
+    --md-primary-fg-color--dark:  #96110e;
+    --darkreader-bg--md-primary-fg-color: #a42600;
+}
+
+[data-md-color-scheme="slate"] {
+    --md-hue: 110; 
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #8f1d3a;
+    border: 2px solid transparent;
+    background-clip: padding-box;    
+}
+
+/* 图片放大start */
+/* img {
+    height: auto;
+    width: auto;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 4px;
+    background-color: #fff;
+}
+
+.shadow {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.zoom {
+    transition: transform ease-in-out 0.5s;
+    cursor: zoom-in;
+}
+
+.image-zoom-large {
+    transform: scale(1.5);
+    cursor: zoom-out;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 100;
+    position: absolute;
+} */
+/* 图片放大end*/

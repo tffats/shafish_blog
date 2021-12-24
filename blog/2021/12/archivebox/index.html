@@ -1,0 +1,1006 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Just write something about Work、Technology and Life.">
+      
+      
+        <meta name="author" content="shafish">
+      
+      
+        <link rel="canonical" href="https://shafish.cn/blog/2021/12/archivebox/">
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.3">
+    
+    
+      
+        <title>ArchiveBox使用 - shafish.cn</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.edf004c2.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ff6e42">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/vssue.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#archivebox使用" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../.." title="shafish.cn" class="md-header__button md-logo" aria-label="shafish.cn" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            shafish.cn
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ArchiveBox使用
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/shafishcn/shafish_blog/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    shafishcn/shafish_blog
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../" class="md-tabs__link md-tabs__link--active">
+        技术
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../../life/" class="md-tabs__link">
+      生活
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../../about/" class="md-tabs__link">
+      关于
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="shafish.cn" class="md-nav__button md-logo" aria-label="shafish.cn" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    shafish.cn
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/shafishcn/shafish_blog/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    shafishcn/shafish_blog
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../">技术</a>
+          
+            <label for="__nav_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="技术" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          技术
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_2">
+          会更新区
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="会更新区" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          会更新区
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mkdocs/" class="md-nav__link">
+        mkdocs使用记录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../i3wm/" class="md-nav__link">
+        i3wm使用记录
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_3" type="checkbox" id="__nav_1_3" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../">2021年</a>
+          
+            <label for="__nav_1_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="2021年" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          2021年
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_3_2" type="checkbox" id="__nav_1_3_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_3_2">
+          12月份
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="12月份" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          12月份
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          archivebox使用
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        archivebox使用
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#一安装" class="md-nav__link">
+    一、安装
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#二保存内容" class="md-nav__link">
+    二、保存内容
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#三配置" class="md-nav__link">
+    三、配置
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jenkins/" class="md-nav__link">
+        jenkins部署
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github_action/" class="md-nav__link">
+        github action使用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nginx_record/" class="md-nav__link">
+        nginx使用记录
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../life/" class="md-nav__link">
+        生活
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/" class="md-nav__link">
+        关于
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#一安装" class="md-nav__link">
+    一、安装
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#二保存内容" class="md-nav__link">
+    二、保存内容
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#三配置" class="md-nav__link">
+    三、配置
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                <!--
+  Copyright (c) 2016-2021 Martin Donath <martin.donath@squidfunk.com>
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Edit button -->
+
+<a
+  href="https://github.com/shafishcn/shafish_blog/edit/main/docs/blog/2021/12/archivebox.md"
+  title="编辑此页"
+  class="md-content__button md-icon"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+<!--
+  Hack: check whether the content contains a h1 headline. If it
+  doesn't, the page title (or respectively site name) is used
+  as the main headline.
+-->
+
+
+<!-- Markdown content -->
+<h1 id="archivebox使用">ArchiveBox使用<a class="headerlink" href="#archivebox使用" title="Permanent link">🐟</a></h1>
+<p>ref: </p>
+<ul>
+<li>https://nixintel.info/osint-tools/make-your-own-internet-archive-with-archive-box/</li>
+<li>https://github.com/ArchiveBox/ArchiveBox/wiki/Docker</li>
+</ul>
+<p>当你遇见他，感悟他，细心珍藏他，然后毫无疑问地，最终会遗忘了他，我说的是书签，浏览器上保存的那些成白上千的、杂乱的书签。</p>
+<p>每次翻起都不自觉的瑟瑟发抖，不仅是忘了拿来干啥，主要还有很多经过岁月洗礼后已经GG咧，404，总会给你意外的惊喜，为啥是惊喜，因为你有了借口删掉它。<img alt="💩" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4a9.svg" title=":shit:" /></p>
+<p>偶然在网上找到ArchiveBox，一个Open-source self-hosted web archiving（自建的内容存档？），是基于python的爬虫系统，可以把链接内容完整地保存到本地（包括文章文字、样式，甚至音视频），还提供了存档的管理后台。就非常银性化，很符合在下要求。<img alt="😏" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f60f.svg" title=":smirk:" /> 那么，搞起：)</p>
+<h2 id="一安装">一、安装<a class="headerlink" href="#一安装" title="Permanent link">🐟</a></h2>
+<p>推荐是用docker安装，因为方便，直接pip安装也很好，看个人习惯，翻翻上面官方链接，这里不多介绍了。
+<div class="highlight"><span class="filename">docker-compose.yml</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># Usage:</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="c1">#     docker-compose run archivebox init --setup</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1">#     docker-compose up</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="c1">#     echo &quot;https://example.com&quot; | docker-compose run archivebox archivebox add</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="c1">#     docker-compose run archivebox add --depth=1 https://example.com/some/feed.rss</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="c1">#     docker-compose run archivebox config --set PUBLIC_INDEX=True</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="c1">#     docker-compose run archivebox help</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="c1"># Documentation:</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="c1">#     https://github.com/ArchiveBox/ArchiveBox/wiki/Docker#docker-compose</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="nt">version</span><span class="p">:</span> <span class="s">&#39;2.4&#39;</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="nt">services</span><span class="p">:</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>    <span class="nt">archivebox</span><span class="p">:</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>        <span class="c1"># build: .                              # for developers working on archivebox</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>        <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${DOCKER_IMAGE:-archivebox/archivebox:master}</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>        <span class="nt">command</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">server --quick-init 0.0.0.0:8000</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>        <span class="nt">ports</span><span class="p">:</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">8800:8000</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>        <span class="nt">environment</span><span class="p">:</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ALLOWED_HOSTS=*</span>                   <span class="c1"># add any config options you want as env vars</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">MEDIA_MAX_SIZE=750m</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>            <span class="c1">#- SAVE_WARC=False</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>            <span class="c1">#- SAVE_PDF=False</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>            <span class="c1">#- SAVE_SCREENSHOT=False</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>            <span class="c1">#- SAVE_MEDIA=False</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SAVE_ARCHIVE_DOT_ORG=False</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">TIMEOUT=1500</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SEARCH_BACKEND_ENGINE=sonic</span>     <span class="c1"># uncomment these if you enable sonic below</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SEARCH_BACKEND_HOST_NAME=sonic</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SEARCH_BACKEND_PASSWORD=xxxxabc</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>        <span class="nt">volumes</span><span class="p">:</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">./data:/data</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a>            <span class="c1"># - ./archivebox:/app/archivebox    # for developers working on archivebox</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>    <span class="c1"># To run the Sonic full-text search backend, first download the config file to sonic.cfg</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a>    <span class="c1"># curl -O https://raw.githubusercontent.com/ArchiveBox/ArchiveBox/master/etc/sonic.cfg</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a>    <span class="c1"># after starting, backfill any existing Snapshots into the index: docker-compose run archivebox update --index-only</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a>    <span class="nt">sonic</span><span class="p">:</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a>        <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">valeriansaliou/sonic:v1.3.0</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a>        <span class="nt">expose</span><span class="p">:</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">1491</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a>        <span class="nt">environment</span><span class="p">:</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">SEARCH_BACKEND_PASSWORD=xxxxabc</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a>        <span class="nt">volumes</span><span class="p">:</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">./sonic.cfg:/etc/sonic.cfg:ro</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a>            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">./data/sonic:/var/lib/sonic/store</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a>    <span class="c1">### Optional Addons: tweak these examples as needed for your specific use case</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a>    <span class="c1"># Example: Run scheduled imports in a docker instead of using cron on the</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a>    <span class="c1"># host machine, add tasks and see more info with archivebox schedule --help</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a>    <span class="c1"># scheduler:</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a>    <span class="c1">#    image: archivebox/archivebox:latest</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a>    <span class="c1">#    command: schedule --foreground --every=day --depth=1 &#39;https://getpocket.com/users/USERNAME/feed/all&#39;</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a>    <span class="c1">#    environment:</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a>    <span class="c1">#        - USE_COLOR=True</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a>    <span class="c1">#        - SHOW_PROGRESS=False</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a>    <span class="c1">#    volumes:</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a>    <span class="c1">#        - ./data:/data</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a>    <span class="c1"># Example: Put Nginx in front of the ArchiveBox server for SSL termination</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a>    <span class="c1"># nginx:</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a>    <span class="c1">#     image: nginx:alpine</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a>    <span class="c1">#     ports:</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a>    <span class="c1">#         - 443:443</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a>    <span class="c1">#         - 80:80</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a>    <span class="c1">#     volumes:</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a>    <span class="c1">#         - ./etc/nginx/nginx.conf:/etc/nginx/nginx.conf</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a>    <span class="c1">#         - ./data:/var/www</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="c1"># Example: run all your ArchiveBox traffic through a WireGuard VPN tunnel</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a>    <span class="c1"># wireguard:</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a>    <span class="c1">#   image: linuxserver/wireguard</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a>    <span class="c1">#   network_mode: &#39;service:archivebox&#39;</span>
+<a id="__codelineno-0-74" name="__codelineno-0-74"></a>    <span class="c1">#   cap_add:</span>
+<a id="__codelineno-0-75" name="__codelineno-0-75"></a>    <span class="c1">#     - NET_ADMIN</span>
+<a id="__codelineno-0-76" name="__codelineno-0-76"></a>    <span class="c1">#     - SYS_MODULE</span>
+<a id="__codelineno-0-77" name="__codelineno-0-77"></a>    <span class="c1">#   sysctls:</span>
+<a id="__codelineno-0-78" name="__codelineno-0-78"></a>    <span class="c1">#     - net.ipv4.conf.all.rp_filter=2</span>
+<a id="__codelineno-0-79" name="__codelineno-0-79"></a>    <span class="c1">#     - net.ipv4.conf.all.src_valid_mark=1</span>
+<a id="__codelineno-0-80" name="__codelineno-0-80"></a>    <span class="c1">#   volumes:</span>
+<a id="__codelineno-0-81" name="__codelineno-0-81"></a>    <span class="c1">#     - /lib/modules:/lib/modules</span>
+<a id="__codelineno-0-82" name="__codelineno-0-82"></a>    <span class="c1">#     - ./wireguard.conf:/config/wg0.conf:ro</span>
+<a id="__codelineno-0-83" name="__codelineno-0-83"></a>
+<a id="__codelineno-0-84" name="__codelineno-0-84"></a>    <span class="c1"># Example: Run PYWB in parallel and auto-import WARCs from ArchiveBox</span>
+<a id="__codelineno-0-85" name="__codelineno-0-85"></a>    <span class="c1"># pywb:</span>
+<a id="__codelineno-0-86" name="__codelineno-0-86"></a>    <span class="c1">#     image: webrecorder/pywb:latest</span>
+<a id="__codelineno-0-87" name="__codelineno-0-87"></a>    <span class="c1">#     entrypoint: /bin/sh &#39;wb-manager add default /archivebox/archive/*/warc/*.warc.gz; wayback --proxy;&#39;</span>
+<a id="__codelineno-0-88" name="__codelineno-0-88"></a>    <span class="c1">#     environment:</span>
+<a id="__codelineno-0-89" name="__codelineno-0-89"></a>    <span class="c1">#         - INIT_COLLECTION=archivebox</span>
+<a id="__codelineno-0-90" name="__codelineno-0-90"></a>    <span class="c1">#     ports:</span>
+<a id="__codelineno-0-91" name="__codelineno-0-91"></a>    <span class="c1">#         - 8080:8080</span>
+<a id="__codelineno-0-92" name="__codelineno-0-92"></a>    <span class="c1">#     volumes:</span>
+<a id="__codelineno-0-93" name="__codelineno-0-93"></a>    <span class="c1">#         ./data:/archivebox</span>
+<a id="__codelineno-0-94" name="__codelineno-0-94"></a>    <span class="c1">#         ./data/wayback:/webarchive</span>
+</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># 运行</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>docker-compose up -d
+</code></pre></div>
+<p>文件设置了容器对外暴露本地8800端口，可以做个nginx反代，或者直接放行服务器8800访问，自己搞。</p>
+<p>执行过程会提示输入用户名、邮箱、密码的，这个就是管理员帐号，登录管理后台用的。</p>
+<h2 id="二保存内容">二、保存内容<a class="headerlink" href="#二保存内容" title="Permanent link">🐟</a></h2>
+<p>比如说想保存这篇：http://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.695 8.695 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.75.75 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75zM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75zM5.75 12a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-4.5z"/></svg></span> <strong>Tip</strong> 如果网络不好，出现timeout，就把docker-compose里的TIMEOUT值升高点。</p>
+<p><img alt="入口" loading="lazy" src="https://picture.cdn.shafish.cn/blog/archivebox-2021-12-archivebox_add.png" />
+<img alt="添加item" loading="lazy" src="https://picture.cdn.shafish.cn/blog/archivebox-2021-12-archivebox_add2.png" />
+<img alt="item管理" loading="lazy" src="https://picture.cdn.shafish.cn/blog/archivebox-2021-12-archivebox_add3.png" />
+<img alt="item详细" loading="lazy" src="https://picture.cdn.shafish.cn/blog/archivebox-2021-12-archivebox_add4.png" /></p>
+<p>最后可以看到下载到本地的内容能展示多种类型，html、pdf、原生等等，直接用singlefile也就是第一个就好。或者在Archive method中选前四个就行(推荐使用)</p>
+<h2 id="三配置">三、配置<a class="headerlink" href="#三配置" title="Permanent link">🐟</a></h2>
+<p>https://github.com/ArchiveBox/ArchiveBox/wiki/Configuration</p>
+
+<!-- Source file information -->
+
+  <!--
+  Copyright (c) 2016-2021 Martin Donath <martin.donath@squidfunk.com>
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Source file information -->
+<hr />
+<div class="md-source-file">
+  <small>
+
+    <!-- mkdocs-git-revision-date-localized-plugin -->
+    
+      最后更新:
+      2021-12-25
+    
+  </small>
+</div>
+
+
+<!-- Get setting from mkdocs.yml, but allow page-level overrides -->
+
+
+
+<!-- Inject Disqus into current page -->
+
+    <div id="vssue"></div>
+
+    <!--<link rel="stylesheet" href="https://unpkg.com/vssue/dist/vssue.min.css">
+ OR: vue full build (runtime + compiler)  -->
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+<!-- Vssue Github build -->
+<script src="https://unpkg.com/vssue/dist/vssue.github.min.js"></script>
+
+<script>
+    new Vue({
+      el: '#vssue',
+   
+      data: {
+        title: options => `${options.prefix}${document.title}`,
+        
+        options: {
+          owner: 'shafishcn',
+          repo: 'shafish_blog',
+          clientId: 'f1ccfedcce534122af88',//'f49fcb8c02a7868c8690',//
+          clientSecret: '1c301b1dd2616bfa68853a8c27684fd069b97dcd',//'5940fc487ff4e7237a01a28c0fe3775140bf05b2', // only required for some of the platforms
+          prefix: '[BlogComment]',
+          labels: [':sunny:'],
+          issueContent: ({ url }) =>`这个 Issue 由 Vssue 自动创建，用来存储该页面的评论：${url}`
+        },
+      },
+
+      template: `<vssue :title="title" :options="options"></vssue>`,
+    })
+</script>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="页脚">
+      
+        
+        <a href="../../" class="md-footer__link md-footer__link--prev" aria-label="上一页: 2021年文章导航" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              2021年文章导航
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../jenkins/" class="md-footer__link md-footer__link--next" aria-label="下一页: jenkins部署" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              jenkins部署
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2018 - 2021 shafish
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    <a href="mailto:<shafish_cn@163.com>" target="_blank" rel="noopener" title="发送邮件" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M476 3.2 12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.annotate", "header.autohide", "toc.separate"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "search": "../../../../assets/javascripts/workers/search.0bbba5b5.min.js"}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.e1a181d9.min.js"></script>
+      
+        <script src="../../../../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>
