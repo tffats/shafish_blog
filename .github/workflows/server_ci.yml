@@ -14,14 +14,16 @@ jobs:
     steps:
       - name: Checkout master 
         uses: actions/checkout@v2
-
+        with:
+          fetch-depth: 0
+          
       - name: Set up Python3.x
         uses: actions/setup-python@v2
         with:
           python-version: 3.x
 
       - name: Install dependencies
-        run: pip install mkdocs-material mkdocs-git-revision-date-plugin
+        run: pip install mkdocs-material mkdocs-git-revision-date-localized-plugin
 
       - name: Build
         run: |
