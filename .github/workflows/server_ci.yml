@@ -5,6 +5,9 @@ on:
       - master
       - main
 
+env:
+  TZ: Asia/Shanghai
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -22,6 +25,7 @@ jobs:
 
       - name: Build
         run: |
+
           mkdocs build
           tar -zcvf ./site.tar.gz ./site
 
