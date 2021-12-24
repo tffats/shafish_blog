@@ -500,7 +500,7 @@ markdown_extensions:
 
 === "Code"
 
-    ![](imgs/mkdocs/formate.png)
+    ![](https://picture.cdn.shafish.cn/blog/mkdocs-formate.png)
     ``` markdown 
     - H~2~0
     - A^T^A

@@ -130,13 +130,10 @@ docker-compose up -d
 
 :octicons-light-bulb-16: **Tip** 如果网络不好，出现timeout，就把docker-compose里的TIMEOUT值升高点。
 
-![入口](imgs/archivebox/archivebox_add.png){ loading=lazy }
-
-![添加item](imgs/archivebox/archivebox_add2.png){ loading=lazy }
-
-![item管理](imgs/archivebox/archivebox_add3.png){ loading=lazy }
-
-![item详细](imgs/archivebox/archivebox_add4.png){ loading=lazy }
+![入口](https://picture.cdn.shafish.cn/blog/archivebox-2021-12-archivebox_add.png){ loading=lazy }
+![添加item](https://picture.cdn.shafish.cn/blog/archivebox-2021-12-archivebox_add2.png){ loading=lazy }
+![item管理](https://picture.cdn.shafish.cn/blog/archivebox-2021-12-archivebox_add3.png){ loading=lazy }
+![item详细](https://picture.cdn.shafish.cn/blog/archivebox-2021-12-archivebox_add4.png){ loading=lazy }
 
 最后可以看到下载到本地的内容能展示多种类型，html、pdf、原生等等，直接用singlefile也就是第一个就好。或者在Archive method中选前四个就行(推荐使用)
 

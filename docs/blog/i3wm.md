@@ -12,7 +12,7 @@ https://i3wm.org/docs/userguide.html
 
 ref: https://github.com/greshake/i3status-rust
 
-![](./imgs/i3wm/i3status-rust.png)
+![](https://picture.cdn.shafish.cn/blog/i3wm-i3status-rust.png)
 
 - 1.安装
 
@@ -103,7 +103,10 @@ bar {
 
 blocks使用文档：https://github.com/greshake/i3status-rust/blob/master/doc/blocks.md#formatting
 
-图标：https://wiki.archlinux.org/title/i3_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#%E7%8A%B6%E6%80%81%E6%A0%8F%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%A0%87%E5%AD%97%E4%BD%93
+图标：
+``` 
+https://wiki.archlinux.org/title/i3_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#%E7%8A%B6%E6%80%81%E6%A0%8F%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%A0%87%E5%AD%97%E4%BD%93
+```
 
 ``` config
 theme = "solarized-dark"

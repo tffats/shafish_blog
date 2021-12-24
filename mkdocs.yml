@@ -1,4 +1,4 @@
-# 
+#
 site_name: shafish.cn
 site_url: https://shafish.cn
 site_author: shafish
@@ -62,7 +62,6 @@ plugins:
   - search
   - git-revision-date-localized:
       type: datetime
-      #fallback_to_build_date: true
       enable_creation_date: true
 
 extra:

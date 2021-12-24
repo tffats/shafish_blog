@@ -282,9 +282,9 @@ nginx主要靠ngx_http_core_module模块实现。
 
 ### 1.模块变量
 
-![](./imgs/nginx/nginx_http_variable1.png)
+![](https://picture.cdn.shafish.cn/blog/nginx-2021-12-nginx_http_variable1.png)
 
-![](./imgs/nginx/nginx_http_variable2.png)
+![](https://picture.cdn.shafish.cn/blog/nginx-2021-12-nginx_http_variable2.png)
 
 ### 2.虚拟主机与请求的分发
 每个server块都是一个虚拟主机。

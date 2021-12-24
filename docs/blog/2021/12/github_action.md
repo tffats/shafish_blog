@@ -260,7 +260,7 @@ cat shafishcn
 - Name：环境变量名称
 - Value：变量值
 
-![](./imgs/githubaction/secret1.png)
+![](https://picture.cdn.shafish.cn/blog/github-action-2021-12-secret1.png)
 
 | 变量      | 变量值                          |
 | :-----------: | :------------------------------------: |
@@ -325,7 +325,7 @@ jobs:
 
 略
 
-![](./imgs/githubaction/ciresult.png)
+![](https://picture.cdn.shafish.cn/blog/github-action-2021-12-ciresult.png)
 
 !!! tip "项目工作流文件"
 
