@@ -2224,6 +2224,17 @@ buttons.forEach(function(button) {
 <a id="__codelineno-78-5" name="__codelineno-78-5"></a>      <span class="nt">fallback_to_build_date</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 <a id="__codelineno-78-6" name="__codelineno-78-6"></a>      <span class="nt">enable_creation_date</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-79-1" name="__codelineno-79-1"></a><span class="c1"># github action ci时需要注意事项</span>
+<a id="__codelineno-79-2" name="__codelineno-79-2"></a><span class="c1"># 指定容器当前时区</span>
+<a id="__codelineno-79-3" name="__codelineno-79-3"></a><span class="nt">env</span><span class="p">:</span>
+<a id="__codelineno-79-4" name="__codelineno-79-4"></a>  <span class="nt">TZ</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Asia/Shanghai</span>
+<a id="__codelineno-79-5" name="__codelineno-79-5"></a>
+<a id="__codelineno-79-6" name="__codelineno-79-6"></a><span class="c1"># checkout时需要指定fetch全部commit信息</span>
+<a id="__codelineno-79-7" name="__codelineno-79-7"></a><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Checkout master</span>
+<a id="__codelineno-79-8" name="__codelineno-79-8"></a>  <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
+<a id="__codelineno-79-9" name="__codelineno-79-9"></a>  <span class="nt">with</span><span class="p">:</span>
+<a id="__codelineno-79-10" name="__codelineno-79-10"></a>    <span class="nt">fetch-depth</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span> <span class="c1"># 默认为1,表示只拉去最新commit信息，会导致当前文件显示的创建时间、更新时间都为commit的时间</span>
+</code></pre></div>
 <h2 id="四部署">四、部署<a class="headerlink" href="#四部署" title="Permanent link">🐟</a></h2>
 <p><a href="../2021/12/github_action/">Github action部署到github page</a></p>
 <p><a href="../2021/12/jenkins/">Jenkins部署到服务器</a></p>
@@ -2268,7 +2279,7 @@ buttons.forEach(function(button) {
     <!-- mkdocs-git-revision-date-localized-plugin -->
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">December 25, 2021 00:01:57</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">December 25, 2021 10:58:08</span>
       
         <br />
         创建日期:
