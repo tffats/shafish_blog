@@ -286,8 +286,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest # github action提供的容器环境
     steps:
-      - name: Checkout master  # 拉仓库代码到容器中（以下的所有操作都以仓库所在目录为根目录）
+      - name: Checkout master  # 拉仓库代码（包括所有的commit记录）到容器中（以下的所有操作都以仓库所在目录为根目录）
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0        
 
       - name: Set up Python3.x # 容器安装python3环境
         uses: actions/setup-python@v2

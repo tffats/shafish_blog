@@ -1190,6 +1190,19 @@ plugins:
       enable_creation_date: true
 ```
 
+``` yaml
+# github action ci时需要注意事项
+# 指定容器当前时区
+env:
+  TZ: Asia/Shanghai
+
+# checkout时需要指定fetch全部commit信息
+- name: Checkout master
+  uses: actions/checkout@v2
+  with:
+    fetch-depth: 0 # 默认为1,表示只拉去最新commit信息，会导致当前文件显示的创建时间、更新时间都为commit的时间
+```
+
 ## 四、部署
 
 [Github action部署到github page](2021/12/github_action.md)
