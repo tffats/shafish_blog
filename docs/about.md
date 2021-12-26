@@ -1,6 +1,9 @@
 ---
 title: About
 vssue: ""
+hide:
+  - navigation
+  - toc
 ---
 
 ## 扯乎
@@ -23,11 +26,19 @@ vssue: ""
 
 之前的typecho还保留着，不过用了默认的主题，旧主题中设置的很多样式没解析出来，后续处理下失效的图片链接就这样了，闲的无聊欢迎去康康哟：[https://blog.shafish.cn/](https://blog.shafish.cn/)
 
+![附上一张江湖流传出来某人平平无奇的普通长发帅图](https://picture.cdn.shafish.cn/blog/head.png){align=right width="300" }
+
+至于本人介绍：只是一个平平无奇的骚年而已
+
+## 问题
+
+- [ ] 评论出现Failed to load comments，疑似shafish.cn及tffats.github.io/shafish_blog使用同仓库issue造成（待排查）
+
 ## Todo-博客改造
 
 - 2021-12
     - 25/26
-        - [x] 优化ci流程（利用github action构建好内容再同步到服务器，避免服务器再clone构建，降低服务器压力）
+        - [x] 优化ci流程（利用github action构建好内容后同步到服务器，避免服务器clone仓库再重复构建，减轻服务器压力）
         - [x] 添加archvie.shafish.cn版权说明
         - [ ] 屏蔽archvie.shafish.cn无用户访问
         - [x] 博客添加video.js
@@ -41,7 +52,9 @@ vssue: ""
 ## Todo-运动
 
 - 2021-12
-    - [x] 爬山（深圳羊台山）
+    - [x] 爬山
+    ??? note "深圳羊台山"
+        ![](https://picture.cdn.shafish.cn/blog/Screenshot_20211226_211857_com.huawei.health.jpg)
 
 ## Todo-周末兴趣
 
