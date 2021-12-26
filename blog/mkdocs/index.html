@@ -48,6 +48,10 @@
     
       <link rel="stylesheet" href="../../stylesheets/vssue.css">
     
+      <link rel="stylesheet" href="//vjs.zencdn.net/7.10.2/video-js.min.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/video.css">
+    
     <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -601,6 +605,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#2-图片点击放大" class="md-nav__link">
+    2. 图片点击放大
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1065,6 +1076,13 @@
           <li class="md-nav__item">
   <a href="#1-显示文件最后修改时间" class="md-nav__link">
     1. 显示文件最后修改时间
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-图片点击放大" class="md-nav__link">
+    2. 图片点击放大
   </a>
   
 </li>
@@ -1601,7 +1619,7 @@ tags on separate lines and adding new lines between the tags and the content.</p
 </ul>
 </div>
 <div class="tabbed-block">
-<p><img alt="" src="https://picture.cdn.shafish.cn/blog/mkdocs-formate.png" />
+<p><img alt="" class="zoom" src="https://picture.cdn.shafish.cn/blog/mkdocs-formate.png" />
 <div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1"></a><span class="k">-</span> H~2~0
 <a id="__codelineno-40-2" name="__codelineno-40-2"></a><span class="k">-</span> A^T^A
 </code></pre></div></p>
@@ -2215,26 +2233,81 @@ buttons.forEach(function(button) {
 <h2 id="三插件">三、插件<a class="headerlink" href="#三插件" title="Permanent link">🐟</a></h2>
 <p>https://facelessuser.github.io/pymdown-extensions/extensions</p>
 <h3 id="1-显示文件最后修改时间">1. 显示文件最后修改时间<a class="headerlink" href="#1-显示文件最后修改时间" title="Permanent link">🐟</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="19:3"><input checked="checked" id="__tabbed_19_1" name="__tabbed_19" type="radio" /><input id="__tabbed_19_2" name="__tabbed_19" type="radio" /><input id="__tabbed_19_3" name="__tabbed_19" type="radio" /><div class="tabbed-labels"><label for="__tabbed_19_1">安装时间插件</label><label for="__tabbed_19_2">mkdocs.yml设置</label><label for="__tabbed_19_3">注意事项</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-77-1" name="__codelineno-77-1"></a>$ pip install mkdocs-git-revision-date-localized-plugin
 </code></pre></div>
+</div>
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-78-1" name="__codelineno-78-1"></a><span class="c1"># mkdocs.yml 相关配置</span>
 <a id="__codelineno-78-2" name="__codelineno-78-2"></a><span class="nt">plugins</span><span class="p">:</span>
-<a id="__codelineno-78-3" name="__codelineno-78-3"></a>  <span class="p p-Indicator">-</span> <span class="nt">git-revision-date-localized</span><span class="p">:</span>
-<a id="__codelineno-78-4" name="__codelineno-78-4"></a>      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">datetime</span>
-<a id="__codelineno-78-5" name="__codelineno-78-5"></a>      <span class="nt">fallback_to_build_date</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-<a id="__codelineno-78-6" name="__codelineno-78-6"></a>      <span class="nt">enable_creation_date</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-78-3" name="__codelineno-78-3"></a><span class="p p-Indicator">-</span> <span class="nt">git-revision-date-localized</span><span class="p">:</span>
+<a id="__codelineno-78-4" name="__codelineno-78-4"></a>    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">datetime</span>
+<a id="__codelineno-78-5" name="__codelineno-78-5"></a>    <span class="c1">#fallback_to_build_date: true</span>
+<a id="__codelineno-78-6" name="__codelineno-78-6"></a>    <span class="nt">enable_creation_date</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-79-1" name="__codelineno-79-1"></a><span class="c1"># github action ci时需要注意事项</span>
 <a id="__codelineno-79-2" name="__codelineno-79-2"></a><span class="c1"># 指定容器当前时区</span>
 <a id="__codelineno-79-3" name="__codelineno-79-3"></a><span class="nt">env</span><span class="p">:</span>
-<a id="__codelineno-79-4" name="__codelineno-79-4"></a>  <span class="nt">TZ</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Asia/Shanghai</span>
+<a id="__codelineno-79-4" name="__codelineno-79-4"></a><span class="nt">TZ</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Asia/Shanghai</span>
 <a id="__codelineno-79-5" name="__codelineno-79-5"></a>
 <a id="__codelineno-79-6" name="__codelineno-79-6"></a><span class="c1"># checkout时需要指定fetch全部commit信息</span>
 <a id="__codelineno-79-7" name="__codelineno-79-7"></a><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Checkout master</span>
-<a id="__codelineno-79-8" name="__codelineno-79-8"></a>  <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
-<a id="__codelineno-79-9" name="__codelineno-79-9"></a>  <span class="nt">with</span><span class="p">:</span>
+<a id="__codelineno-79-8" name="__codelineno-79-8"></a><span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
+<a id="__codelineno-79-9" name="__codelineno-79-9"></a><span class="nt">with</span><span class="p">:</span>
 <a id="__codelineno-79-10" name="__codelineno-79-10"></a>    <span class="nt">fetch-depth</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span> <span class="c1"># 默认为1,表示只拉去最新commit信息，会导致当前文件显示的创建时间、更新时间都为commit的时间</span>
 </code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="2-图片点击放大">2. 图片点击放大<a class="headerlink" href="#2-图片点击放大" title="Permanent link">🐟</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="20:4"><input checked="checked" id="__tabbed_20_1" name="__tabbed_20" type="radio" /><input id="__tabbed_20_2" name="__tabbed_20" type="radio" /><input id="__tabbed_20_3" name="__tabbed_20" type="radio" /><input id="__tabbed_20_4" name="__tabbed_20" type="radio" /><div class="tabbed-labels"><label for="__tabbed_20_1">mkdocs.yml设置</label><label for="__tabbed_20_2">stylesheets/extra.css</label><label for="__tabbed_20_3">javascripts/extra.js</label><label for="__tabbed_20_4">使用</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-80-1" name="__codelineno-80-1"></a><span class="nt">extra_css</span><span class="p">:</span>
+<a id="__codelineno-80-2" name="__codelineno-80-2"></a>    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">stylesheets/extra.css</span>
+<a id="__codelineno-80-3" name="__codelineno-80-3"></a><span class="nt">extra_javascript</span><span class="p">:</span>
+<a id="__codelineno-80-4" name="__codelineno-80-4"></a>    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">javascripts/extra.js</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-81-1" name="__codelineno-81-1"></a><span class="c">/* 图片放大start */</span>
+<a id="__codelineno-81-2" name="__codelineno-81-2"></a><span class="p">.</span><span class="nc">shadow</span> <span class="p">{</span>
+<a id="__codelineno-81-3" name="__codelineno-81-3"></a>    <span class="k">box-shadow</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">4</span><span class="kt">px</span> <span class="mi">8</span><span class="kt">px</span> <span class="mi">0</span> <span class="nb">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span> <span class="mi">0</span> <span class="mi">6</span><span class="kt">px</span> <span class="mi">20</span><span class="kt">px</span> <span class="mi">0</span> <span class="nb">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.19</span><span class="p">);</span>
+<a id="__codelineno-81-4" name="__codelineno-81-4"></a><span class="p">}</span>
+<a id="__codelineno-81-5" name="__codelineno-81-5"></a>
+<a id="__codelineno-81-6" name="__codelineno-81-6"></a><span class="p">.</span><span class="nc">zoom</span> <span class="p">{</span>
+<a id="__codelineno-81-7" name="__codelineno-81-7"></a>    <span class="k">transition</span><span class="p">:</span> <span class="k">transform</span> <span class="kc">ease-in-out</span> <span class="mf">0.5</span><span class="kt">s</span><span class="p">;</span>
+<a id="__codelineno-81-8" name="__codelineno-81-8"></a>    <span class="k">cursor</span><span class="p">:</span> <span class="kc">zoom-in</span><span class="p">;</span>
+<a id="__codelineno-81-9" name="__codelineno-81-9"></a><span class="p">}</span>
+<a id="__codelineno-81-10" name="__codelineno-81-10"></a>
+<a id="__codelineno-81-11" name="__codelineno-81-11"></a><span class="p">.</span><span class="nc">image-zoom-large</span> <span class="p">{</span>
+<a id="__codelineno-81-12" name="__codelineno-81-12"></a>    <span class="k">transform</span><span class="p">:</span> <span class="nb">scale</span><span class="p">(</span><span class="mf">1.9</span><span class="p">);</span>
+<a id="__codelineno-81-13" name="__codelineno-81-13"></a>    <span class="k">cursor</span><span class="p">:</span> <span class="kc">zoom-out</span><span class="p">;</span>
+<a id="__codelineno-81-14" name="__codelineno-81-14"></a>    <span class="k">box-shadow</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">4</span><span class="kt">px</span> <span class="mi">8</span><span class="kt">px</span> <span class="mi">0</span> <span class="nb">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span> <span class="mi">0</span> <span class="mi">6</span><span class="kt">px</span> <span class="mi">20</span><span class="kt">px</span> <span class="mi">0</span> <span class="nb">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.19</span><span class="p">);</span>
+<a id="__codelineno-81-15" name="__codelineno-81-15"></a>    <span class="k">z-index</span><span class="p">:</span> <span class="mi">100</span><span class="p">;</span>
+<a id="__codelineno-81-16" name="__codelineno-81-16"></a>    <span class="k">position</span><span class="p">:</span> <span class="kc">relative</span><span class="p">;</span>
+<a id="__codelineno-81-17" name="__codelineno-81-17"></a><span class="p">}</span>
+<a id="__codelineno-81-18" name="__codelineno-81-18"></a><span class="c">/* 图片放大end*/</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-82-1" name="__codelineno-82-1"></a><span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;.zoom&#39;</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">item</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<a id="__codelineno-82-2" name="__codelineno-82-2"></a>    <span class="nx">item</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-82-3" name="__codelineno-82-3"></a>        <span class="k">this</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">toggle</span><span class="p">(</span><span class="s1">&#39;image-zoom-large&#39;</span><span class="p">);</span>
+<a id="__codelineno-82-4" name="__codelineno-82-4"></a>    <span class="p">})</span>
+<a id="__codelineno-82-5" name="__codelineno-82-5"></a><span class="p">});</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-83-1" name="__codelineno-83-1"></a>![](png src){: .zoom}
+</code></pre></div>
+</div>
+</div>
+</div>
 <h2 id="四部署">四、部署<a class="headerlink" href="#四部署" title="Permanent link">🐟</a></h2>
 <p><a href="../2021/12/github_action/">Github action部署到github page</a></p>
 <p><a href="../2021/12/jenkins/">Jenkins部署到服务器</a></p>
@@ -2279,7 +2352,7 @@ buttons.forEach(function(button) {
     <!-- mkdocs-git-revision-date-localized-plugin -->
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">December 25, 2021 10:58:08</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">December 26, 2021 17:19:42</span>
       
         <br />
         创建日期:
@@ -2316,8 +2389,8 @@ buttons.forEach(function(button) {
         options: {
           owner: 'tffats',
           repo: 'shafish_blog',
-          clientId: '84b1faa2fb960a12022a',
-          clientSecret: 'c1dea07821b8a9378c4567a9581e45920ae6483c', //only required for some of the platforms
+          clientId: 'db3f7b649d1509ed1e9c',
+          clientSecret: '2fc44acf5708272a552f30193937e830af1c9286',//only required for some of the platforms
           prefix: '[BlogComment]',
           labels: [':sunny:'],
           issueContent: ({ url }) =>`这个 Issue 由 Vssue 自动创建，用来存储该页面的评论：${url}`
@@ -2417,6 +2490,8 @@ buttons.forEach(function(button) {
       <script src="../../assets/javascripts/bundle.e1a181d9.min.js"></script>
       
         <script src="../../javascripts/extra.js"></script>
+      
+        <script src="//vjs.zencdn.net/7.10.2/video.min.js"></script>
       
     
   </body>
