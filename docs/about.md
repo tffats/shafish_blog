@@ -3,6 +3,8 @@ title: About
 vssue: ""
 ---
 
+## 扯乎
+
 :bell:这配色，精心挑选，匠心制作，没毛病铁子:bell:
 
 终于正式使用静态博客啦 :sparkler:  来一起嗨起来:tada: :tada: :tada:
@@ -20,3 +22,29 @@ vssue: ""
     {--最后本着多学习学习前端zhishi的态度（bing bu shi），在docsify和mkdocs中选了后者，文档也比较全面，一天时间搭好还写了使用文档弄了github action。总之整挺好，不出意外会一直用下去。--}
 
 之前的typecho还保留着，不过用了默认的主题，旧主题中设置的很多样式没解析出来，后续处理下失效的图片链接就这样了，闲的无聊欢迎去康康哟：[https://blog.shafish.cn/](https://blog.shafish.cn/)
+
+## Todo-博客改造
+
+- 2021-12
+    - 25/26
+        - [x] 优化ci流程（利用github action构建好内容再同步到服务器，避免服务器再clone构建，降低服务器压力）
+        - [x] 添加archvie.shafish.cn版权说明
+        - [ ] 屏蔽archvie.shafish.cn无用户访问
+        - [x] 博客添加video.js
+        - [x] 修复文件创建、修改显示时间
+        - [x] 添加图床
+        - [x] 博客图片可点击放大
+        - [x] 仓库移交tffats管理
+        - [x] 设置shafish.cn跟tffats.github.io/shafish_blog同步评论
+        - [ ] 添加shafish_blog合并到main时code review流程
+
+## Todo-运动
+
+- 2021-12
+    - [x] 爬山（深圳羊台山）
+
+## Todo-周末兴趣
+
+- 2021-12
+    - 25/26
+        - [ ] 练吉他

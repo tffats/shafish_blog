@@ -500,7 +500,7 @@ markdown_extensions:
 
 === "Code"
 
-    ![](https://picture.cdn.shafish.cn/blog/mkdocs-formate.png)
+    ![](https://picture.cdn.shafish.cn/blog/mkdocs-formate.png){: .zoom}
     ``` markdown 
     - H~2~0
     - A^T^A
@@ -1177,31 +1177,87 @@ https://facelessuser.github.io/pymdown-extensions/extensions
 
 ### 1. 显示文件最后修改时间
 
-``` shell
-$ pip install mkdocs-git-revision-date-localized-plugin
-```
+=== "安装时间插件"
 
-``` yaml
-# mkdocs.yml 相关配置
-plugins:
-  - git-revision-date-localized:
-      type: datetime
-      fallback_to_build_date: true
-      enable_creation_date: true
-```
+    ``` shell
+    $ pip install mkdocs-git-revision-date-localized-plugin
+    ```
 
-``` yaml
-# github action ci时需要注意事项
-# 指定容器当前时区
-env:
-  TZ: Asia/Shanghai
+=== "mkdocs.yml设置"
 
-# checkout时需要指定fetch全部commit信息
-- name: Checkout master
-  uses: actions/checkout@v2
-  with:
-    fetch-depth: 0 # 默认为1,表示只拉去最新commit信息，会导致当前文件显示的创建时间、更新时间都为commit的时间
-```
+    ``` yaml
+    # mkdocs.yml 相关配置
+    plugins:
+    - git-revision-date-localized:
+        type: datetime
+        #fallback_to_build_date: true
+        enable_creation_date: true
+    ```
+
+=== "注意事项"
+
+    ``` yaml
+    # github action ci时需要注意事项
+    # 指定容器当前时区
+    env:
+    TZ: Asia/Shanghai
+
+    # checkout时需要指定fetch全部commit信息
+    - name: Checkout master
+    uses: actions/checkout@v2
+    with:
+        fetch-depth: 0 # 默认为1,表示只拉去最新commit信息，会导致当前文件显示的创建时间、更新时间都为commit的时间
+    ```
+
+### 2. 图片点击放大
+
+=== "mkdocs.yml设置"
+
+    ``` yaml
+    extra_css:
+        - stylesheets/extra.css
+    extra_javascript:
+        - javascripts/extra.js
+    ```
+
+=== "stylesheets/extra.css"
+
+    ``` css
+    /* 图片放大start */
+    .shadow {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .zoom {
+        transition: transform ease-in-out 0.5s;
+        cursor: zoom-in;
+    }
+
+    .image-zoom-large {
+        transform: scale(1.9);
+        cursor: zoom-out;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        z-index: 100;
+        position: relative;
+    }
+    /* 图片放大end*/
+    ```
+
+=== "javascripts/extra.js"
+
+    ``` js
+    document.querySelectorAll('.zoom').forEach(item => {
+        item.addEventListener('click', function () {
+            this.classList.toggle('image-zoom-large');
+        })
+    });
+    ```
+
+=== "使用"
+
+    ``` markdown
+    ![](png src){: .zoom}
+    ```
 
 ## 四、部署
 
