@@ -260,7 +260,7 @@ cat shafishcn
 - Name：环境变量名称
 - Value：变量值
 
-![](https://picture.cdn.shafish.cn/blog/github-action-2021-12-secret1.png)
+![](https://picture.cdn.shafish.cn/blog/github-action-2021-12-secret1.png){: .zoom}
 
 | 变量      | 变量值                          |
 | :-----------: | :------------------------------------: |

@@ -12,7 +12,7 @@ https://i3wm.org/docs/userguide.html
 
 ref: https://github.com/greshake/i3status-rust
 
-![](https://picture.cdn.shafish.cn/blog/i3wm-i3status-rust.png)
+![](https://picture.cdn.shafish.cn/blog/i3wm-i3status-rust.png){: .zoom}
 
 - 1.安装
 
