@@ -3,6 +3,7 @@ title: "life"
 vssue: ""
 hide:
   - navigation
+  - toc
 ---
 
 <video
