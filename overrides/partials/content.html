@@ -73,11 +73,13 @@
         
         options: {
           owner: 'tffats',
+          admins: ['shafishcn'],
           repo: 'shafish_blog',
           clientId: 'db3f7b649d1509ed1e9c',
           clientSecret: '2fc44acf5708272a552f30193937e830af1c9286',//only required for some of the platforms
           prefix: '[BlogComment]',
           labels: [':sunny:'],
+          autoCreateIssue: true,
           issueContent: ({ url }) =>`这个 Issue 由 Vssue 自动创建，用来存储该页面的评论：${url}`
         },
       },

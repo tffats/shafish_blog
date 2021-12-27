@@ -1,3 +1,5 @@
+![](https://github.com/tffats/shafish_blog/workflows/Built and pushed to the server/badge.svg?branch=main)
+
 这里写个分类导航
 
 - 技术
@@ -8,6 +10,6 @@
 
 - test in my host
 
-https://shafishcn.github.io/shafish_blog/
+https://tffats.github.io/shafish_blog/
 
 - 。。。
