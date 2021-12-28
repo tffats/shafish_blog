@@ -1,5 +1,7 @@
 ---
 title: Github Action使用记录
+hide:
+  - navigation
 ---
 
 # Github Action

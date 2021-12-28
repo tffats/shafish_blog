@@ -1,5 +1,7 @@
 ---
 title: Jenkins部署[Ubuntu]
+hide:
+  - navigation
 ---
 
 # Jenkins使用[Ubuntu]

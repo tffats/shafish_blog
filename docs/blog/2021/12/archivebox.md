@@ -1,5 +1,7 @@
 ---
 title: ArchiveBox使用
+hide:
+  - navigation
 ---
 
 # ArchiveBox使用

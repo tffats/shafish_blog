@@ -1,5 +1,7 @@
 ---
 title: i3wm使用记录
+hide:
+  - navigation
 ---
 
 # i3wm使用记录

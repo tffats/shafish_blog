@@ -1,5 +1,7 @@
 ---
 title: nginx使用记录
+hide:
+  - navigation
 ---
 
 # nginx使用记录
@@ -277,7 +279,7 @@ cp ./objs/nginx ./sbin/
 | `use[kqueue|rtsig|epoll|/dev/poll|select|poll|eventport];` | 选择事件模型，默认会自动使用最适合的事件模型                                                                                                           |
 | `worker_connections number;`                               | 每个worker的最大连接数                                                                                                                                 |
 
-### 七、nginx http模块配置
+## 七、nginx http模块配置
 nginx主要靠ngx_http_core_module模块实现。
 
 ### 1.模块变量
