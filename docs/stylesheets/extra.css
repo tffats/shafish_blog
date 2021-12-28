@@ -42,3 +42,7 @@
     position: relative;
 }
 /* 图片放大end*/
+
+.point {
+    cursor: pointer;
+}
