@@ -122,15 +122,15 @@ nav:
     #- 2022:
      # - blog/2022/index.md
       #- 第一篇文章: blog/2022/1.md
-    - 会更新区: 
-      - mkdocs使用记录: blog/mkdocs.md  
-      - i3wm使用记录: blog/i3wm.md  
-    - 2021年:
-      - blog/2021/index.md
-      - 12月份: 
-        - archivebox使用: blog/2021/12/archivebox.md
-        - jenkins使用: blog/2021/12/jenkins.md 
-        - github action使用: blog/2021/12/github_action.md 
-        - nginx使用记录: blog/2021/12/nginx_record.md
+    #- 会更新区: 
+      #- mkdocs使用记录: blog/mkdocs.md  
+      #- i3wm使用记录: blog/i3wm.md  
+    #- 2021年:
+      #- blog/2021/index.md
+      #- 12月份: 
+        #- archivebox使用: blog/2021/12/archivebox.md
+        #- jenkins使用: blog/2021/12/jenkins.md 
+        #- github action使用: blog/2021/12/github_action.md 
+        #- nginx使用记录: blog/2021/12/nginx_record.md
   - 生活: life/index.md
   - 关于: about.md
