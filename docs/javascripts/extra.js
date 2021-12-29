@@ -9,7 +9,7 @@ document.querySelectorAll('#english').forEach(item => {
         console.log(item.innerText)
         var sound = document.createElement('audio');
         sound.id = 'audio-player';
-        sound.src = 'http://dict.youdao.com/dictvoice?type=2&audio='+item.innerText;
+        sound.src = 'https://dict.youdao.com/dictvoice?type=2&audio='+item.innerText;
         sound.type = 'audio/mpeg';
         sound.play();
     })
