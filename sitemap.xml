@@ -2,67 +2,82 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://shafish.cn/</loc>
-         <lastmod>2021-12-28</lastmod>
+         <lastmod>2021-12-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://shafish.cn/about/</loc>
-         <lastmod>2021-12-28</lastmod>
+         <lastmod>2021-12-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://shafish.cn/comments/</loc>
+         <lastmod>2021-12-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://shafish.cn/blog/</loc>
-         <lastmod>2021-12-28</lastmod>
+         <lastmod>2021-12-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://shafish.cn/blog/i3wm/</loc>
-         <lastmod>2021-12-28</lastmod>
+         <lastmod>2021-12-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://shafish.cn/blog/mkdocs/</loc>
-         <lastmod>2021-12-28</lastmod>
+         <lastmod>2021-12-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://shafish.cn/blog/2021/</loc>
-         <lastmod>2021-12-28</lastmod>
+         <lastmod>2021-12-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://shafish.cn/blog/2021/12/archivebox/</loc>
-         <lastmod>2021-12-28</lastmod>
+         <lastmod>2021-12-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://shafish.cn/blog/2021/12/github_action/</loc>
-         <lastmod>2021-12-28</lastmod>
+         <lastmod>2021-12-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://shafish.cn/blog/2021/12/jenkins/</loc>
-         <lastmod>2021-12-28</lastmod>
+         <lastmod>2021-12-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://shafish.cn/blog/2021/12/nginx_record/</loc>
-         <lastmod>2021-12-28</lastmod>
+         <lastmod>2021-12-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://shafish.cn/blog/2022/</loc>
-         <lastmod>2021-12-28</lastmod>
+         <lastmod>2021-12-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://shafish.cn/blog/2022/1/</loc>
-         <lastmod>2021-12-28</lastmod>
+         <lastmod>2021-12-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://shafish.cn/english/</loc>
+         <lastmod>2021-12-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://shafish.cn/english/At_the_airport/</loc>
+         <lastmod>2021-12-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://shafish.cn/life/</loc>
-         <lastmod>2021-12-28</lastmod>
+         <lastmod>2021-12-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
