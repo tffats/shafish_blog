@@ -119,8 +119,7 @@ markdown_extensions:
       custom_checkbox: true  
 
 nav:
-  - 技术:
-    - blog/index.md
+  - 技术: blog/index.md
     #- 2022:
      # - blog/2022/index.md
       #- 第一篇文章: blog/2022/1.md
