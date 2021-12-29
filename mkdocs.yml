@@ -63,6 +63,8 @@ plugins:
   - git-revision-date-localized:
       type: datetime
       enable_creation_date: true
+      exclude:
+        - comments.md
 
 extra:
   social:
@@ -117,8 +119,7 @@ markdown_extensions:
       custom_checkbox: true  
 
 nav:
-  - 技术:
-    - blog/index.md
+  - 技术: blog/index.md
     #- 2022:
      # - blog/2022/index.md
       #- 第一篇文章: blog/2022/1.md
@@ -132,5 +133,7 @@ nav:
         #- jenkins使用: blog/2021/12/jenkins.md 
         #- github action使用: blog/2021/12/github_action.md 
         #- nginx使用记录: blog/2021/12/nginx_record.md
+  - 外语: english/index.md
   - 生活: life/index.md
+  - 留言: comments.md
   - 关于: about.md

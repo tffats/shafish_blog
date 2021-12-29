@@ -1179,6 +1179,8 @@ https://facelessuser.github.io/pymdown-extensions/extensions
 
 ### 1. 显示文件最后修改时间
 
+ref: https://timvink.github.io/mkdocs-git-revision-date-localized-plugin/options/
+
 === "安装时间插件"
 
     ``` shell
