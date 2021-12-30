@@ -70,6 +70,7 @@ hide:
 ### 15. <span id="english">Business class economy class <span class="point">:sound:</span></span> 公务舱/经济舱
 
 - <span id="english">It’s not easy for disabled people to take public transit, so you should help them out if you can. <span class="point">:speech_balloon:</span></span>
+- <span id="english">Okay, you’re flying economy right? <span class="point">:speech_balloon:</span></span>
 
 ## 二、句子
 
