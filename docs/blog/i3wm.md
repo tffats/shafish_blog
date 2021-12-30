@@ -6,13 +6,15 @@ hide:
 
 # i3wm使用记录
 
-https://wiki.archlinux.org/title/I3_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)
+[Back](/blog/#12月份){ .md-button}
 
-https://i3wm.org/docs/userguide.html
+[https://wiki.archlinux.org/title/I3_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)](https://wiki.archlinux.org/title/I3_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)){target=_blank}
+
+[https://i3wm.org/docs/userguide.html](https://i3wm.org/docs/userguide.html){target=_blank}
 
 ## 一、使用i3status-rust
 
-ref: https://github.com/greshake/i3status-rust
+ref: [https://github.com/greshake/i3status-rust](https://github.com/greshake/i3status-rust){target=_blank}
 
 ![](https://picture.cdn.shafish.cn/blog/i3wm-i3status-rust.png){: .zoom}
 
@@ -103,7 +105,7 @@ bar {
 
 - 5.block配置
 
-blocks使用文档：https://github.com/greshake/i3status-rust/blob/master/doc/blocks.md#formatting
+blocks使用文档：[https://github.com/greshake/i3status-rust/blob/master/doc/blocks.md#formatting)](https://github.com/greshake/i3status-rust/blob/master/doc/blocks.md#formatting){target=_blank}
 
 图标：
 ``` 

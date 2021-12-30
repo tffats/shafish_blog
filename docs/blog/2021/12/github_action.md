@@ -6,11 +6,13 @@ hide:
 
 # Github Action
 
+[Back](/blog/#12月份){ .md-button}
+
 ref:
 
-- [GitHub Actions 入门教程-阮一峰](http://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html)
-- [GitHub Actions官方文档](https://docs.github.com/en/actions/quickstart)
-- [Github Actions语法](https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#about-yaml-syntax-for-workflows)
+- [GitHub Actions 入门教程-阮一峰](http://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html){target=_blank}
+- [GitHub Actions官方文档](https://docs.github.com/en/actions/quickstart){target=_blank}
+- [Github Actions语法](https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#about-yaml-syntax-for-workflows){target=_blank}
 
 用法和概念基本都是参考 阮一峰 的那篇文章，所以在这里纯粹是记录下使用。
 
@@ -36,8 +38,8 @@ ref:
 其中的大部分action都是可以被复用的：比如环境部署，基本就只有软件对应系统和版本的区别。
 所以Github Action中使用到的action是可以直接引用他人写好的 action滴，可以在下面列出的仓库中找找：
 
-- [Github官方市场](https://github.com/marketplace?type=actions)
-- [Awesome actions](https://github.com/sdras/awesome-actions)
+- [Github官方市场](https://github.com/marketplace?type=actions){target=_blank}
+- [Awesome actions](https://github.com/sdras/awesome-actions){target=_blank}
 
 ## 二、Workflow定义
 
@@ -336,7 +338,7 @@ jobs:
 
 !!! tip "项目工作流文件"
 
-https://github.com/shafishcn/shafish_blog/tree/main/.github/workflows
+[https://github.com/shafishcn/shafish_blog/tree/main/.github/workflows](https://github.com/shafishcn/shafish_blog/tree/main/.github/workflows){target=_blank}
 
-  - ci.yml为github page部署：https://shafishcn.github.io/shafish_blog/
-  - server_ci.yml是在下的服务器：https://shafish.cn/
+  - ci.yml为github page部署：[https://shafishcn.github.io/shafish_blog/](https://shafishcn.github.io/shafish_blog/){target=_blank}
+  - server_ci.yml是在下的服务器：[https://shafish.cn/](https://shafish.cn/){target=_blank}

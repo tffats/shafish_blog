@@ -6,10 +6,12 @@ hide:
 
 # ArchiveBox使用
 
+[Back](/blog/#12月份){ .md-button}
+
 ref: 
 
-- https://nixintel.info/osint-tools/make-your-own-internet-archive-with-archive-box/
-- https://github.com/ArchiveBox/ArchiveBox/wiki/Docker
+- [https://nixintel.info/osint-tools/make-your-own-internet-archive-with-archive-box/](https://nixintel.info/osint-tools/make-your-own-internet-archive-with-archive-box/){target=_blank}
+- [https://github.com/ArchiveBox/ArchiveBox/wiki/Docker](https://github.com/ArchiveBox/ArchiveBox/wiki/Docker){target=_blank}
 
 当你遇见他，感悟他，细心珍藏他，然后毫无疑问地，最终会遗忘了他，我说的是书签，浏览器上保存的那些成白上千的、杂乱的书签。
 
@@ -128,7 +130,7 @@ docker-compose up -d
 
 ## 二、保存内容
 
-比如说想保存这篇：http://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html
+比如说想保存这篇：[http://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html](http://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html){target=_blank}
 
 :octicons-light-bulb-16: **Tip** 如果网络不好，出现timeout，就把docker-compose里的TIMEOUT值升高点。
 
@@ -141,4 +143,4 @@ docker-compose up -d
 
 ## 三、配置
 
-https://github.com/ArchiveBox/ArchiveBox/wiki/Configuration
+[https://github.com/ArchiveBox/ArchiveBox/wiki/Configuration](https://github.com/ArchiveBox/ArchiveBox/wiki/Configuration){target=_blank}

@@ -6,6 +6,8 @@ hide:
 
 # Jenkins使用[Ubuntu]
 
+[Back](/blog/#12月份){ .md-button}
+
 ## 一、java安装
 
 目前（2021-12-26）Jenkins仅支持Java8/Java11和Docker版Java17 Jenkins镜像（jenkins/jenkins:jdk17-preview）。
@@ -46,6 +48,6 @@ sudo apt-get install jenkins
 
 ### It appears that your reverse proxy setup is broken
 
-ref: https://www.jenkins.io/doc/book/system-administration/reverse-proxy-configuration-troubleshooting/
+ref: [https://www.jenkins.io/doc/book/system-administration/reverse-proxy-configuration-troubleshooting/](https://www.jenkins.io/doc/book/system-administration/reverse-proxy-configuration-troubleshooting/){target=_blank}
 
 Jenkins的反向代理设置存在问题。

@@ -6,6 +6,8 @@ hide:
 
 # nginx使用记录
 
+[Back](/blog/#12月份){ .md-button}
+
 ???+ abstract
 	仅做笔记，为了有个小小印象。
 
@@ -292,63 +294,63 @@ nginx主要靠ngx_http_core_module模块实现。
 每个server块都是一个虚拟主机。
 
 - 监听端口：`listen address:port[default(deprecated in 0.8.21)|default_server|[backlog=num|rcvbuf=size|sndbuf=size|accept_filter=filter|deferred|bind|ipv6only=[on|off]|ssl]];`
-  - `default/default_server`：将所在的server块作为nginx默认虚拟主机，否则默认是选配置中第一个server块der（当一个请求无法匹配配置文件中的所有主机域名时，就会选用默认的虚拟主机）。
-  - `backlog=num`：表示TCP中backlog队列的大小，如果backlog队列已满，还有新的客户端试图通过三次握手建立TCP连接，这时客户端将会建立连接失败。
-  - `rcvbuf=size`：设置监听句柄的SO_RCVBUF参数。
-  - `sndbuf=size`：设置监听句柄的SO_SNDBUF参数。
-  - `deferred`：适用于大并发，当请求数据来临时，worker进程才会开始处理这个连接。
-  - `bind`：绑定当前端口/地址对，同时对一个端口监听多个地址时才会生效。
-  - `ssl`：在当前监听的端口上建立的连接必须基于SSL协议。
+    - `default/default_server`：将所在的server块作为nginx默认虚拟主机，否则默认是选配置中第一个server块der（当一个请求无法匹配配置文件中的所有主机域名时，就会选用默认的虚拟主机）。
+    - `backlog=num`：表示TCP中backlog队列的大小，如果backlog队列已满，还有新的客户端试图通过三次握手建立TCP连接，这时客户端将会建立连接失败。
+    - `rcvbuf=size`：设置监听句柄的SO_RCVBUF参数。
+    - `sndbuf=size`：设置监听句柄的SO_SNDBUF参数。
+    - `deferred`：适用于大并发，当请求数据来临时，worker进程才会开始处理这个连接。
+    - `bind`：绑定当前端口/地址对，同时对一个端口监听多个地址时才会生效。
+    - `ssl`：在当前监听的端口上建立的连接必须基于SSL协议。
 
 > 在开始处理一个HTTP请求时，Nginx会取出header头中的Host，与每个server中的server_name进行匹配，以此决定到底由哪一个server块来处理这个请求。
 
 - 主机名称：`server_name name[...];`
-  - 多域名对应一个服务器ip，可以根据server块中定义的server_name来处理对应域名的请求。
+    - 多域名对应一个服务器ip，可以根据server块中定义的server_name来处理对应域名的请求。
 
 - 设置散列桶占用的内存大小：`server_names_hash_bucket_size size;`
-  - Nginx使用散列表来存储server name，提高快速寻找到相应server name的能力。
+    - Nginx使用散列表来存储server name，提高快速寻找到相应server name的能力。
 
 - `server_names_hash_max_size`
-  - 默认：512，越大，消耗的内存就越多，但散列key的冲突率则会降低，server name检索速度也更快。
+    - 默认：512，越大，消耗的内存就越多，但散列key的冲突率则会降低，server name检索速度也更快。
 
 - 重定向主机名称的处理：`server_name_in_redirect on|off;`
-  - 默认：on，表示在重定向请求时会使用server_name里配置的第一个主机名代替原先请求中的Host头部。
+    - 默认：on，表示在重定向请求时会使用server_name里配置的第一个主机名代替原先请求中的Host头部。
 
 - uri请求匹配：`location[=|~|~*|^~|@]/uri/{...}`
-  - `=`：把URI作为字符串进行匹配。
-  ```shell
-  location = / {
-    # 只有当用户请求是/时，才会使用该location下的配置
-    …
-  }
-  ```
-  - `~`：表示匹配URI时是字母大小写敏感的。
-  - `~*`：表示匹配URI时忽略字母大小写问题。
-  - `^~`：表示匹配URI时只需要其前半部分与uri参数匹配即可。
-  ```shell
-  location ^~ /images/ {
-    # 以/images/开始的请求都会匹配上
-    …
-  }
-  ```
-  - `@`：表示仅用于Nginx服务内部请求之间的重定向，不直接处理用户请求。
-  - `正则表达式`：用正则匹配呗。
-  ```shell
-  location ~* \.(gif|jpg|jpeg)$ {
-    # 匹配以 .gif、.jpg、.jpeg结尾的请求
-    …
-  }
-  ```
+    - `=`：把URI作为字符串进行匹配。
+    ```shell
+    location = / {
+      # 只有当用户请求是/时，才会使用该location下的配置
+      …
+    }
+    ```
+    - `~`：表示匹配URI时是字母大小写敏感的。
+    - `~*`：表示匹配URI时忽略字母大小写问题。
+    - `^~`：表示匹配URI时只需要其前半部分与uri参数匹配即可。
+    ```shell
+    location ^~ /images/ {
+      # 以/images/开始的请求都会匹配上
+      …
+    }
+    ```
+    - `@`：表示仅用于Nginx服务内部请求之间的重定向，不直接处理用户请求。
+    - `正则表达式`：用正则匹配呗。
+    ```shell
+    location ~* \.(gif|jpg|jpeg)$ {
+      # 匹配以 .gif、.jpg、.jpeg结尾的请求
+      …
+    }
+    ```
 
 ### 3.文件路径的定义
 - 指定根目录：`root path;`
-  - 默认：root html
-  ```shell
-  location /download/ {
-    # 请求的URI是/download/index/test.html，服务器返回/opt/web/html/download/index/test.html文件的内容
-    root /opt/web/html/;
-  }
-  ```
+    - 默认：root html
+    ```shell
+    location /download/ {
+      # 请求的URI是/download/index/test.html，服务器返回/opt/web/html/download/index/test.html文件的内容
+      root /opt/web/html/;
+    }
+    ```
 
 - 将uri请求目录映射为根目录：`alias path;`
 ```shell
@@ -359,7 +361,7 @@ location /conf {
 ```
 
 - 访问首页：`index file...;`
-  - 默认：index index.html;
+    - 默认：index index.html;
 
 - 根据HTTP返回码重定向页面：`error_page code[code...][=|=answer-code]uri|@named_location`
 ```shell
@@ -375,7 +377,7 @@ location @fallback (
 ```
 
 - 是否允许递归使用error_page：`recursive_error_pages[on|off];`
-  - 默认：recursive_error_pages off;
+    - 默认：recursive_error_pages off;
 
 - 寻找文件：`try_files path1[path2] uri;`
   ```shell
@@ -391,77 +393,77 @@ location @fallback (
 > 处理请求时内存、磁盘资源分配的配置项
 
 - HTTP包体只存储到磁盘文件中：`client_body_in_file_only on|clean|off;`
-  - 默认：client_body_in_file_only off;
-  - 当设置为on|clean时，请求包体会存储在磁盘文件中。
+    - 默认：client_body_in_file_only off;
+    - 当设置为on|clean时，请求包体会存储在磁盘文件中。
 
 - HTTP包体尽量写入到一个内存buffer中：`client_body_in_single_buffer on|off;`
-  - 默认：client_body_in_single_buffer off;
-  - 如果包体内容大过client_body_buffer_size，包体内容就存储在磁盘文件中
+    - 默认：client_body_in_single_buffer off;
+    - 如果包体内容大过client_body_buffer_size，包体内容就存储在磁盘文件中
 
 - 存储HTTP头部的内存buffer大小：`client_header_buffer_size size;`
-  - 默认：client_header_buffer_size 1k;
-  - 正常情况下Nginx接收用户请求中HTTP header部分（包括HTTP行和HTTP头部）时分配的内存buffer大小
+    - 默认：client_header_buffer_size 1k;
+    - 正常情况下Nginx接收用户请求中HTTP header部分（包括HTTP行和HTTP头部）时分配的内存buffer大小
 
 - 存储超大HTTP头部的内存buffer大小：`large_client_header_buffers number size;`
-  - 默认：large_client_header_buffers 48k;
-  - 定义了Nginx接收一个超大HTTP头部请求的buffer个数和每个buffer的大小
+    - 默认：large_client_header_buffers 48k;
+    - 定义了Nginx接收一个超大HTTP头部请求的buffer个数和每个buffer的大小
 
 - 存储HTTP包体的内存buffer大小：`client_body_buffer_size size;`
-  - 默认：client_body_buffer_size 8k/16k;
-  - 定义了Nginx接收HTTP包体的内存缓冲区大小
+    - 默认：client_body_buffer_size 8k/16k;
+    - 定义了Nginx接收HTTP包体的内存缓冲区大小
 
 - HTTP包体的临时存放目录：`client_body_temp_path dir-path[level1[level2[level3]]]`
-  - client_body_temp_path /opt/nginx/client_temp 1 2;
+    - client_body_temp_path /opt/nginx/client_temp 1 2;
 
 - 指定为连接成功的请求分配内存池初始大小：`connection_pool_size size;`
-  - 默认：connection_pool_size 256;
+    - 默认：connection_pool_size 256;
 
 - 开始处理请求，为每个请求分配的内存池大小：`request_pool_size size;`
-  - 默认：request_pool_size 4k;
+    - 默认：request_pool_size 4k;
 
 ### 5.网络连接的设置
 - 读取HTTP头部的超时时间：`client_header_timeout time（默认单位：秒）;`
-  - 默认：client_header_timeout 60;
+    - 默认：client_header_timeout 60;
 - 读取HTTP包体的超时时间：`client_body_timeout time（默认单位：秒）;`
-  - 默认：client_body_timeout 60;
+    - 默认：client_body_timeout 60;
 - 发送响应的超时时间：`send_timeout time;`
-  - 默认：send_timeout 60;
+   - 默认：send_timeout 60;
 - `reset_timeout_connection on|off;`
-  - 默认：reset_timeout_connection off;
-  - 连接超时，直接向用户发送RST重置包，而不是四次挥手关闭连接。
+    - 默认：reset_timeout_connection off;
+    - 连接超时，直接向用户发送RST重置包，而不是四次挥手关闭连接。
 
 - `lingering_close off|on|always;`
-  - 默认：lingering_close on;
-  - 控制Nginx关闭用户连接的方式。
-  - always表示关闭用户连接前必须无条件地处理连接上所有用户发送的数据
-  - off表示关闭连接时完全不管连接上是否已经有准备就绪的来自用户的数据
-  - on是中间值，一般情况下在关闭连接前都会处理连接上的用户发送的数据
+    - 默认：lingering_close on;
+    - 控制Nginx关闭用户连接的方式。
+    - always表示关闭用户连接前必须无条件地处理连接上所有用户发送的数据
+    - off表示关闭连接时完全不管连接上是否已经有准备就绪的来自用户的数据
+    - on是中间值，一般情况下在关闭连接前都会处理连接上的用户发送的数据
 
 - `lingering_time time;`  
-  - 默认：lingering_time 30s;
-  - 跟用户文件上传相关，如果经过lingering_time后，上传还在继续，则会关闭连接
+    - 默认：lingering_time 30s;
+    - 跟用户文件上传相关，如果经过lingering_time后，上传还在继续，则会关闭连接
 
 - `lingering_timeout time;`
-  - 默认：lingering_timeout 5s;
-  - 关闭连接前，检测是否有用户发送的数据到达服务器
+    - 默认：lingering_timeout 5s;
+    - 关闭连接前，检测是否有用户发送的数据到达服务器
 
 - 对某些浏览器禁用keepalive功能：`keepalive_disable[msie6|safari|none]...`
-  - 默认：keepalive_disablemsie6 safari
-  - 让多个请求复用一个HTTP长连接，这个功能对服务器的性能提高是很有帮助的
+    - 默认：keepalive_disablemsie6 safari
+    - 让多个请求复用一个HTTP长连接，这个功能对服务器的性能提高是很有帮助的
 
 - keepalive超时时间：`keepalive_timeout time（默认单位：秒）;`
-  - 默认：keepalive_timeout 75;
-  - 一个keepalive连接在闲置超过一定时间后（默认的是75秒），服务器和浏览器都会去关闭这个连接。
+    - 默认：keepalive_timeout 75;
+    - 一个keepalive连接在闲置超过一定时间后（默认的是75秒），服务器和浏览器都会去关闭这个连接。
 
 - 一个keepalive长连接上允许承载的请求最大数：`keepalive_requests n;`
-  - 默认：keepalive_requests 100;
+    - 默认：keepalive_requests 100;
 
 - 对keepalive连接是否使用TCP_NODELAY选项：`tcp_nodelay on|off;`
-  - 默认：tcp_nodelay on;
+    - 默认：tcp_nodelay on;
 
 - `tcp_nopush on|off;`
-  - 默认：tcp_nopush off;
-  - 打开tcp_nopush后，将会在发送响应时把整个响应包头放到一个TCP包中发送
+    - 默认：tcp_nopush off;
+    - 打开tcp_nopush后，将会在发送响应时把整个响应包头放到一个TCP包中发送
 
 ### 6.MIME类型的设置
 - MIME type与文件扩展的映射：`type{...};`
@@ -475,15 +477,15 @@ types {
 ```
 
 - 默认MIME type：`default_type MIME-type;`
-  - 默认：default_type text/plain;
+   - 默认：default_type text/plain;
 
 - `types_hash_bucket_size size;`
-  - 默认：types_hash_bucket_size 32|64|128;
-  - 设置每个散列桶占用的内存大小，快速寻找到相应MIME type，使用散列表来存储MIMEtype与文件扩展名
+    - 默认：types_hash_bucket_size 32|64|128;
+    - 设置每个散列桶占用的内存大小，快速寻找到相应MIME type，使用散列表来存储MIMEtype与文件扩展名
 
 - `types_hash_max_size size;`
-  - 默认：types_hash_max_size 1024;
-  - types_hash_max_size越大，就会消耗更多的内存，但散列key的冲突率会降低，检索速度就更快
+    - 默认：types_hash_max_size 1024;
+    - types_hash_max_size越大，就会消耗更多的内存，但散列key的冲突率会降低，检索速度就更快
 
 ### 7.对客户端请求的限制
 - 按HTTP方法名限制用户请求：`limit_except method...{...}`
@@ -496,68 +498,68 @@ limit_except GET {
 ```
 
 - HTTP请求包体的最大值：`client_max_body_size size;`
-  - 默认：client_max_body_size 1m;
-  - 可以告诉用户请求过大不被接受
+    - 默认：client_max_body_size 1m;
+    - 可以告诉用户请求过大不被接受
 
 - 对请求的限速：`limit_rate speed;`
-  - 默认：limit_rate 0;
-  - 限制每秒传输的字节数
+    - 默认：limit_rate 0;
+    - 限制每秒传输的字节数
 
 - 超过多大后限速：`limit_rate_after time;`
-  - 默认：limit_rate_after 1m;   
+    - 默认：limit_rate_after 1m;   
 
 ### 8.文件操作的优化
 - sendfile系统调用：`sendfile on|off;`
-  - 默认：sendfile off;
-  - 减少内核态与用户态间的文件复制次数（零拷贝）
+    - 默认：sendfile off;
+    - 减少内核态与用户态间的文件复制次数（零拷贝）
   
 - AIO系统调用：`aio on|off;`
-  - 是否在FreeBSD或Linux系统上启用内核级别的异步文件I/O功能
-  - 与sendfile功能是互斥的
+    - 是否在FreeBSD或Linux系统上启用内核级别的异步文件I/O功能
+    - 与sendfile功能是互斥的
 
 - `directio size|off;`
-  - 默认：directio off;
-  - 读取文件，缓冲区大小为size，通常对大文件的读取速度有优化作用。
-  - 与sendfile功能是互斥的
+    - 默认：directio off;
+    - 读取文件，缓冲区大小为size，通常对大文件的读取速度有优化作用。
+    - 与sendfile功能是互斥的
 
 - `directio_alignment size;`
-  - 默认：directio_alignment 512;
-  - 与directio配合使用，指定以directio方式读取文件时的对齐方式（4k对齐等）
+    - 默认：directio_alignment 512;
+    - 与directio配合使用，指定以directio方式读取文件时的对齐方式（4k对齐等）
 
 - 打开文件缓存：`open_file_cache max=N[inactive=time]|off;`
-  - 默认：open_file_cache off;
+    - 默认：open_file_cache off;
 
 - 是否缓存打开文件错误的信息：`open_file_cache_errors on|off;`
-  - 默认：open_file_cache_errors off;
-  - 是否在文件缓存中缓存打开文件时出现的找不到路径、没有权限等错误信息
+    - 默认：open_file_cache_errors off;
+    - 是否在文件缓存中缓存打开文件时出现的找不到路径、没有权限等错误信息
 
 - 不被淘汰的最小访问次数：`open_file_cache_min_uses number;`
-  - 默认：open_file_cache_min_uses 1;
-  - 与open_file_cache中的inactive参数配合使用。如果在inactive指定的时间段内，访问次数超过了open_file_cache_min_uses指定的最小次数，那么将不会被淘汰出缓存
+    - 默认：open_file_cache_min_uses 1;
+    - 与open_file_cache中的inactive参数配合使用。如果在inactive指定的时间段内，访问次数超过了open_file_cache_min_uses指定的最小次数，那么将不会被淘汰出缓存
 
 - 检验缓存中元素有效性的频率：`open_file_cache_valid time;`
-  - 默认：open_file_cache_valid 60s;
-  - 默认为每60秒检查一次缓存中的元素是否仍有效
+    - 默认：open_file_cache_valid 60s;
+    - 默认为每60秒检查一次缓存中的元素是否仍有效
 
 ### 9.对客户端请求的特殊处理
 - 忽略不合法的HTTP头部：`ignore_invalid_headers on|off;`
-  - 默认：ignore_invalid_headers off;
-  - off表示允许不合法的请求头
+    - 默认：ignore_invalid_headers off;
+    - off表示允许不合法的请求头
 
 - HTTP头部是否允许下划线：`underscores_in_headers on|off;`
-  - 默认：underscores_in_headers off;
-  - off表示不允许有下划线
+    - 默认：underscores_in_headers off;
+    - off表示不允许有下划线
 
 - 对If-Modified-Since头部的处理策略：`if_modified_since[off|exact|before];`
-  - 默认：if_modified_since exact;
-  - 上次请求获取内容的时间
+    - 默认：if_modified_since exact;
+    - 上次请求获取内容的时间
 
 - 文件未找到时是否记录到error日志：`log_not_found on|off;`
-  - 默认：log_not_found on;
+    - 默认：log_not_found on;
 
 - 合并请求中相邻的/：`merge_slashes on|off;`
-  - 默认：merge_slashes on;
+   - 默认：merge_slashes on;
 
 - DNS解析地址：`resolver address...;`
 - DNS解析的超时时间：`resolver_timeout time;`
-  - 默认：resolver_timeout 30s;
+    - 默认：resolver_timeout 30s;

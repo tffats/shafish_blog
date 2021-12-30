@@ -6,13 +6,15 @@ hide:
 
 # Mkdocs Material使用记录
 
+[Back](/blog/#12月份){ .md-button}
+
 ## 一、markdown使用
 
 ### 0. 版本与升级
 
 !!! tip
 
-    版本升级须知：[https://squidfunk.github.io/mkdocs-material/upgrade/#upgrading-from-7x-to-8x](https://squidfunk.github.io/mkdocs-material/upgrade/#upgrading-from-7x-to-8x)
+    版本升级须知：[https://squidfunk.github.io/mkdocs-material/upgrade/#upgrading-from-7x-to-8x](https://squidfunk.github.io/mkdocs-material/upgrade/#upgrading-from-7x-to-8x){target=_blank}
 
 ``` shell
 # 查看当前安装的版本号
