@@ -6,7 +6,7 @@ hide:
 
 # Mkdocs Material使用记录
 
-[Back](/blog/#12月份){ .md-button}
+[Back](javascript:history.back(-1)){ .md-button}
 
 ## 一、markdown使用
 

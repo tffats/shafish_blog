@@ -6,7 +6,7 @@ hide:
 
 # At the airport
 
-[Back](index.md){ .md-button}
+[Back](javascript:history.back(-1)){ .md-button}
 
 ## 一、单词
 

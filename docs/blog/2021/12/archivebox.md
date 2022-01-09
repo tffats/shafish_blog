@@ -6,7 +6,7 @@ hide:
 
 # ArchiveBox使用
 
-[Back](/blog/#12月份){ .md-button}
+[Back](javascript:history.back(-1)){ .md-button}
 
 ref: 
 
