@@ -154,9 +154,10 @@ node {  //(1)
 ### 4.示例demo
 
 - 声明式
+
 ``` groovy linenums="1"
 Jenkinsfile (Declarative Pipeline)
-pipeline { //(1)
+pipeline { // (1)
     agent any //(2)
     options {
         skipStagesAfterUnstable()
@@ -187,7 +188,7 @@ pipeline { //(1)
 3.  指定构建的阶段
 4.  该阶段执行的命令（多个）
 5.  执行的命令（单个）
-6.   JUnit 插件提供的命令
+6.  JUnit 插件提供的命令
 
 ### 5.完整pipeline语法
 
@@ -203,21 +204,3 @@ pipeline { //(1)
     -  [https://www.jenkins.io/doc/book/system-administration/reverse-proxy-configuration-troubleshooting/](https://www.jenkins.io/doc/book/system-administration/reverse-proxy-configuration-troubleshooting/){target=_blank}
     - [https://www.jenkins.io/doc/book/system-administration/reverse-proxy-configuration-nginx/](https://www.jenkins.io/doc/book/system-administration/reverse-proxy-configuration-nginx/){target=_blank}
     - Jenkins的反向代理设置存在问题。
-
-尊敬的Jack、Job：
-
-我很遗憾自己在这个时候向公司正式提出辞职。
-
-我来公司快两年了，也很荣幸自己能够成为柠檬酱一员。在这段时间里，我学到了很多东西，也非常感激公司给予了我在这样的良好环境中，工作和学习的机会。
-
-但是我因为个人原因需要辞职。在对我的工作方向和自己工作能力的充分衡量后，我觉得与自己的预期不相符合，出于对公司之后业务的顺利进行及个人发展的考虑，我决定了辞职。
-
-我希望在年底前完成相关工作交接，请领导安排交接时间、交接人选。在未离开岗位之前，我一定会站好最后一班岗，尽职做好应该做的事。
-
-望领导批准我的申请，并请协助办理相关离职手续。
-
-祝您身体健康，事业顺心。并祝柠檬酱以后事业蓬勃发展。
-
-申请人： 黄超俞/Graham
-
-日期： 2022年1月9日

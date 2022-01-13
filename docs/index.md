@@ -1,4 +1,4 @@
-![](https://github.com/tffats/shafish_blog/workflows/Built and pushed to the server/badge.svg?branch=main)
+<!-- ![](https://github.com/tffats/shafish_blog/workflows/Built and pushed to the server/badge.svg?branch=main) -->
 
 这里写个分类导航
 

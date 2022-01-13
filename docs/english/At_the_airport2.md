@@ -76,6 +76,68 @@ hide:
 
 - <span id="english">I prefer to take the subway from the airport. It’s faster than waiting for a taxi. <span class="point">:speech_balloon:</span></span>
 
+## 二、句子
+
+- <span id="english">“Excuse me, how long is the line for security?” <span class="point">:speech_balloon:</span></span> 
+请问安检要排多久队。
+
+- <span id="english">“Can I go to the front of the line for security? I’m afraid I’m going to miss my flight.” <span class="point">:speech_balloon:</span></span> 
+我可以去前面排队吗?我恐怕要错过航班了。 （heng）
+
+- <span id="english">“Excuse me, can I go in front of you? I’m afraid I’m going to miss my flight.” <span class="point">:speech_balloon:</span></span> 
+对不起，我可以在你前面走吗?我恐怕要错过航班了。
+
+- <span id="english">“Can you book me a direct flight to Shanghai?” <span class="point">:speech_balloon:</span></span> 
+你能给我订一张直达上海的机票吗？（得加钱）
+
+- <span id="english">“How long is the layover in Vancouver?” <span class="point">:speech_balloon:</span></span> 
+在温哥华停留多长时间？
+
+- <span id="english">“Can you book me flights closer together so there will be a shorter layover?” <span class="point">:speech_balloon:</span></span> 
+你能帮我订近一点的航班吗?（离目的地近一点？）这样中途停留的时间就会短一些。
+
+- <span id="english">“Where can I find the baggage claim? It’s straight ahead, and then down the stairs. Just follow the signs.” <span class="point">:speech_balloon:</span></span> 
+我在哪里可以找到行李认领处?一直往前走，然后下楼。只要跟着指示走。（最后一句才是重点）
+
+- <span id="english">“When does the next airport shuttle come? My flight leaves in 20 minutes, should I wait for the shuttle or just walk?” <span class="point">:speech_balloon:</span></span> 
+下一班机场班车什么时候到?我的航班20分钟后起飞，我应该等班车还是直接走过去。（建议下一趟）
+
+- <span id="english">“Do you have any liquids or electronics in your bag?” <span class="point">:speech_balloon:</span></span> 
+你包里有液体或电子产品吗？
+
+- <span id="english">“Flight AC029 at Gate 60D is now boarding. All passengers please make your way to the gate.” <span class="point">:speech_balloon:</span></span> 
+在60D登机口的AC029航班现在开始登机。所有乘客请到登机口。
+
+## 三、场景对话
+
+蔗系机场安检时的对话。（三个人：Security1、Me、Security2）
+
+- S: <span id="english">Hi there, boarding pass and passport. <span class="point">:speech_balloon:</span></span> 
+- M: <span id="english">Yes, here you go. <span class="point">:speech_balloon:</span></span> 
+- S: <span id="english">Where is your final destination? <span class="point">:speech_balloon:</span></span> 
+- M: <span id="english">I’m flying to Beijing. <span class="point">:speech_balloon:</span></span> 
+- S: <span id="english">Okay, any electronics or liquids in your carry-on? <span class="point">:speech_balloon:</span></span> 
+- M: <span id="english">Yes, just my laptop, phone and power bank. <span class="point">:speech_balloon:</span></span> 
+- S: <span id="english">Put it in this tray please. <span class="point">:speech_balloon:</span></span> 
+- M: <span id="english">Okay, here you go. <span class="point">:speech_balloon:</span></span> 
+- S: <span id="english">Please take off all jewelry and empty your pockets of any change or other metals. <span class="point">:speech_balloon:</span></span>  身上不要带任何珠宝、硬币等金属物品
+- M: <span id="english">Okay. <span class="point">:speech_balloon:</span></span> 
+- S: <span id="english">And remove your shoes. <span class="point">:speech_balloon:</span></span> 
+- M: <span id="english">Alright. <span class="point">:speech_balloon:</span></span> 
+- S: <span id="english">Okay, go through the metal detector when they wave you through. <span class="point">:speech_balloon:</span></span> 
+- *goes through metal detector*
+- M: <span id="english">Okay.  <span class="point">:speech_balloon:</span></span> 
+- S2: <span id="english">Miss is this your bag?  <span class="point">:speech_balloon:</span></span> 
+- M: <span id="english">Yes, it is.  <span class="point">:speech_balloon:</span></span> 
+- S2: <span id="english">Do you mind if we look inside? <span class="point">:speech_balloon:</span></span> 
+- M: <span id="english">Go ahead.  <span class="point">:speech_balloon:</span></span> 
+- S2: <span id="english">I see you have toothpaste in here, we’re just going to remove it and then rescan your bag. <span class="point">:speech_balloon:</span></span> 查了下国际航班还真是不能带
+- M: <span id="english">Okay, sorry about that. Must have forgotten I had it. <span class="point">:speech_balloon:</span></span> 
+- S2: <span id="english">No problem. <span class="point">:speech_balloon:</span></span> 
+- *rescans bag* 
+- S2: <span id="english">Okay, it’s all good to go now. Have a good flight, miss. <span class="point">:speech_balloon:</span></span> 
+
+
 *[Destination]: [ˌdestɪˈneɪʃn]
 *[Direct flight]: [dəˈrekt flaɪt]
 *[Transfer]: [ˈtrænsfɜːr]
@@ -94,3 +156,6 @@ hide:
 *[Express]: [ɪkˈspres] 
 *[Subway]: [ˈsʌbweɪ]
 *[Metro]: [ˈmetroʊ]
+*[jewelry]: [ˈdʒuːəlri] 珠宝饰物
+*[metal detector]: [ˈmetl dɪtektər] 安检门
+*[toothpaste]: [ˈtuːθpeɪst] 牙膏
