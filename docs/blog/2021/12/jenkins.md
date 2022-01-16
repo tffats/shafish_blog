@@ -9,11 +9,15 @@ hide:
 [Back](javascript:history.back(-1)){ .md-button}
 
 ## 零、开场白
-Jenkins是一款需要部署到服务器上的项目持续集成工具，可以与Github等仓库关联使用。
+Jenkins是一款需要部署到服务器上的项目持续集成工具。
 
-所谓持续开发大概就是每完成一个小功能就进行一次构建和测试，测试通过就合并到主干中，测出问题就马上解决。而不是先把大功能全部开发完成再合并到主干，这样没出现问题还好，出了问题一般也是比较大点的问题，排查起来也可能相对比较繁琐。
+所谓持续开发大概就是每完成/改动一个小功能就进行一次项目构建和测试，直到完成所有需求，最后一个功能测试通过也表示整个项目都测试通过。（大概应该是这样）
 
-而Jenkins、Travis CI、[Github-actions](github_action.md)等持续集成工具就是干这种事得，可以让项目集成、部署、测试等化繁为简，很高效的哟。
+类似Jenkins、Travis CI、[Github-actions](github_action.md)等持续集成工具就是协助干这种事得，可以让项目集成、部署、测试等化繁为简，形成规范，节约时间。
+
+**Jenkins 主要的工作就是执行pipeline，也就是工作流。可以在Jenkins工作流中定义项目的构建、测试、交付等流程。**（工作流阔以直接理解为执行步骤～）
+
+而工作流pipeline可以通过Jenkins提供的Web ui（Classic ui、Blue ocean）和Jenkinsfile文件进行定义。
 
 ## 一、java安装
 
@@ -26,7 +30,7 @@ sudo apt install openjdk-11-jdk
 
 ## 二、jenkin安装
 
-[https://www.jenkins.io/doc/book/installing/](https://www.jenkins.io/doc/book/installing/){target=_blank}
+建议先参考 [https://www.jenkins.io/doc/book/installing/](https://www.jenkins.io/doc/book/installing/){target=_blank} 尝试使用docker体验一下。这里是直接安装在物理机上。
 
 ``` shell
 curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo tee /usr/share/keyrings/jenkins-keyring.asc > /dev/null
@@ -48,8 +52,8 @@ sudo apt-get install jenkins
     - 暂停：`sudo systemctl stop jenkins`
     - 查看状态：`sudo systemctl status jenkins`
 
-## 三、Jenkins介绍
-### 1. 授权
+## 三、Jenkins使用设置
+#### 1. 授权
 
 [https://www.jenkins.io/doc/book/using/using-credentials/](https://www.jenkins.io/doc/book/using/using-credentials/){target=_blank}
 
@@ -68,13 +72,13 @@ Jenkins可以与很多第三方网站、应用进行关联使用，对应就需�
 
 图像步骤: [https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials](https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials){target=_blank}
 
+### 2. 更换国内插件源
 
-## 四、Jenkinsfile语法
+进入Jenkins控制面板 -> Manage Jenkins -> Manage Plugins -> （选中） Advanced -> Update Site填入：https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json
 
-pipeline持续集成流水线，定义了整个构建过程，包括项目构建、测试、交付等过程。直接理解为执行步骤就行。
-可以用jenkins提供的Web ui（classic ui、blue ocean）定义执行步骤，或者直接写在Jenkinsfile文件中。
+## 四、Jenkinsfile
 
-Jenkinsfile支持声明式和脚本式语法定义，`声明式`提供了更丰富的功能和更简易的读写习惯。
+直接以Jenkinsfile文件形式定义工作流，支持使用声明式语法和脚本式语法两种定义，其中`声明式`提供了更丰富的功能和更简易的读写习惯。
 
 ### 1. 基本节点
 
@@ -86,9 +90,11 @@ Jenkinsfile支持声明式和脚本式语法定义，`声明式`提供了更丰�
 
 - step节点：定义一个基本的任务，或者说叫命令。比如用sh执行make命令，该step就可以写成：`sh 'make'`。是脚本式、声明式定义的节点。
 
+> 直接来康康具体语法吧，初学还是以模仿为主。
+
 ### 2. 声明式语法
 
-pipeline节点作为构建定义的根节点。
+**以pipeline节点作为构建定义的根节点。**
 
 格式：
 ``` groovy linenums="1"
@@ -115,7 +121,7 @@ pipeline {
 }
 ```
 
-1.  在指定(any)的环境下执行该pipeline
+1.  在指定(any也就是任何环境)的环境下执行该pipeline
 2.  定义Build-构建阶段
 3.  定义Build构建阶段需要的命令
 4.  定义Test-构建阶段
@@ -125,7 +131,7 @@ pipeline {
 
 ### 3. 脚本式语法
 
-一个或多个node节点组成核心的工作流。
+**一个或多个node节点组成核心的工作流。**
 
 格式：
 ``` groovy linenums="1"
@@ -192,13 +198,42 @@ pipeline { // (1)
 
 ### 5.完整pipeline语法
 
-[https://www.jenkins.io/doc/book/pipeline/syntax/](https://www.jenkins.io/doc/book/pipeline/syntax/){target=_blank}
+[https://www.jenkins.io/zh/doc/book/pipeline/syntax/](https://www.jenkins.io/zh/doc/book/pipeline/syntax/){target=_blank}
 
 ## 五、Classic UI
 
 ## 六、Blue Ocean
 
-## 七、问题
+[https://www.jenkins.io/zh/doc/book/blueocean/](https://www.jenkins.io/zh/doc/book/blueocean/){target=_blank}
+
+在此之前Jenkins默认提供的pipeline图形操作是Classic UI，它可以方便简洁得定义工作流，但在比如工作流可视化操作方面是比较欠缺的，所以就出现了Blue Ocean。可以康康下面的官方介绍。
+
+<video
+    id="my-player"
+    class="video-js vjs-big-play-centered"
+    style="width: 100%;background-color:#303e2e"
+    controls
+    preload="auto"
+    data-setup='{}'>
+  <source src="https://video.cdn.shafish.cn/Jenkins%20Blue%20Ocean%20-%20Continuous%20Delivery%20for%20Every%20Team-k_fVlU1FwP4.mp4" type="video/mp4"></source>
+</video>
+
+Blue Ocean事实上是一个Jenkins插件集，需要运行在Jenkins 2.7.x或更高版本中。
+
+### 1. 安装Blue Ocean
+[https://www.jenkins.io/zh/doc/book/blueocean/getting-started/#%E5%9C%A8%E5%B7%B2%E6%9C%89jenkins%E5%AE%9E%E4%BE%8B%E4%B8%8A%E5%AE%89%E8%A3%85](https://www.jenkins.io/zh/doc/book/blueocean/getting-started/#%E5%9C%A8%E5%B7%B2%E6%9C%89jenkins%E5%AE%9E%E4%BE%8B%E4%B8%8A%E5%AE%89%E8%A3%85){target=_blank}
+
+进入Jenkins控制面板 -> Manage Jenkins -> Manage Plugins -> （选中） available -> （输入）Blue Ocean -> （选中复选框）Blue Ocean -> （点击）Download now and install after restart
+
+### 2. 创建pipeline
+
+[https://www.jenkins.io/zh/doc/book/blueocean/creating-pipelines/#%E5%88%9B%E5%BB%BA%E6%B5%81%E6%B0%B4%E7%BA%BF](https://www.jenkins.io/zh/doc/book/blueocean/creating-pipelines/#%E5%88%9B%E5%BB%BA%E6%B5%81%E6%B0%B4%E7%BA%BF){target=_blank}
+
+[https://www.jenkins.io/zh/doc/book/blueocean/pipeline-editor/#%E6%B5%81%E6%B0%B4%E7%BA%BF%E7%BC%96%E8%BE%91%E5%99%A8](https://www.jenkins.io/zh/doc/book/blueocean/pipeline-editor/#%E6%B5%81%E6%B0%B4%E7%BA%BF%E7%BC%96%E8%BE%91%E5%99%A8){target=_blank}
+
+焯，直接看官方文档吧，写得也太细咧吧。
+
+## 六、问题
 
 - It appears that your reverse proxy setup is broken
     -  [https://www.jenkins.io/doc/book/system-administration/reverse-proxy-configuration-troubleshooting/](https://www.jenkins.io/doc/book/system-administration/reverse-proxy-configuration-troubleshooting/){target=_blank}

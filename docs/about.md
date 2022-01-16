@@ -57,12 +57,3 @@ hide:
     - [x] 爬山
     ??? note "深圳羊台山"
         ![](https://picture.cdn.shafish.cn/blog/Screenshot_20211226_211857_com.huawei.health.jpg)
-
-## Todo-周末兴趣
-
-- 2022-01
-    - [01,04]
-        - [x] 老家四天游
-- 2021-12
-    - 25/26
-        - [ ] 练吉他

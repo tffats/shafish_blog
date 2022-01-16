@@ -39,4 +39,4 @@ vssue: ""
 ## 旅行英语
 
 - [x] [在机场](At_the_airport.md)
-- [ ] [在机场续](At_the_airport2.md)
+- [x] [在机场续](At_the_airport2.md)

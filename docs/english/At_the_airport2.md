@@ -28,10 +28,10 @@ hide:
 -  <span id="english">I have a 5-hour layover in Seoul. <span class="point">:speech_balloon:</span></span>
 -  <span id="english">The longest layover I ever had was 8 hours. <span class="point">:speech_balloon:</span></span>
 
-### 5.<span id="english">Connection <span class="point">:sound:</span></span> 连接
+### 5.<span id="english">Connection <span class="point">:sound:</span></span> 连接（也有换乘/转机的意思）
 
-- <span id="english">I have to make a connection in Beijing. <span class="point">:speech_balloon:</span></span>
-- <span id="english">My flight was delayed, so I missed my connection in Vancouver. <span class="point">:speech_balloon:</span></span>
+- <span id="english">I have to make a connection in Beijing. <span class="point">:speech_balloon:</span></span> 我得在北京转机
+- <span id="english">My flight was delayed, so I missed my connection in Vancouver. <span class="point">:speech_balloon:</span></span> 我的航班延误了，所以我错过了在温哥华的转机。
 
 ### 6. <span id="english">Security <span class="point">:sound:</span></span> 安全
 
@@ -159,3 +159,8 @@ hide:
 *[jewelry]: [ˈdʒuːəlri] 珠宝饰物
 *[metal detector]: [ˈmetl dɪtektər] 安检门
 *[toothpaste]: [ˈtuːθpeɪst] 牙膏
+*[Seoul]: [soʊl] 首尔
+*[take forever]: 要花很长时间
+*[plastic bag]: [ˈplæstɪk] 塑料袋
+*[a bottle of]:  [ˈbɑːtl] 一瓶
+*[make your way]: go
