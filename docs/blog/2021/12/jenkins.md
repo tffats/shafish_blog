@@ -563,7 +563,7 @@ node {  //(1)
 
 ### 4.示例demo
 
-ref：[https://gist.github.com/merikan/228cdb1893fca91f0663bab7b095757c](https://gist.github.com/merikan/228cdb1893fca91f0663bab7b095757c)
+ref：[https://gist.github.com/merikan/228cdb1893fca91f0663bab7b095757c](https://gist.github.com/merikan/228cdb1893fca91f0663bab7b095757c){target=_blank}
 
 - 声明式
 
