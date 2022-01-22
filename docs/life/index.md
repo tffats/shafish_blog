@@ -29,3 +29,10 @@ hide:
 - 2021-12
     - [25,26]
         - [ ] 练吉他（并没有）
+
+## Todo-运动
+
+- 2021-12
+    - [x] 爬山
+    ??? note "深圳羊台山"
+        ![](https://picture.cdn.shafish.cn/blog/Screenshot_20211226_211857_com.huawei.health.jpg)        
