@@ -113,7 +113,7 @@ https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json
 
 ## 四、Jenkinsfile
 
-直接以Jenkinsfile文件形式定义工作流，这种形式支持使用声明式语法和脚本式语法两种定义，其中`声明式`提供了更丰富的功能和更简易的读写习惯。
+直接以Jenkinsfile文件形式定义工作流，这种形式支持使用[声明式语法](#2-声明式语法)和[脚本式语法](#3-脚本式语法)两种定义，其中`声明式`提供了更丰富的功能和更简易的读写习惯。
 
 完整pipeline语法：[https://www.jenkins.io/zh/doc/book/pipeline/syntax/](https://www.jenkins.io/zh/doc/book/pipeline/syntax/){target=_blank}
 
