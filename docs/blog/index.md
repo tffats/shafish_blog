@@ -6,20 +6,22 @@ hide:
 
 # 技术区简述
 
-???+ "计划（要坚持完成哟）"
-
-    - 2022-2
-        - [ ] ZeroSpring
-
-    - 2022-1
-        - [ ] Mybatis使用记录/手册
-        - [ ] Mybatis源码解析
-
     - 2021-12
         - [x] Mkdocs Material 记录手册
         - [x] ArchiveBox搭建
         - [x] Github Actions CI 上手
         - [x] Jenkins使用
+
+???+ "收藏夹"
+
+    - [如何在 Linux 中实时监控日志文件](https://linux.cn/article-13733-1.html){target=_blank}
+
+## 2022年文章导航
+
+### 1月份
+
+- [ ] [What is /dev/null](translate_blog/slashdevslashnull.md)
+- [ ] [How To Secure Your Linux Server In 7 Easy Steps](translate_blog/How_To_Secure_Your_Linux_Server_In_7_Easy_Steps.md)
 
 ## 2021年文章导航
 
