@@ -11,7 +11,7 @@ vssue: ""
 
     外语这种东西，哼，坚持就行
 
-## goldendict配置
+## 一、Goldendict配置
 
 ??? "点我点我"
 
@@ -36,8 +36,11 @@ vssue: ""
     ### 6. 自用脚本
     [python脚本](./downloads.py){target=_blank}
 
-## 旅行英语
+## 二、英语课堂
 
-- [x] [在机场](At_the_airport.md)
-- [x] [在机场续](At_the_airport2.md)
-- [x] [海关与移民](Customs_and_immigration.md)
+=== "旅行英语"
+
+  - [x] [在机场](At_the_airport.md)
+  - [x] [在机场续](At_the_airport2.md)
+  - [x] [海关与移民](Customs_and_immigration.md)
+  - [ ] [坐出租车](Taking_a_Taxi.md)
