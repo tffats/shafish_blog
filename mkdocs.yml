@@ -75,13 +75,13 @@ extra:
 
 extra_css:
   - stylesheets/extra.css
-  - stylesheets/vssue.css
-  - //vjs.zencdn.net/7.10.2/video-js.min.css
-  - stylesheets/video.css
+  - https://file.cdn.shafish.cn/blog/css/vssue.css
+  - https://file.cdn.shafish.cn/blog/css/video-js.min.css
+  - https://file.cdn.shafish.cn/blog/css/video.css
 
 extra_javascript:
   - javascripts/extra.js
-  - //vjs.zencdn.net/7.10.2/video.min.js
+  - https://file.cdn.shafish.cn/blog/js/video.min.js
 
 markdown_extensions:
   - abbr
