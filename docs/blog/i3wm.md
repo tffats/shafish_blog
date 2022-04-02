@@ -1,5 +1,7 @@
 ---
 title: i3wm使用记录
+tags:
+  - linux
 hide:
   - navigation
 ---
