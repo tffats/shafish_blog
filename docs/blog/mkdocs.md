@@ -1,5 +1,7 @@
 ---
 title: Mkdocs Material使用记录
+tags:
+  - Mkdocs
 hide:
   - navigation
 ---

@@ -8,7 +8,7 @@ site_description: >-
 repo_url: https://github.com/tffats/shafish_blog
 repo_name: tffats/shafish_blog
 edit_uri: edit/main/docs/
-copyright: Copyright &copy; 2018 - 2021 shafish
+copyright: Copyright &copy; 2018 - 2022 <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">粤ICP备2022032763号</a>
 
 theme:
   name: material
@@ -60,6 +60,7 @@ theme:
 
 plugins:
   - search
+  - tags
   - git-revision-date-localized:
       type: datetime
       enable_creation_date: true
@@ -72,6 +73,7 @@ extra:
       link: mailto:<shafish_cn@163.com>
       name: 发送邮件
   vssue: shafish
+  #generator: false
 
 extra_css:
   - stylesheets/extra.css
