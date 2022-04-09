@@ -1,5 +1,6 @@
 ---
 title: Linux Server7个简单的安全配置
+description:  shafish.cn linux linux安全配置 服务器
 hide:
   - navigation
 ---

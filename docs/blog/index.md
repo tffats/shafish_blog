@@ -8,17 +8,18 @@ hide:
 
 ???+ "计划"
 
-    - 2021-12
-        - [x] Mkdocs Material 记录手册
-        - [x] ArchiveBox搭建
-        - [x] Github Actions CI 上手
-        - [x] Jenkins使用
+    - [ ] 源码
 
 ???+ "收藏夹"
 
     - [如何在 Linux 中实时监控日志文件](https://linux.cn/article-13733-1.html){target=_blank}
+    - [i3wm在线配置效果](https://thomashunter.name/i3-configurator/)
 
 ## 2022年文章导航
+
+### 3月份
+
+- [x] [单元测试](../UnitTesting.md)
 
 ### 1月份
 
