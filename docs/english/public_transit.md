@@ -6,7 +6,7 @@ hide:
 
 # taking a taxi
 
-[Back](javascript:history.back(-1)){ .md-button}
+[Back](/english/#二英语课堂){ .md-button}
 
 ## 一、单词
 
@@ -82,31 +82,29 @@ hide:
 
 ## 三、场景
 
-- hotel clerk: <span id="english">hi there,how can I help you?<span class="point">:speech_balloon:</span></span>
-- me:<span id="english">hi can you answer a few questions about the public transit for me?<span class="point">:speech_balloon:</span></span>
-- hc: of course,what do you need to know
-- me: i want to go to the xxx, is easy to get to by transit?
-- hc:yes,it's quite easy. there 's a subway station down the street
-- me: oh good,how much is the subway fare here
-- hc:it's $2,much cheaper than taking a taxi
-- me:ok great,and do i just take that one subway line?do i need to transfer?
-- hc:you don't need to tranfer,that subway can take you right there
-- me:oh that's good.what is the subway stop call?
-- hc:it's call xxx,so you cann't miss it
-- me:wonderful, and you konw how long it will take?
-- hc:probably 30 minutes total
-- me:oh good,thank you so much for you help
-- hc: you're welcome,have a nice day
+- hotel clerk：<span id="english">hi there,how can I help you? <span class="point">:speech_balloon:</span></span>
+- me：<span id="english">hi can you answer a few questions about the public transit for me? <span class="point">:speech_balloon:</span></span>
+- hc：<span id="english">of course,what do you need to know <span class="point">:speech_balloon:</span></span>
+- me：<span id="english">i want to go to the xxx, is easy to get to by transit? <span class="point">:speech_balloon:</span></span>
+- hc：<span id="english">yes,it's quite easy. there 's a subway station down the street <span class="point">:speech_balloon:</span></span>
+- me：<span id="english">oh good,how much is the subway fare here <span class="point">:speech_balloon:</span></span>
+- hc：<span id="english">it's $2,much cheaper than taking a taxi <span class="point">:speech_balloon:</span></span>
+- me：<span id="english">ok great,and do i just take that one subway line?do i need to transfer? <span class="point">:speech_balloon:</span></span>
+- hc：<span id="english">you don't need to tranfer,that subway can take you right there <span class="point">:speech_balloon:</span></span>
+- me：<span id="english">oh that's good.what is the subway stop call? <span class="point">:speech_balloon:</span></span>
+- hc：<span id="english">it's call xxx,so you cann't miss it <span class="point">:speech_balloon:</span></span>
+- me：<span id="english">wonderful, and you konw how long it will take? <span class="point">:speech_balloon:</span></span>
+- hc：<span id="english">probably 30 minutes total <span class="point">:speech_balloon:</span></span>
+- me：<span id="english">oh good,thank you so much for you help <span class="point">:speech_balloon:</span></span>
+- hc：<span id="english">you're welcome,have a nice day <span class="point">:speech_balloon:</span></span>
 
-- me:excuse me,does the 101 bus stop here?
-- stranger:yeah,i think so,you can double check on the board there
-- me:oh great thanks,how often do the buses come?
-- s:about every 15 minutes,But it’ll take longer if there’s a traffic jam
-- me: Thanks for your help
-- s:no proplem
+- me：<span id="english">excuse me,does the 101 bus stop here? <span class="point">:speech_balloon:</span></span>
+- stranger：<span id="english">yeah,i think so,you can double check on the board there <span class="point">:speech_balloon:</span></span>
+- me：<span id="english">oh great thanks,how often do the buses come? <span class="point">:speech_balloon:</span></span>
+- s：<span id="english">about every 15 minutes,But it’ll take longer if there’s a traffic jam <span class="point">:speech_balloon:</span></span>
+- me： <span id="english">Thanks for your help <span class="point">:speech_balloon:</span></span>
+- s：<span id="english">no proplem <span class="point">:speech_balloon:</span></span>
 
-
-
-* [route]: [ru:t]
-* [stay clear]: 远离  mind the gap
-* [hotel clerk]: 酒店办事员
+*[route]: [ru:t]
+*[stay clear]: 远离  mind the gap
+*[hotel clerk]: 酒店办事员

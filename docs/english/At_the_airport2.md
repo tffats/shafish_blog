@@ -6,7 +6,7 @@ hide:
 
 # At the airport2
 
-[Back](javascript:history.back(-1)){ .md-button}
+[Back](/english/#二英语课堂){ .md-button}
 
 ## 一、单词
 

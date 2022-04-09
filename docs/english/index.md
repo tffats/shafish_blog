@@ -40,7 +40,13 @@ vssue: ""
 
 === "旅行英语"
 
-  - [x] [在机场](At_the_airport.md)
-  - [x] [在机场续](At_the_airport2.md)
-  - [x] [海关与移民](Customs_and_immigration.md)
-  - [ ] [坐出租车](Taking_a_Taxi.md)
+    - [x] [在机场](At_the_airport.md)
+    - [x] [在机场续](At_the_airport2.md)
+    - [x] [海关与移民](Customs_and_immigration.md)
+    - [x] [坐出租车](Taking_a_Taxi.md)
+    - [x] [坐公交](public_transit.md)
+    - [ ] [租车](Renting_a_car.md)
+
+=== "编程关键字"
+
+    - [x] [mysql](mysql.md)
