@@ -27,9 +27,14 @@ hide:
 
 之前的typecho还保留着，不过用了默认的主题，旧主题中设置的很多样式没解析出来，后续处理下失效的图片链接就这样了，闲的无聊欢迎去康康哟：[https://blog.shafish.cn/](https://blog.shafish.cn/){target=_blank}
 
-![附上一张江湖流传出来某人平平无奇的普通长发帅图](https://picture.cdn.shafish.cn/blog/head.png){align=right width="300" }
+![附上一张江湖流传出来某人平平无奇的普通长发帅图](https://picture.cdn.shafish.cn/blog/about/head.png "精神小伙"){ loading=lazy align=right width="300" }
 
 至于本人介绍：只是一个平平无奇的骚年而已
+
+<figure markdown>
+  ![WeChat_Official_Account](https://picture.cdn.shafish.cn/blog/wechat/Official_Account3.png "now啥内容也没有"){ loading=lazy }
+  <figcaption>WeChat_Official_Account</figcaption>
+</figure>
 
 ## 问题
 
