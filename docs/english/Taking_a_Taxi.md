@@ -6,7 +6,12 @@ hide:
 
 # taking a taxi
 
-[Back](javascript:history.back(-1)){ .md-button}
+[Back](/english/#二英语课堂){ .md-button}
+
+<audio controls="controls">
+  <source src="https://file.cdn.shafish.cn/english/%E4%B9%98%E5%9D%90%E5%87%BA%E7%A7%9F%E8%BD%A6.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
 
 ## 一、单词
 

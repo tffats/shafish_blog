@@ -6,7 +6,12 @@ hide:
 
 # At the airport
 
-[Back](javascript:history.back(-1)){ .md-button}
+[Back](/english/#二英语课堂){ .md-button}
+
+<audio controls="controls">
+  <source src="https://file.cdn.shafish.cn/english/%E5%9C%A8%E6%9C%BA%E5%9C%BA.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
 
 ## 一、单词
 

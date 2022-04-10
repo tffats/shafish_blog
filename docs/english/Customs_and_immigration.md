@@ -6,7 +6,12 @@ hide:
 
 # customs and immigration
 
-[Back](javascript:history.back(-1)){ .md-button}
+[Back](/english/#二英语课堂){ .md-button}
+
+<audio controls="controls">
+  <source src="https://file.cdn.shafish.cn/english/%E6%B5%B7%E5%85%B3%E5%AE%89%E6%A3%80%E5%A4%84.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
 
 ## 一、单词
 
