@@ -4,9 +4,14 @@ hide:
   - navigation
 ---
 
-# taking a taxi
+# public transit
 
 [Back](/english/#二英语课堂){ .md-button}
+
+<audio controls="controls">
+  <source src="https://file.cdn.shafish.cn/english/%E4%B9%98%E5%9D%90%E5%85%AC%E5%85%B1%E4%BA%A4%E9%80%9A.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
 
 ## 一、单词
 

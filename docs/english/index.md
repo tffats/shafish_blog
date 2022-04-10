@@ -45,7 +45,7 @@ vssue: ""
     - [x] [海关与移民](Customs_and_immigration.md)
     - [x] [坐出租车](Taking_a_Taxi.md)
     - [x] [坐公交](public_transit.md)
-    - [ ] [租车](Renting_a_car.md)
+    - [x] [租车](Renting_a_car.md)
 
 === "编程关键字"
 

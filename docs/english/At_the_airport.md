@@ -8,6 +8,11 @@ hide:
 
 [Back](/english/#二英语课堂){ .md-button}
 
+<audio controls="controls">
+  <source src="https://file.cdn.shafish.cn/english/%E5%9C%A8%E6%9C%BA%E5%9C%BA.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
 ## 一、单词
 
 ### 1. <span id="english">Terminal <span class="point">:sound:</span></span> 航空站
