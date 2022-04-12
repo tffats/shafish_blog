@@ -8,7 +8,7 @@ site_description: >-
 repo_url: https://github.com/tffats/shafish_blog
 repo_name: tffats/shafish_blog
 edit_uri: edit/main/docs/
-copyright: Copyright &copy; 2018 - 2022 <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">粤ICP备2022032763号</a>
+copyright: Copyright &copy; 2022 <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">粤ICP备2022032763号</a>
 
 theme:
   name: material
