@@ -17,24 +17,30 @@ hide:
 
 ## 2022年文章导航
 
-### 3月份
+=== "4月份"
 
-- [x] [单元测试](../UnitTesting.md)
+    - [ ] [Java_Guide](../Java_Guide)
+    - [ ] [Java_Guide/Lambda表达式](../Java_Guide/lambda.md)
 
-### 1月份
+=== "3月份"
 
-- [ ] [What is /dev/null](translate_blog/slashdevslashnull.md)
-- [ ] [How To Secure Your Linux Server In 7 Easy Steps](translate_blog/How_To_Secure_Your_Linux_Server_In_7_Easy_Steps.md)
+    - [x] [单元测试](../UnitTesting.md)
+
+=== "1月份"
+
+    - [ ] [What is /dev/null](translate_blog/slashdevslashnull.md)
+    - [ ] [How To Secure Your Linux Server In 7 Easy Steps](translate_blog/How_To_Secure_Your_Linux_Server_In_7_Easy_Steps.md)
 
 ## 2021年文章导航
 
-### 12月份
+=== "12月份"
 
-- [x] [archivebox使用（更新）](2021/12/archivebox.md)
-- [x] [jenkins使用(更新)](2021/12/jenkins.md)
-- [x] [github action使用（更新）](2021/12/github_action.md)
-- [x] [nginx使用记录](2021/12/nginx_record.md)
-- [x] [mkdocs material使用记录](mkdocs.md)
-- [x] [i3-gaps使用记录](i3wm.md)
+    - [x] [archivebox使用（更新）](2021/12/archivebox.md)
+    - [x] [jenkins使用(更新)](2021/12/jenkins.md)
+    - [x] [github action使用（更新）](2021/12/github_action.md)
+    - [x] [nginx使用记录](2021/12/nginx_record.md)
+    - [x] [mkdocs material使用记录](mkdocs.md)
+    - [x] [i3-gaps使用记录](i3wm.md)
 
-
+=== "Before"
+    [https://blog.shafish.cn/](https://blog.shafish.cn/){target=_blank}
