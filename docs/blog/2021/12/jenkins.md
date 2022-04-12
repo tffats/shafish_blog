@@ -6,7 +6,7 @@ hide:
 
 # Jenkins使用[Ubuntu]
 
-[Back](javascript:history.back(-1)){ .md-button}
+[Back](/blog/#2021年文章导航){ .md-button}
 
 ref:
 

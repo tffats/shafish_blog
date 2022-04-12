@@ -8,7 +8,7 @@ hide:
 
 # Mkdocs Material使用记录
 
-[Back](javascript:history.back(-1)){ .md-button}
+[Back](/blog/#2021年文章导航){ .md-button}
 
 ## 一、markdown使用
 
