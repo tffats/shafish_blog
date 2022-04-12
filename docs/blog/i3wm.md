@@ -8,7 +8,7 @@ hide:
 
 # i3wm使用记录
 
-[Back](javascript:history.back(-1)){ .md-button}
+[Back](/blog/#2021年文章导航){ .md-button}
 
 [https://wiki.archlinux.org/title/I3_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)](https://wiki.archlinux.org/title/I3_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)){target=_blank}
 
