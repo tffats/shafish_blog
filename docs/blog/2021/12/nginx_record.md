@@ -6,7 +6,7 @@ hide:
 
 # nginx使用记录
 
-[Back](javascript:history.back(-1)){ .md-button}
+[Back](/blog/#2021年文章导航){ .md-button}
 
 ???+ abstract
 	仅做笔记，为了有个小小印象。
