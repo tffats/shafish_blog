@@ -135,3 +135,11 @@
 - nested：嵌套事务
 
 ## spring事务失效场景
+
+- 使用了不支持事务的数据库：或者说相关的存储引擎木有支持事务
+- 事务方法没有注入到spring容器中
+- 事务相关的方法不是pulic修饰
+- 同一个类中的事务方法调用
+- 木有配置事务管理器
+- 不正确捕抓异常：比如说用了try catch直接捕抓了，事务相关异常木有被spring知道
+- spring中默认回滚发生runtimeException的事务（使用rollbackFor修改为 Exception.class）
