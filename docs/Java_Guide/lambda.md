@@ -1,5 +1,5 @@
 ---
-title: Java案例解析-Lambda表达式的使用
+title: Java案例解析-Lambda表达式的使用-lambda定义及函数式接口
 hide:
   - navigation
   - toc
@@ -8,7 +8,6 @@ hide:
 [Back](/Java_Guide){ .md-button}
 
 !!! abstract "使用场景：使用lambda表达式，可以将表达式结果赋给函数式接口的引用"
-    {--好像lambda表达式也只有这一种用法--}
 
     ps：其实之前有详细写过jdk8的特性，但系很多东西写完没看，用的也是基础的用法。[https://gitee.com/shafish/jdk_learn/tree/master/jdk8](https://gitee.com/shafish/jdk_learn/tree/master/jdk8){target=_blank}
 
@@ -93,5 +92,7 @@ public class ListJavaFile {
     }
 }
 ```
+
+[Back](/Java_Guide){ .md-button}
 
 [^1]: 函数式接口的引用：这里指1-1示例代码中的`new Runnable()/函数式接口名`

@@ -20,7 +20,7 @@ hide:
 === "4月份"
 
     - [ ] [Java_Guide](../Java_Guide)
-    - [ ] [Java_Guide/Lambda表达式](../Java_Guide/lambda.md)
+    - [ ] [Java_Guide/Lambda表达式](/Java_Guide/lambda/#三lambda表达式格式)
 
 === "3月份"
 

@@ -10,4 +10,6 @@ Java是门很成熟的语言，拥有一个几乎完美的生态；Java也是个
 
 在现在优秀的编程语言如雨后春笋般涌现和业务场景更多元的大背景下，Java被赋予了更多的功能。那先从Java 8开始？Java 11？Java 17？
 
-- [Lambda表达式](lambda.md)
+- [Lambda表达式](/Java_Guide/lambda/#三lambda表达式格式)
+    - [函数式接口的lambda表达式用法](lambda.md)
+    - [方法引用的lambda表达式用法](lambda2.md)
