@@ -19,7 +19,9 @@ hide:
 
 === "4月份"
 
-    - [ ] [Java_Guide/Lambda表达式](/Java_Guide/#一lambda表达式)
+    - [x] [Java_Guide/Lambda表达式](/Java_Guide/#一lambda表达式)
+    - [x] [Java_Guide/方法引用](/Java_Guide/#二方法引用)
+    - [ ] [Java_Guide/函数式接口](/Java_Guide/##三函数式接口)
 
 === "3月份"
 
