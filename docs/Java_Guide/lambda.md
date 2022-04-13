@@ -1,11 +1,11 @@
 ---
-title: Java案例解析-Lambda表达式的使用-lambda定义及函数式接口
+title: Java案例解析-Lambda表达式-lambda定义及函数式接口
 hide:
   - navigation
   - toc
 ---
 
-[Back](/Java_Guide){ .md-button}
+[Back](/Java_Guide/#一lambda表达式){ .md-button}
 
 !!! abstract "使用场景：使用lambda表达式，可以将表达式结果赋给函数式接口的引用"
 
@@ -13,7 +13,7 @@ hide:
 
 ## 一、函数式接口
 
-!!! note "定义：函数式接口是一种包含`单一`抽象方法的接口"
+!!! note "定义：函数式接口是一种包含`单一`抽象方法的接口（函数式接口的理解是重点）"
 
 以Runnable接口为例，该接口只包含单一抽象方法`run()`，并返回`void`，所以Runnable接口就是一个典型的函数式接口。
 Thread类构造方法接收Runnable接口的实现进行多线程操作，下面是个简单的使用例子：
@@ -31,6 +31,8 @@ public class RunnableDemo {
     }
 }
 ```
+
+!!! tip "更多函数式接口的说明可以查看[Java_Guide第三点](/Java_Guide/functional_interface/)查看"
 
 ## 二、Lambda表达式用法
 
@@ -93,6 +95,6 @@ public class ListJavaFile {
 }
 ```
 
-[Back](/Java_Guide){ .md-button}
+[Back](/Java_Guide/#一lambda表达式){ .md-button}
 
 [^1]: 函数式接口的引用：这里指1-1示例代码中的`new Runnable()/函数式接口名`
