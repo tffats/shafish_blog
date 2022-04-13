@@ -5,7 +5,7 @@ hide:
   - toc
 ---
 
-[Back](/Java_Guide/#二方法引用){ .md-button}
+[:material-backburger: /Java_Guide](/Java_Guide/#二方法引用){ .md-button}
 
 !!! note "构造函数引用，木错，就是拿来创建对象实例那个构造函数。也就是说new实例这个操作也能被简化（可以这么理解）"
 ps：其实构造函数引用也是方法引用的其中一种用法，通过关键字 new 调用构造函数。
@@ -147,4 +147,4 @@ Person[] people = names.stream()
 
 1.  toArray方法接收IntFunction函数式接口，跟Function不同的是：IntFunction可以接收一个数组类型参数
 
-[Back](/Java_Guide/#二方法引用){ .md-button}
+[:material-page-previous: 方法引用的用法](method_reference2.md){ .md-button}  [:material-page-next: 函数式接口的用法](method_reference2.md){ .md-button .md-button-right}

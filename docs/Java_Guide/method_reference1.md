@@ -5,7 +5,7 @@ hide:
   - toc
 ---
 
-[Back](/Java_Guide/#二方法引用){ .md-button}
+[:material-backburger: /Java_Guide](/Java_Guide/#二方法引用){ .md-button}
 
 方法引用这个东西其实是函数式编程的概念，学习Java接触最多的应该是对象的引用，现在方法都用引用了？
 
@@ -99,4 +99,4 @@ public class PrintList {
 
 !!! tip "lambda表达式、方法引用这些用法，好像几乎都是操作{++集合++}时使用的"
 
-[Back](/Java_Guide/#二方法引用){ .md-button}
+[:material-page-previous: lambda表达式用法](lambda.md){ .md-button} [:material-page-next: 构造函数引用的用法](method_reference2.md){ .md-button .md-button-right}

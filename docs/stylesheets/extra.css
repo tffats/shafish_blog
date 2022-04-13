@@ -46,3 +46,7 @@
 .point {
     cursor: pointer;
 }
+
+.md-button-right {
+    float: right;
+ }
