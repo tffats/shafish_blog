@@ -63,6 +63,7 @@ plugins:
   - tags
   - git-revision-date-localized:
       type: datetime
+      timezone: Asia/Shanghai
       enable_creation_date: true
       exclude:
         - comments.md
