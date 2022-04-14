@@ -22,3 +22,21 @@ Java是门很成熟的语言，拥有一个几乎完美的生态；Java也是个
 ## 三、函数式接口
 
 1. [函数式接口的用法](functional_interface.md)
+
+## 四、接口新特性
+
+1. [接口内默认方法的用法](default_interface.md)
+2. [接口内静态方法的用法](static_interface.md)
+
+## 五、流式操作
+
+1. [流的创建](stream_of.md)
+2. [reduce归约用法](stream_reduce.md)
+3. [peek调试]()
+4. [字符串与流的转换]()
+5. [获取元素数量]()
+6. [汇总统计]()
+7. [查找流的第一个元素]()
+8. [使用anyMatch、allMatch与noneMatch方法]()
+9. [使用flatMap与map方法]()
+10. [流的拼接]()
