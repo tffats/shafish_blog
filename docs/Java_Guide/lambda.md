@@ -7,9 +7,9 @@ hide:
 
 [:material-backburger: /Java_Guide](/Java_Guide/#一lambda表达式){ .md-button}
 
-!!! abstract "使用场景：使用lambda表达式，可以将表达式结果赋给函数式接口的引用"
+{--!!! abstract "使用场景：使用lambda表达式，可以将表达式结果赋给函数式接口的引用"--}
 
-    ps：其实之前有详细写过jdk8的特性，但系很多东西写完没看，用的也是基础的用法。[https://gitee.com/shafish/jdk_learn/tree/master/jdk8](https://gitee.com/shafish/jdk_learn/tree/master/jdk8){target=_blank}
+ps：其实之前有详细写过jdk8的特性，但系很多东西写完没看，用的也是基础的用法。[https://gitee.com/shafish/jdk_learn/tree/master/jdk8](https://gitee.com/shafish/jdk_learn/tree/master/jdk8){target=_blank}
 
 ## 一、函数式接口
 
