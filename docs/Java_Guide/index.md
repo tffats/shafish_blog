@@ -32,7 +32,7 @@ Java是门很成熟的语言，拥有一个几乎完美的生态；Java也是个
 
 1. [流的创建](stream_of.md)
 2. [reduce归约用法](stream_reduce.md)
-3. [peek调试]()
+3. [peek调试](stream_peek.md)
 4. [字符串与流的转换]()
 5. [获取元素数量]()
 6. [汇总统计]()
