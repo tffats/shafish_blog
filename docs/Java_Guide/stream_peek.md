@@ -27,7 +27,7 @@ public int sumDoublesDivisibleBy3(int start, int end) {
 
 !!! danger "而本篇介绍的peek方法能在流处理时，对每个元素执行给定的操作"
 
-``` linenums="1" title="1-2 peek用法"
+``` java linenums="1" title="1-2 peek用法"
 public int sumDoublesDivisibleBy3(int start, int end) {
     return IntStream.rangeClosed(start, end)
         .peek(n -> System.out.printf("original: %d%n", n))
@@ -41,4 +41,4 @@ public int sumDoublesDivisibleBy3(int start, int end) {
 
 easy easy
 
-[:material-page-previous: reduce归约用法](stream_reduce.md){ .md-button}  [:material-page-next: xxx](stream_reduce.md){ .md-button .md-button-right}
+[:material-page-previous: reduce归约用法](stream_reduce.md){ .md-button}  [:material-page-next: 更多流式操作](stream_example.md){ .md-button .md-button-right}

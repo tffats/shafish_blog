@@ -82,7 +82,8 @@
           prefix: '[BlogComment]',
           labels: ['Vssue'],
           autoCreateIssue: true,
-          issueContent: ({ url }) =>`这个 Issue 由 Vssue 自动创建，用来存储该页面的评论：${url}`
+          issueContent: ({ url }) =>`这个 Issue 由 Vssue 自动创建，用来存储该页面的评论：${url}`,
+          perPage: 30
         },
       },
 

@@ -33,10 +33,16 @@ Java是门很成熟的语言，拥有一个几乎完美的生态；Java也是个
 1. [流的创建](stream_of.md)
 2. [reduce归约用法](stream_reduce.md)
 3. [peek调试](stream_peek.md)
-4. [字符串与流的转换]()
-5. [获取元素数量]()
-6. [汇总统计]()
-7. [查找流的第一个元素]()
-8. [使用anyMatch、allMatch与noneMatch方法]()
-9. [使用flatMap与map方法]()
-10. [流的拼接]()
+4. [流式操作示例](stream_example.md)
+
+## 六、Optional类
+
+1. [Optional类的使用](optional.md)
+
+## 七、文件IO
+
+1. [文件处理](fileIO.md)
+
+## 八、Time
+
+1. [Time时间处理](time.md)
