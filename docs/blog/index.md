@@ -23,7 +23,9 @@ hide:
     - [x] [Java_Guide/方法引用](/Java_Guide/#二方法引用)
     - [x] [Java_Guide/函数式接口](/Java_Guide/#三函数式接口)
     - [x] [Java_Guide/接口新特性-默认、静态方法](/Java_Guide/#四接口新特性)
-    - [ ] [Java_Guide/流式操作](/Java_Guide/#五流式操作)
+    - [x] [Java_Guide/流式操作](/Java_Guide/#五流式操作)
+    - [x] [Java_Guide/Optional类](/Java_Guide/#六Optional类)
+    - [ ] [Java_Guide/文件IO](/Java_Guide/#七文件IO)
 
 === "3月份"
 
