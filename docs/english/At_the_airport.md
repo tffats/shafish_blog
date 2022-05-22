@@ -6,7 +6,7 @@ hide:
 
 # At the airport
 
-[Back](/english/#二英语课堂){ .md-button}
+[Back /english](/english/#二英语课堂){ .md-button}
 
 <audio controls="controls">
   <source src="https://file.cdn.shafish.cn/english/%E5%9C%A8%E6%9C%BA%E5%9C%BA.mp3" type="audio/mpeg">
@@ -133,3 +133,5 @@ Your browser does not support the audio element.
 *[Carry-on bag]: [ˈkæri ɒn bæɡ]
 *[economy]: [ɪˈkɒnəmi]
 *[measurement]: [ˈmeʒəmənt]
+
+[:material-page-previous:  /english](/english/#二英语课堂){ .md-button}  [:material-page-next: 2.在机场续](At_the_airport2.md){ .md-button .md-button-right}

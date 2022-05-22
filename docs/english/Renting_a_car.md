@@ -6,7 +6,7 @@ hide:
 
 # Renting a car
 
-[Back](/english/#二英语课堂){ .md-button}
+[Back /english](/english/#二英语课堂){ .md-button}
 
 <audio controls="controls">
   <source src="https://file.cdn.shafish.cn/english/%E7%A7%9F%E8%BD%A6.mp3" type="audio/mpeg">
@@ -118,3 +118,5 @@ Your browser does not support the audio element.
 *[suv]: sports utility vehicle
 *[Volkswagen Jetta]: 大众
 *[Hyundai]: 现代
+
+[:material-page-previous: 5.坐公交](public_transit.md){ .md-button}  [:material-page-next: 7.酒店办理入住](Checking_into_a_hotel.md){ .md-button .md-button-right}

@@ -6,7 +6,7 @@ hide:
 
 # At the airport2
 
-[Back](/english/#二英语课堂){ .md-button}
+[Back /english](/english/#二英语课堂){ .md-button}
 
 <audio controls="controls">
   <source src="https://file.cdn.shafish.cn/english/%E5%9C%A8%E9%A3%9E%E6%9C%BA%E4%B8%8A.mp3" type="audio/mpeg">
@@ -169,3 +169,5 @@ Your browser does not support the audio element.
 *[plastic bag]: [ˈplæstɪk] 塑料袋
 *[a bottle of]:  [ˈbɑːtl] 一瓶
 *[make your way]: go
+
+[:material-page-previous: 1.在机场](At_the_airport.md){ .md-button}  [:material-page-next: 3.海关与移民](Customs_and_immigration.md){ .md-button .md-button-right}
