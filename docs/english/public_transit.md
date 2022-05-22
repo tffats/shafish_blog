@@ -6,7 +6,7 @@ hide:
 
 # public transit
 
-[Back](/english/#二英语课堂){ .md-button}
+[Back /english](/english/#二英语课堂){ .md-button}
 
 <audio controls="controls">
   <source src="https://file.cdn.shafish.cn/english/%E4%B9%98%E5%9D%90%E5%85%AC%E5%85%B1%E4%BA%A4%E9%80%9A.mp3" type="audio/mpeg">
@@ -113,3 +113,5 @@ Your browser does not support the audio element.
 *[route]: [ru:t]
 *[stay clear]: 远离  mind the gap
 *[hotel clerk]: 酒店办事员
+
+[:material-page-previous: 4.坐出租车](Taking_a_Taxi.md){ .md-button}  [:material-page-next: 6.租车](Renting_a_car.md){ .md-button .md-button-right}

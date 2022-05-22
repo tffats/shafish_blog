@@ -40,12 +40,13 @@ vssue: ""
 
 === "旅行英语"
 
-    - [x] [在机场](At_the_airport.md)
-    - [x] [在机场续](At_the_airport2.md)
-    - [x] [海关与移民](Customs_and_immigration.md)
-    - [x] [坐出租车](Taking_a_Taxi.md)
-    - [x] [坐公交](public_transit.md)
-    - [x] [租车](Renting_a_car.md)
+    - [x] [1.在机场](At_the_airport.md)
+    - [x] [2.在机场续](At_the_airport2.md)
+    - [x] [3.海关与移民](Customs_and_immigration.md)
+    - [x] [4.坐出租车](Taking_a_Taxi.md)
+    - [x] [5.坐公交](public_transit.md)
+    - [x] [6.租车](Renting_a_car.md)
+    - [x] [7.酒店办理入住](Checking_into_a_hotel.md)
 
 === "编程关键字"
 
