@@ -47,6 +47,7 @@ vssue: ""
     - [x] [5.坐公交](public_transit.md)
     - [x] [6.租车](Renting_a_car.md)
     - [x] [7.酒店办理入住](Checking_into_a_hotel.md)
+    - [x] [8.酒店退房](Checking_out_of_a_hotel.md)
 
 === "编程关键字"
 

@@ -156,4 +156,4 @@ bed and breakfast。一般只向消费者提供床(bed)和早餐(breakfast)
 
 nicoulaj主题不错
 
-[:material-page-previous: 6.租车](Renting_a_car.md){ .md-button}  [:material-page-next: 8.xx](Checking_into_a_hotel.md){ .md-button .md-button-right}
+[:material-page-previous: 6.租车](Renting_a_car.md){ .md-button}  [:material-page-next: 8.酒店退房](Checking_out_of_a_hotel.md){ .md-button .md-button-right}
