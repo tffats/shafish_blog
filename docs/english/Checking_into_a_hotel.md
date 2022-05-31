@@ -34,6 +34,7 @@ Your browser does not support the audio element.
 
 ### 5.<span id="english">Continental breakfast <span class="point">:sound:</span></span> 欧式早餐
 
+- 水果、面包、麦片、鸡蛋、培根、牛奶
 - <span id="english">Does this hotel have a continental breakfast? <span class="point">:speech_balloon:</span></span>
 
 ### 6. <span id="english">Buffet <span class="point">:sound:</span></span> 自助餐
@@ -48,7 +49,9 @@ Your browser does not support the audio element.
 
 - <span id="english">What kind of amenities does this hotel have? Is there a pool and hot tub? <span class="point">:speech_balloon:</span></span>
 
-### 9.<span id="english">Double bed  <span class="point">:sound:</span></span> <span id="english">queen-sized bed  <span class="point">:sound:</span></span> <span id="english">king-sized bed  <span class="point">:sound:</span></span> 双人床/大床/特大床
+### 9.<span id="english">Double bed  <span class="point">:sound:</span></span> <span id="english">queen-sized bed  <span class="point">:sound:</span></span> <span id="english">king-sized bed  <span class="point">:sound:</span></span> <span id="english">super-king-sized bed  <span class="point">:sound:</span></span>
+
+双人床(138 x 188 cm)/大床(153 x 203 cm)/特大床(183 x 203 cm)/超大床(203 x 203 cm)
 
 - <span id="english">What size of beds does the room have? The room has 2 double beds. <span class="point">:speech_balloon:</span></span>
 - <span id="english">Do you have a room with a king-sized bed? <span class="point">:speech_balloon:</span></span>
@@ -72,17 +75,38 @@ Your browser does not support the audio element.
 
 ### 14.<span id="english">complimentary  <span class="point">:sound:</span></span> 免费的
 
+- complimentary breakfast 免费早餐
 - <span id="english">This hotel has high quality complimentary toiletries.Much better than most hotels <span class="point">:speech_balloon:</span></span>
 
 ### 15.<span id="english">toiletries  <span class="point">:sound:</span></span> 洗漱用品
 
 - <span id="english">Most hotels offer complimentary toiletries such as toothbrushes,toothpaste,shampoo,soap and a comb. <span class="point">:speech_balloon:</span></span>
 
+### 16.<span id="english">lobby  <span class="point">:sound:</span></span> 大堂
+
+### 17.<span id="english">bellhop bellboy  <span class="point">:sound:</span></span> 行李员
+
+### 18.<span id="english">british breakfast  <span class="point">:sound:</span></span> 英式早餐
+
+- 鸡蛋、香肠、brown beans in tomato sauce（黑豆和番茄的混合）、吐司
+
+### 19.<span id="english">scottish breakfast  <span class="point">:sound:</span></span> 苏格兰早餐
+
+- beer!!!
+
+### 20.<span id="english">cot  <span class="point">:sound:</span></span> 小床
+
+### 21.B&B 旅店
+
+bed and breakfast。一般只向消费者提供床(bed)和早餐(breakfast)
+
+### 22.<span id="english">pickpocketer  <span class="point">:sound:</span></span> 扒手
+
 ## 二、句子
 
 - <span id="english">Hello,I'd like to check-in please. <span class="point">:speech_balloon:</span></span> 
 
-- <span id="english">The room is under the same smith <span class="point">:speech_balloon:</span></span> 
+- <span id="english">The room is under the same smith <span class="point">:speech_balloon:</span></span> 预订房间时登记的名字
 
 - <span id="english">I have a room reserved for smith<span class="point">:speech_balloon:</span></span> 
 
@@ -126,5 +150,10 @@ Your browser does not support the audio element.
 *[shampoo]: [ʃæmˈpuː] 洗发水
 *[soap]: [səʊp] 肥皂
 *[comb]: [kəʊm] 梳子
+*[lobby]: [ˈlɒbi]
+*[british]: [ˈbrɪtɪʃ]
+*[scottish]: [ˈskɒtɪʃ]
 
-[:material-page-previous: 6.租车](Renting_a_car.md){ .md-button}  [:material-page-next: 8.xx](Checking_into_a_hotel.md){ .md-button .md-button-right}
+nicoulaj主题不错
+
+[:material-page-previous: 6.租车](Renting_a_car.md){ .md-button}  [:material-page-next: 8.酒店退房](Checking_out_of_a_hotel.md){ .md-button .md-button-right}

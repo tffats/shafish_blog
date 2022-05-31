@@ -59,7 +59,8 @@ theme:
     - toc.separate
 
 plugins:
-  - search
+  - search:
+      separator: '[\s\u200b\-]'
   - tags
   - git-revision-date-localized:
       type: datetime
