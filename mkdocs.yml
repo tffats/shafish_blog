@@ -74,7 +74,7 @@ extra:
     - icon: fontawesome/solid/paper-plane
       link: mailto:<shafish_cn@163.com>
       name: 发送邮件
-  vssue: shafish
+  #vssue: shafish
   #generator: false
 
 extra_css:

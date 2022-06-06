@@ -1,4 +1,5 @@
 ---
+template: no_comment.html
 title: About
 # description: 
 vssue: ""
