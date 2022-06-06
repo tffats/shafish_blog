@@ -39,7 +39,8 @@ ssh: connect to host ssh.github.com port 443: Connection refused
 ```
 
 ### 4.修改本地的DNS解析-没试
-网上说出现这种问题大多是DNS解析被污染了。
+网上说出现这种问题大多是DNS解析被污染或者是代理问题
+
 - 查找github.com的ip，手动设置host
     - [https://www.ipaddress.com/](https://www.ipaddress.com/){target=_blank}
     - `sudo vim /etc/hosts` 添加 `140.82.114.4 github.com`
