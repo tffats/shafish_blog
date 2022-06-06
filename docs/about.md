@@ -45,6 +45,9 @@ hide:
 
 ## Todo-博客改造
 
+- 2022-6
+    - 7
+        - [x] 使用[giscus](https://giscus.app/)评论系统
 - 2022-3
     - 30
         - [x] 修复css/js资源失效问题
