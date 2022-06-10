@@ -33,6 +33,8 @@ Your browser does not support the audio element.
 
 ### 5.<span id="english">Charge <span class="point">:sound:</span></span> 收费
 
+- extra charge
+- <span id="english">Don't drink the bottled water in the room,you will be charged extra. <span class="point">:speech_balloon:</span></span>
 - <span id="english">Oh was I charged for drinking the bottled water in the room? <span class="point">:speech_balloon:</span></span>
 
 ### 6. <span id="english">Bill <span class="point">:sound:</span></span> 账单

@@ -17,7 +17,7 @@ hide:
 
 ???+ "随笔"
     
-    - [Linux日常命令](./linux_note.md)
+    - [Linux命令](./linux_note.md)
 
 ## 2022年文章导航
 

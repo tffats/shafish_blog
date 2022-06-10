@@ -1,5 +1,5 @@
 ---
-title: linux日常
+title: Linux日常
 description: linux, rsync
 hide:
   - navigation
@@ -21,4 +21,30 @@ sudo dd bs=4M if=/path/to/arcolinux...iso of=/dev/sdX status=progress && sync
 
 ``` shell
 cat /var/log/pacman.log | grep -E installed > installed
+```
+
+## 四、文件备份
+
+``` shell
+[shafish@shafish-laptop shafish]# sudo su
+[root@shafish-laptop shafish]# cd /
+[root@shafish-laptop shafish]# tar cvpzf system_backup_root.tar.gz \
+--exclude=/proc \
+--exclude=/lost+found \
+--exclude=/dev \
+--exclude=/lib \
+--exclude=/mnt \
+--exclude=/sys \
+--exclude=/home \
+--exclude=/run/media \
+--one-file-system \
+--exclude=/system_backup_root.tar.gz \
+/
+[root@shafish-laptop shafish]# cd /home
+[root@shafish-laptop shafish]# tar cvpzf system_backup_home.tar.gz \
+--exclude=/home/shafish/node_modules \
+--exclude=/home/shafish/.m2 \
+--exclude=/home/shafish/snap \
+--exclude=/home/system_backup_home.tar.gz \
+/home
 ```
