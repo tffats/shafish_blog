@@ -15,6 +15,10 @@ hide:
     - [如何在 Linux 中实时监控日志文件](https://linux.cn/article-13733-1.html){target=_blank}
     - [i3wm在线配置效果](https://thomashunter.name/i3-configurator/)
 
+???+ "随笔"
+    
+    - [Linux命令](./linux_note.md)
+
 ## 2022年文章导航
 
 === "5月份"
