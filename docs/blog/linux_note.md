@@ -48,3 +48,11 @@ cat /var/log/pacman.log | grep -E installed > installed
 --exclude=/home/system_backup_home.tar.gz \
 /home
 ```
+
+## 五、git代理
+``` shell
+git config --global http.proxy 192.168.2.1:7890
+git config --global https.proxy 192.168.2.1:7890
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+```
