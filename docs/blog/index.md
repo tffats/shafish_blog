@@ -21,6 +21,11 @@ hide:
 
 ## 2022年文章导航
 
+=== "7月份"
+    - [ ] [liunx记录](./linux_note.md)
+    - [ ] [docker记录](./docker_note.md)
+    - [x] [软路由](2022/06/%E8%BD%AF%E8%B7%AF%E7%94%B1%E8%AE%B0%E5%BD%95.md)
+
 === "5月份"
     - [x] [抽风的Git](2022/05/github_connection_refused.md)
 

@@ -138,7 +138,7 @@ systemctl restart smbd.service
 apt install cifs-utils -y
 # 2. 本地挂载目录
 mkdir /data/movie
-# 3. 挂载smb
+# 3. 挂载smb mount -t cifs -o username=sha,password=xxx //192.168.2.100/samba-movie /data/movie
 nano /etc/fstab
 //192.168.2.100/samba-movie /data/movie cifs username=sha,password=xxxx 0 0
 # mount -t cifs //xxx-crf23.eu-west-1.nas.aliyuncs.com/myshare /mnt -o vers=2.0,guest,uid=0,gid=0,dir_mode=0755,file_mode=0755,mfsymlinks,cache=strict,rsize=1048576,wsize=1048576
@@ -147,4 +147,16 @@ nano /etc/fstab
 ## 九、scp远程传输文件
 ``` shell
 scp /run/media/shafish/movie/xxxfile root@192.168.2.100:/data/smb/movie
+```
+
+## 十、mysql
+``` shell
+# 安装
+apt install mysql-server
+# 检查
+systemctl status mysql
+# 配置
+mysql_secure_installation
+# 授权
+GRANT ALL PRIVILEGES ON *.* TO 'administrator'@'localhost' IDENTIFIED BY 'very_strong_password888';
 ```
