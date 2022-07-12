@@ -23,9 +23,15 @@ vssue: ""
     ### 2.安装
     ``` shell
     sudo pacman -S goldendict
+    # 设置外部音频播放
+    cvlc --play-and-stop
     ```
     ### 3.词典下载地址:
     [https://downloads.freemdict.com/%E5%B0%9A%E6%9C%AA%E6%95%B4%E7%90%86/%E5%85%B1%E4%BA%AB2020.5.11/content/0_audio/The%20little%20dict/](https://downloads.freemdict.com/%E5%B0%9A%E6%9C%AA%E6%95%B4%E7%90%86/%E5%85%B1%E4%BA%AB2020.5.11/content/0_audio/The%20little%20dict/){target=_blank}
+
+    sha1sum：6b59cf90195580bdb8cc92f7df7bd5f1219620f9
+
+    链接: https://pan.baidu.com/s/1Fvfz2pukHGel_QjWd7NbRA 提取码: qwer
 
     ### 4.具体使用
     对着[https://keatonlao.gitee.io/use-goldendict/](https://keatonlao.gitee.io/use-goldendict/){target=_blank}详细读一遍，操作一下就知道了
@@ -48,6 +54,7 @@ vssue: ""
     - [x] [6.租车](Renting_a_car.md)
     - [x] [7.酒店办理入住](Checking_into_a_hotel.md)
     - [x] [8.酒店退房](Checking_out_of_a_hotel.md)
+    - [ ] [9.兑换货币](Exchanging_Money.md)
 
 === "编程关键字"
 

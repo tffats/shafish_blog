@@ -160,3 +160,10 @@ mysql_secure_installation
 # 授权
 GRANT ALL PRIVILEGES ON *.* TO 'administrator'@'localhost' IDENTIFIED BY 'very_strong_password888';
 ```
+
+## 十、计算文件md5、hash值
+``` shell
+md5sum xxxfile
+sha1sum xxxfile
+sha256sum xxxfile
+```
