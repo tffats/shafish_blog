@@ -147,6 +147,7 @@ nano /etc/fstab
 ## 九、scp远程传输文件
 ``` shell
 scp /run/media/shafish/movie/xxxfile root@192.168.2.100:/data/smb/movie
+scp -r /run/media/shafish/movie/xxxdir root@192.168.2.100:/data/smb/movie
 ```
 
 ## 十、mysql
@@ -166,4 +167,60 @@ GRANT ALL PRIVILEGES ON *.* TO 'administrator'@'localhost' IDENTIFIED BY 'very_s
 md5sum xxxfile
 sha1sum xxxfile
 sha256sum xxxfile
+```
+
+## 十一、bbr
+``` shell
+bash <(curl -Lso- https://git.io/kernel.sh)
+```
+
+  Wireguard 和 Cloudflare WARP 命令行工具 Wgcf 2.2.15 安装成功 !
+  Cloudflare WARP 申请的账户配置文件路径: /root/wireguard/wgcf-account.toml 
+  Cloudflare WARP 生成的 Wireguard 配置文件路径: /etc/wireguard/wgcf.conf 
+
+  Wireguard 停止命令: systemctl stop wg-quick@wgcf  启动命令: systemctl start wg-quick@wgcf  重启命令: systemctl restart wg-quick@wgcf
+  Wireguard 查看日志: journalctl -n 50 -u wg-quick@wgcf
+  Wireguard 查看运行状态: systemctl status wg-quick@wgcf
+
+  用本脚本安装v2ray或xray 可以选择是否 解锁 Netflix 限制 和 避免弹出 Google reCAPTCHA 人机验证 !
+
+  其他脚本安装的v2ray或xray 请自行替换 v2ray或xray 配置文件!
+  可参考 如何使用 IPv6 访问 Netflix 的教程 https://ybfl.xyz/111.html 或 https://toutyrater.github.io/app/netflix.html
+
+## 十二、向日葵
+``` shell
+pacman -S yay
+yay -S sunloginclient
+systemctl start runsunloginclient.service
+systemctl enable runsunloginclient.service
+```
+
+## 十三、aliyundrive-fuse
+``` shell
+apt-get -y install python3-pip
+pip install aliyundrive-fuse
+mkdir -p /data/smb/aliyun/data
+vim /usr/lib/systemd/system/aliyun.service
+```
+``` bash
+[Unit]
+Description=AliyunDrive FUSE
+After=network.target
+
+[Service]
+Type=simple
+PermissionsStartOnly=true
+ExecStart=/usr/local/bin/aliyundrive-fuse --allow-other -r xxxtoken -w /var/run/aliyundrive-fuse /data/smb/aliyun/data
+KillMode=process
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+```
+
+``` shell
+systemctl daemon-reload
+systemctl start aliyun.service
+systemctl status aliyun.service
+systemctl enable aliyun.service
 ```
