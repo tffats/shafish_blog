@@ -94,3 +94,10 @@ docker rm kibana
 # 运行
 docker run -d --name kibana7.17 -p 5601:5601 -v /opt/docker/kibana/7.17.5/config:/usr/share/kibana/config --restart=unless-stopped docker.elastic.co/kibana/kibana:7.17.5
 ```
+
+## elastic-head
+
+## OpenSumi
+``` shell
+docker run --name opensumi -d -p 18000:8000/tcp --restart=unless-stopped -v /opt/docker/opensumi/workspace:/workspace -v /opt/docker/opensumi/extensions:/extensions -v /opt/docker/opensumi/configs:/configs ghcr.io/opensumi/opensumi-web:latest
+```
