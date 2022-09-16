@@ -224,3 +224,15 @@ systemctl start aliyun.service
 systemctl status aliyun.service
 systemctl enable aliyun.service
 ```
+
+## 十四、bspwm
+``` shell
+sudo pacman -Syu bspwm sxhkd
+echo "sxhkd &
+exec bspwm" >> ~/.xinitrc
+install -Dm755 /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm/bspwmrc
+install -Dm644 /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd/sxhkdrc
+bspc monitor -d I II III IV V VI VII VIII IX X
+```
+
+https://wiki.archlinux.org/title/Bspwm

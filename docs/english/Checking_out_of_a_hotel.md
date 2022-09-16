@@ -123,4 +123,4 @@ Your browser does not support the audio element.
 *[Receipt]: [rɪˈsiːt]
 *[overpriced]: 过高价格的
 
-[:material-page-previous: 7.酒店办理入住](Checking_into_a_hotel.md){ .md-button}  [:material-page-next: 9.xx](Checking_into_a_hotel.md){ .md-button .md-button-right}
+[:material-page-previous: 7.酒店办理入住](Checking_into_a_hotel.md){ .md-button}  [:material-page-next: 9.兑换货币](Exchanging_Money.md){ .md-button .md-button-right}
