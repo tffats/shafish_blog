@@ -1,7 +1,7 @@
-## ES核心概念
-## ES基本操作
+## ES鏍稿績姒傚康
+## ES鍩烘湰鎿嶄綔
 ``` shell
-# 创建文档
+# 鍒涘缓鏂囨。
 PUT /test/_doc/1
 {
     "name":"shafish",
@@ -27,7 +27,7 @@ PUT /test/_doc/1
 ```
 
 ``` shell
-# 创建索引规则
+# 鍒涘缓绱㈠紩瑙勫垯
 PUT /test2
 {
   "mappings":{
