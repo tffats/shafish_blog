@@ -21,6 +21,9 @@ hide:
 
 ## 2022年文章导航
 
+=== "9月份"
+    - [ ] [trilium使用](./trilium.md)
+
 === "7月份"
     - [ ] [liunx记录](./linux_note.md)
     - [ ] [docker记录](./docker_note.md)
