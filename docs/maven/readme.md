@@ -7,23 +7,30 @@ Maven：构建、依赖管理、项目信息管理
 - 依赖管理：jar包下载，版本管理...
 - 项目信息配置：项目坐标、项目描述等...
 
+maven坐标：groupId、artifactId、version、packageing、classifier
+- groupId：
+
+
 ## 二、maven命令
-### 主代码编译
+### 1.主代码编译
 `mvn clean compile`：对应执行clean、resources、compile插件的相关命令。
 
-### 测试代码编译
+### 2.测试代码编译
 `mvn clean test`：对应执行clean、resources、compile、surefire插件的相关命令。
 
 > surefire为maven中负责执行测试的插件
 
-### 打包
+### 3.打包
 `mvn clean package`：对应执行clean、resources、compile、surefire、jar插件的相关命令。
 
-### 使项目可被引用
+### 4.使项目可被引用
 `mvn clean install`：对应执行clean、resources、compile、surefire、jar、install插件的相关命令，将该jar安装到本地仓库。
 
+### 5.生成项目骨架
+`mvn archetype:generate`：选择一个已有的archetype项目骨架进行初始化
+
 ## 三、pom配置
-### 指定插件使用的jdk版本
+### 1.指定插件使用的jdk版本
 maven-compiler-plugin插件
 
 ``` xml
@@ -44,7 +51,7 @@ maven-compiler-plugin插件
 </project>    
 ```
 
-### 生成可执行的jar包
+### 2.生成可执行的jar包
 
 ``` xml
 <project>
@@ -79,3 +86,20 @@ maven-compiler-plugin插件
     </build>
 </project>
 ```
+
+## 四、使用archetype插件搭建项目骨架
+> 这里的项目骨架指的是项目文件目录的层级规范。比如src/main/java中放置项目的主代码;src/test/java放置项目的测试用例代码。
+
+### 1.项目初始化命令
+`mvn archetype:generate`
+
+### 2.选择可用的archetype骨架
+默认为：`1997: remote -> org.apache.maven.archetypes:maven-archetype-quickstart (An archetype which contains a sample Maven project.)`
+
+### 3.配置项目基本信息
+提供项目对应的`groupId`、`artifactId`、`version`、`package`等信息给archetype插件，插件就会在当前目录下创建以artifactId为名称，对应archetype格式的项目。
+
+> 还会默认添加`junit`依赖
+
+## 五、项目分模块/包
+
