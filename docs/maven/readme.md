@@ -8,7 +8,11 @@ Maven：构建、依赖管理、项目信息管理
 - 项目信息配置：项目坐标、项目描述等...
 
 maven坐标：groupId、artifactId、version、packageing、classifier
-- groupId：
+- groupId：项目
+- artifactId：模块
+- version：项目版本
+- packageing：规定了项目的打包方式
+- classifier：生成辅助内容
 
 
 ## 二、maven命令
@@ -29,7 +33,51 @@ maven坐标：groupId、artifactId、version、packageing、classifier
 ### 5.生成项目骨架
 `mvn archetype:generate`：选择一个已有的archetype项目骨架进行初始化
 
+### 6.查看项目依赖列表
+`mvn dependency:list`
+`mvn dependency:tree`
+
 ## 三、pom配置
+### 0.pom文件元素
+``` xml
+<project>
+    <!-- 项目坐标 -->
+    <groupId>项目</groupId>
+    <artifactId>模块</artifactId>
+    <name>项目说明名称</name>
+    <version>项目版本</version>
+
+    <!-- 变量声明 -->
+    <properties>
+        <xxxx>xxx</xxxx>
+    </properties>
+
+    <!-- 依赖处理 -->
+    <dependencies>
+        <dependency>
+            <groupId>项目</groupId>
+            <artifactId>模块</artifactId>
+            <version>项目版本</version>
+            <type>项目依赖类型</type>
+            <scop>依赖作用范围</scop>
+            <optional>true/false表示为可选依赖</optional>
+            <exclusions>
+                <exclusion>去除间接的依赖</exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+</project>
+```
+
+- scop：指定项目编译、测试、运行时的依赖范围（通过使用不同的classpath来实现)
+    - test：将该依赖添加到测试的classpath中，项目测试时使用
+    - compile：编译范围，项目编译时使用（测试、运行都需要先编译）
+    - provided：编译、测试时有效，项目运行时无效
+    - runtime：运行时依赖
+- optional：项目a中添加了opentional为true的依赖，当项目b依赖项目a时，该依赖不会传导给项目b，项目b需要重新导入该依赖
+- exclusions：去除间接的依赖
+
+
 ### 1.指定插件使用的jdk版本
 maven-compiler-plugin插件
 
