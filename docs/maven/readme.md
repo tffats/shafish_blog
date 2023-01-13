@@ -14,7 +14,6 @@ maven坐标：groupId、artifactId、version、packageing、classifier
 - packageing：规定了项目的打包方式
 - classifier：生成辅助内容
 
-
 ## 二、maven命令
 ### 1.主代码编译
 `mvn clean compile`：对应执行clean、resources、compile插件的相关命令。
@@ -37,7 +36,24 @@ maven坐标：groupId、artifactId、version、packageing、classifier
 `mvn dependency:list`
 `mvn dependency:tree`
 
-## 三、pom配置
+## 三、生命周期
+- maven从各项目中总结后统一定义的构建过程：项目清理、初始化、编译、测试、打包、测试、部署、站点生成等步骤。
+- 上面提到的插件就是对maven生命周期的具体实现：每个构建过程都绑定一个或多个插件用以具体实现。
+
+>> 生命周期可以看作是设计模式中`模板方法`的抽象方法定义，插件就是方法的具体实现。
+
+### 三套生命周期
+>> 将项目的构建步骤分成了三个周期：clean、default、site，每个周期内的步骤都需要按顺序执行，每个周期都互相独立。
+
+#### clean
+- pre-clean：清理前需要完成的工作
+- clean：清理上一次构建生成的文件
+- post-clean：清理后需要完成的工作
+
+#### default
+#### site
+
+## 四、pom配置
 ### 0.pom文件元素
 ``` xml
 <project>
@@ -135,7 +151,7 @@ maven-compiler-plugin插件
 </project>
 ```
 
-## 四、使用archetype插件搭建项目骨架
+## 五、使用archetype插件搭建项目骨架
 > 这里的项目骨架指的是项目文件目录的层级规范。比如src/main/java中放置项目的主代码;src/test/java放置项目的测试用例代码。
 
 ### 1.项目初始化命令
@@ -148,6 +164,3 @@ maven-compiler-plugin插件
 提供项目对应的`groupId`、`artifactId`、`version`、`package`等信息给archetype插件，插件就会在当前目录下创建以artifactId为名称，对应archetype格式的项目。
 
 > 还会默认添加`junit`依赖
-
-## 五、项目分模块/包
-
