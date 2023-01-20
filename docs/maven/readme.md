@@ -14,7 +14,9 @@ maven坐标：groupId、artifactId、version、packageing、classifier
 - packageing：规定了项目的打包方式
 - classifier：生成辅助内容
 
-## 二、maven命令(了解)
+## 二、maven命令
+> 常见的命令，提前熟悉！！
+
 ### 1.主代码编译
 `mvn clean compile`：对应执行clean、resources、compile插件的相关命令。
 
@@ -86,13 +88,15 @@ maven坐标：groupId、artifactId、version、packageing、classifier
     - `dependency:tree`：列出已解析依赖
 
 ### maven内置绑定与自定义绑定
-maven内置的的插件与生命周期绑定，自定义就是在pom中配置的绑定操作。
+maven内置的的插件与生命周期绑定;自定义则是在pom中配置的绑定操作。
 
+#### 内置插件绑定
 - `maven-clean-plugin`：site生命周期的site步骤
 - `maven-site-plugin`
     - `maven-site-plugin:site`：site生命周期的site步骤
     - `maven-site-plugin:depoy`：site生命周期的site-deploy步骤
 
+#### 自定义绑定
 ``` xml
 <!-- 
     创建项目的源码jar包，用jar-no-fork功能将项目主代码打包成jar文件
@@ -121,7 +125,14 @@ maven内置的的插件与生命周期绑定，自定义就是在pom中配置的
 </project>
 ```
 
-## 四、pom配置
+### 插件配置参数
+使用-D以key=value的形式调用插件内置的配置参数。
+`maven-surefire-plugin`插件提供了一个`maven-test-skip`参数，用以跳过执行测试：`mvn install -Dmaven-test-skip=true`
+
+## 五、命令形式调用插件
+> mvn [选项] [插件目标] [maven生命周期]
+
+## 六、pom配置
 ### 0.pom文件元素
 ``` xml
 <project>
@@ -162,7 +173,7 @@ maven内置的的插件与生命周期绑定，自定义就是在pom中配置的
 - exclusions：去除间接的依赖
 
 
-### 1.指定插件使用的jdk版本
+### 1.指定插件使用的jdk版本（插件的全局配置）
 maven-compiler-plugin插件
 
 ``` xml
@@ -219,7 +230,114 @@ maven-compiler-plugin插件
 </project>
 ```
 
-## 五、使用archetype插件搭建项目骨架
+### 3.添加默认运行的测试文件
+> mvn test运行时会匹配运行`*Tests.java`格式的测试用例，但排除`*ServiceTest.java`
+
+``` xml
+<project>
+    ...
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.4.1</version>
+                <configuration>
+                    <includes>
+                        <include>**/*Tests.java</include>
+                    </includes>
+                    <excludes>
+                        <exclude>**/*ServiceTest.java</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+```
+### 4.添加jacoco生成测试覆盖率文件
+> `target/site/jacoco`下生成html文件
+
+``` xml
+<project>
+    ...
+    <build>
+        <plugins>
+                <plugin>
+                    <groupId>org.jacoco</groupId>
+                    <artifactId>jacoco-maven-plugin</artifactId>
+                    <version>${jacoco.version}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>prepare-agent</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>generate-code-coverage-report</id>
+                            <phase>test</phase>
+                            <goals>
+                                <goal>report</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+        </plugins>
+    </build>
+</project>                
+```
+
+### 5.生成项目站点
+> `mvn site`
+
+``` xml
+<project>
+    ...
+    <build>
+        <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>4.0.0-M4</version>
+                </plugin>                          
+        </plugins>
+    </build>
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.4.1</version>
+            </plugin>               
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jxr-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <aggregate>true</aggregate>
+                </configuration>
+            </plugin>  
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>3.2.1</version>
+                <configuration>xxx
+            </plugin>  
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>3.20.0</version>
+                <configuration>
+                    <rulesets>xxx
+                    <aggregate>true</aggregate>
+                </configuration>
+            </plugin>              
+        </plugins>
+    </reporting>
+</project>                   
+```
+
+## 七、使用archetype插件搭建项目骨架
 > 这里的项目骨架指的是项目文件目录的层级规范。比如src/main/java中放置项目的主代码;src/test/java放置项目的测试用例代码。
 
 ### 1.项目初始化命令
@@ -232,3 +350,45 @@ maven-compiler-plugin插件
 提供项目对应的`groupId`、`artifactId`、`version`、`package`等信息给archetype插件，插件就会在当前目录下创建以artifactId为名称，对应archetype格式的项目。
 
 > 还会默认添加`junit`依赖
+
+## 八、测试
+maven的`maven-surefire-plugin`的test功能默认运行项目`src/test/java`目录下 `*Test.java`、`Test*.java`、`*TestCase.java`的测试类。
+
+### 运行指定测试用例
+`mvn test -Dtest=xxxTest,xxxxTest,shafish*Test`
+
+### 测试报告
+运行`mvn test`后默认会在`target/sruefires-reports`目录下生成对应（txt、xml格式）的测试报告。
+
+### 测试覆盖率
+配置好jacoco插件后，运行`mvn test`后会在`target/site/jacoco`目录下生成报告文件
+
+## 九、maven属性
+### 内置属性
+- ${basedir}:项目根目录
+- ${version}:项目版本号
+
+### pom属性
+> 引用pom文件中对应元素的值，格式：${project.artifactId}
+
+- `${project.build.sourceDirectory}`:项目主代码目录 src/main/java
+- `${project.build.testSourceDirectory}`:测试代码目录 src/test/java
+- `${project.build.directory}`:项目构建输出目录 target
+- `${project.outputDirectory}`:项目主代码编译输出目录 target/classes
+- `${project.testOutDirectory}`:项目测试代码编译输出目录 target/test-classes
+- `${project.groupId}`:项目groupId
+- `${project.artifactId}`:项目artifactId
+- `${project.version}`:项目版本号
+- `${project.builid.finalName}`:项目打包文件名称，默认${project.artifactId}-${project.version}
+
+### 自定义属性
+pom文件中在properties定义的propertie，`${propertie}`
+
+### settings属性
+引用pom.xml文件中的xml值，使用时需加前缀 settings，`${settings.localRepository}`
+
+### java系统属性
+使用`mvn help:system`查看java系统属性
+
+### 环境变量属性
+> 环境辩论以`env.`开头，`${env.JAVA_HOME}`java_home环境变量值
