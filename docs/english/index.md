@@ -53,20 +53,56 @@ vssue: ""
     curl -L -C - "https://d.pcs.baidu.com/file/ef2324f69g2e2a483b7fb786ed53cb99?fid=1979936759-250528-718401062589650&dstime=1676169635&rt=sh&sign=FDtAERVJouK-DCb740ccc5511e5e8fedcff06b081203-234lfaPtcpWre3c9OY2%2FmJROQQE%3D&expires=8h&chkv=1&chkbd=0&chkpc=&dp-logid=9054865993120712354&dp-callid=0&shareid=55622936858&r=771409783&resvsflag=1-12-0-1-1-1&vuk=691799587&file_type=0" -o "oald10.mdx" -A "pan.baidu.com" -b "BDUSS=xXVkoyZVU0UlhYUEdYSFhQVU9ObTRWSDBGZGdSc1pUazY0YXJJU3Ayc2ozZzlrSUFBQUFBJCQAAAAAAAAAAAEAAABIKfw4srvS1M7vz7K38QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACNR6GMjUehjdU"
     curl -L -C - "https://d.pcs.baidu.com/file/c7212e429jdd15b3de5e3b365c2dee34?fid=1979936759-250528-18523052980097&dstime=1676169635&rt=sh&sign=FDtAERVJouK-DCb740ccc5511e5e8fedcff06b081203-NERL2ox9sQgF%2BrHslNguXNU2G%2Fg%3D&expires=8h&chkv=1&chkbd=0&chkpc=&dp-logid=9054865993120712354&dp-callid=0&shareid=55622936858&r=312591980&resvsflag=1-12-0-1-1-1&vuk=691799587&file_type=0" -o "oald10.png" -A "pan.baidu.com" -b "BDUSS=xXVkoyZVU0UlhYUEdYSFhQVU9ObTRWSDBGZGdSc1pUazY0YXJJU3Ayc2ozZzlrSUFBQUFBJCQAAAAAAAAAAAEAAABIKfw4srvS1M7vz7K38QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACNR6GMjUehjdU"
     ```
+
 ## 二、英语课堂
 
-=== "旅行英语"
+### 1.编程关键字
 
-    - [x] [1.在机场](At_the_airport.md)
-    - [x] [2.在机场续](At_the_airport2.md)
-    - [x] [3.海关与移民](Customs_and_immigration.md)
-    - [x] [4.坐出租车](Taking_a_Taxi.md)
-    - [x] [5.坐公交](public_transit.md)
-    - [x] [6.租车](Renting_a_car.md)
-    - [x] [7.酒店办理入住](Checking_into_a_hotel.md)
-    - [x] [8.酒店退房](Checking_out_of_a_hotel.md)
-    - [ ] [9.兑换货币](Exchanging_Money.md)
 
-=== "编程关键字"
+??? "编程关键字"
 
-    - [x] [mysql](mysql.md)
+    === "1.mysql"
+
+        --8<-- "english/mysql.md"
+
+
+### 2.旅行英语
+
+
+??? "旅行英语"
+
+    === "1.在机场"
+
+        --8<-- "english/At_the_airport.md"
+
+    === "2.在机场续"
+
+        --8<-- "english/At_the_airport2.md"
+
+    === "3.海关与移民"
+
+        --8<-- "english/Customs_and_immigration.md"
+
+    === "4.坐出租车"
+
+        --8<-- "english/Taking_a_Taxi.md"
+
+    === "5.坐公交"
+
+        --8<-- "english/public_transit.md"
+
+    === "6.租车"
+
+        --8<-- "english/Renting_a_car.md"
+
+    === "7.酒店办理入住"
+
+        --8<-- "english/Checking_into_a_hotel.md"
+
+    === "8.酒店退房"
+
+        --8<-- "english/Checking_out_of_a_hotel.md"
+
+    === "9.兑换货币"
+
+        --8<-- "english/Exchanging_Money.md"
