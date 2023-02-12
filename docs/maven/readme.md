@@ -1,4 +1,9 @@
->> Maven摘要记录
+---
+title: Maven摘要记录
+description: linux, maven, java, compile
+hide:
+  - navigation
+---
 
 ## 一、maven作用
 
@@ -391,4 +396,4 @@ pom文件中在properties定义的propertie，`${propertie}`
 使用`mvn help:system`查看java系统属性
 
 ### 环境变量属性
-> 环境辩论以`env.`开头，`${env.JAVA_HOME}`java_home环境变量值
+> 环境变量以`env.`开头，`${env.JAVA_HOME}`java_home环境变量值

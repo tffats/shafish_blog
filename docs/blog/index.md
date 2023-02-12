@@ -17,16 +17,21 @@ hide:
 
 ???+ "随笔"
     
-    - [Linux命令](./linux_note.md)
+    - [docker记录-持续](./docker_note.md)
+    - [Linux命令-持续](./linux_note.md)
+
+## 2023年文章导航
+
+=== "2月份"
+    - [x] [Python速记](../python/%E9%80%9F%E8%AE%B0.md)
+    - [x] [Maven回顾](../maven/readme.md)
 
 ## 2022年文章导航
 
 === "9月份"
-    - [ ] [trilium使用](./trilium.md)
+    - [x] [trilium使用](./trilium.md)
 
 === "7月份"
-    - [ ] [liunx记录](./linux_note.md)
-    - [ ] [docker记录](./docker_note.md)
     - [x] [软路由](2022/06/%E8%BD%AF%E8%B7%AF%E7%94%B1%E8%AE%B0%E5%BD%95.md)
 
 === "5月份"

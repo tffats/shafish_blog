@@ -45,6 +45,10 @@ hide:
 
 ## Todo-博客改造
 
+- 2023-2
+    - 12
+        - [x] mkdoc版本更新、english模块维护
+
 - 2022-6
     - 7
         - [x] 使用[giscus](https://giscus.app/){target=_blank}评论系统
