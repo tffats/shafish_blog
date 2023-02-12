@@ -23,6 +23,7 @@ hide:
 ## 2023年文章导航
 
 === "2月份"
+    - [ ] [Kafka回顾](../kafka/readme.md)
     - [x] [Python速记](../python/%E9%80%9F%E8%AE%B0.md)
     - [x] [Maven回顾](../maven/readme.md)
 
