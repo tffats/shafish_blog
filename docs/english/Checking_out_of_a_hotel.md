@@ -22,7 +22,7 @@ Your browser does not support the audio element.
 
 - 4.<span id="english">Additional fee <span class="point">:sound:</span></span> 附加费
 
--  <span id="english">What is this additional fee? <span class="point">:speech_balloon:</span></span>
+    -  <span id="english">What is this additional fee? <span class="point">:speech_balloon:</span></span>
 
 - 5.<span id="english">Charge <span class="point">:sound:</span></span> 收费
 

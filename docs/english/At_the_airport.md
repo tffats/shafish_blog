@@ -63,7 +63,7 @@ Your browser does not support the audio element.
 
 - 14.<span id="english">Carry-on bag <span class="point">:sound:</span></span> 手提行李
 
-    an id="english">I always carry my laptop in my carry-on bag. <span class="point">:speech_balloon:</span></span>
+    - <span id="english">I always carry my laptop in my carry-on bag. <span class="point">:speech_balloon:</span></span>
 
 - 15.<span id="english">Business class economy class <span class="point">:sound:</span></span> 公务舱/经济舱
 
