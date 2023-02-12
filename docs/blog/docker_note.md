@@ -5,6 +5,13 @@ hide:
   - navigation
 ---
 
+## 零、安裝
+``` shell
+yum install -y yum-utils
+yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+yum install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+```
+
 ## 一、drawio
 ``` shell
 # 离线：http://xxxx:10180/?offline=1
@@ -95,9 +102,107 @@ docker rm kibana
 docker run -d --name kibana7.17 -p 5601:5601 -v /opt/docker/kibana/7.17.5/config:/usr/share/kibana/config --restart=unless-stopped docker.elastic.co/kibana/kibana:7.17.5
 ```
 
-## elastic-head
-
-## OpenSumi
+## 四、OpenSumi
 ``` shell
 docker run --name opensumi -d -p 18000:8000/tcp --restart=unless-stopped -v /opt/docker/opensumi/workspace:/workspace -v /opt/docker/opensumi/extensions:/extensions -v /opt/docker/opensumi/configs:/configs ghcr.io/opensumi/opensumi-web:latest
 ```
+
+## 五、trilium
+``` shell
+docker run -d --name trilium -p 8099:8080 -v /home/ubuntu/docker/trilium-data:/home/node/trilium-data zadam/trilium:latest
+```
+升级wss协议
+``` shell
+location /
+{
+  ...
+  proxy_set_header Upgrade $http_upgrade;
+  proxy_set_header Connection 'upgrade';
+  ...
+}
+```
+
+## 六、aria2下载
+```
+docker run -d \
+    --name aria2-pro \
+    --restart unless-stopped \
+    --log-opt max-size=1m \
+    -e UMASK_SET=022 \
+    -e PUID=$UID \
+    -e PGID=$GID \
+    -e RPC_SECRET=shafish \
+    -e RPC_PORT=6800 \
+    -p 6800:6800 \
+    -e LISTEN_PORT=6888 \
+    -p 6888:6888 \
+    -p 6888:6888/udp \
+    -e SPECIAL_MODE=move \
+    -v /mnt/docker-hgst/data/docker/aria2/config:/config \
+    -v /mnt/docker-hgst/video/download:/downloads \
+    -v /mnt/docker-hgst/video:/downloads/completed \
+    p3terx/aria2-pro:latest
+```
+nano /mnt/docker-hgst/data/docker/aria2/config/script.conf dest-dir to /completed
+
+```
+docker run -d \
+    --name ariang \
+    --log-opt max-size=1m \
+    --restart unless-stopped \
+    -p 6880:6880 \
+    p3terx/ariang
+```
+
+## 七、jellyfin
+```
+docker run -d \
+  --name=jellyfin \
+  -e PUID=$UID \
+  -e PGID=$GID \
+  -p 8096:8096 \
+  -p 8920:8920 \
+  -p 7359:7359/udp \
+  -p 1900:1900/udp \
+  -v /data/docker/jellyfin/config:/config \
+  -v /mnt/docker-hgst/video:/data/video \
+  --restart unless-stopped \
+  nyanmisaka/jellyfin:latest
+```
+
+提示：Database is locked，把配置文件目录修改为host目录可临时解决
+
+07554201028357@163.gd
+IWGZRENT
+
+## LXC安裝docker問題
+```
+docker: Error response from daemon: using mount program fuse-overlayfs: fuse: device not found, try 'modprobe fuse' first
+fuse-overlayfs: cannot mount: No such file or directory
+: exit status 1.
+```
+
+```
+I'll close this issue with a summary of the fix:
+
+On the Fedora LXC HOST:
+
+root@fedora# dnf install fuse-overlayfs
+root@fedora# modprobe fuse
+root@fedora# vi /var/lib/lxc/<Ubuntu-container-name>/config # On the Fedora LXC Host.
+
+Add this line to the config file and save it:
+
+lxc.mount.entry = /dev/fuse dev/fuse none bind,create=file,rw,uid=165536,gid=165536 0 0
+
+Install this package on the Ubuntu LXC GUEST:
+
+root@ubuntu# apt-get install fuse-overlayfs
+
+and finally, reboot your Ubuntu container.
+
+I hope this helps others.
+
+You are right. Nesting and keyctl should be enabled: Datacenter -> YourNode -> YourLXC -> Option -> Features
+```
+解決：功能选项中勾选嵌套
