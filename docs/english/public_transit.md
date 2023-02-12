@@ -1,79 +1,72 @@
----
-title: 坐公交
-hide:
-  - navigation
----
 
-# public transit
-
-[Back /english](/english/#二英语课堂){ .md-button}
+> public transit
 
 <audio controls="controls">
   <source src="https://file.cdn.shafish.cn/english/%E4%B9%98%E5%9D%90%E5%85%AC%E5%85%B1%E4%BA%A4%E9%80%9A.mp3" type="audio/mpeg">
 Your browser does not support the audio element.
 </audio>
 
-## 一、单词
+***一、单词***
 
-### 1. <span id="english">bus route <span class="point">:sound:</span></span> 公交路线
+- 1.<span id="english">bus route <span class="point">:sound:</span></span> 公交路线
 
-- <span id="english">What bus route do you take there? <span class="point">:speech_balloon:</span></span>
+    - <span id="english">What bus route do you take there? <span class="point">:speech_balloon:</span></span>
 
-### 2. <span id="english">subway system <span class="point">:sound:</span></span> 地铁系统
+- 2.<span id="english">subway system <span class="point">:sound:</span></span> 地铁系统
 
-- <span id="english">Do you know the subway system well? <span class="point">:speech_balloon:</span></span>
-- <span id="english">Beijing and shanghai have larg,convenient subway system? <span class="point">:speech_balloon:</span></span>
+    - <span id="english">Do you know the subway system well? <span class="point">:speech_balloon:</span></span>
+    - <span id="english">Beijing and shanghai have larg,convenient subway system? <span class="point">:speech_balloon:</span></span>
 
-### 3. <span id="english">bus stop subway stop <span class="point">:sound:</span></span> 公交站 地铁站
+- 3.<span id="english">bus stop subway stop <span class="point">:sound:</span></span> 公交站 地铁站
 
-- <span id="english">What bus stop is it? <span class="point">:speech_balloon:</span></span>
+    - <span id="english">What bus stop is it? <span class="point">:speech_balloon:</span></span>
 
-### 4. <span id="english">bus station subway station <span class="point">:sound:</span></span> 公交站 地铁站
+- 4.<span id="english">bus station subway station <span class="point">:sound:</span></span> 公交站 地铁站
 
-- <span id="english">you can get the bus at the bus station? <span class="point">:speech_balloon:</span></span>
+    - <span id="english">you can get the bus at the bus station? <span class="point">:speech_balloon:</span></span>
 
-### 5. <span id="english">transit card metro card <span class="point">:sound:</span></span> 公交卡 地铁卡
+- 5.<span id="english">transit card metro card <span class="point">:sound:</span></span> 公交卡 地铁卡
 
-- <span id="english">how much is a transit card? <span class="point">:speech_balloon:</span></span>
+    - <span id="english">how much is a transit card? <span class="point">:speech_balloon:</span></span>
 
-### 6. <span id="english">bus fare subway fare <span class="point">:sound:</span></span> 车费
+- 6.<span id="english">bus fare subway fare <span class="point">:sound:</span></span> 车费
 
-- <span id="english">how much is the bus fare? <span class="point">:speech_balloon:</span></span>
+    - <span id="english">how much is the bus fare? <span class="point">:speech_balloon:</span></span>
 
-### 7. <span id="english">transfer <span class="point">:sound:</span></span> 换车
+- 7.<span id="english">transfer <span class="point">:sound:</span></span> 换车
 
-- <span id="english">this is a transfer station,please exit for line 2 <span class="point">:speech_balloon:</span></span>
+    - <span id="english">this is a transfer station,please exit for line 2 <span class="point">:speech_balloon:</span></span>
 
-### 8. <span id="english">platform <span class="point">:sound:</span></span> 站台
+- 8.<span id="english">platform <span class="point">:sound:</span></span> 站台
 
-- <span id="english">wait on the platform for the next train <span class="point">:speech_balloon:</span></span>
+    - <span id="english">wait on the platform for the next train <span class="point">:speech_balloon:</span></span>
 
-### 9. <span id="english">line queue <span class="point">:sound:</span></span> 排队
+- 9.<span id="english">line queue <span class="point">:sound:</span></span> 排队
 
-- <span id="english">line out to get on the train <span class="point">:speech_balloon:</span></span>
-- <span id="english">during rush hour there are long lines to get on the train <span class="point">:speech_balloon:</span></span>
+    - <span id="english">line out to get on the train <span class="point">:speech_balloon:</span></span>
+    - <span id="english">during rush hour there are long lines to get on the train <span class="point">:speech_balloon:</span></span>
 
-### 10. <span id="english">seat <span class="point">:sound:</span></span> 座位
+- 10.<span id="english">seat <span class="point">:sound:</span></span> 座位
 
-- <span id="english">it's impossible to get a seat during rush hour <span class="point">:speech_balloon:</span></span>
+    - <span id="english">it's impossible to get a seat during rush hour <span class="point">:speech_balloon:</span></span>
 
-### 11. <span id="english">passengers <span class="point">:sound:</span></span> 乘客
+- 11.<span id="english">passengers <span class="point">:sound:</span></span> 乘客
 
-- <span id="english">there are too many passengers on the car,please move to the next one <span class="point">:speech_balloon:</span></span>
+    - <span id="english">there are too many passengers on the car,please move to the next one <span class="point">:speech_balloon:</span></span>
 
-### 12. <span id="english">priority seating <span class="point">:sound:</span></span> 优先座位
+- 12.<span id="english">priority seating <span class="point">:sound:</span></span> 优先座位
 
-- <span id="english">you should leave the priority seating open for the elderly,disabled and women with children <span class="point">:speech_balloon:</span></span>
+    - <span id="english">you should leave the priority seating open for the elderly,disabled and women with children <span class="point">:speech_balloon:</span></span>
 
-### 13. <span id="english">elderly <span class="point">:sound:</span></span> 老年人
+- 13.<span id="english">elderly <span class="point">:sound:</span></span> 老年人
 
-- <span id="english">I always give up my seat to the elderly<span class="point">:speech_balloon:</span></span>
+    - <span id="english">I always give up my seat to the elderly<span class="point">:speech_balloon:</span></span>
 
-### 14. <span id="english">diabled person <span class="point">:sound:</span></span> 残疾人
+- 14.<span id="english">diabled person <span class="point">:sound:</span></span> 残疾人
 
-- <span id="english">it's not easy for disabled person to take public transit,so you should help them out if you can<span class="point">:speech_balloon:</span></span>
+    - <span id="english">it's not easy for disabled person to take public transit,so you should help them out if you can<span class="point">:speech_balloon:</span></span>
 
-## 二、句子
+***二、句子***
 
 - <span id="english">please move to the back of the bus <span class="point">:speech_balloon:</span></span> 坐后座
 - <span id="english">the next station is xxx <span class="point">:speech_balloon:</span></span> 
@@ -85,7 +78,7 @@ Your browser does not support the audio element.
 - <span id="english">where is the nearest bus station?  <span class="point">:speech_balloon:</span></span> 
 - <span id="english">how much is the bus fare?  <span class="point">:speech_balloon:</span></span> 
 
-## 三、场景
+***三、场景***
 
 - hotel clerk：<span id="english">hi there,how can I help you? <span class="point">:speech_balloon:</span></span>
 - me：<span id="english">hi can you answer a few questions about the public transit for me? <span class="point">:speech_balloon:</span></span>
@@ -113,5 +106,3 @@ Your browser does not support the audio element.
 *[route]: [ru:t]
 *[stay clear]: 远离  mind the gap
 *[hotel clerk]: 酒店办事员
-
-[:material-page-previous: 4.坐出租车](Taking_a_Taxi.md){ .md-button}  [:material-page-next: 6.租车](Renting_a_car.md){ .md-button .md-button-right}

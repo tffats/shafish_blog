@@ -57,6 +57,7 @@ theme:
     - content.code.annotate
     - header.autohide
     - toc.separate
+    - content.code.copy # 代码复制按钮
 
 plugins:
   - search:
@@ -90,7 +91,10 @@ extra_javascript:
 markdown_extensions:
   - abbr
   - attr_list
-  - pymdownx.snippets 
+  - pymdownx.snippets:
+      #auto_append: ["abbreviations.md"]
+      base_path: ["docs/"]
+      #check_paths: true
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
@@ -118,7 +122,8 @@ markdown_extensions:
   - def_list
   - toc:
       permalink:  🐟 # ⚓︎ # 显示锚点
-      slugify: !!python/name:pymdownx.slugs.uslugify # 显示一些Unicode的标识符（可能是罗马希腊那些什么鬼符号）
+      #slugify: !!python/name:pymdownx.slugs.slugify # 显示一些Unicode的标识符（可能是罗马希腊那些什么鬼符号）
+      slugify: !!python/object/apply:pymdownx.slugs.slugify {kwds: {case: lower}}
   - pymdownx.tasklist:
       custom_checkbox: true  
 
