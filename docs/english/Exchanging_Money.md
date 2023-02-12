@@ -24,7 +24,7 @@ Your browser does not support the audio element.
 
 - 4.<span id="english">Exchange rate <span class="point">:sound:</span></span> 汇率
 
--  <span id="english">What is the exchange rate for USD to CNY? <span class="point">:speech_balloon:</span></span>
+    -  <span id="english">What is the exchange rate for USD to CNY? <span class="point">:speech_balloon:</span></span>
 
 - 5.<span id="english">Exchange fee <span class="point">:sound:</span></span> 兑换费用
 

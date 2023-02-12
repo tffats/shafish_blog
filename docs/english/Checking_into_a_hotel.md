@@ -23,7 +23,7 @@ Your browser does not support the audio element.
 
 - 4.<span id="english">Concierge <span class="point">:sound:</span></span> 服务台职员
 
--  <span id="english">if you'd like to order tickets for an event you can check with the hotel concierge. <span class="point">:speech_balloon:</span></span>
+    -  <span id="english">if you'd like to order tickets for an event you can check with the hotel concierge. <span class="point">:speech_balloon:</span></span>
 
 - 5.<span id="english">Continental breakfast <span class="point">:sound:</span></span> 欧式早餐
 

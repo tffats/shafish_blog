@@ -23,8 +23,8 @@ Your browser does not support the audio element.
 
 - 4.<span id="english">Layover <span class="point">:sound:</span></span> 停留
 
--  <span id="english">I have a 5-hour layover in Seoul. <span class="point">:speech_balloon:</span></span>
--  <span id="english">The longest layover I ever had was 8 hours. <span class="point">:speech_balloon:</span></span>
+    -  <span id="english">I have a 5-hour layover in Seoul. <span class="point">:speech_balloon:</span></span>
+    -  <span id="english">The longest layover I ever had was 8 hours. <span class="point">:speech_balloon:</span></span>
 
 - 5.<span id="english">Connection <span class="point">:sound:</span></span> 连接（也有换乘/转机的意思）
 
