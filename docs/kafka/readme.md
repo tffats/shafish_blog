@@ -11,7 +11,6 @@ hide:
 [https://github.com/shafishcn/ToolMan/blob/master/docker/kafka.md](https://github.com/shafishcn/ToolMan/blob/master/docker/kafka.md){target=_blank}
 
 ## 零、概念
-> 在完成一、二、三步骤后，对照kafka-ui界面再重复阅读！！
 
 - `消息`（Record）：数据实体;
 - `生产者`：发布消息的应用;
@@ -102,3 +101,62 @@ kafka中可以为消息定义key值，设置相同key的消息分配到相同的
 
 - 生产者拦截器（ProducerInterceptor接口）：在发送消息前以及消息提交成功后植入你的拦截器逻辑
 - 消费者拦截器（ConsumerInterceptor接口）：在消费消息前以及提交位移后编写特定逻辑
+
+
+## 六、消息的可靠性
+消息成功发送的标识：broker成功接收到一条消息并写入到日志文件，且producer接收到broker的应答。
+
+当producer端无法确认消息提交成功时，默认会进行重试，以保证提供至少一次信息的可靠，不过这就会造成消息重复发送。
+
+- 最多一次：消息不会重复发送，但可能会丢失
+- 至少一次：消息会重复发送，但不会丢失
+- 精确一次：消息不会丢失，也不会重复发送
+
+### 精确一次发送
+- 幂等性：producer发送多次消息，broker端把重复的过滤（大致）。
+  - 只能实现单分区、单会话的幂等
+  - `props.put(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, true);`
+- 事务：读已提交
+  - 保证多条消息原子性写入到分区
+  - 保证消费者只能看到事务成功提交的消息
+  - `enable.idempotence = true`
+  ``` java
+  producer.initTransactions();
+  try {
+              producer.beginTransaction();
+              producer.send(record1);
+              producer.send(record2);
+              producer.commitTransaction();
+  } catch (KafkaException e) {
+              producer.abortTransaction();
+  }
+  ```
+
+> 过多的配置会导致性能变差
+
+## 七.消费组
+多个消费者组成的组，组内所有消费组协调来消费主题的所有分区，但一个分区只能由组内的一个消费者来消费。
+
+多个消费组可以订阅同一个主题，组与组彼此独立消费
+
+消费者的数量=该消费组订阅主题的分区总数
+
+消费位移保存在内部主题`__consumer_offsets`中
+
+### 重平衡
+为消费者重新分配订阅主题的分区
+- 消费组内消费者数量发生变更
+- 消费组订阅的主题数发生变更
+- 主题的分区数发生变更
+
+> 当触发重平衡时，所有的消费者都会停止消费，直到完成重平衡分配
+
+## 八.内部主题
+`__consumer_offsets`：kafka可以默认创建的一个普通主题，默认分配50个分区，3个副本，用来保存各消费者消费对应分区时`频繁修改`的消费位移信息
+- 消息格式：
+  - key：保存 消费组id+主题名+分区号
+  - value：消费元数据
+
+- 手动提交位移值：`enable.auto.commit=false`，可以避免消息在消费端接收后，但处理失败时发生消息丢失的情况，因为是处理完成后再手动提交消费位移的。
+
+- 删除主题中的过期消息：kafka中有个专门的线程`Log Cleaner`对相同key进行整理，保留最新时间的消息。如果位移主题出现磁盘无限膨胀的情况，可以检查下该线程是否存活。
