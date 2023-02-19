@@ -12,6 +12,10 @@ hide:
 
         --8<-- "life/my_server.md:8:"
 
+    === "第二篇"
+
+        --8<-- "life/emo.md:8:"        
+
 ??? "一些视频"
 
     <video
