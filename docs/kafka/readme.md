@@ -27,6 +27,8 @@ hide:
 - `Zookeeper`：存储主题、分区等数据，并完成broker节点监控、controller选举等工作;
 - `重平衡`（Rebalance）：消费者组内某个消费者实例挂掉后，其他消费者实例自动重新分配订阅主题分区的过程;
 
+![](https://file.cdn.shafish.cn/blog/kafka/2023-02-19_22-37.png)
+
 ## 一、部分参数
 - `log.dirs`：broker需要使用的文件目录路径，在生产环境中需要配置多个路径，且目录挂载到不同的物理磁盘中。
     - 多块物理磁盘读写数据高
@@ -89,7 +91,7 @@ kafka中可以为消息定义key值，设置相同key的消息分配到相同的
 - Consumer端维持先消费消息（阅读），再更新位移（书签）的顺序;
 - 如果是多线程异步处理消费消息，Consumer程序不要开启自动提交位移，而是要应用程序手动提交位移;
 
-- 设置acks = all
+- 设置acks = all(必须等待ISR中所有副本都接收了消息后再进行处理)
 - 设置retries为一个较大的值
 - 设置unclean.leader.election.enable = false
 - 设置replication.factor >= 3,将消息多保存几份
@@ -322,3 +324,36 @@ public static void main(String[] args) {
 - 单线程创建消费者，但使用多线程处理分区消息
   - 需维护消费顺序
   - 需维护位移提交
+
+### 6.消费进度监控
+> lag值：分区当前最新生产消息位移-消费组当前最新消费消息位移
+> lead值：消费者最新消息的位移与分区当前第一条消息位移的差值
+
+- kafka-consumer-groups
+    - 命令使用：`./kafka-consumer-groups.sh --bootstrap-server 192.168.0.161:9092 --describe --group test-group（消费组）`
+    - 命令会按照消费组订阅主题的分区进行展示
+    - current-ofset：当前分区最新消费信息的位移值
+    - log-end-offset：分区当前最新生产的消息位移值
+    - lag：消费差值（20表示还有20条信息未被消费）
+    - consumer-id：消费者id
+- Java Consumer api
+    - 查询当前分区最新消息位移：`client.listConsumerGroupOffsets(groupID);`
+    - 查询消费组最新消费信息位移：`consumer.endOffsets(consumedOffset.keySet())`
+- JMX
+    - `kafka.consumer:type=consumer-fetch-manger-metrics,partition="", topic="", client-id=""`
+
+## 八.分区副本
+kafka主题中只有分区leader副本能提供消息生产和消费。
+
+- 1.生产者写入消息后，消费者能马上读取到
+- 2.消息读取一致性，如果分区副本也提供消费则可能出现消息未同步时消费者读取不到消息的情况
+
+### 1.ISR
+同步副本集，在集合中的副本可以理解为与leader分区是消息同步的。
+
+> kafka判断副本是否同步的标准，不是副本间相差的消息数，而是`replica.lag.time.max.ms`(Follower副本能够落后Leader副本的最长时间间隔)
+
+## 九.请求处理
+
+![](https://file.cdn.shafish.cn/blog/kafka/2023-02-19_22-43.png)
+
