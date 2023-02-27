@@ -127,7 +127,7 @@ location /
 ## 六、aria2下载
 ```
 docker run -d \
-    --name aria2-pro \
+    --name aria2-pro-normal \
     --restart unless-stopped \
     --log-opt max-size=1m \
     -e UMASK_SET=022 \
@@ -140,9 +140,9 @@ docker run -d \
     -p 6888:6888 \
     -p 6888:6888/udp \
     -e SPECIAL_MODE=move \
-    -v /mnt/docker-hgst/data/docker/aria2/config:/config \
-    -v /mnt/docker-hgst/video/download:/downloads \
-    -v /mnt/docker-hgst/video:/downloads/completed \
+    -v /data/docker/aria2-normal-download/config:/config \
+    -v /mnt/docker-hgst/data/minio/data/download:/downloads/completed \
+    -v /mnt/docker-hgst/data/minio/tem:/downloads \
     p3terx/aria2-pro:latest
 ```
 nano /mnt/docker-hgst/data/docker/aria2/config/script.conf dest-dir to /completed

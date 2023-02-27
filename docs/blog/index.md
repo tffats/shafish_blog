@@ -20,6 +20,13 @@ hide:
     - [docker记录-持续](./docker_note.md)
     - [Linux命令-持续](./linux_note.md)
 
+???+ "Kafka"
+    
+    - [Kafka回顾](../kafka/readme.md)
+    - [Kafka使用记录.md](../kafka/training.md)
+    - [Kafka参数使用记录.md](../kafka/properties.md)
+    - [Kafka脚本使用记录.md](../kafka/shell.md)
+
 ## 2023年文章导航
 
 === "2月份"
