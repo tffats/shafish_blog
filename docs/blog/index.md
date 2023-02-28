@@ -14,11 +14,19 @@ hide:
 
     - [如何在 Linux 中实时监控日志文件](https://linux.cn/article-13733-1.html){target=_blank}
     - [i3wm在线配置效果](https://thomashunter.name/i3-configurator/)
+    - [mkdocs material使用记录](mkdocs.md)
 
 ???+ "随笔"
     
     - [docker记录-持续](./docker_note.md)
     - [Linux命令-持续](./linux_note.md)
+
+???+ "Kafka"
+    
+    - [Kafka回顾](../kafka/readme.md)
+    - [Kafka使用记录.md](../kafka/training.md)
+    - [Kafka参数使用记录.md](../kafka/properties.md)
+    - [Kafka脚本使用记录.md](../kafka/shell.md)
 
 ## 2023年文章导航
 

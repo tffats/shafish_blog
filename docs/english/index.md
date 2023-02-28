@@ -106,3 +106,7 @@ vssue: ""
     === "9.兑换货币"
 
         --8<-- "english/Exchanging_Money.md"
+
+    === "10.在餐厅"
+
+        --8<-- "english/At_ther_restaurant.md"
