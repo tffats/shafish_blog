@@ -99,15 +99,3 @@ Your browser does not support the audio element.
 - A: <span id="british">okay thank you, here are the keys. <span class="point">:speech_balloon:</span></span>
 - M: <span id="british">Thank you so much. <span class="point">:speech_balloon:</span></span>
 
-*[Rental]: [ˈrentl]
-*[Insurance]: [ɪnˈʃʊərəns]
-*[Mileage]: [ˈmaɪlɪdʒ]
-*[Gas]: [ɡæs]
-*[Reserve]: [rɪˈzɜːv]
-*[agency]: [ˈeɪdʒənsi]
-*[available]: [əˈveɪləbl]
-*[Vehicle]: [ˈvi:əkl]
-*[standard]: 手动档-manual
-*[suv]: sports utility vehicle
-*[Volkswagen Jetta]: 大众
-*[Hyundai]: 现代

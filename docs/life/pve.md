@@ -6,7 +6,7 @@ hide:
   - toc
 ---
 
-装机记录，这手还是有点用的。
+去年11月的装机记录，这双手还是有点用的。
 
 ![](https://picture.cdn.shafish.cn/blog/pve/1.jpg){: .zoom}
 ![](https://picture.cdn.shafish.cn/blog/pve/2.jpg){: .zoom}

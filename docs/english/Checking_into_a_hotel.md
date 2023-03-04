@@ -124,26 +124,4 @@ Your browser does not support the audio element.
 - M: <span id="english">Excellent, thank you so much.  <span class="point">:speech_balloon:</span></span> 
 - Fd: <span id="english">You're welcome. Have a good rest.  <span class="point">:speech_balloon:</span></span> 
 
-*[Front]: [frʌnt]
-*[Vacancy]: [ˈveɪkənsi]
-*[Valet]: [ˈvæleɪ]
-*[Concierge]: [ˈkɒnsieəʒ]
-*[Continental]: [ˌkɒntɪˈnentl]
-*[Buffet]: [ˈbʌfeɪ]
-*[amenities]: [əˈmiːnɪtiz] 
-*[hot tub]: [ˈhɒt tʌb] 热浴池（多人那种）
-*[queen-sized]: [kwiːn saɪzd]
-*[fridge]: [frɪdʒ] 
-*[towels]: [ˈtaʊəlz]
-*[complimentary]:  [ˌkɒmplɪˈmentri] 
-*[toiletries]: [ˈtɔɪlətriz]
-*[toothbrushes]: [ˈtuːθbrʌʃɪz]  牙刷
-*[toothpaste]: [ˈtuːθpeɪst] 牙膏
-*[shampoo]: [ʃæmˈpuː] 洗发水
-*[soap]: [səʊp] 肥皂
-*[comb]: [kəʊm] 梳子
-*[lobby]: [ˈlɒbi]
-*[british]: [ˈbrɪtɪʃ]
-*[scottish]: [ˈskɒtɪʃ]
-
 nicoulaj主题不错

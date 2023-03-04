@@ -94,11 +94,4 @@ later
 - M: <span id="english">Thank you.<span class="point">:speech_balloon:</span></span>
 - W: <span id="english">Certainly.<span class="point">:speech_balloon:</span></span>
 
-*[Patio]: [/ˈpætiəʊ/]
-*[Appitizer]: [/ˈæpɪtaɪzə(r)/]
-*[Dessert]: [/dɪˈzɜːt/]
-*[Caprese]: [/kəˈpreɪzi/] 什么玩意
-*[Borscht]: [/bɔːʃt/]
-*[ribs]: [/rɪbz/] 排骨
-*[mashed]: [/mæʃt/] 捣碎的
-*[Certainly]: [ˈsɜːtnli] ???
+

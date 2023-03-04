@@ -44,7 +44,6 @@ theme:
     #- navigation.instant # without fully reloading the page
     - navigation.tracking
     - navigation.tabs # nav top目录显示在标题栏
-    - navigation.tabs
     - navigation.tabs.sticky
     #- navigation.sections
     #- navigation.expand  # 每次刷新都展开子节点
@@ -92,7 +91,8 @@ markdown_extensions:
   - abbr
   - attr_list
   - pymdownx.snippets:
-      #auto_append: ["abbreviations.md"]
+      auto_append:
+        - english/phonetic_note.md # 英语单词注解统一放在该文件中
       base_path: ["docs/"]
       #check_paths: true
   - pymdownx.superfences:

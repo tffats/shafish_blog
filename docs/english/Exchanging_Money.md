@@ -110,8 +110,3 @@ Your browser does not support the audio element.
 - Fd: <span id="english">We hope you stay with us again next time. <span class="point">:speech_balloon:</span></span> 
 - M: <span id="english">I probably will,bye. <span class="point">:speech_balloon:</span></span> 
 
-*[deposit]: [dɪˈpɒzɪt]
-*[bottled]: [ˈbɒtld] 瓶装
-*[Itemized]: [ˈaɪtəmaɪzd] 逐项
-*[Receipt]: [rɪˈsiːt]
-*[overpriced]: 过高价格的
