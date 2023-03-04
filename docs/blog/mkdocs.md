@@ -284,6 +284,10 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+theme:
+  features:
+    - content.code.copy
+    - content.code.annotate  
 ```
 
 === "指定文件名"
@@ -365,6 +369,51 @@ markdown_extensions:
                         items[j], items[j + 1] = items[j + 1], items[j]
         ```
     ```
+
+=== "去掉代码复制按钮"
+
+    ``` { .python .no-copy }
+    def bubble_sort(items):
+        for i in range(len(items)):
+            for j in range(len(items) - 1 - i):
+                if items[j] > items[j + 1]:
+                    items[j], items[j + 1] = items[j + 1], items[j]
+    ```
+
+    ```
+        ``` { .python .no-copy }
+        def bubble_sort(items):
+            for i in range(len(items)):
+                for j in range(len(items) - 1 - i):
+                    if items[j] > items[j + 1]:
+                        items[j], items[j + 1] = items[j + 1], items[j]
+        ```
+    ```
+
+=== "点击显示代码注解"
+
+    > 注意要使用对应语言的注解符号对 `(num)`进行注解，比如java的//、python的#
+
+    ``` { .java .no-copy }
+    Optional<String> message = Optional.ofNullable(record.value()); // (1)
+    if (message.isPresent()) {
+        System.out.println(message.get());
+    }
+    ```
+
+    1.  :man_raising_hand: optional判空处理.
+
+    ```
+        ``` { .java .no-copy }
+        Optional<String> message = Optional.ofNullable(record.value()); // (1)
+        if (message.isPresent()) {
+            System.out.println(message.get());
+        }
+        ```
+
+        1.  :man_raising_hand: optional判空处理.
+    ```
+
 ### 6. 内容标签栏
 
 ``` yaml

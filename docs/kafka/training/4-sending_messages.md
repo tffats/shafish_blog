@@ -5,9 +5,11 @@ hide:
   - navigation
 ---
 
-> Spring提供了`KafkaTemplate`封装类，可以方便得发送消息给主题。
+!!! abstract
 
-> 提供了KafkaTemplate的子类`RoutingKafkaTemplate`，可以根据不同的主题选择不同Producer进行发送
+    > Spring提供了`KafkaTemplate`封装类，可以方便得发送消息给主题。
+
+    > 提供了KafkaTemplate的子类`RoutingKafkaTemplate`，可以根据不同的主题选择不同Producer进行发送
 
 ### 1.KafkaTemplate
 
@@ -212,7 +214,7 @@ hide:
 
 ### 2.RoutingKafkaTemplate
 
-!!! abstract
+!!! abstract ""
     RoutingKafkaTemplate不支持`transactions`, `execute`, `flush`, or `metrics`等操作，具体等后续深入理解。
 
 ??? ":one:.修改ProducerFactory"
@@ -315,7 +317,7 @@ hide:
 
 ### 3.DefaultKafkaProducerFactory
 
-!!! abstract
+!!! abstract ""
 
     ProducerFactory用于创建kafka的producer实例，具体可以看`KafkaProducerConfig`相关配置。在不使用事务的情况下，kafka默认只会创建一个单例的producer实例给客户端使用，但如果其中某个客户端调用了`flush()`方法，会造成使用该producer实例的其他客户端也阻塞。
 
@@ -323,7 +325,7 @@ hide:
 
 ### 4.ReplyingKafkaTemplate
 
-!!! abstract
+!!! abstract ""
 
     发送请求并需要获取回复的场景下使用
 

@@ -107,22 +107,3 @@ Your browser does not support the audio element.
 - A: <span id="english">You’re welcome. Have a great flight. <span class="point">:speech_balloon:</span></span>
 
 声音都不同的，笑死 :laughing:
-
-*[Terminal]: [ˈtɜ:mɪnl]
-*[Airline]: [ˈeəlaɪn]
-*[International flight]: [ˌɪntəˈnæʃənəl flait]
-*[Domestic flight]: [dəˈmestik flait]
-*[Departure]: [dɪˈpɑ:tʃə(r)]
-*[Arrival]: [əˈraɪvl]
-*[Check-in]: [tʃek in]
-*[Passport]: [ˈpɑ:spɔ:t]
-*[Boarding pass]: [ˈbɔ:dɪŋ pɑ:s]
-*[Aisle seat]: [aɪl siːt]
-*[Boarding Departure]: [ˈbɔːdɪŋ] [dɪˈpɑːtʃə(r)]
-*[Gate]: [geɪt]
-*[baggage]: [ˈbægɪdʒ]
-*[luggage]: [ˈlʌgɪdʒ]
-*[suitcase]: [ˈsu:tkeɪs]
-*[Carry-on bag]: [ˈkæri ɒn bæɡ]
-*[economy]: [ɪˈkɒnəmi]
-*[measurement]: [ˈmeʒəmənt]
