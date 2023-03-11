@@ -1,7 +1,10 @@
-<!-- ---
+---
 title: 家
 template: home.html
---- -->
+hide:
+  - navigation
+  - toc
+---
 
 <!-- ![](https://github.com/tffats/shafish_blog/workflows/Built and pushed to the server/badge.svg?branch=main) -->
 
