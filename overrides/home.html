@@ -2,26 +2,8 @@
 
 {% block tabs %}
   {{ super() }}
-  <style>.md-header{position:initial}.md-main__inner{margin:0}.md-content{display:none}@media screen and (min-width:60em){.md-sidebar--secondary{display:none}}@media screen and (min-width:76.25em){.md-sidebar--primary{display:none}}</style>
-  <section class="mdx-container">
-    <div class="md-grid md-typeset">
-      <div class="mdx-hero">
-        <div class="mdx-hero__image">
-          <img src="https://squidfunk.github.io/mkdocs-material/assets/images/illustration.png" alt="" width="1659" height="1200" draggable="false">
-        </div>
-        <div class="mdx-hero__content">
-          <h1>Technical documentation that just works</h1>
-          <p>{{ config.site_description }}. Set up in 5 minutes.</p>
-          <a href="{{ page.next_page.url | url }}" title="{{ page.next_page.title | e }}" class="md-button md-button--primary">
-            Quick start
-          </a>
-          <a href="{{ 'insiders/' | url }}" title="Material for MkDocs Insiders" class="md-button">
-            Get Insiders
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
 {% endblock %}
-{% block content %}{% endblock %}
-
+{% block content %}
+<div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom layers tags lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;&lt;mxfile host=\&quot;192.168.0.157\&quot; modified=\&quot;2023-03-11T17:04:19.619Z\&quot; agent=\&quot;5.0 (X11)\&quot; etag=\&quot;i6kBK5ip_P0_EnCvhYHI\&quot; version=\&quot;20.8.16\&quot; type=\&quot;device\&quot;&gt;&lt;diagram name=\&quot;第 1 页\&quot; id=\&quot;rsZ7_wH96RLDtUJUpKKy\&quot;&gt;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&lt;/diagram&gt;&lt;/mxfile&gt;&quot;}"></div>
+<script type="text/javascript" src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
+{% endblock %}

@@ -24,7 +24,7 @@ hide:
 ???+ "Kafka"
     
     - [Kafka回顾](../kafka/readme.md)
-    - [Kafka使用记录.md](../kafka/training.md)
+    - [Kafka手册.md](../kafka/training.md)
     - [Kafka参数使用记录.md](../kafka/properties.md)
     - [Kafka脚本使用记录.md](../kafka/shell.md)
 
