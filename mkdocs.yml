@@ -80,12 +80,15 @@ extra:
 extra_css:
   - stylesheets/extra.css
   - https://file.cdn.shafish.cn/blog/css/vssue.css
-  - https://file.cdn.shafish.cn/blog/css/video-js.min.css
-  - https://file.cdn.shafish.cn/blog/css/video.css
+  #- https://cdn.jsdelivr.net/npm/xgplayer@3.0.5/dist/index.min.css
+  #- https://file.cdn.shafish.cn/blog/css/video-js.min.css
+  #- https://file.cdn.shafish.cn/blog/css/video.css
 
 extra_javascript:
+  #- https://cdn.jsdelivr.net/npm/xgplayer@3.0.5/dist/index.min.js
   - javascripts/extra.js
-  - https://file.cdn.shafish.cn/blog/js/video.min.js
+  #- javascripts/d.js
+  #- https://file.cdn.shafish.cn/blog/js/video.min.js
 
 markdown_extensions:
   - abbr
