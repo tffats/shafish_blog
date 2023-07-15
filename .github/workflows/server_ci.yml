@@ -31,7 +31,7 @@ jobs:
           tar -zcvf ./site.tar.gz ./site
 
       - name: upload build file to my host
-        uses: AEnterprise/rsync-deploy@v1.0
+        uses: AEnterprise/rsync-deployv1.0.2
         env:
           DEPLOY_KEY: ${{ secrets.SERVER_KEY }}
           ARGS: -avz --delete --exclude='.user.ini'
