@@ -1,6 +1,6 @@
 ---
 title: ""
-template: home.html
+template: no_comment.html
 hide:
   - navigation
   - toc
