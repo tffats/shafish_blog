@@ -10,6 +10,10 @@ hide:
 
     - [ ] 源码
 
+???+ "小工具"
+
+    - [轻量前端渲染框架Dot.js](./tool/dot.md)
+
 ???+ "收藏夹"
 
     - [如何在 Linux 中实时监控日志文件](https://linux.cn/article-13733-1.html){target=_blank}
