@@ -65,6 +65,48 @@ function refreshDot() {
         return this.name
     }
 
+    data.camel = function(str, capitalizeFirstLetter) {
+        var words = str.split('_');
+        var camelCaseStr = words[0];
+        
+        for (var i = 1; i < words.length; i++) {
+          var capitalizedWord = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+          camelCaseStr += capitalizedWord;
+        }
+        
+        if (capitalizeFirstLetter) {
+          camelCaseStr = camelCaseStr.charAt(0).toUpperCase() + camelCaseStr.slice(1);
+        }
+        
+        return camelCaseStr;
+    }
+
+    data.convertToUnderscore = function(str, uppercase) {
+        var underscoreStr = "";
+        
+        for (var i = 0; i < str.length; i++) {
+          if (str.charAt(i) === str.charAt(i).toUpperCase() && i > 0) {
+            underscoreStr += "_" + str.charAt(i).toLowerCase();
+          } else {
+            underscoreStr += str.charAt(i);
+          }
+        }
+        
+        if (uppercase) {
+          underscoreStr = underscoreStr.toUpperCase();
+        }
+        
+        return underscoreStr;
+    }
+
+    data.convertToUpperCase = function(str) {
+        return str.toUpperCase();
+    }
+
+    data.convertToLowerCase = function(str) {
+        return str.toLowerCase();
+    }
+
     var fishaDot = doT.template(templ);
     var fishaDotData = fishaDot(data);
 
