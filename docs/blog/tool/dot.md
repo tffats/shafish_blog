@@ -11,24 +11,27 @@ hide:
 
 ### 一、dot模板
 
-<div class="highlight"><pre id="__code_0"><span></span><button class="md-clipboard md-icon" title="复制" data-clipboard-target="#__code_0 > textarea"></button><textarea id="fisha_dot_templ" rows="15" style="width:100%"><div>
-    <p>name:{{= it.name}}</p>
-    <p>age:{{= it.age}}</p>
-    <p>hello:{{= it.sayHello() }}</p>
-    {{~ it.arr:item}}
-    <p>INSERT INTO aria2_file(REVISION,CREATED_BY,CREATED_TIME,UPDATED_BY,UPDATED_TIME,NAME) VALUES('{{=item.version}}','{{=item.create}}','{{=item.createTime}}','{{=item.update}}','{{=item.updateTime}}','{{=item.name}}');</p>
-    {{~}}
-</div></textarea></pre></div>
+<div class="highlight"><pre id="__code_0"><span></span><button class="md-clipboard md-icon" title="复制" data-clipboard-target="#__code_0 > textarea"></button><textarea id="fisha_dot_templ" rows="15" style="width:100%">
+name:{{= it.name}}</br>
+age:{{= it.age}}</br>
+hello:{{= it.sayHello() }}</br>
+camel:{{= it.camel(it.name, false) }}</br>
+convertToUnderscore:{{= it.convertToUnderscore(it.stringParams1, false) }} </br>
+{{~ it.arr:item}}
+INSERT INTO aria2_file(REVISION,CREATED_BY,CREATED_TIME,UPDATED_BY,UPDATED_TIME,NAME) VALUES('{{=item.version}}','{{=item.create}}','{{=item.createTime}}','{{=item.update}}','{{=item.updateTime}}','{{=item.name}}');</br>
+{{~}}
+</textarea></pre></div>
 
 ### 二、dot模板数据
 ***仅仅支持json格式数据***
 
 <div class="highlight"><pre id="__code_1"><span></span><button class="md-clipboard md-icon" title="复制" data-clipboard-target="#__code_1 > textarea"></button><textarea id="fisha_dot_jsondata" rows="15" style="width:100%">{
-  "name":"stringParams1",
-  "stringParams1":"stringParams1_value",
+  "name":"string_params1",
+  "stringParams1":"stringParams1Value",
   "age": 21,
   "stringParams2":1,
   "arr":[
+    {"version":0, "create":"sha_fish_a", "createTime":"2023-06-10 15:41:57", "update":"shafish", "updateTime":"2023-06-10 15:45:57", "name":"shafish26", "text":"val1值"},
     {"version":0, "create":"shafish", "createTime":"2023-06-10 15:41:57", "update":"shafish", "updateTime":"2023-06-10 15:45:57", "name":"shafish26", "text":"val1值"}
   ]
 }</textarea></pre></div>
@@ -44,7 +47,51 @@ hide:
 
 ``` js
 sayHello = function () {
-    return this[this.name]
+    return this.name
+}
+
+// fisha_shafish_a -> fishaShafishA
+camel = function(str, capitalizeFirstLetter) {
+    var words = str.split('_');
+    var camelCaseStr = words[0];
+    
+    for (var i = 1; i < words.length; i++) {
+      var capitalizedWord = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+      camelCaseStr += capitalizedWord;
+    }
+    
+    if (capitalizeFirstLetter) {
+      camelCaseStr = camelCaseStr.charAt(0).toUpperCase() + camelCaseStr.slice(1);
+    }
+    
+    return camelCaseStr;
+}
+
+// fishaShafishA -> fisha_shafish_a
+convertToUnderscore = function(str, uppercase) {
+  var underscoreStr = "";
+  
+  for (var i = 0; i < str.length; i++) {
+    if (str.charAt(i) === str.charAt(i).toUpperCase() && i > 0) {
+      underscoreStr += "_" + str.charAt(i).toLowerCase();
+    } else {
+      underscoreStr += str.charAt(i);
+    }
+  }
+  
+  if (uppercase) {
+    underscoreStr = underscoreStr.toUpperCase();
+  }
+  
+  return underscoreStr;
+}
+
+convertToUpperCase = function(str) {
+    return str.toUpperCase();
+}
+
+convertToLowerCase = function(str) {
+    return str.toLowerCase();
 }
 ```
 
