@@ -51,8 +51,6 @@ var defaultTemplData = {
     }
 }
 
-var testdd = document.getElementById("fisha_dot_jsondata").value;
-
 // dot替换
 function refreshDot() {
     var self_templ = document.getElementById("fisha_dot_templ").value.replace(/(\r|\n|\r)/gm, "").trim();
