@@ -11,7 +11,7 @@ hide:
 
 ### 一、dot模板
 
-<div class="highlight"><pre id="__code_0"><span></span><button class="md-clipboard md-icon" title="复制" data-clipboard-target="#__code_0 > textarea"></button><textarea id="fisha_dot_templ" rows="15" style="width:100%">
+<div class="highlight"><pre id="__code_0"><span></span><button class="md-clipboard md-icon" title="复制" data-clipboard-target="#__code_0 > textarea"></button><textarea id="fisha_dot_templ" rows="15" style="width:100%;">
 name:{{= it.name}}</br>
 age:{{= it.age}}</br>
 hello:{{= it.sayHello() }}</br>
