@@ -34,6 +34,9 @@ hide:
 
 ## 2023年文章导航
 
+=== "10月份"
+    - [x] [nomachine远程桌面](./2023/nomachine.md)
+
 === "2月份"
     - [ ] [Kafka回顾](../kafka/readme.md)
     - [x] [Python速记](../python/%E9%80%9F%E8%AE%B0.md)
