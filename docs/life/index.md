@@ -124,6 +124,10 @@ hide:
 
         --8<-- "life/tv/anAncientLoveSong.md:8:"
 
+    === "《我有一个朋友》"
+
+        --8<-- "life/tv/bewithme.md:8:"
+
 ??? "综艺"
 
     === "《你好生活》"        
