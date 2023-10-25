@@ -6,18 +6,25 @@ hide:
   - toc
 ---
 
-``` yaml
-# 本地测试用
-git clone https://github.com/squidfunk/mkdocs-material.git
-cd mkdocs-material
-echo "mkdocs-git-revision-date-localized-plugin" > user-requirements.txt
+??? quote "自构建"
 
-docker pull squidfunk/mkdocs-material
-docker build -t squidfunk/mkdocs-material .
+    ``` yaml
+    # 本地测试用
+    git clone https://github.com/squidfunk/mkdocs-material.git
+    cd mkdocs-material
+    # 写入需要的插件
+    echo "mkdocs-git-revision-date-localized-plugin" > user-requirements.txt
 
-cd /home/shafish/Note
-git clone https://github.com/tffats/shafish_blog.git
-docker run --rm -it -p 8000:8000 -v /home/shafish/Note/shafish_blog:/docs squidfunk/mkdocs-material
-```
+    docker pull squidfunk/mkdocs-material
+    docker build -t squidfunk/mkdocs-material .
 
-https://hub.docker.com/u/shafish
+    cd /home/shafish/Note
+    git clone https://github.com/tffats/shafish_blog.git
+    docker run --rm -it -p 8000:8000 -v /home/shafish/Note/shafish_blog:/docs squidfunk/mkdocs-material
+    ```
+
+!!! success "docker镜像[^1]"
+
+    `docker run --rm -it -p 8000:8000 -v /home/shafish/Note/shafish_blog:/docs shafish/mkdocs-material:1.0`
+
+[^1]: [https://hub.docker.com/u/shafish](https://hub.docker.com/u/shafish){target="_blank"}
