@@ -14,16 +14,18 @@ hide:
 
     - [轻量前端渲染框架Dot.js](./tool/dot.md)
 
-???+ "收藏夹"
+???+ "Linux"
 
     - [如何在 Linux 中实时监控日志文件](https://linux.cn/article-13733-1.html){target=_blank}
+    - [Linux命令-持续](./linux_note.md)
+    - [Archlinux+I3WM](./linux/i3-user-guide.md)
+
+???+ "收藏夹"
+
     - [i3wm在线配置效果](https://thomashunter.name/i3-configurator/)
     - [mkdocs material使用记录](mkdocs.md)
-
-???+ "随笔"
-    
     - [docker记录-持续](./docker_note.md)
-    - [Linux命令-持续](./linux_note.md)
+
 
 ???+ "Kafka"
     
