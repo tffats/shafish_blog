@@ -1182,7 +1182,10 @@ mkdocs-material 8.x将评论改为了自定义，需要在 `mkdocs.yml ` 中设�
         vssue: shafish  # 随便填值，主要是设置{% set vssue = config.extra.vssue %}时，vssue初始值可用
     ```
 
-### 11. blocks
+### 11. 评论系统-Giscus
+
+
+### 12. blocks
 
 ref: https://squidfunk.github.io/mkdocs-material/customization/
 
