@@ -1,5 +1,5 @@
 ---
-title: "life"
+title: "life-N"
 vssue: ""
 hide:
   - navigation

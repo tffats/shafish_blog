@@ -131,9 +131,9 @@ hide:
     - 将该用户加到wheel组中：`usermod -a -G wheel`
     - 设置用户密码：`passwd shafish`
     - 创建默认目录：比如Download、Document等目录
+        - 切换到新建用户：`su - shafish`
         - `sudo pacman -S xdg-user-dirs`
         - `LC_ALL=C xdg-user-dirs-update --force`
-    - 切换到新建用户：`su - shafish`
 
 ### 2.3 窗口管理器-I3WM
 i3-gaps已经合并到i3wm 4.23版本，别安装i3-gaps了。
@@ -238,7 +238,7 @@ i3-gaps已经合并到i3wm 4.23版本，别安装i3-gaps了。
 - `sudo pacman -S rofi`
 
 ### 3.2 壁纸、终端透明、装B
-- `sudo pacman -S picom feh neofetch`
+- `sudo pacman -S feh picom neofetch`
 
 ### 3.3 显卡驱动
 [https://wiki.archlinuxcn.org/wiki/NVIDIA](https://wiki.archlinuxcn.org/wiki/NVIDIA){target=_blank}
@@ -290,6 +290,8 @@ i3-gaps已经合并到i3wm 4.23版本，别安装i3-gaps了。
 ### 3.9 深度图片查看器、截图、文件管理器
 - `sudo pacman -S deepin-image-viewer deepin-screenshot deepin-file-manager ranger`
 
+还是thunar好用
+
 ### 3.10 docker
 - `sudo pacman -S docker docker-compose`
 - `sudo systemctl enable docker`
@@ -297,12 +299,69 @@ i3-gaps已经合并到i3wm 4.23版本，别安装i3-gaps了。
 - `usermod -aG docker shafish`
 - `sudo systemctl restart docker`
 
-### 3.11 pipenv
-- `sudo pacman -S python-pipenv`
+### 3.11 stable-diffusion
+- [https://github.com/pyenv/pyenv#set-up-your-shell-environment-for-pyenv](https://github.com/pyenv/pyenv#set-up-your-shell-environment-for-pyenv){target=_blank}
+- [https://github.com/pyenv/pyenv-virtualenv#installing-as-a-pyenv-plugin](https://github.com/pyenv/pyenv-virtualenv#installing-as-a-pyenv-plugin){target=_blank}
+- [https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki){target=_blank}
+
+???+ "当然是拿来搞stable-diffusion"
+
+    - `sudo pacman -S pyenv pyenv-virtualenv`
+        - 配置fish环境：`vim ~/.config/fish/config.fish`
+        ``` shell
+        pyenv init - | source
+        status --is-interactive; and pyenv virtualenv-init - | source
+        ```
+    - `pyenv install -v 3.10.6`
+    - `pyenv virtualenv 3.10.6 sdwebui`
+    - `cd ~/Project/Python`
+    - `git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git`
+    - `cd stable-diffusion-webui`
+    - `pyenv local sdwebui`
+    - `python -V`
+    - `./webui.sh --xformers` # 自行配置代理
 
 ### 3.12 轻量截图工具
 
 - `sudo pacman -S maim xclip`
+
+### 3.13 idea
+
+- 官网下载
+
+### 3.14 java
+
+- 官网下载
+
+### 3.15 数据库管理
+sudo pacman -S dbeaver
+
+### 3.15 手机投屏
+手机启动无线调试
+
+``` shell
+sudo pacman -S scrcpy adb
+adb tcpip 5555
+adb connect 192.168.0.5:5555
+```
+
+### 3.16 git客户端
+``` shell
+sudo pacman -S lazygit
+```
+
+### 3.17 goldendict
+[https://shafish.cn/english/#%E4%B8%80goldendict%E9%85%8D%E7%BD%AE](https://shafish.cn/english/#%E4%B8%80goldendict%E9%85%8D%E7%BD%AE){target=_blank}
+
+
+``` shell
+sudo pacman -S dictd
+yay -S goldendict-ng dict-gcide aspeak 
+```
+
+sudo systemctl enable dictd.service
+sudo systemctl start dictd.service
+
 
 待续
 
