@@ -15,7 +15,6 @@ hide:
     # 写入需要的插件
     echo "mkdocs-git-revision-date-localized-plugin" > user-requirements.txt
 
-    docker pull squidfunk/mkdocs-material
     docker build -t squidfunk/mkdocs-material .
 
     cd /home/shafish/Note

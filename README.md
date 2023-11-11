@@ -7,7 +7,6 @@ git clone https://github.com/squidfunk/mkdocs-material.git
 cd mkdocs-material
 echo "mkdocs-git-revision-date-localized-plugin" > user-requirements.txt
 
-docker pull squidfunk/mkdocs-material
 docker build -t squidfunk/mkdocs-material .
 
 docker run --rm -it -p 8000:8000 -v /home/shafish/Note/shafish_blog:/docs squidfunk/mkdocs-material
