@@ -36,9 +36,6 @@ hide:
 
 ## 2023年文章导航
 
-=== "11月份"
-    - [x] [trojan客户端代理配置](./2023/trojan.md)
-
 === "10月份"
     - [x] [nomachine远程桌面](./2023/nomachine.md)
 
