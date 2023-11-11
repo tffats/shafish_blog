@@ -1,16 +1,11 @@
 .md-grid {
-    max-width: 75%; 
-}
-
-:root {
-    --md-primary-fg-color:        #EF5A57;
-    --md-primary-fg-color--light: #ECB7B7;
-    --md-primary-fg-color--dark:  #96110e;
-    --darkreader-bg--md-primary-fg-color: #a42600;
+    max-width: 2160px; 
 }
 
 [data-md-color-scheme="slate"] {
     --md-hue: 110; 
+    --md-primary-fg-color:        #a02200;
+    --md-default-bg-color: hsla(107, 16%, 11%, 0.98);
 }
 
 ::-webkit-scrollbar {
