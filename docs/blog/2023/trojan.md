@@ -25,9 +25,9 @@ services:
         container_name: trojan
         restart: unless-stopped
         environment:
-            - REMOTE_ADDR="your ssl domain"
+            - REMOTE_ADDR=your ssl domain
             - REMOTE_PORT=111
-            - PASSWORD="passwd"
+            - PASSWORD=passwd
         ports:
             - '1088:1080'
             - '1089:8118'
@@ -38,6 +38,6 @@ services:
 - 首先你得有trojan server的信息，这个自己折腾，不用代理也能查到一堆资料搞
 - 容器的1080端口对应的socket5协议，8118端口则对应http协议，直接指定本机特定端口映射出来用就行
 - 启动的使用需要明确指定三个变量：
-    - REMOTE_ADDR：代理服务器的trojan伪装域名，例如："trojanone.com"
+    - REMOTE_ADDR：代理服务器的trojan伪装域名，例如：trojanone.com
     - REMOTE_PORT：代理服务器的trojan对外端口，例如：111
-    - PASSWORD：代理服务器的trojan密码，例如："passwd"
+    - PASSWORD：代理服务器的trojan密码，例如：passwd

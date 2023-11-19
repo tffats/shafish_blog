@@ -362,6 +362,23 @@ yay -S goldendict-ng dict-gcide aspeak
 sudo systemctl enable dictd.service
 sudo systemctl start dictd.service
 
+### 3.18 图片压缩
+sudo pacman -S pngquant zopfli
+
+``` shell
+#!/bin/sh
+
+# Use pngquant and zopflipng to compress png images
+# The final result is similar to tinypng.com
+
+file_seed="$(date +%s)"
+pngquant --speed 1 --strip --verbose $1 -o temp_$file_seed.png
+echo "========= zopflipng compressing ========= "
+zopflipng -m --lossy_transparent temp_$file_seed.png compressed_$file_seed.png
+echo "Deleting temp file..."
+rm temp_$file_seed.png
+echo "Done."
+```
 
 待续
 
