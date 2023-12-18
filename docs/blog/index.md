@@ -19,6 +19,7 @@ hide:
     - [如何在 Linux 中实时监控日志文件](https://linux.cn/article-13733-1.html){target=_blank}
     - [Linux命令-持续](./linux_note.md)
     - [Archlinux+I3WM](./linux/i3-user-guide.md)
+    - [PVE](./pve.md)
 
 ???+ "收藏夹"
 
