@@ -266,3 +266,18 @@ grep -nri [搜索词] 目录 | cat --number
 ``` shell
 unzip -O CP936/GBK/GB18030 xxxx.zip
 ```
+
+## 十七、vim中文乱码
+vim ~/.vimrc
+
+``` shell
+set termencoding=utf-8
+set encoding=utf8
+set fileencodings=utf8,ucs-bom,gbk,cp936,gb2312,gb18030
+```
+
+## 十八、netstat
+使用netstat报错command not found
+`apt install net-tools`
+
+netstat -aptn
