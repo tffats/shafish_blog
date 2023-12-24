@@ -32,10 +32,10 @@ hide:
 
 至于本人介绍：只是一个平平无奇的骚年而已
 
-<figure markdown>
+<!-- <figure markdown>
   ![WeChat_Official_Account](https://picture.cdn.shafish.cn/blog/wechat/Official_Account3.png "now啥内容也没有"){ loading=lazy }
   <figcaption>WeChat_Official_Account</figcaption>
-</figure>
+</figure> -->
 
 ## 问题
 
