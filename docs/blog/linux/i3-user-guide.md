@@ -334,7 +334,7 @@ i3-gaps已经合并到i3wm 4.23版本，别安装i3-gaps了。
 - 官网下载
 
 ### 3.15 数据库管理
-sudo pacman -S dbeaver
+`sudo pacman -S dbeaver`
 
 ### 3.15 手机投屏
 手机启动无线调试
@@ -357,13 +357,12 @@ sudo pacman -S lazygit
 ``` shell
 sudo pacman -S dictd
 yay -S goldendict-ng dict-gcide aspeak 
-```
-
 sudo systemctl enable dictd.service
 sudo systemctl start dictd.service
+```
 
 ### 3.18 图片压缩
-sudo pacman -S pngquant zopfli
+`sudo pacman -S pngquant zopfli`
 
 ``` shell
 #!/bin/sh
@@ -380,8 +379,28 @@ rm temp_$file_seed.png
 echo "Done."
 ```
 
+## 四、问题解决
+### 4.1 开机启动失败
+
+???+ "啊，废了？？？？？"
+
+    #### 4.1.1 问题描述：
+    - 更新系统到`Linux 6.6.8-zen1-1-zen`，系统关机后重新启动
+    - 开机启动时提示网络硬盘挂载失败，进入tty（ctrl+alt+f2）注释掉`/etc/fstab`对应挂载，重新启动
+    - 启动一直卡在`/dev/bla: clean, xxx/xxx files, xxx/xxx blocks`
+
+    #### 4.1.2 解决：
+    1. 以为系统在检查，啥也没干预，直接放置了一个夜晚。（然并卵）
+    2. 网上有说是显卡驱动问题，要执行相关命令卸载：`mhwd -l`，然而提示mhwd命令都找不到。（五二人子弟）
+    3. 网上有说是 [Silent boot](https://wiki.archlinux.org/title/Silent_boot#fsck){target=_blank} 设置问题，设置完成就会跳过检查，也并未解决。
+    4. 最终在 [Booting to black screen](https://forum.manjaro.org/t/boot-doesnt-continue/80873/7){target=_blank} 找到解决方法：tty后执行`pacman -Syu grub`就行，执行完再关机重启。（解决）
+
+    #### 4.1.3 记录
+    很有可能是挂载网络硬盘引起的磁盘检查卡顿 [Fsck](https://wiki.archlinux.org/title/Fsck){target=_blank}
+
 待续
 
 *[BalenaEtcher]: Linux系统下建议的写盘工具
 *[Rufus]: Window系统下建议的写盘工具
 *[Archlinux镜像]: 选China下载
+*[Silent boot]: 设置完后，下次正常开机确实很快
