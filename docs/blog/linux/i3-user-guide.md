@@ -1,6 +1,6 @@
 ---
 title: Archlinx主力机配置记录
-description: archlinx, i3wm
+description: archlinx, i3wm, arch, linux, Archlinux 安装
 hide:
   - navigation
 ---
@@ -47,6 +47,13 @@ hide:
         - 挂在根分区：`mount /dev/nvme0n1p2 /mnt`
         - 挂在引导分区：`mount --mkdir /dev/nvme0n1p1 /mnt/boot`
 
+    - 如果原硬盘已存在分区，备份好其中资料，删除分区后，再继续上述操作
+        - `sudo fdisk /dev/nvme0n1`
+        - 输入 `p` 查看分区
+        - 输入 `d` 删除分区
+        - 输入分区编号 1、2 即可删除对应分区
+        - 输入 `w` 写入操作
+
 ### 1.4 安装系统包
 
 ???+ "linux-zen是华点"
@@ -55,10 +62,10 @@ hide:
 
     - `pacstrap -K /mnt base linux-zen linux-firmware base-devel amd-ucode`
 
-### 1.5 配置默认挂载目录
+### 1.5 挂载系统目录
 - `genfstab -U /mnt >> /mnt/etc/fstab`
 
-### 1.6 配置系统根目录环境
+### 1.6 进入挂载系统
 - `arch-chroot /mnt`
 
 #### 1.6.1 时区配置
@@ -66,6 +73,7 @@ hide:
 - `hwclock --systohc`
 
 #### 1.6.2 本地化配置
+[https://wiki.archlinuxcn.org/wiki/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%E6%9C%AC%E5%9C%B0%E5%8C%96](https://wiki.archlinuxcn.org/wiki/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%E6%9C%AC%E5%9C%B0%E5%8C%96){target=_blank}
 
 ???+ "先选择en_US"
 
@@ -128,7 +136,7 @@ hide:
 ???+ "shafish来了"
 
     - 创建用户：`useradd -m shafish`
-    - 将该用户加到wheel组中：`usermod -a -G wheel`
+    - 将该用户加到wheel组中：`usermod -a -G wheel shafish`
     - 设置用户密码：`passwd shafish`
     - 创建默认目录：比如Download、Document等目录
         - 切换到新建用户：`su - shafish`
@@ -179,6 +187,36 @@ i3-gaps已经合并到i3wm 4.23版本，别安装i3-gaps了。
 ### 2.5 终端模拟器
 - `pacman -S alacritty`
 
+- 装完终端后再装shell（用惯了zsh）
+    - 安装：`sudo pacman -S zsh`
+    - 切换：`chsh -s /bin/zsh`
+    - 检查（注销后重新登录）：`echo $SHELL`
+    - 配置代理
+    ``` shell title="~/.zshrc"
+    # where proxy
+    proxy () {
+        export http_proxy="http://127.0.0.1:8087"
+        export https_proxy=$http_proxy
+        echo "HTTP Proxy on"
+    }
+
+    # where noproxy
+    noproxy () {
+        unset http_proxy
+        unset https_proxy
+        echo "HTTP Proxy off"
+    }
+
+    ckproxy () {
+        curl ipinfo.io
+    }
+    ```
+    - 安装oh-zsh：`sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
+
+[https://zhuanlan.zhihu.com/p/393405979](https://zhuanlan.zhihu.com/p/393405979){target=_blank}
+
+[https://huangno1.github.io/archlinux_install_part4_on_my_zsh/](https://huangno1.github.io/archlinux_install_part4_on_my_zsh/){target=_blank}
+
 ### 2.6 蓝牙
 [https://wiki.archlinuxcn.org/wiki/%E8%93%9D%E7%89%99](https://wiki.archlinuxcn.org/wiki/%E8%93%9D%E7%89%99){target=_blank}
 
@@ -194,14 +232,28 @@ i3-gaps已经合并到i3wm 4.23版本，别安装i3-gaps了。
 - `sudo pacman -S alsa-utils alsa-plugins volumeicon`
 - `sudo pacman -S pulseaudio-bluetooth blueman`
 
-### 2.8 字体大小
-[https://wiki.archlinuxcn.org/wiki/Xrandr](https://wiki.archlinuxcn.org/wiki/Xrandr){target=_blank}
+### 2.8 字体
+[https://wiki.archlinuxcn.org/wiki/%E5%AD%97%E4%BD%93](https://wiki.archlinuxcn.org/wiki/%E5%AD%97%E4%BD%93){target=_blank}
 
-- `vim ~/.xprofile`
-- `xrandr --dpi 192 &`
+- 中文字体
+    - `sudo pacman -S wqy-microhei`
+- 字体大小
+    [https://wiki.archlinuxcn.org/wiki/Xrandr](https://wiki.archlinuxcn.org/wiki/Xrandr){target=_blank}
+
+    - `vim ~/.xprofile`
+    - `xrandr --dpi 192 &`
 
 ### 2.9 系统主题
 - `pacman -S arc-icon-theme adwaita-icon-theme capitaine-cursors papirus-icon-theme arc-gtk-theme lxappearance`
+
+用lxappearance选择心水的图标、主题
+
+### 2.10 硬盘挂载
+
+- 查看硬盘：`lsblk`
+- 查看挂载磁盘的id：`sudo blkid /dev/sda` (/dev/sdb: UUID="a1c1e224-ee15-4732-bd39-af79869b84ae" BLOCK_SIZE="4096" TYPE="ext4")
+- 创建硬盘挂载点：`sudo mkdir /mnt/wd`
+- 设置开机自动挂载：`echo "UUID=a1c1e224-ee15-4732-bd39-af79869b84ae /mnt/wd ext4 defaults 0 0" > /etc/fstab`
 
 ## 三、软件配置
 
@@ -221,7 +273,7 @@ i3-gaps已经合并到i3wm 4.23版本，别安装i3-gaps了。
     # 启动polybar
     exec --no-startup-id $HOME/.config/polybar/launch.sh
     # 设置开机色温 redshift
-    exec --no-startup-id redshift -P -O 4000
+    # exec --no-startup-id redshift -P -O 4000
     # 设置启动器快捷键 rofi
     bindsym $mod+d exec "rofi -combi-modi window,drun,ssh -show combi"
     # 截图保存到指定目录
@@ -260,14 +312,607 @@ i3-gaps已经合并到i3wm 4.23版本，别安装i3-gaps了。
     - `sudo pacman -S fcitx5-im fcitx5-rime fcitx5-chinese-addons rime-luna-pinyin rime-emoji`
     - `yay -S fcitx5-input-support`
 
-### 3.5 polybar
+### 3.5 polybar 3.7.0+
 [https://github.com/polybar/polybar-scripts](https://github.com/polybar/polybar-scripts){target=_blank}
+
+`sudo pacman -S polybar speedtest-cli redshift jq udisks2`
 
 #### redshift
 [https://github.com/VineshReddy/polybar-redshift](https://github.com/VineshReddy/polybar-redshift){target=_blank}
 
 #### usb
 [https://github.com/polybar/polybar-scripts/tree/master/polybar-scripts/system-usb-udev](https://github.com/polybar/polybar-scripts/tree/master/polybar-scripts/system-usb-udev){target=_blank}
+
+???- "polybar相关配置"
+
+    ???- "launch.sh"
+
+        ``` shell title="~/.config/polybar/launch.sh"
+        #!/bin/bash
+
+        killall -q polybar
+        polybar mybar 2>&1 | tee -a /tmp/polybar.log & disown
+        echo "Polybar launched..."
+        ```
+
+    ???- "config.ini"
+
+        ``` shell title="~/.config/polybar/config.ini"
+        ;==========================================================
+        ;
+        ;
+        ;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+        ;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+        ;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+        ;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+        ;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+        ;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+        ;
+        ;
+        ;   To learn more about how to configure Polybar
+        ;   go to https://github.com/polybar/polybar
+        ;
+        ;   The README contains a lot of information
+        ;
+        ;==========================================================
+
+        [colors]
+        background = #282A2E
+        background-alt = #373B41
+        foreground = #C5C8C6
+        primary = #F0C674
+        secondary = #8ABEB7
+        alert = #A54242
+        disabled = #707880
+
+        [bar/mybar]
+        width = 100%
+        height = 24pt
+        radius = 6
+        monitor = DP-4
+        ; dpi = 96
+
+        background = ${colors.background}
+        foreground = ${colors.foreground}
+
+        line-size = 3pt
+
+        border-size = 4pt
+        border-color = #00000000
+
+        padding-left = 0
+        padding-right = 1
+
+        module-margin = 1
+
+        separator = |
+        separator-foreground = ${colors.disabled}
+
+        font-0 = monospace;2
+        ;wlan
+        ;font-0 = HarmonyOS Sans;3
+        modules-left = xworkspaces
+        modules-right = speedtest system-usb-udev filesystem redshift pulseaudio xkeyboard memory cpu temperature gputemp eth date
+        modules-center = tray
+
+        cursor-click = pointer
+        cursor-scroll = ns-resize
+
+        enable-ipc = true
+
+        ; tray-position = center
+        ; tray-maxsize = 20
+
+        ; wm-restack = generic
+        ; wm-restack = bspwm
+        ; wm-restack = i3
+        ; override-redirect = true
+
+        [module/tray]
+        type = internal/tray
+
+        format-margin = 8px
+        tray-spacing = 8px
+
+        [module/xworkspaces]
+        type = internal/xworkspaces
+
+        label-active = %name%
+        label-active-background = ${colors.background-alt}
+        label-active-underline= ${colors.primary}
+        label-active-padding = 1
+
+        label-occupied = %name%
+        label-occupied-padding = 1
+
+        label-urgent = %name%
+        label-urgent-background = ${colors.alert}
+        label-urgent-padding = 1
+
+        label-empty = %name%
+        label-empty-foreground = ${colors.disabled}
+        label-empty-padding = 1
+
+        [module/xwindow]
+        type = internal/xwindow
+        label = %title:0:60:...%
+
+        [module/filesystem]
+        type = internal/fs
+        interval = 25
+
+        mount-0 = /
+
+        label-mounted = %{F#F0C674}%mountpoint%%{F-} %percentage_used%%
+
+        label-unmounted = %mountpoint% not mounted
+        label-unmounted-foreground = ${colors.disabled}
+
+        [module/pulseaudio]
+        type = internal/pulseaudio
+
+        format-volume-prefix = "VOL "
+        format-volume-prefix-foreground = ${colors.primary}
+        format-volume = <label-volume>
+
+        label-volume = %percentage%%
+
+        label-muted = muted
+        label-muted-foreground = ${colors.disabled}
+
+        [module/xkeyboard]
+        type = internal/xkeyboard
+        blacklist-0 = num lock
+
+        label-layout = %layout%
+        label-layout-foreground = ${colors.primary}
+
+        label-indicator-padding = 2
+        label-indicator-margin = 1
+        label-indicator-foreground = ${colors.background}
+        label-indicator-background = ${colors.secondary}
+
+        [module/memory]
+        type = internal/memory
+        interval = 2
+        format-prefix = "RAM "
+        format-prefix-foreground = ${colors.primary}
+        label = %percentage_used:2%%
+
+        [module/cpu]
+        type = internal/cpu
+        interval = 2
+        format-prefix = "CPU "
+        format-prefix-foreground = ${colors.primary}
+        label = %percentage:2%%
+
+        [network-base]
+        type = internal/network
+        interval = 5
+        format-connected = <label-connected>
+        format-disconnected = <label-disconnected>
+        label-disconnected = %{F#F0C674}%ifname%%{F#707880} disconnected
+
+        [module/wlan]
+        inherit = network-base
+        interface-type = wireless
+        label-connected = %{F#F0C674}%ifname%%{F-} %essid% %local_ip%
+
+        ; [module/eth]
+        ; inherit = network-base
+        ; interface-type = wired
+        ; label-connected = %{F#F0C674}%ifname%%{F-} %local_ip%
+
+        [module/eth]
+        type = internal/network
+        ;请将interface设为自己的网卡名称;
+        interface = enp6s0
+        interval = 2.0
+
+        ; format-connected-underline = #55aa55
+        ; format-connected-prefix = "enp6s0 "
+        ;format-connected-prefix-foreground = ${colors.foreground-alt}
+        ;label-connected = %local_ip%
+
+        ; Seconds to sleep between updates
+        ; Default: 1
+        ;interval = 3.0
+
+        ; Test connectivity every Nth update
+        ; A value of 0 disables the feature
+        ; NOTE: Experimental (needs more testing)
+        ; Default: 0
+        ;ping-interval = 3
+
+        ; @deprecated: Define min width using token specifiers (%downspeed:min% and %upspeed:min%)
+        ; Minimum output width of upload/download rate
+        ; Default: 3
+        ;udspeed-minwidth = 5
+
+        ; Accumulate values from all interfaces
+        ; when querying for up/downspeed rate
+        ; Default: false
+        accumulate-stats = true
+
+        ; Consider an `UNKNOWN` interface state as up.
+        ; Some devices like USB network adapters have 
+        ; an unknown state, even when they're running
+        ; Default: false
+        unknown-as-up = true
+
+
+
+        ; Available tags:
+        ;   <label-connected> (default)
+        ;   <ramp-signal>
+        format-connected =  <label-connected>
+
+        ; Available tags:
+        ;   <label-disconnected> (default)
+        format-disconnected = <label-disconnected>
+
+        ; Available tags:
+        ;   <label-connected> (default)
+        ;   <label-packetloss>
+        ;   <animation-packetloss>
+        format-packetloss = <animation-packetloss> <label-connected>
+
+        ; All labels support the following tokens:
+        ;   %ifname%    [wireless+wired]
+        ;   %local_ip%  [wireless+wired]
+        ;   %local_ip6% [wireless+wired]
+        ;   %essid%     [wireless]
+        ;   %signal%    [wireless]
+        ;   %upspeed%   [wireless+wired]
+        ;   %downspeed% [wireless+wired]
+        ;   %linkspeed% [wired]
+
+        ; Default: %ifname% %local_ip%
+        label-connected = %local_ip% %downspeed:9%
+
+        ; Default: (none)
+        ;label-packetloss = %essid%
+        ;label-packetloss-foreground = #eefafafa
+
+        ; Only applies if <ramp-signal> is used
+        ramp-signal-0 = 😱
+        ramp-signal-1 = 😠
+        ramp-signal-2 = 😒
+        ramp-signal-3 = 😊
+        ramp-signal-4 = 😃
+        ramp-signal-5 = 😈
+
+        ; Only applies if <animation-packetloss> is used
+        animation-packetloss-0 = ⚠
+        animation-packetloss-0-foreground = #ffa64c
+        animation-packetloss-1 = 📶
+        animation-packetloss-1-foreground = #000000
+        ; Framerate in milliseconds
+        animation-packetloss-framerate = 500
+
+
+        ;format-disconnected =
+        ;format-disconnected = <label-disconnected>
+        ;format-disconnected-underline = ${self.format-connected-underline}
+        ;label-disconnected = %ifname% disconnected
+        ;label-disconnected-foreground = ${colors.foreground-alt}
+
+        [module/date]
+        type = internal/date
+        interval = 1
+
+        date = %H:%M
+        date-alt = %Y-%m-%d %H:%M:%S
+
+        label = %date%
+        label-foreground = ${colors.primary}
+
+        [settings]
+        screenchange-reload = true
+        pseudo-transparency = true
+
+        ; vim:ft=dosini
+
+        [module/bright]
+        type = custom/script
+        exec = $HOME/.config/polybar/script/bright.sh
+        scroll-up = "$HOME/.config/polybar/script/bright.sh +"
+        scroll-down = "$HOME/.config/polybar/script/bright.sh -"
+        interval = 2
+        format-prefix = Bri
+        format-prefix-foreground = #00cc00
+        format-underline = #00cc00
+        format-foreground = #00cc00
+
+        [module/speedtest]  
+        type = custom/script  
+        exec-if = hash speedtest
+        exec = "$HOME/.config/polybar/script/polybar-speedtest"  
+        interval = 90
+
+        [module/redshift]
+        type = custom/script
+        format-prefix = "CT "  
+        exec = source ~/.config/polybar/script/redshiftenv.sh && ~/.config/polybar/script/redshift.sh temperature 
+        click-left = source ~/.config/polybar/script/redshiftenv.sh && ~/.config/polybar/script/redshift.sh toggle 
+        scroll-up = source ~/.config/polybar/script/redshiftenv.sh && ~/.config/polybar/script/redshift.sh increase
+        scroll-down = source ~/.config/polybar/script/redshiftenv.sh && ~/.config/polybar/script/redshift.sh decrease
+        interval=0.5
+
+
+        [module/temperature]
+        type = internal/temperature
+
+        ; Seconds to sleep between updates
+        ; Default: 1
+        interval = 2
+
+        ; Thermal zone to use
+        ; To list all the zone types, run 
+        ; $ for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done
+        ; Default: 0
+        thermal-zone = 0
+
+        ; Full path of temperature sysfs path
+        ; Use `sensors` to find preferred temperature source, then run
+        ; $ for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
+        ; to find path to desired file
+        ; Default reverts to thermal zone setting
+        hwmon-path = /sys/class/hwmon/hwmon2/temp1_input
+
+        ; Base temperature for where to start the ramp (in degrees celsius)
+        ; Default: 0
+        base-temperature = 20
+
+        ; Threshold temperature to display warning label (in degrees celsius)
+        ; Default: 80
+        warn-temperature = 60
+        label = C:%temperature-c%
+        ; format-prefix = "C:"
+
+        [module/gputemp]
+        type = custom/script
+        exec = nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits
+        interval = 5
+
+        label = G:%output%°C
+
+        [module/system-usb-udev]
+        type = custom/script
+        exec = ~/.config/polybar/script/system-usb-udev.sh
+        tail = true
+        click-left = ~/.config/polybar/script/system-usb-udev.sh --mount &
+        click-right = ~/.config/polybar/script/system-usb-udev.sh --unmount &
+        ```
+
+
+    ???- "script/bright.sh"
+
+        ``` shell title="~/.config/polybar/script/bright.sh"
+        #!/bin/bash                                                                                                                                                    
+        current=$(cat /sys/class/backlight/intel_backlight/brightness)                                                                                                 
+        max=$(cat /sys/class/backlight/intel_backlight/max_brightness)                                                                                                 
+        per=$((current*100/max))                                                                                                                                       
+        if [ "$1" = "+" ];then                                                                                                                                         
+            new=$((per+5))                                                                                                                                             
+            if [ $new -gt 100 ];then                                                                                                                                   
+            ┆   new=$max                                                                                                                                               
+            fi                                                                                                                                                         
+            echo $((new*max/100)) |sudo tee /sys/class/backlight/intel_backlight/brightness                                                                            
+        elif [ "$1" = "-" ];then                                                                                                                                       
+            new=$((per-5))                                                                                                                                             
+            if [ $new -lt 0 ];then                                                                                                                                     
+            ┆   new=0                                                                                                                                                  
+            fi                                                                                                                                                         
+            echo $((new*max/100)) |sudo tee /sys/class/backlight/intel_backlight/brightness                                                                            
+        else                                                                                                                                                           
+            if [ $per -eq 100 ];then                                                                                                                                   
+            ┆   echo "$per%"                                                                                                                                           
+            elif [ $per -gt 75 ];then                                                                                                                                  
+            ┆   echo "$per%"                                                                                                                                           
+            elif [ $per -gt 50 ];then                                                                                                                                  
+            ┆   echo "$per%"                                                                                                                                           
+            elif [ $per -gt 25 ];then                                                                                                                                  
+            ┆   echo "$per%"                                                                                                                                           
+            else                                                                                                                                                       
+            ┆   echo "$per%"                                                                                                                                           
+            fi                                                                                                                                                         
+        fi
+        ```
+
+    ???- "script/redshift.sh"
+
+        ``` shell title="~/.config/polybar/script/redshift.sh"
+        #!/bin/sh
+
+        envFile=~/.config/polybar/script/redshiftenv.sh
+        changeValue=300
+
+        changeMode() {
+        sed -i "s/REDSHIFT=$1/REDSHIFT=$2/g" $envFile 
+        REDSHIFT=$2
+        echo $REDSHIFT
+        }
+
+        changeTemp() {
+        if [ "$2" -gt 1000 ] && [ "$2" -lt 25000 ]
+        then
+            sed -i "s/REDSHIFT_TEMP=$1/REDSHIFT_TEMP=$2/g" $envFile 
+            redshift -P -O $((REDSHIFT_TEMP+changeValue))
+        fi
+        }
+
+        case $1 in 
+        toggle) 
+            if [ "$REDSHIFT" = on ];
+            then
+            changeMode "$REDSHIFT" off
+            redshift -x
+            else
+            changeMode "$REDSHIFT" on
+            redshift -O "$REDSHIFT_TEMP"
+            fi
+            ;;
+        increase)
+            changeTemp $((REDSHIFT_TEMP)) $((REDSHIFT_TEMP+changeValue))
+            ;;
+        decrease)
+            changeTemp $((REDSHIFT_TEMP)) $((REDSHIFT_TEMP-changeValue));
+            ;;
+        temperature)
+            case $REDSHIFT in
+            on)
+                printf "%dK" "$REDSHIFT_TEMP"
+                ;;
+            off)
+                printf "off"
+                ;;
+            esac
+            ;;
+        esac
+        ```
+
+    ???- "script/redshiftenv.sh"
+
+        ``` shell title="~/.config/polybar/script/redshiftenv.sh"
+        export REDSHIFT=on
+        export REDSHIFT_TEMP=4000
+        ```
+
+    ???- "script/system-usb-udev.sh"
+
+        ``` shell title="~/.config/polybar/script/system-usb-udev.sh"
+        #!/bin/sh
+
+        usb_print() {
+            devices=$(lsblk -Jplno NAME,TYPE,RM,SIZE,MOUNTPOINT,VENDOR)
+            output=""
+            counter=0
+
+            for unmounted in $(echo "$devices" | jq -r '.blockdevices[] | select(.type == "part") | select(.rm == true) | select(.mountpoint == null) | .name'); do
+                unmounted=$(echo "$unmounted" | tr -d "[:digit:]")
+                unmounted=$(echo "$devices" | jq -r '.blockdevices[] | select(.name == "'"$unmounted"'") | .vendor')
+                unmounted=$(echo "$unmounted" | tr -d ' ')
+
+                if [ $counter -eq 0 ]; then
+                    space=""
+                else
+                    space="   "
+                fi
+                counter=$((counter + 1))
+
+                output="$output$space#1 $unmounted"
+            done
+
+            for mounted in $(echo "$devices" | jq -r '.blockdevices[] | select(.type == "part") | select(.rm == true) | select(.mountpoint != null) | .size'); do
+                if [ $counter -eq 0 ]; then
+                    space=""
+                else
+                    space="   "
+                fi
+                counter=$((counter + 1))
+
+                output="$output$space#2 $mounted"
+            done
+
+            echo "$output"
+        }
+
+        usb_update() {
+            pid=$(cat "$path_pid")
+
+            if [ "$pid" != "" ]; then
+                kill -10 "$pid"
+            fi
+        }
+
+        path_pid="/tmp/polybar-system-usb-udev.pid"
+
+        case "$1" in
+            --update)
+                usb_update
+                ;;
+            --mount)
+                devices=$(lsblk -Jplno NAME,TYPE,RM,MOUNTPOINT)
+
+                for mount in $(echo "$devices" | jq -r '.blockdevices[] | select(.type == "part") | select(.rm == true) | select(.mountpoint == null) | .name'); do
+                    udisksctl mount --no-user-interaction -b "$mount"
+
+                    # mountpoint=$(udisksctl mount --no-user-interaction -b $mount)
+                    # mountpoint=$(echo $mountpoint | cut -d " " -f 4- | tr -d ".")
+                    # terminal -e "bash -lc 'filemanager $mountpoint'"
+                done
+
+                usb_update
+                ;;
+            --unmount)
+                devices=$(lsblk -Jplno NAME,TYPE,RM,MOUNTPOINT)
+
+                for unmount in $(echo "$devices" | jq -r '.blockdevices[] | select(.type == "part") | select(.rm == true) | select(.mountpoint != null) | .name'); do
+                    udisksctl unmount --no-user-interaction -b "$unmount"
+                    udisksctl power-off --no-user-interaction -b "$unmount"
+                done
+
+                usb_update
+                ;;
+            *)
+                echo $$ > $path_pid
+
+                trap exit INT
+                trap "echo" USR1
+
+                while true; do
+                    usb_print
+
+                    sleep 60 &
+                    wait
+                done
+                ;;
+        esac
+        ```
+
+    ???- "script/polybar-speedtest"
+
+        ``` shell title="~/.config/polybar/script/polybar-speedtest"
+        #!/usr/bin/env python3
+        import os
+        import argparse
+        import speedtest
+
+        def get_formatted_speed(s,bytes=False):
+            unit = ""
+            if s > 1024**3:
+                s = s / 1024**3
+                unit = "G"
+            elif s > 1024**2:
+                s = s / 1024**2
+                unit = "M"
+            elif s > 1024:
+                s = s / 1024
+                unit = "K"
+            if bytes:
+                return f"{(s/8):.2f} {unit}iB/s"
+            return f"{s:.2f} {unit}ib/s"
+            
+
+
+        parser = argparse.ArgumentParser()
+        parser.add_argument('--upload', action="store_true")
+        parser.add_argument('--bytes', action="store_true")
+        args= parser.parse_args()
+
+        try:
+            s = speedtest.Speedtest()
+        except:
+            exit(0)
+
+        if args.upload:
+            s.upload(pre_allocate=False)
+            print("▲ " + get_formatted_speed(s.results.upload,args.bytes))
+        else:
+            s.download()
+            print("▼ " + get_formatted_speed(s.results.download,args.bytes))
+        ```
 
 ### 3.6 qq
 `yay -S linuxqq`
@@ -279,13 +924,35 @@ i3-gaps已经合并到i3wm 4.23版本，别安装i3-gaps了。
     - 解决：
         - 用终端输入linuxqq运行，闪退时查看运行log（鼠标滚轮滚了几十秒才看到在开头报了error）
         - 报错信息：[29188:1027/223745.914909:ERROR:libnotify_notification.cc(49)] notify_notification_show: domain=2117 code=2 message="GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.Notifications was not provided by any .service files"
-        - 谷歌搜这个报错，找到https://wiki.archlinux.org/title/Desktop_notifications#Standalone，完美解决
+        - 谷歌搜这个报错，找到[https://wiki.archlinux.org/title/Desktop_notifications#Standalone](https://wiki.archlinux.org/title/Desktop_notifications#Standalone){target=_blank}，完美解决
+
+    ``` shell
+    # notification-daemon一个original的通知组件
+    sudo pacman -S notification-daemon
+    vim /usr/share/dbus-1/services/org.freedesktop.Notifications.service
+    ```
+    ``` shell
+    [D-BUS Service]
+    Name=org.freedesktop.Notifications
+    Exec=/usr/lib/notification-daemon-1.0/notification-daemon
+    ```
 
 ### 3.7 浏览器
 - `sudo pacman -S brave firefox firefox-extension-arch-search`
 
 ### 3.8 vscode
 - `yay -S visual-studio-code-bin`
+
+???+ "settings.json"
+
+    ``` json
+    {
+        "workbench.colorTheme": "Default Dark Modern",
+        "editor.fontSize": 24,
+        "window.zoomLevel": 1,
+        "files.autoSave": "onFocusChange"
+    }
+    ```
 
 ### 3.9 深度图片查看器、截图、文件管理器
 - `sudo pacman -S deepin-image-viewer deepin-screenshot deepin-file-manager ranger`
@@ -306,11 +973,18 @@ i3-gaps已经合并到i3wm 4.23版本，别安装i3-gaps了。
 
 ???+ "当然是拿来搞stable-diffusion"
 
-    - `sudo pacman -S pyenv pyenv-virtualenv`
+    - `sudo pacman -S pyenv` `yay -S pyenv-virtualenv`
         - 配置fish环境：`vim ~/.config/fish/config.fish`
         ``` shell
         pyenv init - | source
         status --is-interactive; and pyenv virtualenv-init - | source
+        ```
+        - 配置zsh环境：
+        ``` shell
+        echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+        echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+        echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+        echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.zshrc
         ```
     - `pyenv install -v 3.10.6`
     - `pyenv virtualenv 3.10.6 sdwebui`
@@ -378,6 +1052,77 @@ echo "Deleting temp file..."
 rm temp_$file_seed.png
 echo "Done."
 ```
+
+### 3.19 samba挂载
+- `sudo pacman -S cifs-utils`
+
+???+ "配置"
+    - 手动加载模块：`modprobe cifs`
+    - 挂载硬盘：`sudo mount.cifs //192.168.2.143/data /mnt/smb_dsm_data -o user=user,pass=passwd,uid=1000,gid=1000,sec=ntlmssp --verbose`
+
+    https://www.scarletdrop.cn/archives/gGhbQxpO
+    https://www.cnblogs.com/yudai/p/16326964.html
+
+### 3.20 vlc
+- `sudo pacman -S vlc`
+
+???+ "配置"
+    - 中文配置
+    ``` shell title="/usr/share/applications/vlc.desktop"
+    将文件中 `Exec=/usr/bin/vlc --started-from-file %U` 改为 `Exec=env LANGUAGE=zh_CN /usr/bin/vlc --started-from-file %U`
+    ```
+    - vlc web
+        - 添加vlc用户：`useradd -c "VLC daemon" -d / -G audio -M -p \! -r -s /usr/bin/nologin -U vlcd`
+        - 配置服务
+        ``` shell title="/etc/systemd/system/vlc.service"
+        [Unit]
+        Description=VideoOnLAN Service
+        After=network.target
+
+        [Service]
+        Type=forking
+        User=vlcd
+        ExecStart=/usr/bin/vlc --daemon --syslog -I http --http-port 8090 --http-password password 
+        Restart=on-abort
+
+        [Install]
+        WantedBy=multi-user.target
+        ```
+        - 浏览器打开`http://127.0.0.1:8090`，输入密码即可
+    
+### 3.21 whisper
+
+- `sudo pacman -S pyenv`
+- `yay -S pyenv-virtualenv`
+
+???+ "配置"
+    - 配置fish环境：`vim ~/.config/fish/config.fish`
+    ``` shell
+    pyenv init - | source
+    status --is-interactive; and pyenv virtualenv-init - | source
+    ```
+    - 配置zsh环境：
+    ``` shell
+    echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+    echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+    echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+    echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.zshrc
+    ```
+    - `pyenv install -v 3.10.6`
+    - `pyenv virtualenv 3.10.6 whisper`
+    - `cd ~/Project/Python`
+    - `mkdir whisper && cd whisper`
+    - `pyenv local whisper`
+    - `python -V`
+    - `pip install git+https://github.com/openai/whisper.git`
+    - 提取音频：`ffmpeg -i xxx.mp4 -vn -acodec pcm_s16le -ar 44100 -ac 2 xxx.wav`
+        - -i input_file.mp4：指定输入文件的路径。
+        - -vn：禁用视频输出。
+        - -acodec pcm_s16le：指定音频编码格式为 PCM 16-bit 线性。
+        - -ar 44100：指定采样率为 44.1 kHz。
+        - -ac 2：指定声道数为 2。
+
+    - whisper使用：`whisper xxx.wav --language Japanese --model medium`
 
 ## 四、问题解决
 ### 4.1 开机启动失败

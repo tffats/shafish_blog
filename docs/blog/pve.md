@@ -6,16 +6,17 @@ hide:
 ---
 
 ### 一、显卡直通
+[https://www.youtube.com/watch?v=5ce-CcYjqe8](https://www.youtube.com/watch?v=5ce-CcYjqe8){target=_black}
+[https://www.youtube.com/watch?v=BoMlfk397h0&t=915s](https://www.youtube.com/watch?v=BoMlfk397h0&t=915s){target=_black}
+[https://www.youtube.com/watch?v=_JTEsQufSx4](https://www.youtube.com/watch?v=_JTEsQufSx4){target=_black}
+[https://gitlab.com/risingprismtv/single-gpu-passthrough/-/wikis/1](https://gitlab.com/risingprismtv/single-gpu-passthrough/-/wikis/1){target=_black}
 ``` shell
-https://www.youtube.com/watch?v=5ce-CcYjqe8
-https://www.youtube.com/watch?v=BoMlfk397h0&t=915s
+# 更新：
+nano /etc/apt/sources.list.d/pve-enterprise.list 
+# 注释掉 deb https://enterprise.proxmox.com/debian/pve stretch pve-enterprise
+```
 
-https://www.youtube.com/watch?v=_JTEsQufSx4
-https://gitlab.com/risingprismtv/single-gpu-passthrough/-/wikis/1)-Preparations
-
-更新：
-nano /etc/apt/sources.list.d/pve-enterprise.list 註釋掉
-# deb https://enterprise.proxmox.com/debian/pve stretch pve-enterprise
+``` shell
 echo "deb http://download.proxmox.com/debian/pve stretch pve-no-subscription" > /etc/apt/sources.list.d/pve-install-repo.list
 
 gpg --keyserver keyserver.ubuntu.com --recv-keys 0D9A1950E2EF0603
@@ -34,11 +35,11 @@ options kvm ignore_msrs=1
 update-initramfs -u
 
 reboot
-
+```
 
 直通：
-1. https://blog.51cto.com/u_12242014/2382885
-```
+1. [https://blog.51cto.com/u_12242014/2382885](https://blog.51cto.com/u_12242014/2382885){target=_black}
+
 
 #### 记录
 ``` shell
@@ -54,8 +55,8 @@ proxmox-boot-tool refresh
 重启
 ```
 
-## n5105集显直通
-```
+#### n5105集显直通配置修改
+``` shell
 vim /etc/pve/lxc/103.conf 
 lxc.apparmor.profile: unconfined
 lxc.cgroup.devices.allow: a
@@ -79,17 +80,17 @@ echo "options vfio-pci ids=10de:2486,10de:228b" > /etc/modprobe.d/vfio.conf
 ```
 
 ### 三、修改本机磁盘容量
+[https://www.youtube.com/watch?v=LuCXHHc2u18](https://www.youtube.com/watch?v=LuCXHHc2u18){target=_black}
 ``` shell
-https://www.youtube.com/watch?v=LuCXHHc2u18
-
 lvremove /dev/pve/data
 lvresize -l +100%FREE /dev/pve/root
 resize2fs /dev/mapper/pve-root
 ```
 
 ### 四、ct直通/dev/net/tun
+装clash脚本时使用
 #### 无特权容器
-vim /etc/pve/lxc/【NNN】.conf
+`vim /etc/pve/lxc/【NNN】.conf`
 ``` shell
 lxc.hook.autodev = sh -c "modprobe tun" 
 lxc.mount.entry=/dev/net/tun /var/lib/lxc/XXX/rootfs/dev/net/tun none bind,create=file
@@ -106,21 +107,23 @@ lxc.hook.autodev = sh -c "modprobe tun; cd ${LXC_ROOTFS_MOUNT}/dev; mkdir net; m
 ```
 ref:[https://www.cnblogs.com/lynetwork/articles/17271495.html](https://www.cnblogs.com/lynetwork/articles/17271495.html){target=_black}
 
-## 容器启动失败
+### 五、容器启动失败
 ```
 run_buffer: 321 Script exited with status 32
 lxc_init: 847 Failed to run lxc.hook.pre-start for container "160"
 __lxc_start: 2008 Failed to initialize container "160"
 TASK ERROR: startup for container '160' failed
 ```
-apt install binutils 
-pct fsck xxx
-// docker缓存清掉
-docker system prune --volumes
 
-## pve更新失败
+- `apt install binutils`
+- `pct fsck xxx`
+// docker缓存清掉
+- `docker system prune --volumes`
+
+### 六、pve更新失败
 ```
 You are attempting to remove the meta-package 'proxmox-ve'!
 xxxx
 ```
-rm /var/lib/apt/lists/*
+
+- `rm /var/lib/apt/lists/*`
