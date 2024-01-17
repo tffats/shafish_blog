@@ -965,6 +965,8 @@ i3-gaps已经合并到i3wm 4.23版本，别安装i3-gaps了。
 - `sudo pacman -S deepin-image-viewer deepin-screenshot deepin-file-manager ranger`
 
 还是thunar好用
+- `sudo pacman -S thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman`
+- `yay -S thunar-shares-plugin`
 
 ### 3.10 docker
 - `sudo pacman -S docker docker-compose`
@@ -1165,6 +1167,17 @@ echo "Done."
     - [realvnc](https://www.realvnc.com/en/connect/download/viewer/){target=_blank}
     - `sudo pacman -S tigervnc`
     - `sudo pacman -S remmina`
+
+???+ "远程桌面"
+    - `frp`穿透5900端口即可
+
+### 3.23 timeshift
+系统备份，滚挂必备
+
+- `sudo pacman -S timeshift`
+- `sudo timeshift-gtk`
+
+ref: [使用参考](https://aprilzz.com/archives/%E5%9C%A8arch%E4%B8%AD%E4%BD%BF%E7%94%A8timeshift%E4%BF%9D%E7%B3%BB%E7%BB%9F%E5%B9%B3%E5%AE%89){target=_blank}
 
 ## 四、问题解决
 ### 4.1 开机启动失败
