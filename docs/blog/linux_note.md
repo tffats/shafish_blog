@@ -176,6 +176,7 @@ nano /etc/fstab
 
 ## 九、scp远程传输文件
 ``` shell
+# 本地 to 远程
 scp /run/media/shafish/movie/xxxfile root@192.168.2.100:/data/smb/movie
 scp -r /run/media/shafish/movie/xxxdir root@192.168.2.100:/data/smb/movie
 ```

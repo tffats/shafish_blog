@@ -255,6 +255,13 @@ i3-gaps已经合并到i3wm 4.23版本，别安装i3-gaps了。
 - 创建硬盘挂载点：`sudo mkdir /mnt/wd`
 - 设置开机自动挂载：`echo "UUID=a1c1e224-ee15-4732-bd39-af79869b84ae /mnt/wd ext4 defaults 0 0" > /etc/fstab`
 
+### 2.11 ssh
+- 安装服务：`sudo pacman -S openssh`
+- 启用：`sudo systemctl start sshd`
+- 开机启用：`sudo systemctl enable sshd`
+- 用户登陆：`echo "PermitRootLogin yes" >> /etc/ssh/sshd_config`
+- 删除重复ip：`ssh-keygen -f "/root/.ssh/known_hosts" -R "ipxxxx"`
+
 ## 三、软件配置
 
 ???+ "vim ~/.config/i3/config"
@@ -1020,6 +1027,9 @@ adb connect 192.168.0.5:5555
 ```
 
 ### 3.16 git客户端
+- git config --global user.email "xxxx"
+- git config --global user.name "xxxx"
+
 ``` shell
 sudo pacman -S lazygit
 ```
@@ -1123,6 +1133,38 @@ echo "Done."
         - -ac 2：指定声道数为 2。
 
     - whisper使用：`whisper xxx.wav --language Japanese --model medium`
+
+### 3.22 x11vnc
+
+???+ "被控端server配置"
+
+    - 安装：`sudo pacman -S x11vnc`
+    - 设置密码：`x11vnc -storepasswd` `sudo mv ~/.vnc/passwd /etc/x11vnc.pwd `
+    - 创建服务（sddm）：
+    ``` shell title="/etc/systemd/system/x11vnc.service"
+    [Unit]
+    Description=Remote desktop service (VNC)
+    Requires=display-manager.service
+    After=display-manager.service
+
+    [Service]
+    ExecStart=
+    ExecStart=/bin/bash -c "/usr/bin/x11vnc -auth /var/run/sddm/* -display :0 -forever -loop -noxdamage -repeat -rfbauth /etc/x11vnc.pwd -shared"
+
+    [Install]
+    WantedBy=graphical.target
+    ```
+    - 刷新服务：`sudo systemctl daemon-reload`
+    - 服务启动：`sudo systemctl restart x11vnc`
+    - 服务状态：`sudo systemctl status x11vnc`
+    - 服务自启动：`sudo systemctl enable x11vnc`
+
+    ref: [man x11vnc](https://man.archlinux.org/man/x11vnc.1){target=_blank}  [wiki x11vnc](https://wiki.archlinux.org/title/x11vnc#){target=_blank}
+
+???+ "vnc客户端（三选一）"
+    - [realvnc](https://www.realvnc.com/en/connect/download/viewer/){target=_blank}
+    - `sudo pacman -S tigervnc`
+    - `sudo pacman -S remmina`
 
 ## 四、问题解决
 ### 4.1 开机启动失败
