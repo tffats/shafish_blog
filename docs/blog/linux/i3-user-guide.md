@@ -262,6 +262,12 @@ i3-gaps已经合并到i3wm 4.23版本，别安装i3-gaps了。
 - 用户登陆：`echo "PermitRootLogin yes" >> /etc/ssh/sshd_config`
 - 删除重复ip：`ssh-keygen -f "/root/.ssh/known_hosts" -R "ipxxxx"`
 
+### 2.12 镜像加速
+
+- 输出国内访问速度前5的镜像地址：`curl -s "https://archlinux.org/mirrorlist/?country=CN&protocol=https&use_mirror_status=on" | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 5 -`
+- 复制到`/etc/pacman.d/mirrorlist` 文件开头即可
+- 强制更新镜像（所有软件包列表）：`sudo pacman -Syyu`
+
 ## 三、软件配置
 
 ???+ "vim ~/.config/i3/config"
@@ -1136,40 +1142,65 @@ echo "Done."
 
     - whisper使用：`whisper xxx.wav --language Japanese --model medium`
 
-### 3.22 x11vnc
+### 3.22 远程桌面
 
-???+ "被控端server配置"
 
-    - 安装：`sudo pacman -S x11vnc`
-    - 设置密码：`x11vnc -storepasswd` `sudo mv ~/.vnc/passwd /etc/x11vnc.pwd `
-    - 创建服务（sddm）：
-    ``` shell title="/etc/systemd/system/x11vnc.service"
-    [Unit]
-    Description=Remote desktop service (VNC)
-    Requires=display-manager.service
-    After=display-manager.service
+???- "x11vnc"
 
-    [Service]
-    ExecStart=
-    ExecStart=/bin/bash -c "/usr/bin/x11vnc -auth /var/run/sddm/* -display :0 -forever -loop -noxdamage -repeat -rfbauth /etc/x11vnc.pwd -shared"
+    ???+ "被控端server配置"
 
-    [Install]
-    WantedBy=graphical.target
-    ```
-    - 刷新服务：`sudo systemctl daemon-reload`
-    - 服务启动：`sudo systemctl restart x11vnc`
-    - 服务状态：`sudo systemctl status x11vnc`
-    - 服务自启动：`sudo systemctl enable x11vnc`
+        - 安装：`sudo pacman -S x11vnc`
+        - 设置密码：`x11vnc -storepasswd` `sudo mv ~/.vnc/passwd /etc/x11vnc.pwd `
+        - 创建服务（sddm）：
+        ``` shell title="/etc/systemd/system/x11vnc.service"
+        [Unit]
+        Description=Remote desktop service (VNC)
+        Requires=display-manager.service
+        After=display-manager.service
 
-    ref: [man x11vnc](https://man.archlinux.org/man/x11vnc.1){target=_blank}  [wiki x11vnc](https://wiki.archlinux.org/title/x11vnc#){target=_blank}
+        [Service]
+        ExecStart=
+        ExecStart=/bin/bash -c "/usr/bin/x11vnc -auth /var/run/sddm/* -display :0 -forever -loop -noxdamage -repeat -rfbauth /etc/x11vnc.pwd -shared"
 
-???+ "vnc客户端（三选一）"
-    - [realvnc](https://www.realvnc.com/en/connect/download/viewer/){target=_blank}
-    - `sudo pacman -S tigervnc`
-    - `sudo pacman -S remmina`
+        [Install]
+        WantedBy=graphical.target
+        ```
+        - 刷新服务：`sudo systemctl daemon-reload`
+        - 服务启动：`sudo systemctl restart x11vnc`
+        - 服务状态：`sudo systemctl status x11vnc`
+        - 服务自启动：`sudo systemctl enable x11vnc`
 
-???+ "远程桌面"
-    - `frp`穿透5900端口即可
+        ref: [man x11vnc](https://man.archlinux.org/man/x11vnc.1){target=_blank}  [wiki x11vnc](https://wiki.archlinux.org/title/x11vnc#){target=_blank}
+
+    ???+ "vnc客户端（三选一）"
+        - [realvnc](https://www.realvnc.com/en/connect/download/viewer/){target=_blank}
+        - `sudo pacman -S tigervnc`
+        - `sudo pacman -S remmina`
+
+    ???+ "远程桌面"
+        - `frp`穿透5900端口即可
+
+    ???+ "命令参数"
+        - `rfbauth`：配置vnc访问密码
+        - `rfbport`：VNC 端口
+        - `noipv6`：禁ipv6
+        - `shared`：屏幕共享
+        - `forever`：客户端断开连接后，继续监听连接
+        - `loop`：当 x11vnc 进程终止时，重新启动
+
+
+???- "noMachine（推荐）"
+
+    - `yay -s nomachine`
+    - `sudo systemctl start nxserver.service`
+    - `sudo systemctl enable nxserver.service`
+    - `frp`穿透4000端口即可
+
+???- "frp"
+
+    - `cd /opt`
+    - `sudo wget https://github.com/fatedier/frp/releases/download/v0.53.2/frp_0.53.2_linux_amd64.tar.gz`
+
 
 ### 3.23 timeshift
 系统备份，滚挂必备
