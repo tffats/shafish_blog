@@ -30,7 +30,7 @@ hide:
 
 ![附上一张江湖流传出来某人平平无奇的普通长发帅图](https://picture.cdn.shafish.cn/blog/about/head.png "精神小伙"){ loading=lazy align=right width="300" }
 
-至于本人介绍：只是一个平平无奇的骚年而已
+至于本人介绍：只是一只平平无奇的骚年而已
 
 <!-- <figure markdown>
   ![WeChat_Official_Account](https://picture.cdn.shafish.cn/blog/wechat/Official_Account3.png "now啥内容也没有"){ loading=lazy }
@@ -41,7 +41,7 @@ hide:
 
 - [x] 评论出现Failed to load comments，{==疑似shafish.cn及tffats.github.io/shafish_blog使用同仓库issue造成（待排查）==}
     - [x] 评论vssue options中添加`admins: ['shafishcn']`解决。
-    - [x] 评语：不要根据经验理所当然（你也没多少这方面的经验，好吧），先去项目issue里找找相似问题再说。另外，国内开源项目注意中英关键字问题，Failed to load comments翻译叫`评论加载失败`。
+    - [x] 评语：~~不要根据经验理所当然（你也没多少这方面的经验，好吧），先去项目issue里找找相似问题再说。另外，国内开源项目注意中英关键字问题，Failed to load comments翻译叫`评论加载失败`。~~   哼
 
 ## Todo-博客改造
 
