@@ -262,6 +262,13 @@ i3-gaps已经合并到i3wm 4.23版本，别安装i3-gaps了。
 - 用户登陆：`echo "PermitRootLogin yes" >> /etc/ssh/sshd_config`
 - 删除重复ip：`ssh-keygen -f "/root/.ssh/known_hosts" -R "ipxxxx"`
 
+- 权限（权限不对时使用不了）：
+``` 
+.ssh 目录配置700权限
+id_rsa、authorized_keys等 配置600权限
+id_rsa.pub、known_hosts等 配置644权限
+```
+
 ### 2.12 镜像加速
 
 - 输出国内访问速度前5的镜像地址：`curl -s "https://archlinux.org/mirrorlist/?country=CN&protocol=https&use_mirror_status=on" | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 5 -`
@@ -1144,6 +1151,9 @@ echo "Done."
 
 ### 3.22 远程桌面
 
+> 主要远程协议是 `vnc` 和 `rdp` ，对应实现有 `x11vnc` 和 `xrdp`。rdp的话window使用的多（本次没安装使用），x11vnc内网连接切换页面都感觉卡卡的，配置 `-ncache 10` 还提示控制端屏幕分辨率要一致。
+
+> 最后还是选了 `noMachine`，然后用 `frp` 穿透本地的4000端口。（不想折腾可以一步到位直接安装向日葵）
 
 ???- "x11vnc"
 
@@ -1198,9 +1208,164 @@ echo "Done."
 
 ???- "frp"
 
-    - `cd /opt`
-    - `sudo wget https://github.com/fatedier/frp/releases/download/v0.53.2/frp_0.53.2_linux_amd64.tar.gz`
+    - [fatedier-frp-github](https://github.com/fatedier/frp){target=_blank}
+    - [frp-doc](https://gofrp.org/zh-cn/docs/overview/){target=_blank}
 
+    ???- "frp安装（服务端、客户端都要下载和配置）"
+
+        - `cd /opt`
+        - `sudo wget https://github.com/fatedier/frp/releases/download/v0.53.2/frp_0.53.2_linux_amd64.tar.gz`
+        - `sudo tar -zxvf frp_0.53.2_linux_amd64.tar.gz && cd frp_0.53.2_linux_amd64`
+
+    ???- "frp服务端配置"
+
+        ``` ini title="frps.ini（已不建议使用，这里仅与下面的toml配置做对比参考）"
+        [common]
+        bind_port = 7000
+        token = 2xxxxxxxxxxxJ
+        dashboard_port = 7500
+        dashboard_user = sxxxxxh
+        dashboard_pwd = fxxxxxxxxxxx8
+        vhost_http_port = 7508
+        vhost_https_port = 7509
+        subdomain_host = sxxxxxh.cn
+        enable_prometheus = true
+        log_file = /var/log/frps.log
+        log_level = info
+        log_max_days = 3
+        ```
+        ``` toml title="/opt/frp_0.53.2_linux_amd64/frps.toml"
+        bindPort = 7000
+        # QUIC
+        quicBindPort = 7000
+        auth.token = "2xxxxxxxxxxxJ"
+        webServer.addr = "0.0.0.0"
+        webServer.port = 7500
+        webServer.user = "sxxxxxh"
+        webServer.password = "fxxxxxxxxxxx8"
+        # webServer.tls.certFile = "server.crt"
+        # webServer.tls.keyFile = "server.key"
+        vhostHTTPPort = 7508
+        # vhostHTTPTimeout = 60
+        vhostHTTPSPort = 7509
+        subDomainHost = "sxxxxxh.cn"
+        # enablePrometheus = true
+        log.to = "/var/log/frps.log"
+        log.level = "info"
+        log.maxDays = 7
+        ```
+
+        - 命令启动：`/opt/frp_0.53.2_linux_amd64/frps -c /opt/frp_0.53.2_linux_amd64/frps.toml`
+
+        - 服务自启动脚本：
+
+        ``` shell title="/etc/systemd/system/frps.service"
+        [Unit]
+        # 服务名称，可自定义
+        Description = frp server
+        After = network.target syslog.target
+        Wants = network.target
+
+        [Service]
+        Type = simple
+        # 启动frps的命令，需修改为您的frps的安装路径
+        ExecStart = /opt/frp_0.53.2_linux_amd64/frps -c /opt/frp_0.53.2_linux_amd64/frps.toml
+
+        [Install]
+        WantedBy = multi-user.target
+        ```
+
+        - 服务启动：`sudo systemctl restart frps`
+        - 服务自启动：`sudo systemctl enable frps`
+
+    配置格式检查：`frps verify -c ./frps.toml`
+
+    ???- "服务器开端口"
+
+        - 查询端口是否开启：firewall-cmd --zone=public --query-port=7007/tcp
+        - 开启某个端口：firewall-cmd --zone=public --add-port=7000/tcp --permanent
+        - 关闭某个端口：firewall-cmd --zone=public --remove-port=7000/tcp --permanent
+        - 重启防火墙使配置生效：firewall-cmd --reload
+        - 阿里云/腾讯云控制台-》服务器-》安全组 开放端口
+
+    ???- "frp客户端配置（被控端）"
+
+        ``` toml title="/opt/frp_0.53.2_linux_amd64/frpc.toml"
+        serverAddr = "frps服务器ip"
+        serverPort = 7000
+        auth.token = "2xxxxxxxxxxxJ"
+        user = "product1"
+        includes = ["./confd/*.toml"]
+        log.to = "/var/log/frpc.log"
+        log.level = "info"
+        log.maxDays = 7
+        ```
+        ``` toml title="/opt/frp_0.53.2_linux_amd64/confd/ssh.toml"
+        [[proxies]]
+        name = "ssh"
+        type = "stcp"
+        secretKey = "xxxxxtoken"
+        localIP = "127.0.0.1"
+        localPort = 22
+        ```
+        ``` shell title="/etc/systemd/system/frpc.service"
+        [Unit]
+        # 服务名称，可自定义
+        Description = frp client
+        After = network.target syslog.target
+        Wants = network.target
+
+        [Service]
+        Type = simple
+        # 启动frps的命令，需修改为您的frps的安装路径
+        ExecStart = /opt/frp_0.53.2_linux_amd64/frpc -c /opt/frp_0.53.2_linux_amd64/frpc.toml
+
+        [Install]
+        WantedBy = multi-user.target
+        ```
+
+    ???- "frp客户端配置（控制端）"
+
+        ``` toml title="/opt/frp_0.53.2_linux_amd64/frpc.toml"
+        serverAddr = "frps服务器ip"
+        serverPort = 7000
+        auth.token = "2xxxxxxxxxxxJ"
+        includes = ["./confd/*.toml"]
+        log.to = "/var/log/frpc.log"
+        log.level = "info"
+        log.maxDays = 7
+        ```
+        ``` toml title="/opt/frp_0.53.2_linux_amd64/confd/ssh.toml"
+        [[visitors]]
+        name = "ssh_visitors"
+        type = "stcp"
+        serverUser = "product1"
+        serverName = "ssh"
+        secretKey = "xxxxxtoken"
+        bindAddr = "0.0.0.0"
+        bindPort = 2222
+        ```
+        ``` shell title="/etc/systemd/system/frpc.service"
+        [Unit]
+        # 服务名称，可自定义
+        Description = frp client
+        After = network.target syslog.target
+        Wants = network.target
+
+        [Service]
+        Type = simple
+        # 启动frps的命令，需修改为您的frps的安装路径
+        ExecStart = /opt/frp_0.53.2_linux_amd64/frpc -c /opt/frp_0.53.2_linux_amd64/frpc.toml
+
+        [Install]
+        WantedBy = multi-user.target
+        ```
+
+???- "向日葵（也推荐）"
+
+    - `yay -S sunloginclient`
+    - `sudo systemctl start runsunloginclient.service`
+    - `sudo systemctl enable runsunloginclient.service`
 
 ### 3.23 timeshift
 系统备份，滚挂必备
