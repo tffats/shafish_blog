@@ -210,6 +210,25 @@ i3-gaps已经合并到i3wm 4.23版本，别安装i3-gaps了。
     ckproxy () {
         curl ipinfo.io
     }
+
+    . /etc/zsh_command_not_found
+    ```
+    ``` shell title="/etc/zsh_command_not_found"
+    # 找不到命令时，提示命令对应需安装的软件
+    # (c) Zygmunt Krynicki 2007,
+    # Licensed under GPL, see COPYING for the whole text
+    #
+    # This script will look-up command in the database and suggest
+    # installation of packages available from the repository
+
+    if [[ -x /usr/lib/command-not-found ]] ; then
+            if (( ! ${+functions[command_not_found_handler]} )) ; then
+                    function command_not_found_handler {
+                            [[ -x /usr/lib/command-not-found ]] || return 1
+                            /usr/lib/command-not-found -- ${1+"$1"} && :
+                    }
+            fi
+    fi
     ```
     - 安装oh-zsh：`sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
 
@@ -1317,8 +1336,12 @@ echo "Done."
 
         [Service]
         Type = simple
+        TimeoutStartSec = 30
+        Restart = on-failure
+        RestartSec = 5
         # 启动frps的命令，需修改为您的frps的安装路径
         ExecStart = /opt/frp_0.53.2_linux_amd64/frpc -c /opt/frp_0.53.2_linux_amd64/frpc.toml
+        ExecStop = /bin/kill $MAINPID
 
         [Install]
         WantedBy = multi-user.target
@@ -1354,8 +1377,12 @@ echo "Done."
 
         [Service]
         Type = simple
+        TimeoutStartSec = 30
+        Restart = on-failure
+        RestartSec = 5
         # 启动frps的命令，需修改为您的frps的安装路径
         ExecStart = /opt/frp_0.53.2_linux_amd64/frpc -c /opt/frp_0.53.2_linux_amd64/frpc.toml
+        ExecStop = /bin/kill $MAINPID
 
         [Install]
         WantedBy = multi-user.target
@@ -1389,7 +1416,10 @@ ref: [使用参考](https://aprilzz.com/archives/%E5%9C%A8arch%E4%B8%AD%E4%BD%BF
     1. 以为系统在检查，啥也没干预，直接放置了一个夜晚。（然并卵）
     2. 网上有说是显卡驱动问题，要执行相关命令卸载：`mhwd -l`，然而提示mhwd命令都找不到。（五二人子弟）
     3. 网上有说是 [Silent boot](https://wiki.archlinux.org/title/Silent_boot#fsck){target=_blank} 设置问题，设置完成就会跳过检查，也并未解决。
-    4. 最终在 [Booting to black screen](https://forum.manjaro.org/t/boot-doesnt-continue/80873/7){target=_blank} 找到解决方法：tty后执行`pacman -Syu grub`就行，执行完再关机重启。（解决）
+    4. 最终在 [Booting to black screen](https://forum.manjaro.org/t/boot-doesnt-continue/80873/7){target=_blank} 找到解决方法：
+        tty后执行`pacman -Syu grub`就行，执行完再关机重启。（解决）
+
+    5. 在网络硬盘挂载时加上`_netdev`参数：`//192.168.0.xxx/xxx /mnt/xxx cifs defaults,user=xxx,password=xxx,_netdev,vers=3.0 0 0`
 
     #### 4.1.3 记录
     很有可能是挂载网络硬盘引起的磁盘检查卡顿 [Fsck](https://wiki.archlinux.org/title/Fsck){target=_blank}
