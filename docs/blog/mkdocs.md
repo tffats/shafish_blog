@@ -757,6 +757,128 @@ markdown_extensions:
 
 略
 
+### 14. blog
+
+> 博客插件，使站点blog化（文章摘要、存档、分类、分页等功能）
+
+???- "一、blog插件引入：mkdocs.yml"
+
+    在 `mkdocs.yml` 配置文件中引入 `blog` 插件，该插件已内置于 `Material for MkDocs 9.2.0 +`，直接用就行。 
+
+    ``` yaml
+    plugins:
+        ...
+        - blog
+    ```
+
+???- "二、blog目录说明"
+
+    引入了blog插件后，如果不指定博客目录，mk会自动创建目录：
+    ```
+    ├─ docs/
+    │  └─ blog/
+    │     ├─ posts/
+    │     └─ index.md
+    └─ mkdocs.yml
+    ```
+    但是你也可以手动指定博客目录，比如：newBlog，该目录下必须包含 `posts` 目录与 `index.md`。mk会自动扫描posts目录下的.md文件作为博客视图内容；index.md文件则作为博客的入口，列出所有的博文。
+
+    所以，如果指定特定目录作为博客目录，该目录可如下：（如果你也跟我一样，docs目录下已经占用了blog目录，要弄完第四点的 `blog_dir` 配置才能生效yo）
+    ```
+    ├─ docs/
+    │  └─ ababababa/
+    │     └─ newBlog/
+    │         ├─ posts/
+    │         └─ index.md
+    └─ mkdocs.yml
+    ```
+
+???- "三、blog入口配置：mkdocs.yml"
+
+    配置访问入口，也就是导航栏 `nav`。
+    ``` yaml
+    nav:
+        - Blog:
+            - ababababa/newBlog/index.md
+    ```
+    Blog可以随意名称，另外注意 `ababababa/newBlog/index.md` 是以docs相对定位der
+
+???- "四、blog配置列表：mkdocs.yml"
+
+    这里指定 `blog` 插件的各项配置，比如说博文的 显示时间格式、分页数量、存档路径等等。
+
+    === "指定博客目录"
+
+        ``` yaml
+        plugins:
+            - blog:
+                blog_dir: ababababa/newBlog
+        ```
+        上面是指定博客目录的，如果使用默认的目录（也就是docs/blog），就是下面这样：
+
+        ``` yaml
+        plugins:
+            - blog:
+                blog_dir: blog
+        ```
+        如果只打算用blog，没有博客目录之外的文件，就可以直接这样：（建新的mkdocs就可以用这个，可惜blog插件出现晚了）
+
+        ``` yaml
+        plugins:
+            - blog:
+                blog_dir: .
+        ```
+        不出意外，当你配置完 `blog_dir`，等serve自动刷新后，再访问 `http://127.0.0.1:8000/Blog/` 就能看到博客内容了。（/Blog路径按照 `mkdocs.yml` 配置的nav 自行路由，看看你自己nav配了啥就用啥）
+
+        这时的 `http://127.0.0.1:8000/Blog/` 是没啥内容的，因为你还没在 `ababababa/newBlog/posts` 目录下写 `.md` 博文呢。你可以看下下面第五点，或者直接复制下面内容作为 `ababababa/newBlog/posts/hello-world.md` 尝尝鲜：
+
+        ``` markdown title="ababababa/newBlog/posts/hello-world.md"
+        ---
+        draft: true 
+        date: 2024-01-31 
+        hide:
+        - navigation
+        - toc
+        categories:
+        - Hello
+        - World
+        ---
+
+        # Hello world!
+        ...    
+        ```
+
+    === "博文的日期格式"
+
+        ``` yaml
+        # 2024年1月31日星期三
+        plugins:
+            - blog:
+                post_date_format: full
+        ```
+        ``` yaml
+        # 2024年1月31日
+        plugins:
+            - blog:
+                post_date_format: long
+        ```
+        ``` yaml
+        # 2024年1月31日
+        plugins:
+            - blog:
+                post_date_format: medium
+        ```
+        ``` yaml
+        # 2024/1/31
+        plugins:
+            - blog:
+                post_date_format: short
+        ```
+        如果没有显示为中文的话，看看你配置 `language: zh` 了没。
+
+
+???- "五、blog编写格式：posts目录"        
+
 ## 二、mkdocs.yml记录
 
 ### 1. 调整颜色
