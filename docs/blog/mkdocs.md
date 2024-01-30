@@ -876,8 +876,197 @@ markdown_extensions:
         ```
         如果没有显示为中文的话，看看你配置 `language: zh` 了没。
 
+    === "设置博文的访问路径"
 
-???- "五、blog编写格式：posts目录"        
+        slug 是标题；date是日期；categories是标签；file直接是文件名。如果加上日期的话，文章的访问路径就会是这样：`http://127.0.0.1:8000/xxxx/2024/01/31/文章标题/`。建议直接 `slug` 就行。
+
+        ``` yaml
+        plugins:
+            - blog:
+                # post_url_format: "{date}/{slug}" # http://127.0.0.1:8000/xxxx/2024/01/31/hello-world/
+                # post_url_format: "{categories}/{slug}" # http://127.0.0.1:8000/xxxx/Hello/world/hello-world/
+                post_url_format: "{slug}"
+        ```
+
+        slug也就是文章的标题，默认是使用 `-` 拼接多个词的。比如：博文的标题是 `# hello world`，那么它的{slug}就是 `hello-world`，如果不想使用默认，也可以指定 `post_slugify_separator: xxx` 修改。
+
+        categories也就是文章的标签，默认是使用第一个标签作为路径的。比如：博文的标签是 `Hello` 和 `world` 两个标签，如果此时的url格式是：`post_url_format: "{categories}/{slug}"`，那么此时的{categories}就是Hello，如果要显示多个标签的话，可以指定 `post_url_max_categories: num`。
+
+        date也就是文章的创建日期，默认是 `yyyy/MM/dd` 的格式，可以指定 `post_url_date_format: yyyy/MM` 或者 `post_url_date_format: yyyy`
+
+    === "设置是否必须设置摘要"
+
+        不设置的话，会默认在博客首页显示文章所有内容哟
+
+        ``` yaml
+        plugins:
+            - blog:
+                post_excerpt: required
+        ```
+
+    === "文章摘要：默认<!-- more -->"
+
+        截取文章前部分内容作为显示摘要，在适合的地方标上摘要符号： `<!-- more -->` 就能把从开头到摘要符号的这部分内容作为本篇博文的摘要内容。
+
+        ``` yaml
+        plugins:
+            - blog:
+                post_excerpt_separator: <!-- more -->
+        ```
+
+    === "显示关联的标签数量：默认5个"
+
+        设置最多只显示两个标签
+
+        ``` yaml
+        plugins:
+            - blog:
+                post_excerpt_max_categories: 2
+        ```
+
+    === "显示关联的作者数量：默认1个"
+
+        设置最多只显示两个作者
+
+        ``` yaml
+        plugins:
+            - blog:
+                post_excerpt_max_authors: 2
+        ```
+
+    === "文章归档名称"
+
+        ``` yaml
+        plugins:
+            - blog:
+                archive_name: shafish 的归档
+        ```      
+
+    === "文章归档日期格式：默认yyyy"
+
+        按月归档，还是按年归档
+
+        ``` yaml
+        plugins:
+            - blog:
+                archive_date_format: MMMM yyyy
+        ```             
+
+    === "设置归档的访问路径"
+
+        ``` yaml
+        plugins:
+            - blog:
+                # archive_url_format: "{date}"
+                archive_url_format: "archive/{date}"
+        ```
+        其中的 {date} 可以指定年或者月 `archive_url_date_format: yyyy/MM`
+
+    === "文章标签名称"
+
+        ``` yaml
+        plugins:
+            - blog:
+                categories_name: shafish 的标签
+        ```
+
+    === "设置标签管理页的访问路径"
+
+        ``` yaml
+        plugins:
+            - blog:
+                categories_url_format: "category/{slug}"
+        ```
+        其中的 {slug} 就是文章的标签，跟文章标题一样，默认使用 `-` 分词，也可以使用 `categories_slugify_separator: xxx` 特别指定。
+
+    === "规定博客使用的标签"
+
+        不匹配就不会显示生效，比如规定了只有两个 `hello` `world` 这两个标签，所有文章就只能用这两个标签。
+
+        ``` yaml
+        plugins:
+            - blog:
+                categories_allowed:
+                    - hello
+                    - world
+        ```        
+
+    === "文章作者列表"
+
+        可以选择该列表中配置好的作者（作者名称、头像、url等等都可以在这个文件配置）
+
+        ``` yaml
+        plugins:
+            - blog:
+                authors_file: "{blog}/.authors.yml"
+        ```
+        这里的 `{blog}` 指的是之前配置的博客目录。（也就是跟 `posts` 目录同级，在该同级目录中创建 `.authors.yml` 文件就行）
+        ```
+        ├─ docs/
+        │  └─ ababababa/
+        │     └─ newBlog/
+        │         ├─ posts/
+        │         ├─ .authors.yml   
+        │         └─ index.md
+        └─ mkdocs.yml
+        ```
+        ``` yaml title=".authors.yml"
+        authors:
+            shafish:
+                name: shafish        # Author name
+                description: a man # Author description
+                avatar: http://xxx         # Author avatar
+                # slug: url           # Author profile slug
+                url: https://github.com/shafishcn   # Author website URL
+        ```
+
+    === "设置博文每页显示的文章数：默认10条"
+
+        ``` yaml
+        plugins:
+            - blog:
+                pagination_per_page: 15
+        ```
+
+    === "页码显示格式"
+
+        下面的配置会显示成这样：`1 2 3 .. n > >>` 能点击到最后一页，emmmm
+
+        ``` yaml
+        plugins:
+            - blog:
+                pagination_format: "$link_first $link_previous ~2~ $link_next $link_last"
+        ```
+
+    === "是否开启草稿"
+
+        草稿，也就是非正式的博文
+
+        ``` yaml
+        plugins:
+            - blog:
+                draft: true
+        ```
+
+    === "是否显示草稿：默认显示"
+
+        ``` yaml
+        plugins:
+            - blog:
+                draft: flase
+        ```
+
+    === "将草稿转为正式文章"
+
+        标记文章为草稿，并设置文章的日期为明天，当今天部署更新好博客后，这篇文章就不会显示，当符合设置的日期才显示。（这个可以）
+
+        ``` yaml
+        plugins:
+            - blog:
+                draft_if_future_date: true
+        ```          
+
+???- "五、blog编写格式：posts目录"
 
 ## 二、mkdocs.yml记录
 
