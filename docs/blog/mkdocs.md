@@ -1068,6 +1068,62 @@ markdown_extensions:
 
 ???- "五、blog编写格式：posts目录"
 
+    也就是`posts` 目录下的md文件的编写规范。
+
+    === "设置博文作者"
+
+        ``` markdown
+        ---
+        authors:
+            - shafish
+        ---
+
+        # Post title
+        ...
+        ```
+        作者列表得记得先在 `.authors.yml` 定义好
+
+    === "设置博文标签"
+
+        ``` markdown
+        ---
+        categories:
+            - Search
+            - Performance
+        ---
+
+        # Post title
+        ...
+        ```
+
+    === "设置博文日期：必填"
+
+        ``` markdown
+        ---
+        date:
+            created: 2024-01-31
+            updated: 2024-02-01
+        ---
+
+        # Post title
+        ...
+        ```
+
+    === "设置博文为草稿"
+
+        ``` markdown
+        ---
+        draft: true
+        ---
+
+        # Post title
+        ...
+        ```
+    
+    === "其他"
+    
+        略过
+
 ## 二、mkdocs.yml记录
 
 ### 1. 调整颜色

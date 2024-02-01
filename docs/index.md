@@ -24,6 +24,6 @@ hide:
 
 !!! success "docker镜像[^1]"
 
-    `docker run --rm -it -p 8000:8000 -v /home/shafish/Note/shafish_blog:/docs shafish/mkdocs-material:1.1`
+    `docker run --rm -it -p 8000:8000 -v /home/shafish/Note/shafish_blog:/docs shafish/mkdocs-material:1.2`
 
 [^1]: [https://hub.docker.com/u/shafish](https://hub.docker.com/u/shafish){target="_blank"}

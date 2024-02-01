@@ -49,24 +49,24 @@
 {% endif %}
 
 <!-- Get setting from mkdocs.yml, but allow page-level overrides -->
-{% set vssue = config.extra.vssue %}
+<!-- {% set vssue = config.extra.vssue %}
 {% if page and page.meta and page.meta.vssue is string %}
   {% set vssue = page.meta.vssue %}
-{% endif %}
+{% endif %} -->
 
 <!-- Inject Disqus into current page -->
-{% if not page.is_homepage and vssue %}
-    <div id="vssue"></div>
+<!-- {% if not page.is_homepage and vssue %}
+    <div id="vssue"></div> -->
 
     <!--<link rel="stylesheet" href="https://unpkg.com/vssue/dist/vssue.min.css">
  OR: vue full build (runtime + compiler)  -->
 <!-- <script src="https://unpkg.com/vue/dist/vue.min.js"></script> -->
-<script src="https://file.cdn.shafish.cn/blog/js/vue.js"></script>
+<!-- <script src="https://file.cdn.shafish.cn/blog/js/vue.js"></script> -->
 <!-- Vssue Github build -->
 <!-- <script src="https://unpkg.com/vssue/dist/vssue.github.min.js"></script> -->
-<script src="https://file.cdn.shafish.cn/blog/js/vssue.github.min.js"></script>
+<!-- <script src="https://file.cdn.shafish.cn/blog/js/vssue.github.min.js"></script> -->
 
-<script>
+<!-- <script>
     new Vue({
       el: '#vssue',
    
@@ -89,5 +89,6 @@
 
       template: `<vssue :title="title" :options="options"></vssue>`,
     })
-</script>
+</script> -->
+
 {% endif %}
