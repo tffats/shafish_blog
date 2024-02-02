@@ -1,8 +1,13 @@
 ---
 title: Archlinx主力机配置记录
-description: archlinx, i3wm, arch, linux, Archlinux 安装
-hide:
-  - navigation
+authors:
+    - shafish
+date:
+    created: 2023-10-31
+    updated: 2024-01-20
+categories:
+    - archlinx
+    - 装机
 ---
 
 ## 硬件环境
@@ -29,6 +34,8 @@ hide:
     - 根据主板进入bios（一般是F2或者F12），禁用安全启动，并选择U盘启动
 
     启动后出现引导加载程序菜单，选择Arch Linux install medium 确认就行
+
+<!-- more -->
 
 ### 1.3 硬盘分区配置(整个磁盘，非双系统)
 

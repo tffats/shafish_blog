@@ -24,7 +24,7 @@ hide:
 ???+ "收藏夹"
 
     - [i3wm在线配置效果](https://thomashunter.name/i3-configurator/)
-    - [mkdocs material使用记录](mkdocs.md)
+    - [mkdocs material使用记录 （荐）](mkdocs.md)
     - [docker记录-持续](./docker_note.md)
 
 

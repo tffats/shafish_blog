@@ -45,6 +45,12 @@ hide:
 
 ## Todo-博客改造
 
+- 2024-2
+    - 2
+        - [x] mkdoc版本更新
+        - [x] add blog插件
+        - [x] 已知功能调整
+
 - 2023-2
     - 12
         - [x] mkdoc版本更新、english模块维护
