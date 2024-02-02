@@ -1692,6 +1692,6 @@ ref: https://timvink.github.io/mkdocs-git-revision-date-localized-plugin/options
 
 ## 四、部署
 
-[Github action部署到github page](2021/12/github_action.md)
+[Github action部署到github page](./github_action.md)
 
-[Jenkins部署到服务器](2021/12/jenkins.md)
+[Jenkins部署到服务器](./jenkins.md)

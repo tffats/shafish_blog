@@ -76,8 +76,8 @@ plugins:
         - comments.md
   - rss:
       match_path: newBlog/posts/.* 
-      date_from_meta:
-        as_creation: date
+      # date_from_meta:
+      #  as_creation: date
   - blog:
       blog_dir: newBlog
       blog_toc: true
