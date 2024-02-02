@@ -1,6 +1,6 @@
 ---
 title: 远程桌面控制
-template: blog-post-no_comment.html
+# template: blog-post-no_comment.html
 authors:
     - shafish
 date:

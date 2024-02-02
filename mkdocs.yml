@@ -14,6 +14,7 @@ theme:
   name: material
   custom_dir: overrides
   language: zh
+  logo: https://picture.cdn.shafish.cn/blog/about/head.png
   # 网站图标
   #font:
     #text: Roboto
@@ -164,9 +165,9 @@ markdown_extensions:
       custom_checkbox: true  
 
 nav:
-  - Blog:
+  - bblog:
     - newBlog/index.md
-  - 技术: blog/index.md
+  #- 技术: blog/index.md
     #- 2022:
      # - blog/2022/index.md
       #- 第一篇文章: blog/2022/1.md
