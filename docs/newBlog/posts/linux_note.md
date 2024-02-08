@@ -289,3 +289,11 @@ set fileencodings=utf8,ucs-bom,gbk,cp936,gb2312,gb18030
 `apt install net-tools`
 
 netstat -aptn
+
+## 十九、编辑文件时Error opening terminal: alacritty
+
+缺少终端的 `terminfo` 文件
+- 使用 `sudo tic -xe alacritty,alacritty-direct extra/alacritty.info` 安装
+- 或者 `echo "TERM=xterm-256color ssh" >> ~/.bashrc`即可
+
+ref：[issues](https://github.com/alacritty/alacritty/issues/3360){target=_blank}

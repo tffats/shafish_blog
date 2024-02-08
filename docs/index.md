@@ -1,6 +1,6 @@
 ---
 title: "格莱姆的日常"
-template: no_comment.html
+# template: no_comment.html
 hide:
   - navigation
   - toc

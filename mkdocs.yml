@@ -100,27 +100,33 @@ plugins:
       pagination_keep_content: true
       draft: true
       draft_if_future_date: true
+  #- offline
+  #- group
+  #- info
 
 extra:
   social:
+    - icon: fontawesome/solid/rss
+      link: /feed_rss_created.xml
+      name: RSS  
     - icon: fontawesome/solid/paper-plane
       link: mailto:<shafish_cn@163.com>
-      name: 发送邮件
+      name: 每天都看哟
   #vssue: shafish
   #generator: false
 
-extra_css:
-  - stylesheets/extra.css
-  - https://file.cdn.shafish.cn/blog/css/vssue.css
+#extra_css:
+  #- stylesheets/extra.css
+  #- https://file.cdn.shafish.cn/blog/css/vssue.css
   #- https://cdn.jsdelivr.net/npm/xgplayer@3.0.5/dist/index.min.css
   #- https://file.cdn.shafish.cn/blog/css/video-js.min.css
   #- https://file.cdn.shafish.cn/blog/css/video.css
 
-extra_javascript:
+#extra_javascript:
   #- https://cdn.jsdelivr.net/npm/xgplayer@3.0.5/dist/index.min.js
-  - https://cdn.jsdelivr.net/npm/dot@1.1.3/doT.min.js
-  - javascripts/dot.js
-  - javascripts/extra.js
+  #- https://cdn.jsdelivr.net/npm/dot@1.1.3/doT.min.js
+  #- javascripts/dot.js
+  #- javascripts/extra.js
   #- javascripts/d.js
   #- https://file.cdn.shafish.cn/blog/js/video.min.js
 
@@ -165,7 +171,7 @@ markdown_extensions:
       custom_checkbox: true  
 
 nav:
-  - bblog:
+  - Bblog:
     - newBlog/index.md
   #- 技术: blog/index.md
     #- 2022:
