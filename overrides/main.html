@@ -1,9 +1,5 @@
 {% extends "base.html" %}
 
-<!-- {% block announce %}
-  hello
-{% endblock %} -->
-
 {% block content %}
   {{ super() }}
 
@@ -24,4 +20,33 @@
   crossorigin="anonymous"
   async>
 </script>
+{% endblock %}
+
+<!-- Custom front matter -->
+{% block extrahead %}
+
+  <!-- Extra style sheets (can't be set in mkdocs.yml due to content hash) -->
+  <link
+    rel="stylesheet"
+    href="{{ 'assets/stylesheets/extra.css' | url }}"
+  />
+  <link
+  rel="stylesheet"
+  href="https://file.cdn.shafish.cn/blog/css/vssue.css"
+/>
+{% endblock %}
+
+<!-- Announcement bar -->
+{% block announce %}
+
+{% endblock %}
+
+<!-- Theme-related JavaScript -->
+{% block scripts %}
+  {{ super() }}
+
+  <!-- Extra JavaScript (can't be set in mkdocs.yml due to content hash) -->
+  <script src="https://cdn.jsdelivr.net/npm/dot@1.1.3/doT.min.js"></script>
+  <script src="{{ 'assets/javascripts/extra.js' | url }}"></script>
+  <script src="{{ 'assets/javascripts/dot.js' | url }}"></script>
 {% endblock %}
