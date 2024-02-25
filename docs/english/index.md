@@ -110,3 +110,7 @@ vssue: ""
     === "10.在餐厅"
 
         --8<-- "english/At_ther_restaurant.md"
+
+    === "11.购物"
+
+        --8<-- "english/going_shopping.md"
