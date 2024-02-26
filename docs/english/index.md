@@ -114,3 +114,7 @@ vssue: ""
     === "11.购物"
 
         --8<-- "english/going_shopping.md"
+
+    === "12.观光"
+
+        --8<-- "english/going_sightseeing.md"

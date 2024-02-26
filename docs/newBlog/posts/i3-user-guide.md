@@ -1651,6 +1651,14 @@ sudo systemctl enable smb.service
 sudo systemctl enable nmb.service
 ```
 
+### 3.25 OBS
+
+``` shell
+sudo pacman -S obs-studio
+# ndi双机推流
+sudo pacman -S obs-ndi
+```
+
 ## 四、问题解决
 ### 4.1 开机启动失败
 
