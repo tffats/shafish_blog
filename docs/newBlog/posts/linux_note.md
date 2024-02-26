@@ -297,3 +297,57 @@ netstat -aptn
 - 或者 `echo "TERM=xterm-256color ssh" >> ~/.bashrc`即可
 
 ref：[issues](https://github.com/alacritty/alacritty/issues/3360){target=_blank}
+
+## 二十、查看目录文件大小
+
+`du -hS xxx目录 | sort -nr`
+
+-h, --human-readable
+    以K，M，G为单位，显示文件的大小
+
+-s, --summarize
+    只显示总计的文件大小
+
+-S, --separate-dirs
+    显示时并不含其子文件夹的大小
+
+-d, --max-depth=N
+    显示子文件夹的深度（层级）
+
+## 十三、cp显示进度
+ref: https://cloud.tencent.com/developer/article/2187555
+
+``` shell
+wget http://ftp.gnu.org/gnu/coreutils/coreutils-9.4.tar.gz
+tar -zxvf coreutils-9.4.tar.gz
+cd coreutils-9.4
+https://github.com/jarun/advcpmv/blob/master/advcpmv-0.9-9.4.patch
+## 编译
+patch -p1 -i advcpmv-0.9-9.4.patch
+./configure
+make
+## 使用
+cp ./src/cp /usr/local/bin/cpg
+cp ./src/mv /usr/local/bin/mvg
+cpg -g xxxfile xxxDire
+```
+
+``` shell
+## 配置快捷键
+vim .zshrc
+
+alias mvg='mvg -g'
+alias cpg='cpg -g'
+
+source .zshrc
+```
+
+## 十四、vdhcoapp
+Video DownloadHelper流媒体下载插件
+
+``` shell
+# Re-run that script to update the coapp.
+curl -sSLf https://github.com/aclap-dev/vdhcoapp/releases/latest/download/install.sh | bash
+# uninstall
+To uninstall, run '~/.local/share/vdhcoapp/vdhcoapp uninstall' and remove '~/.local/share/vdhcoapp'
+```

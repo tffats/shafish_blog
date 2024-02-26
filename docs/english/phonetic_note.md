@@ -114,4 +114,13 @@
 *[stay clear]: 远离  mind the gap
 *[hotel clerk]: 酒店办事员
 
+*[Touristy]: [ˈtʊərɪsti]
+*[Scenery]: [ˈsi:nəri]
+*[pamphlet]: [ˈpæmflət]
+*[Unesco world heritage site]: [ju:'neskәj] [ˈherɪtɪdʒ]
+*[Atmosphere]: [ˈætməsfɪə(r)]
+*[Ancient]: [ˈeɪnʃənt]
+*[guide]: [gaɪd]
+*[Colosseum]: [,kɔlә'siәm] 斗兽场
+
 

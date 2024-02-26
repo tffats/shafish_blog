@@ -2,12 +2,17 @@
 
 ### docker部署
 ``` yml
-# 本地测试用
 git clone https://github.com/squidfunk/mkdocs-material.git
 cd mkdocs-material
-echo "mkdocs-git-revision-date-localized-plugin" > user-requirements.txt
+# 写入需要的插件
+cat > user-requirements.txt <<EOF
+mkdocs-git-revision-date-localized-plugin
+mkdocs-rss-plugin
+EOF
 
-docker build -t squidfunk/mkdocs-material .
+docker build -t shafish/mkdocs-material:1.2 .
 
-docker run --rm -it -p 8000:8000 -v /home/shafish/Note/shafish_blog:/docs squidfunk/mkdocs-material
+cd /home/shafish/Note
+git clone https://github.com/tffats/shafish_blog.git
+docker run --rm -it -p 8000:8000 -v /home/shafish/Note/shafish_blog:/docs shafish/mkdocs-material:1.2
 ```
