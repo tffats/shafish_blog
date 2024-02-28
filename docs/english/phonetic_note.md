@@ -122,5 +122,10 @@
 *[Ancient]: [ˈeɪnʃənt]
 *[guide]: [gaɪd]
 *[Colosseum]: [,kɔlә'siәm] 斗兽场
+*[pickpocketers]: 扒手
 
-
+*[portrait]: [ˈpɔ:treɪt]
+*[tripod]: [ˈtraɪpɒd]
+*[landscape]: [ˈlændskeɪp]
+*[selfie]: [selfi]
+*[whole bunch]: 很多

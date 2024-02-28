@@ -118,3 +118,7 @@ vssue: ""
     === "12.观光"
 
         --8<-- "english/going_sightseeing.md"
+
+    === "13.拍照"
+
+        --8<-- "english/taking_pictures.md"
