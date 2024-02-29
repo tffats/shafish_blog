@@ -75,6 +75,10 @@ Your browser does not support the audio element.
 
     - <span id="english">let's use my selfie stick. <span class="point">:sound:</span></span> 
 
+- <span id="english">candid photos <span class="point">:sound:</span></span> 抓拍
+
+- <span id="english">amatuer photographer<span class="point">:sound:</span></span> 业余摄影师
+
 ***二、句子***
 
 - <span id="english">Excuse me ,can you help us take a picture? <span class="point">:speech_balloon:</span></span> 
