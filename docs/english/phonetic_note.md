@@ -129,3 +129,6 @@
 *[landscape]: [ˈlændskeɪp]
 *[selfie]: [selfi]
 *[whole bunch]: 很多
+*[candid]: [ˈkændɪd] 抢拍的，偷拍的
+*[amatuer]: 
+
