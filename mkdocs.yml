@@ -106,6 +106,12 @@ plugins:
 
 extra:
   social:
+    - icon: fontawesome/brands/creative-commons
+      link: https://creativecommons.org/licenses/by/4.0/deed.zh-hans
+      name: 记得留名哟
+    - icon: fontawesome/brands/creative-commons-by
+      link: https://creativecommons.org/licenses/by/4.0/deed.zh-hans
+      name: 记得留名哟  
     - icon: fontawesome/solid/rss
       link: /feed_rss_created.xml
       name: RSS  
