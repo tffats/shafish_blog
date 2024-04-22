@@ -23,6 +23,7 @@ hide:
 
 ???+ "收藏夹"
 
+    - [笔记收藏](https://note.shafish.cn/share/dtyo3K8tZLDZ){target=_blank}
     - [i3wm在线配置效果](https://thomashunter.name/i3-configurator/){target=_blank}
     - [mkdocs material使用记录](newBlog/posts/mkdocs.md)
     - [docker记录-持续](newBlog/posts/docker_note.md)

@@ -8,7 +8,7 @@ site_description: >-
 repo_url: https://github.com/tffats/shafish_blog
 repo_name: tffats/shafish_blog
 edit_uri: edit/main/docs/
-copyright: Copyright &copy; 2023 <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">粤ICP备2022032763号</a>
+copyright: Copyright &copy; 2024 <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">粤ICP备2022032763号</a>
 
 theme:
   name: material
@@ -85,7 +85,7 @@ plugins:
       post_url_date_format: yyyy/MM/dd
       post_url_format: "{slug}"
       post_excerpt: required
-      post_excerpt_max_authors: 1
+      post_excerpt_max_authors: 2
       post_excerpt_separator: <!-- more -->
       archive_name: shafish 的归档
       archive_toc: true
@@ -99,6 +99,7 @@ plugins:
       pagination_format: "$link_first $link_previous ~2~ $link_next $link_last"
       pagination_keep_content: true
       draft: true
+      draft_on_serve: false
       draft_if_future_date: true
   #- offline
   #- group

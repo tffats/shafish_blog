@@ -131,4 +131,11 @@
 *[whole bunch]: 很多
 *[candid]: [ˈkændɪd] 抢拍的，偷拍的
 *[amatuer]: 
+*[Residential]: [ˌrezɪˈdenʃl] 住宅的；与居住有关的
+*[Restaurants]: [ˈrestərənts] 餐厅
+*[authentic]: [ɔ:ˈθentɪk] 真实的 可信的 可靠的
+*[embassies]: [ˈembəsiz] 大使馆
+*[neat]: [ni:t] 整洁的
+*[boutiques]: [bu:ˈti:ks] 精品店
+*[grocery]: [ˈgrəʊsəri] 杂货店
 
