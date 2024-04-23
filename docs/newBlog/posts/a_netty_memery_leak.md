@@ -14,7 +14,7 @@ categories:
 ## 一、场景
 目前使用基于netty的tcp长连接处理电梯秒级数据。
 
-具体来说是处理电梯的modbus报文，该主从协议要求设备的数据需要网关主动下发命令来触发上报。在频繁的报文接收、处理及发送中，内存泄漏叻。
+具体来说是处理电梯的modbus报文，这个主从协议要求获取设备的数据需要主动下发命令来触发上报。在频繁的报文接收、处理及发送中，内存泄漏叻。
 
 ## 二、特征
 一般内存泄漏主要表现在服务器内存爆满，某个类实例数特别多、占有内存特别多，GC到不行时服务器自动重启，当然最明显的就是会有leak报错（确定服务器崩的大概时间点，翻下error日志，你会找到的），比如下面这样：
@@ -70,6 +70,15 @@ java.lang.Thread.run(Thread.java:745)
 ```
 
 ## 三、泄漏点定位
+> 为了便于用户发现内存泄露，Netty提供4个检测级别:
+
+- `disabled` 完全关闭内存泄露检测
+- `simple` 以约1%的抽样率检测是否泄露，默认级别
+- `advanced` 抽样率同simple，但显示详细的泄露报告
+- `paranoid` 抽样率为100%，显示报告信息同advanced
+
+运行程序jar时添加命令即可：`jav xxx -Dio.netty.leakDetectionLevel=[检测级别]`，或者直接在代码中使用：`ResourceLeakDetector.setLevel(ResourceLeakLevel.检测级别);`
+
 > 一般netty的内存泄漏，大部分都是没有及时进行byteBuf的内存释放。
 
 在netty4后，byteBuf的回收是引用计数判断，数据读取或发送时都会使用到池化bytebuf进行缓冲，一般情况下框架会自动释放buf的引用，也就是数据正常处理完后byteBuf的引用数（refCnt）为0。
@@ -100,6 +109,7 @@ channelHandlerContext.channel().isWritable()
 
 
 ref:
-- https://www.cnblogs.com/zhaoshizi/p/13097061.html
-- https://netty.io/wiki/user-guide-for-4.x.html
-- https://github.com/netty/netty/issues/4134
+
+- [https://www.cnblogs.com/zhaoshizi/p/13097061.html](https://www.cnblogs.com/zhaoshizi/p/13097061.html){target=_blank}
+- [https://netty.io/wiki/user-guide-for-4.x.html](https://netty.io/wiki/user-guide-for-4.x.html){target=_blank}
+- [https://github.com/netty/netty/issues/4134](https://github.com/netty/netty/issues/4134){target=_blank}

@@ -122,3 +122,7 @@ vssue: ""
     === "13.拍照"
 
         --8<-- "english/taking_pictures.md"
+
+    === "14.探索城市"
+
+        --8<-- "english/exploring_city.md"
