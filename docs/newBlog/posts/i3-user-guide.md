@@ -1043,6 +1043,21 @@ id_rsa.pub、known_hosts等 配置644权限
     - `python -V`
     - `./webui.sh --xformers` # 自行配置代理
 
+    ``` zsh
+    proxysd () {
+    export no_proxy="localhost, 127.0.0.1, ::1"
+    export http_proxy="http://127.0.0.1:10001"
+    export https_proxy=$http_proxy
+    echo "http proxy 10 on"
+    }
+
+    noproxysd () {
+    unset http_proxy
+    unset https_proxy
+    unset no_proxy
+    }
+    ```
+
 ### 3.12 轻量截图工具
 
 - `sudo pacman -S maim xclip`
