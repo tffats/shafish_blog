@@ -1,8 +1,8 @@
 ---
-template: no_comment.html
+#template: no_comment.html
 title: About
 # description: 
-vssue: ""
+#vssue: ""
 hide:
   - navigation
   - toc

@@ -10,9 +10,10 @@ hide:
 
     - [ ] 源码
 
-???+ "小工具"
+???+ "工具"
 
     - [轻量前端渲染框架Dot.js](newBlog/posts/dot.md)
+    - [搭建本地git](newBlog/posts/gitlab.md)
 
 ???+ "Linux"
 
