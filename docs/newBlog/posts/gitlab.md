@@ -114,7 +114,32 @@ gitlab_rails['smtp_pool'] = true
 
 - [Upgrade](https://docs.gitlab.com/ee/install/docker.html#upgrade){target=_blank}
 
+
+## 九、配置gitlab的ssh key
+
+> 使用root账号创建shafish用户，用于日常代码管理。
+
+- 初始化：`ssh key：ssh-keygen -C "shafish_cn@163.com"`
+- 输入生成的文件名：`id_rsa.gitlab`
+- 配置本地git提交信息
+``` config title="vim ~/.ssh/config"
+Host 192.168.0.109
+    HostName 192.168.0.109
+    User git
+    IdentityFile /home/shafish/.ssh/id_rsa.gitlab
+    IdentitiesOnly yes
+```
+- 配置gitlab ssh：`cat /home/shafish/.ssh/id_rsa.gitlab.pub`，将内容复制到对应gitlab页
+- 拉取本地仓库: `git clone git@192.168.0.109:shafish/practice.git`
+- 配置当前仓库用户信息：
+``` shell
+cd practice
+git config --local user.name "shafish"
+git config --local user.email "shafish_cn@163.com"
+```
+
 ref:
 
 - [Install GitLab by using Docker](https://docs.gitlab.com/ee/install/docker.html){target=_blank}
 - [gitlab smtp](https://docs.gitlab.com/omnibus/settings/smtp.html){target=_blank}
+
