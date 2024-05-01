@@ -69,11 +69,11 @@ services:
       TZ: 'Asia/Shanghai'
       GITLAB_OMNIBUS_CONFIG: |
         # Add any other gitlab.rb configuration here, each on its own line
-        external_url 'http://192.168.0.109:7080'
+        external_url 'http://192.168.0.109'
         gitlab_rails['time_zone'] = 'Asia/Shanghai'
     ports:
-      - '192.168.0.109:7080:7080'
-      - '192.168.0.109:7443:443'
+      - '192.168.0.109:80:80'
+      - '192.168.0.109:443:443'
       - '192.168.0.109:22:22'
     volumes:
       - '$GITLAB_HOME/config:/etc/gitlab'
