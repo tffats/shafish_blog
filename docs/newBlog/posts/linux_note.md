@@ -351,3 +351,12 @@ curl -sSLf https://github.com/aclap-dev/vdhcoapp/releases/latest/download/instal
 # uninstall
 To uninstall, run '~/.local/share/vdhcoapp/vdhcoapp uninstall' and remove '~/.local/share/vdhcoapp'
 ```
+
+## 十五、配置终端代理
+
+``` shell
+export http_proxy="http://192.168.0.109:10001"
+export https_proxy=$http_proxy
+unset http_proxy
+unset https_proxy
+```
