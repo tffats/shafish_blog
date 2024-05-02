@@ -303,6 +303,8 @@ services:
         image: redis:7.2
 ```
 
+需要注意把 `redis.conf` 中的 `daemonize` 改为 `no`
+
 ## 十、mysql
 
 ``` shell title="docker-compose.yml"
@@ -317,9 +319,11 @@ services:
         volumes:
             - '/data/docker/mysql/conf:/etc/mysql/conf.d'
             - '/data/docker/mysql/datadir:/var/lib/mysql'
+            - '/data/docker/mysql/log:/var/log/mysql'
         environment:
             - MYSQL_ROOT_PASSWORD=shafish123456
-        image: mysql:8.0
+            - TZ=Asia/Shanghai
+        image: mysql:8.4.0
 ```
 
 ## 十一、mongo
