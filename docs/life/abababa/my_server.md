@@ -12,18 +12,18 @@ hide:
 
 以下是纯纯的臭显摆，请走开，老夫要开大招叻：
 
-![N5105 PVE](https://picture.cdn.shafish.cn/blog/self_host/2023-02-14_00-50.png){ loading=lazy }
+![N5105 PVE](https://picture.cdn.shafish.cn/blog/self_host/2023-02-14_00-50.png){ loading=lazy : .zoom}
 
-![5900X PVE](https://picture.cdn.shafish.cn/blog/self_host/2023-02-14_00-51.png){ loading=lazy }
+![5900X PVE](https://picture.cdn.shafish.cn/blog/self_host/2023-02-14_00-51.png){ loading=lazy : .zoom}
 
-![VSCODE](https://picture.cdn.shafish.cn/blog/self_host/2023-02-14_00-53.png){ loading=lazy }
+![VSCODE](https://picture.cdn.shafish.cn/blog/self_host/2023-02-14_00-53.png){ loading=lazy : .zoom}
 
-![IDEA](https://picture.cdn.shafish.cn/blog/self_host/2023-02-14_00-53_1.png){ loading=lazy }
+![IDEA](https://picture.cdn.shafish.cn/blog/self_host/2023-02-14_00-53_1.png){ loading=lazy : .zoom}
 
-![Mattermost](https://picture.cdn.shafish.cn/blog/self_host/2023-02-14_00-54.png){ loading=lazy }
+![Mattermost](https://picture.cdn.shafish.cn/blog/self_host/2023-02-14_00-54.png){ loading=lazy : .zoom}
 
-![MINIO](https://picture.cdn.shafish.cn/blog/self_host/2023-02-14_00-54_1.png){ loading=lazy }
+![MINIO](https://picture.cdn.shafish.cn/blog/self_host/2023-02-14_00-54_1.png){ loading=lazy : .zoom}
 
-![DIAGRAM](https://picture.cdn.shafish.cn/blog/self_host/2023-02-14_00-55.png){ loading=lazy }
+![DIAGRAM](https://picture.cdn.shafish.cn/blog/self_host/2023-02-14_00-55.png){ loading=lazy : .zoom}
 
 待续
