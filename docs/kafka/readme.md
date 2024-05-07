@@ -5,6 +5,7 @@ hide:
   - navigation
 ---
 
+[ :fishing_pole_and_fish: ](/)
 
 ## 环境安装（Docker）
 

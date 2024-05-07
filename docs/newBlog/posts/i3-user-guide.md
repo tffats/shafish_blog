@@ -10,6 +10,8 @@ categories:
     - 装机
 ---
 
+[ :fishing_pole_and_fish: ](/)
+
 ## 硬件环境
 - CPU:AMD5900X
 - 主板:华擎x570太极雷蛇
@@ -1673,6 +1675,10 @@ sudo pacman -S obs-studio
 # ndi双机推流
 sudo pacman -S obs-ndi
 ```
+
+### 3.26 图片编辑软件
+
+`sudo pacman -S gimp`
 
 ## 四、问题解决
 ### 4.1 开机启动失败

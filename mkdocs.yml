@@ -23,6 +23,7 @@ theme:
   # 网站字体
   icon:
     repo: fontawesome/brands/github
+    annotation: material/crown-circle
   palette:
     scheme: slate
     primary:  deep orange  # 使用root自定义 # 算了deep orange还挺好看的
@@ -106,6 +107,8 @@ plugins:
   #- info
 
 extra:
+  status:
+    new: Recently added
   social:
     - icon: fontawesome/brands/creative-commons
       link: https://creativecommons.org/licenses/by/4.0/deed.zh-hans

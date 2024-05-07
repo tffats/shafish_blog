@@ -5,6 +5,7 @@ hide:
   - navigation
 ---
 
+[ :fishing_pole_and_fish: ](/)
 
 > ***Spring for Apache Kafka***
 

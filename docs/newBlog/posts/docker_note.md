@@ -10,6 +10,8 @@ categories:
     - linux
 ---
 
+[ :fishing_pole_and_fish: ](/)
+
 !!! note "shafish docker hub"
     [https://hub.docker.com/u/shafish](https://hub.docker.com/u/shafish){target="_blank"}
 
