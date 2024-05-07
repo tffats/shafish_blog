@@ -1,13 +1,13 @@
 ---
-title: 本地gitlab搭建
-authors:
-    - shafish
-date:
-    created: 2024-04-29
-    updated: 2024-05-01
-categories:
-    - gitlab
+title: gitlab环境搭建
+description: gitlab 使用说明书
+icon: material/emoticon-happy
+#status: new
+hide:
+  - navigation
 ---
+
+[ :fishing_pole_and_fish: ](/)
 
 ![](https://file.cdn.shafish.cn/blog/blog/git/%E5%9B%BE%E7%89%87.png){: .zoom}
 

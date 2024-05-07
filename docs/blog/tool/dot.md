@@ -1,9 +1,13 @@
 ---
 title: Dot模板小工具
+description: Dot 使用说明书
+icon: material/emoticon-happy
+#status: new
 hide:
   - navigation
-  - toc
 ---
+
+[ :fishing_pole_and_fish:{ .lg .middle } ](/)
 
 !!! quote
 

@@ -10,6 +10,8 @@ categories:
     - rsync
 ---
 
+[ :fishing_pole_and_fish: ](/)
+
 ## 一、复制大文件显示进度
 
 ``` shell

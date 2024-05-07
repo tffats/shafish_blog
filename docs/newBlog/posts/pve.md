@@ -11,6 +11,8 @@ categories:
     - linux
 ---
 
+[ :fishing_pole_and_fish: ](/)
+
 ### 一、显卡直通
 [https://www.youtube.com/watch?v=5ce-CcYjqe8](https://www.youtube.com/watch?v=5ce-CcYjqe8){target=_black}
 [https://www.youtube.com/watch?v=BoMlfk397h0&t=915s](https://www.youtube.com/watch?v=BoMlfk397h0&t=915s){target=_black}
