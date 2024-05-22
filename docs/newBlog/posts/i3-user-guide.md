@@ -1680,6 +1680,20 @@ sudo pacman -S obs-ndi
 
 `sudo pacman -S gimp`
 
+### 3.27 思维导图 `mind-map`
+
+``` yml
+version: '3'
+
+services:
+  smm:
+    image: shuiche/mind-map
+    container_name: simplemindmap
+    restart: unless-stopped
+    ports:
+      - 8001:8080
+```
+
 ## 四、问题解决
 ### 4.1 开机启动失败
 
