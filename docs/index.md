@@ -40,6 +40,36 @@ hide:
 
     </div>
 
+??? "收藏夹"
+
+    <div class="grid cards" markdown>
+
+    -   :notepad_spiral:{ .lg .middle } __笔记收藏__
+
+        ---
+
+        自用记录
+
+        [:octicons-arrow-right-24: Getting started](https://note.shafish.cn/share/dtyo3K8tZLDZ){target=_blank}
+
+    -   :simple-materialformkdocs:{ .lg .middle } __mkdocs material使用记录__
+
+        ---
+
+        自用记录
+
+        [:octicons-arrow-right-24: Getting started](newBlog/posts/mkdocs.md)
+
+    -   :fontawesome-brands-docker:{ .lg .middle } __docker记录 [更新ing]__
+
+        ---
+
+        自用记录
+
+        [:octicons-arrow-right-24: Getting started](newBlog/posts/docker_note.md)
+
+    </div>
+
 ??? "Linux"
 
     <div class="grid cards" markdown>
@@ -87,35 +117,6 @@ hide:
 
     </div>
 
-??? "收藏夹"
-
-    <div class="grid cards" markdown>
-
-    -   :notepad_spiral:{ .lg .middle } __笔记收藏__
-
-        ---
-
-        自用记录
-
-        [:octicons-arrow-right-24: Getting started](https://note.shafish.cn/share/dtyo3K8tZLDZ){target=_blank}
-
-    -   :simple-materialformkdocs:{ .lg .middle } __mkdocs material使用记录__
-
-        ---
-
-        自用记录
-
-        [:octicons-arrow-right-24: Getting started](newBlog/posts/mkdocs.md)
-
-    -   :fontawesome-brands-docker:{ .lg .middle } __docker记录 [更新ing]__
-
-        ---
-
-        自用记录
-
-        [:octicons-arrow-right-24: Getting started](newBlog/posts/docker_note.md)
-
-    </div>
 
 ??? "Kafka"
 
@@ -152,6 +153,20 @@ hide:
         自用记录
 
         [:octicons-arrow-right-24: Getting started](kafka/shell.md)
+
+    </div>
+
+??? "SpringCloud"
+
+    <div class="grid cards" markdown>
+
+    -   :notepad_spiral:{ .lg .middle } __Nacos__
+
+        ---
+
+        自用记录
+
+        [:octicons-arrow-right-24: Getting started](blog/springcloud/nacos.md)
 
     </div>
 
