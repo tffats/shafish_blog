@@ -6,14 +6,14 @@ hide:
   - navigation
 ---
 
-## ddl
+## 一、ddl
 
-### 建库
+### 1.建库
 ``` sql
-CREATE DATABASE IF NOT EXISTS sf;
+CREATE DATABASE IF NOT EXISTS nacos_devtest;
 ```
 
-### 查看编码
+### 2.查看编码
 
 ``` shell
 show variables like 'character%';
@@ -25,9 +25,9 @@ show variables like 'character%';
 - character_set_results结果集的编码；
 - character_set_server数据库服务器的编码；
 
-## 运维
+## 二、运维
 
-### 建用户
+### 1.建用户
 
 ``` shell
 create user '#userName'@'#host' identified by '#passWord';
@@ -40,38 +40,38 @@ create user '#userName'@'#host' identified by '#passWord';
 - localhost为本地权限(不可远程访问)
 - 指定特殊Ip访问权限 如10.138.106.102
 
-### 数据库授权
+### 2.数据库授权
 
 ``` shell
 grant #auth on #databaseName.#table to '#userName'@'#host';
 /** 
-    grant select,insert,update,delete on sf.* to 'shafish'@'%';
+    grant select,insert,update,delete on sf.* to 'nacos_devtest'@'%';
 **/
 ```
 
-- #auth 代表权限，如下
+- auth 代表权限，如下
     all privileges 全部权限
     select,insert,update,delete 增删改查权限
     create,show,execute 建库，查库，执行函数/存储过程等权限
 
-- #databaseName 代表数据库名#table 代表具体表，如下
+- databaseName 代表数据库名#table 代表具体表，如下
     *代表全部表
     A,B 代表具体A,B表
 
-- #userName 代表用户名
+- userName 代表用户名
 
-- #host 代表访问权限，如下
+- host 代表访问权限，如下
     %代表通配所有host地址权限(可远程访问)
     localhost为本地权限(不可远程访问)
     指定特殊Ip访问权限 如10.138.106.102
 
-### 刷新
+### 3.刷新
 
 ``` sqshelll
 flush privileges;
 ```
 
-### 查看授权情况
+### 4.查看授权情况
 ``` shell
 show grants for '#userName'@'#host';
 
@@ -80,7 +80,7 @@ show grants for '#userName'@'#host';
 **/
 ```
 
-### 撤销授权
+### 5.撤销授权
 ``` shell
 revoke #auth on #databaseName.#table from '#userName'@'#host';
 
@@ -89,24 +89,24 @@ revoke #auth on #databaseName.#table from '#userName'@'#host';
 **/
 ```
 
-- #auth 代表权限，如下
+- auth 代表权限，如下
     all privileges 全部权限
     select,insert,update,delete 增删改查权限
     create,show,execute 建库，查库，执行函数/存储过程等权限
 
-- #databaseName 代表数据库名#table 代表具体表，如下
+- databaseName 代表数据库名#table 代表具体表，如下
 
 - *代表全部表
     A,B 代表具体A,B表
 
-- #userName 代表用户名
+- userName 代表用户名
 
-- #host 代表访问权限，如下
+- host 代表访问权限，如下
     %代表通配所有host地址权限(可远程访问)
     localhost为本地权限(不可远程访问)
     指定特殊Ip访问权限 如10.138.106.102
 
-### 删除用户
+### 6.删除用户
 ``` shell
 drop user '#userName'@'#host';
 /** 
@@ -114,13 +114,13 @@ drop user '#userName'@'#host';
 **/
 ```
 
-- #userName 代表用户名
+- userName 代表用户名
 
-- #host 代表访问权限，如下
+- host 代表访问权限，如下
     %代表通配所有host地址权限(可远程访问)
     localhost为本地权限(不可远程访问)
     指定特殊Ip访问权限 如10.138.106.102
 
 ref:
 
-- https://juejin.cn/post/6844904051063144455
+- [MySQL8.0 创建用户及授权](https://juejin.cn/post/6844904051063144455){target=_blank}
