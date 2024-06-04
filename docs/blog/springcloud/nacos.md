@@ -7,6 +7,9 @@ hide:
 
 [ :fishing_pole_and_fish: ](/)
 
+> [Nacos](https://nacos.io/){target=_blank} (Dynamic Naming and Configuration Service) 是一个开源的、易于使用的动态服务发现、配置管理和服务管理平台。
+> 它帮助开发团队实现微服务架构中的服务发现、服务注册、配置管理和流量管理等功能。
+
 ## 一、nacos部署
 - 1.拉取官方配置
 `git clone https://github.com/nacos-group/nacos-docker.git`
@@ -314,5 +317,16 @@ public class ConfigConsummerController {
 
 ![](https://file.cdn.shafish.cn/blog/blog/springcloud/nacos/1716996142379471.png){loading=lazy : .zoom}
 
+## 六、总结
+
+- 第一节介绍了nacos的部署，需要留意下控制台的登录配置;
+- 第二节介绍依赖的版本要求，需要springcloud对应springboot的版本要求;
+- 第三节介绍了使用nacos作为配置中心，进行动态配置修改，注意默认会把 `spring.application.name` 作为配置id;
+- 第四节介绍了nacos的服务注册功能，也就是配置服务 `provider` 对外暴露接口，默认也是把应用名进行服务注册;
+- 第五节内容就比较复杂点，使用nacos的服务发现功能，需要在 `consummer` 端请求nacos中注册好的服务接口，需要用 `loadbalancer` 对拉取的所有服务做个负载均衡判断，选出一个服务进行请求，这些都是 `openfeign` 封装好的功能，包括以后要介绍的服务降级等;
+
+一般来说用 `nacos` 可以一步到位地管理应用配置和服务，也提供高可用部署。方便👍
+
 ref:
 - [集群提示root密码错误](https://github.com/nacos-group/nacos-docker/issues/318){target=_blank}
+- [nacos官方文档](https://nacos.io/docs/latest/what-is-nacos/){target=_blank}

@@ -38,6 +38,15 @@ hide:
 
         [:octicons-arrow-right-24: Getting started](blog/tool/httpUtils.md)
 
+
+    -   :fontawesome-brands-java:{ .lg .middle } __代码说明书__
+
+        ---
+
+        ==自用代码片段记录== 
+
+        [:octicons-arrow-right-24: Getting started](blog/tool/java_code.md)
+
     </div>
 
 ??? "收藏夹"
@@ -166,9 +175,17 @@ hide:
 
         ---
 
-        自用记录
+        （自用记录）微服务配置中心+服务中心
 
         [:octicons-arrow-right-24: Getting started](blog/springcloud/nacos.md)
+
+    -   :notepad_spiral:{ .lg .middle } __OpenFeign__
+
+        ---
+
+        （自用记录）OpenFeign是 `Spring Cloud` 的一部分，主要用于简化微服务架构中的服务调用，同时可以与负载均衡、服务熔断等组件集成，提供完整微服务调用
+
+        [:octicons-arrow-right-24: Getting started](blog/springcloud/openfeign.md)
 
     </div>
 
