@@ -183,7 +183,7 @@ hide:
 
         ---
 
-        （自用记录）OpenFeign是 `Spring Cloud` 的一部分，主要用于简化微服务架构中的服务调用，同时可以与负载均衡、服务熔断等组件集成，提供完整微服务调用
+        （自用记录）OpenFeign是 `Spring Cloud` 的一部分，主要用于简化微服务架构中的服务调用，同时可以与负载均衡、服务熔断等组件集成，提供完整微服务调用。说人话就是升级版的 http 请求工具
 
         [:octicons-arrow-right-24: Getting started](blog/springcloud/openfeign.md)
 

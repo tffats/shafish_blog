@@ -7,14 +7,20 @@ hide:
 
 [ :fishing_pole_and_fish: ](/)
 
-> OpenFeign 是一个声明式的 HTTP 客户端，它允许开发者以简单的接口定义来集成 HTTP 服务，就像调用本地方法一样，无需处理复杂的 HTTP 细节。
-> 它是 Spring Cloud 的一部分，主要用于简化微服务架构中的服务调用。
+> `OpenFeign` 是一个声明式的 HTTP 客户端，它允许开发者以简单的接口定义来集成 `HTTP` 服务，就像调用本地方法一样，无需处理复杂的 `HTTP` 细节。
+> 它是 `Spring Cloud` 的一部分，主要用于简化微服务架构中的服务调用。
+
+- 第一节熟悉下 `nacos` 的基本使用
+- 第二节引入依赖
+- 第三节写个简单的服务
+- 第四节是本章主要内容，介绍了 `Openfeign` 的主要使用及配置，包括 `http` 请求配置、服务降级配置、`http` 请求认证拦截处理（就是在请求头加 `token` ）等
+- 第五节介绍了 `Openfeign` 的全局配置
 
 ## 一、nacos接入
 
-> 使用nacos的服务注册与发现功能即可。在 `Springcloud` 中使用服务发现组件后，`openfeign` 会自动拉取服务进行调用。
+> 使用nacos的服务注册与发现功能即可。在 `Springcloud` 中使用服务发现组件后，`openfeign` 会自动进行服务发现（也就是选服务再发起 `http` 请求）。
 
-[nacos 使用](./nacos.md){taget=_blank}
+[Nacos使用教程](./nacos.md){target=_blank}
 
 ## 二、OpenFeign依赖
 
@@ -28,12 +34,13 @@ hide:
 
 <!-- 动态配置依赖 -->
 <!-- https://mvnrepository.com/artifact/com.alibaba.cloud/spring-cloud-starter-alibaba-nacos-config -->
+<!-- 
 <dependency>
     <groupId>com.alibaba.cloud</groupId>
     <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
     <version>2023.0.1.0</version>
 </dependency>
-
+ -->
 <!-- 服务注册与发现依赖 -->
 <!-- https://mvnrepository.com/artifact/com.alibaba.cloud/spring-cloud-starter-alibaba-nacos-discovery -->
 <dependency>
@@ -74,12 +81,25 @@ hide:
 
 ## 三、服务提供
 
-> 新建模块后引入上面的依赖
+> 新建模块后引入第二节中的依赖
+
+``` yaml title="application.yml"
+server:
+  port: 0 # (1)
+```
+
+1.  项目启动时，随机选择端口，因为使用了 `nacos` 管理服务，只需知道服务名称就行
 
 ``` yaml title="bootstrap.yml"
 spring:
   application:
     name: config
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        username: nacos
+        password: nacos
 ```
 
 ``` java title="ConfigController.java"
@@ -93,11 +113,28 @@ public class ConfigController {
     }
 }
 ```
-- 该项目模块就定义了一个get请求接口
+- 该服务就定义了一个get请求接口
 
-## 四、使用Feign进行服务请求
+## 四、使用 OpenFeign 进行服务请求
 
-> 新建模块后同样引入上面的依赖
+> 新建项目模块后同样引入第二节中的依赖
+
+``` yaml title="application.yml"
+server:
+  port: 8081
+```
+
+``` yaml title="bootstrap.yml"
+spring:
+  application:
+    name: config-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        username: nacos
+        password: nacos
+```
 
 ### 1. 注解声明
 
@@ -116,40 +153,58 @@ public interface ConfigFeignClient {
 ```
 
 `@FeignClient` 注解配置说明：
-- value：调用的服务名称（也就是第三点中定义的 `spring.application.name` ）
-- contextId：跟接口名一致就行，动态代理生成的 bean 名称
-- configuration：重写http请求服务时的配置，默认使用 `FeignClientsConfiguration` 配置，一般可以配置编解码、超时、重试之类的
-- fallbackFactory：服务熔断配置
-- url：如果不使用服务发现组件，可以直接用url指定请求根地址
-- path：统一接口前缀
 
-???- "config and fallback"
+- `value`：服务提供者名称;
+- `contextId`：跟接口名一致就行，动态代理生成的 bean 名称;
+- `configuration`：重写 `http` 请求配置，默认使用 `FeignClientsConfiguration` 配置，一般可以配置请求的对象参数编解码（也就是序列化）、请求超时、重试、请求拦截之类的;
+- `fallbackFactory`：服务降级配置;
+- `url`：如果不使用服务发现组件，可以直接用url指定请求的 `ip:port`;
+- `path`：统一接口前缀;
 
-  ``` java title="ConfigClientConfig.java"
-  public class ConfigClientConfig {
-    @Bean
-    public Retryer feignRetryer() {
-        //最大请求次数为5，初始间隔时间为100ms，下次间隔时间1.5倍递增，重试间最大间隔时间为1s，
-        return new Retryer.Default();
-    }
-  }
-  ```
+???- "http配置、降级配置、http拦截器"
 
-  ``` java title="ConfigClientFallback.java"
-  @Component
-  public class ConfigClientFallback implements FallbackFactory<ConfigFeignClient> {
-      @Override
-      public ConfigFeignClient create(Throwable cause) {
-          return new ConfigFeignClient() {
+    ``` java title="ConfigClientConfig.java"
+    public class ConfigClientConfig {
 
-              @Override
-              public RestResult<Object> getConfig() {
-                  return new RestResult<>(false, "服务调用异常", "服务调用异常");
-              }
-          };
+      @Bean
+      public Retryer feignRetryer() {
+          //最大请求次数为5，初始间隔时间为100ms，下次间隔时间1.5倍递增，重试间最大间隔时间为1s，
+          return new Retryer.Default();
       }
-  }
-  ```
+
+      @Bean
+      public Request.Options options() {
+          return new Request.Options(8, TimeUnit.SECONDS, 8, TimeUnit.SECONDS, true);
+      }      
+    }
+    ```
+
+    ``` java title="ConfigClientFallback.java"
+    @Component
+    public class ConfigClientFallback implements FallbackFactory<ConfigFeignClient> {
+        @Override
+        public ConfigFeignClient create(Throwable cause) {
+            return new ConfigFeignClient() {
+
+                @Override
+                public RestResult<Object> getConfig() {
+                    return new RestResult<>(false, "服务调用异常", "服务调用异常");
+                }
+            };
+        }
+    }
+    ```
+
+    ``` java title="FeignOauth2RequestInterceptor.java"
+    @Configuration
+    public class FeignOauth2RequestInterceptor implements RequestInterceptor {
+
+        @Override
+        public void apply(RequestTemplate requestTemplate) {
+            requestTemplate.header("Authorization", "token");
+        }
+    }
+    ```
 
 ### 3. 调用 `feign client`
 
@@ -199,8 +254,13 @@ spring:
           min-request-size: 512
         response:
           enabled: true
+      httpclient:
+        ok-http:
+          read-timeout: 8000
+        connection-timeout: 8000          
 ```
 
 ref:
+
 - [使用文档](https://docs.spring.io/spring-cloud-openfeign/docs/current/reference/html/){target=_blank}
 - [源码流程](https://blog.csdn.net/qq_43799161/article/details/130108131){target=_blank}
