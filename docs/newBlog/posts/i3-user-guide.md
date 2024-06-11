@@ -303,6 +303,14 @@ id_rsa.pub、known_hosts等 配置644权限
 - 复制到`/etc/pacman.d/mirrorlist` 文件开头即可
 - 强制更新镜像（所有软件包列表）：`sudo pacman -Syyu`
 
+### 2.13 时间不准
+
+xx mouth later
+
+``` shell
+sudo timedatectl set-ntp true
+```
+
 ## 三、软件配置
 
 ???+ "vim ~/.config/i3/config"

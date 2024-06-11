@@ -69,7 +69,15 @@ hide:
 
         [:octicons-arrow-right-24: Getting started](newBlog/posts/mkdocs.md)
 
-    -   :fontawesome-brands-docker:{ .lg .middle } __docker记录 [更新ing]__
+    -   :fontawesome-brands-docker:{ .lg .middle } __docker操作记录 [更新ing]__
+
+        ---
+
+        自用记录
+
+        [:octicons-arrow-right-24: Getting started](newBlog/posts/docker_config.md)
+
+    -   :fontawesome-brands-docker:{ .lg .middle } __docker容器案例 [更新ing]__
 
         ---
 
@@ -111,7 +119,7 @@ hide:
 
         ---
 
-        自用记录
+        （自用记录）Archlinux 系统安装到日常使用
 
         [:octicons-arrow-right-24: Getting started](newBlog/posts/i3-user-guide.md)
 
@@ -162,6 +170,21 @@ hide:
         自用记录
 
         [:octicons-arrow-right-24: Getting started](kafka/shell.md)
+
+    </div>
+
+
+??? "Spring"
+
+    <div class="grid cards" markdown>
+
+    -   :simple-springsecurity:{ .lg .middle } __Spring Authorization Server__
+
+        ---
+
+        （自用记录）Spring Authorization Server 是一个框架，提供 OAuth 2.1 和 OpenID Connect 1.0 规范以及其他相关规范的实现
+
+        [:octicons-arrow-right-24: Getting started](blog/spring/spring_oauth.md)
 
     </div>
 
