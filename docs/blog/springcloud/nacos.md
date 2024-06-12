@@ -140,6 +140,8 @@ hide:
 </dependency>
 ```
 
+> 注意⚠️：负载均衡组件 `ribbon` 和 服务熔断组件 `hystrix` 已经不维护了，这里用 `loadbalancer` 和 `sentinel` 代替。（当然目前 `feign-hystrix` 还是被海量使用der）
+
 ## 三、项目接入配置中心
 
 ### 1.修改配置文件

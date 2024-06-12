@@ -25,30 +25,6 @@ hide:
 ## 二、OpenFeign依赖
 
 ``` xml
-<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-bootstrap -->
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-bootstrap</artifactId>
-    <version>4.1.2</version>
-</dependency>
-
-<!-- 动态配置依赖 -->
-<!-- https://mvnrepository.com/artifact/com.alibaba.cloud/spring-cloud-starter-alibaba-nacos-config -->
-<!-- 
-<dependency>
-    <groupId>com.alibaba.cloud</groupId>
-    <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-    <version>2023.0.1.0</version>
-</dependency>
- -->
-<!-- 服务注册与发现依赖 -->
-<!-- https://mvnrepository.com/artifact/com.alibaba.cloud/spring-cloud-starter-alibaba-nacos-discovery -->
-<dependency>
-    <groupId>com.alibaba.cloud</groupId>
-    <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-    <version>2023.0.1.0</version>
-</dependency>
-<!-- 服务请求依赖 -->
 <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-openfeign -->
 <dependency>
   <groupId>org.springframework.cloud</groupId>
@@ -61,23 +37,7 @@ hide:
   <artifactId>feign-okhttp</artifactId>
   <version>13.2.1</version>
 </dependency>
-<!-- 服务请求负载均衡依赖 -->
-<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-loadbalancer -->
-<dependency>
-  <groupId>org.springframework.cloud</groupId>
-  <artifactId>spring-cloud-starter-loadbalancer</artifactId>
-  <version>4.1.2</version>
-</dependency>
-<!-- 服务服务熔断依赖 feign-hystrix -->
-<!-- https://mvnrepository.com/artifact/com.alibaba.cloud/spring-cloud-starter-alibaba-sentinel -->
-<dependency>
-  <groupId>com.alibaba.cloud</groupId>
-  <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
-  <version>2023.0.1.0</version>
-</dependency>
 ```
-
-> 注意⚠️：负载均衡组件 `ribbon` 和 服务熔断组件 `hystrix` 已经不维护了，这里用 `loadbalancer` 和 `sentinel` 代替。（当然目前 `feign-hystrix` 还是被海量使用der）
 
 ## 三、服务提供
 
