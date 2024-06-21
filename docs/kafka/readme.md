@@ -5,7 +5,7 @@ hide:
   - navigation
 ---
 
-[ :fishing_pole_and_fish: ](/)
+[ :fishing_pole_and_fish: ](../index.md)
 
 ## 环境安装（Docker）
 

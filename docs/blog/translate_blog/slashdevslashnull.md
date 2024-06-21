@@ -6,7 +6,7 @@ hide:
 
 # /dev/null是个啥
 
-[Back](/blog/#2022年文章导航){ .md-button}
+[Back](../index.md/#2022年文章导航){ .md-button}
 
 ref: [https://www.putorius.net/introduction-to-dev-null.html](https://www.putorius.net/introduction-to-dev-null.html){target=_blank}
 

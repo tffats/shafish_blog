@@ -7,7 +7,7 @@ hide:
 
 # Linux(Ubuntu) Server7个简单的安全配置
 
-[Back](/blog/#2022年文章导航){ .md-button}
+[Back](../index.md/#2022年文章导航){ .md-button}
 
 ref: 
 

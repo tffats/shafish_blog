@@ -10,7 +10,7 @@ categories:
     - rsync
 ---
 
-[ :fishing_pole_and_fish: ](/)
+[ :fishing_pole_and_fish: ](../../index.md)
 
 ## 一、复制大文件显示进度
 
@@ -362,3 +362,18 @@ export https_proxy=$http_proxy
 unset http_proxy
 unset https_proxy
 ```
+
+## 十六、批量修改文件内容
+
+- 单文件修改格式：`sed -i 's/旧内容/新内容/g' 文件路径`
+- 多文件修改格式：
+```
+sed -i "s/原来字符串/新字符串/g" `grep 原来字符串 -rl 路径`
+```
+
+``` shell
+sed  -i 's/(\/)/(..\/..\/index.md)/g' docker_config.md
+sed  -i 's/(\/)/(..\/..\/index.md)/g' `grep (\/) -rl ./`
+```
+
+- 

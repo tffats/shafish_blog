@@ -5,7 +5,7 @@ hide:
   - toc
 ---
 
-[:material-backburger: /Java_Guide](/Java_Guide/#五流式操作){ .md-button}
+[:material-backburger: /Java_Guide](index.md#五流式操作){ .md-button}
 
 通过之前对流的操作可以看出stream对数据的操作都是连贯的，如果没有特意处理 无法在处理流时查看各个元素的值。
 

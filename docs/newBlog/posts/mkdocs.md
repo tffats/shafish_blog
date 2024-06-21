@@ -10,7 +10,7 @@ categories:
     - blog
 ---
 
-[ :fishing_pole_and_fish: ](/)
+[ :fishing_pole_and_fish: ](../../index.md)
 
 ## 一、markdown使用
 

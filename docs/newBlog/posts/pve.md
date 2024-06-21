@@ -11,7 +11,7 @@ categories:
     - linux
 ---
 
-[ :fishing_pole_and_fish: ](/)
+[ :fishing_pole_and_fish: ](../../index.md)
 
 ### 一、显卡直通
 [https://www.youtube.com/watch?v=5ce-CcYjqe8](https://www.youtube.com/watch?v=5ce-CcYjqe8){target=_black}

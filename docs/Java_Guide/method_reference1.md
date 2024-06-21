@@ -5,7 +5,7 @@ hide:
   - toc
 ---
 
-[:material-backburger: /Java_Guide](/Java_Guide/#二方法引用){ .md-button}
+[:material-backburger: /Java_Guide](index.md#二方法引用){ .md-button}
 
 方法引用这个东西其实是函数式编程的概念，学习Java接触最多的应该是对象的引用，现在方法都用引用了？
 

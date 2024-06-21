@@ -5,7 +5,7 @@ hide:
   - toc
 ---
 
-[:material-backburger: /Java_Guide](/Java_Guide/#八Time){ .md-button}
+[:material-backburger: /Java_Guide](index.md#八Time){ .md-button}
 
 !!! note "Java8的time包是基于Joda-Time进行构建的，强推"
 
@@ -107,4 +107,4 @@ Set<String> regionNames = ZoneId.getAvailableZoneIds(); // (2)
 1.  withZoneSameInstant可以进行时区切换
 2.  查看所有时区
 
-[:material-page-previous: 文件处理](fileIO.md){ .md-button}  [:material-page-next: Time时间处理](xxx.md){ .md-button .md-button-right}
+[:material-page-previous: 文件处理](fileIO.md){ .md-button}  [:material-page-next: Time时间处理](./time.md){ .md-button .md-button-right}

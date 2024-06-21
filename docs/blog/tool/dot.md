@@ -7,7 +7,7 @@ hide:
   - navigation
 ---
 
-[ :fishing_pole_and_fish:{ .lg .middle } ](/)
+[ :fishing_pole_and_fish:{ .lg .middle } ](../../index.md)
 
 !!! quote
 

@@ -5,7 +5,7 @@ hide:
   - toc
 ---
 
-[:material-backburger: /Java_Guide](/Java_Guide/#二方法引用){ .md-button}
+[:material-backburger: /Java_Guide](index.md#二方法引用){ .md-button}
 
 !!! note "构造函数引用，木错，就是拿来创建对象实例那个构造函数。也就是说new实例这个操作也能被简化（可以这么理解）"
 ps：其实构造函数引用也是方法引用的其中一种用法，通过关键字 new 调用构造函数。

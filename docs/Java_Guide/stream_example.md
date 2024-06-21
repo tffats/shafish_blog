@@ -4,7 +4,7 @@ hide:
   - navigation
 ---
 
-[:material-backburger: /Java_Guide](/Java_Guide/#五流式操作){ .md-button}
+[:material-backburger: /Java_Guide](index.md#五流式操作){ .md-button}
 
 ## 一、字符串与流之间的转换
 
