@@ -5,7 +5,7 @@ hide:
   - toc
 ---
 
-[:material-backburger: /Java_Guide](/Java_Guide/#五流式操作){ .md-button}
+[:material-backburger: /Java_Guide](index.md#五流式操作){ .md-button}
 
 reduce方法通常在{++需要流操作返回单一值++}的场景下使用。
 

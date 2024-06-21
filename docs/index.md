@@ -85,6 +85,14 @@ hide:
 
         [:octicons-arrow-right-24: Getting started](newBlog/posts/docker_note.md)
 
+    -   :simple-nginx:{ .lg .middle } __nginx示例 [更新ing]__
+
+        ---
+
+        自用记录
+
+        [:octicons-arrow-right-24: Getting started](blog/tool/nginx.md)        
+
     </div>
 
 ??? "Linux"
@@ -209,6 +217,14 @@ hide:
         （自用记录）OpenFeign是 `Spring Cloud` 的一部分，主要用于简化微服务架构中的服务调用，同时可以与负载均衡、服务熔断等组件集成，提供完整微服务调用。说人话就是升级版的 http 请求工具
 
         [:octicons-arrow-right-24: Getting started](blog/springcloud/openfeign.md)
+
+    -   :notepad_spiral:{ .lg .middle } __SpringCloudBalancer__
+
+        ---
+
+        （自用记录） SpringCloudBalancer 是 `Spring Cloud` 的一部分，主要用于实现负载均衡功能，将客户端的请求分配到多个服务实例上，确保系统的稳定性和可扩展性
+
+        [:octicons-arrow-right-24: Getting started](blog/springcloud/loadbalancer.md)
 
     </div>
 

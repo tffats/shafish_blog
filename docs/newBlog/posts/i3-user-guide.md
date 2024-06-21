@@ -10,7 +10,7 @@ categories:
     - 装机
 ---
 
-[ :fishing_pole_and_fish: ](/)
+[ :fishing_pole_and_fish: ](../../index.md)
 
 ## 硬件环境
 - CPU:AMD5900X

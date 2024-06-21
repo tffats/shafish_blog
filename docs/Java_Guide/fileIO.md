@@ -5,7 +5,7 @@ hide:
   - toc
 ---
 
-[:material-backburger: /Java_Guide](/Java_Guide/#七文件IO){ .md-button}
+[:material-backburger: /Java_Guide](index.md#七文件IO){ .md-button}
 
 Java在1.4时引入了NIO（非阻塞IO，也可以叫NewIO）；Java1.7时扩展了NIO，包含文件、目录相关操作；而1.8进一步强化了IO，引入了流相关操作。
 

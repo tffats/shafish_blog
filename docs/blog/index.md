@@ -58,14 +58,14 @@ hide:
 
 === "4月份"
 
-    - [x] [Java_Guide/Lambda表达式](/Java_Guide/#一lambda表达式)
-    - [x] [Java_Guide/方法引用](/Java_Guide/#二方法引用)
-    - [x] [Java_Guide/函数式接口](/Java_Guide/#三函数式接口)
-    - [x] [Java_Guide/接口新特性-默认、静态方法](/Java_Guide/#四接口新特性)
-    - [x] [Java_Guide/流式操作](/Java_Guide/#五流式操作)
-    - [x] [Java_Guide/Optional类](/Java_Guide/#六optional类)
-    - [x] [Java_Guide/文件IO](/Java_Guide/#七文件io)
-    - [ ] [Java_Guide/Time](/Java_Guide/#八time)
+    - [x] [Java_Guide/Lambda表达式](../Java_Guide/index.md#一lambda表达式)
+    - [x] [Java_Guide/方法引用](../Java_Guide/index.md#二方法引用)
+    - [x] [Java_Guide/函数式接口](../Java_Guide/index.md#三函数式接口)
+    - [x] [Java_Guide/接口新特性-默认、静态方法](../Java_Guide/index.md#四接口新特性)
+    - [x] [Java_Guide/流式操作](../Java_Guide/index.md#五流式操作)
+    - [x] [Java_Guide/Optional类](../Java_Guide/index.md#六optional类)
+    - [x] [Java_Guide/文件IO](../Java_Guide/index.md#七文件io)
+    - [ ] [Java_Guide/Time](../Java_Guide/index.md#八time)
 
 === "3月份"
 

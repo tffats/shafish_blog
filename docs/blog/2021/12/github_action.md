@@ -6,7 +6,7 @@ hide:
 
 # Github Action
 
-[Back](/blog/#2021年文章导航){ .md-button}
+[Back](../../index.md#2021年文章导航){ .md-button}
 
 ref:
 

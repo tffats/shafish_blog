@@ -5,7 +5,7 @@ hide:
   - toc
 ---
 
-[:material-backburger: /Java_Guide](/Java_Guide/#六Optional类){ .md-button}
+[:material-backburger: /Java_Guide](index.md#六Optional类){ .md-button}
 
 !!! note "Optional 类设计用来在返回值可能合法为 null 时相关的操作。Optional 实例具有两种状态，要么是对 {++T 类型实例的引用++}，要么为{++空++}"
 

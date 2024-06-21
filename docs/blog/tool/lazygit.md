@@ -7,7 +7,7 @@ hide:
   - navigation
 ---
 
-[ :fishing_pole_and_fish: ](/)
+[ :fishing_pole_and_fish: ](../../index.md)
 
 
 ## lazygit基本了解
@@ -16,7 +16,7 @@ hide:
 
 lazygit将git划分为5大面板，并且通过字母绑定的方式对git命令进行了简化，下面简单了解下 `lazygit` 的页面布局：
 
-![页面布局](../image/compressed_1714831380.png){: .zoom}
+![页面布局](../../newBlog/image/compressed_1714831380.png){: .zoom}
 
 页面左侧分别是：
 

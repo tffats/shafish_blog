@@ -5,10 +5,10 @@ hide:
   - navigation
 ---
 
-[ :fishing_pole_and_fish: ](/)
+[ :fishing_pole_and_fish: ](../../index.md)
 
 
-> [`Spring Cloud Loadbalancer`](https://docs.spring.io/spring-cloud-commons/reference/spring-cloud-commons/loadbalancer.html){target=_blank} 是 `Ribbon` 不维护后，提供的一个负载均衡组件，位于 `spring-cloud-commons` 下
+> [`Spring Cloud Loadbalancer`](https://docs.spring.io/spring-cloud-commons/reference/spring-cloud-commons/loadbalancer.html){target=_blank} 是 `Ribbon` 不维护后，Spring cloud 官方提供的一个负载均衡组件，位于 `spring-cloud-commons` 下。Spring Cloud Balancer 提供了多种负载均衡算法的实现，如轮询、随机等，并且可以与Spring Cloud的其他组件（如服务注册与发现）集成使用。通过Spring Cloud Balancer，开发者可以更容易地实现微服务架构中的负载均衡策略，提高系统的性能和可靠性。
 
 ## 一、nacos接入
 
@@ -277,4 +277,3 @@ hide:
 
 在以上的示例中，对于 loadbalancer 组件的使用好像就引入对应依赖就行，事实也确实是这样。因为 openfeign 会自动调用启动的负载均衡组件进行服务调用，而 loadbalancer 默认规则是 **轮询** 调用，因此，你就可以看到上面的两个服务提供方是依次循环被请求的。
 
-。。。

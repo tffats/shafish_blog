@@ -5,7 +5,7 @@ hide:
   - toc
 ---
 
-[:material-backburger: /Java_Guide](/Java_Guide/#一lambda表达式){ .md-button}
+[:material-backburger: /Java_Guide](index.md#一lambda表达式){ .md-button}
 
 {--!!! abstract "使用场景：使用lambda表达式，可以将表达式结果赋给函数式接口的引用"--}
 
@@ -32,7 +32,7 @@ public class RunnableDemo {
 }
 ```
 
-!!! tip "更多函数式接口的说明可以查看[Java_Guide第三点](/Java_Guide/functional_interface/)查看"
+!!! tip "更多函数式接口的说明可以查看[Java_Guide第三点](functional_interface.md)查看"
 
 ## 二、Lambda表达式用法
 
@@ -95,6 +95,6 @@ public class ListJavaFile {
 }
 ```
 
-[:material-page-previous: /Java_Guide](/Java_Guide/#一lambda表达式){ .md-button} [:material-page-next: 方法引用的用法](method_reference1.md){ .md-button .md-button-right}
+[:material-page-previous: /Java_Guide](index.md#一lambda表达式){ .md-button} [:material-page-next: 方法引用的用法](method_reference1.md){ .md-button .md-button-right}
 
 [^1]: 函数式接口的引用：这里指1-1示例代码中的`new Runnable()/函数式接口名`

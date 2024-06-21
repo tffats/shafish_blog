@@ -5,7 +5,7 @@ hide:
   - toc
 ---
 
-[:material-backburger: /Java_Guide](/Java_Guide/#四接口新特性){ .md-button}
+[:material-backburger: /Java_Guide](index.md#四接口新特性){ .md-button}
 
 ## 定义：default
 

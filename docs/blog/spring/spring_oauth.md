@@ -5,7 +5,7 @@ hide:
   - navigation
 ---
 
-[ :fishing_pole_and_fish: ](/)
+[ :fishing_pole_and_fish: ](../../index.md)
 
 > `Spring Authorization Server` 是 `Spring` 官方新推出的一个框架，它提供了 `OAuth 2.1` 和 `OpenID Connect 1.0` 规范以及其他相关规范的实现。
 

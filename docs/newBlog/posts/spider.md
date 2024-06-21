@@ -46,7 +46,40 @@ categories:
 
 <!-- more -->
 
-二、简单示例
+## 二、搭建环境
+
+### 安装pyenv
+
+``` shell
+# 若提示访问raw网站失败，则复制内容到本地 pyenv-installer.sh ，再执行 `bash pyenv-installer.sh`
+curl https://pyenv.run | bash
+```
+
+``` shell title="配置"
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.profile
+echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.profile
+echo 'eval "$(pyenv init -)"' >> ~/.profile
+```
+
+### 创建python环境
+
+``` shell title="安装依赖"
+sudo apt update; sudo apt install build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl git libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+```
+
+``` shell
+pyenv install -v 3.10.6
+pyenv virtualenv 3.10.6 spider
+cd spider
+pyenv local spider
+python -V
+```
+
+三、简单示例
 
 - 1.创建项目
 ``` shell
@@ -107,7 +140,7 @@ class QuotesSpider(scrapy.Spider):
 scrapy crawl quotes
 ```
 
-三、项目结构
+四、项目结构
 
 ``` shell
 scrapy.cfg # 项目根目录下，项目配置文件
@@ -124,8 +157,31 @@ myproject/
         ...
 ```
 
+五、使用selenium
+
+- 安装chrome
+
+``` shell
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+pkg -i google-chrome*.deb # 如果出错，执行下一个命令
+apt-get install -f
+```
+
+- 安装chromedriver
+
+https://googlechromelabs.github.io/chrome-for-testing/
+
+``` shell
+# 查看谷歌版本号
+google-chrome --version
+# 安装对应的驱动
+wget https://storage.googleapis.com/chrome-for-testing-public/126.0.6478.62/linux64/chromedriver-linux64.zip
+# 解压到python环境下
+unzip -d ~/.pyenv/versions/spider/bin/ chromedriver-linux64.zip 
+```
 
 ref: 
 
 - [scrapy-菜鸟教程](https://www.runoob.com/w3cnote/scrapy-detail.html){target=_blank}
 - [scrapy-官方教程](https://docs.scrapy.org/en/latest/intro/tutorial.html){target=_blank}
+- [无图形界面Linux安装chrome实现自动化测试](https://blog.csdn.net/qq_57457856/article/details/124823603){target=_blank}

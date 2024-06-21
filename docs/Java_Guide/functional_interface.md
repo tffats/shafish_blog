@@ -5,7 +5,7 @@ hide:
   - toc
 ---
 
-[:material-backburger: /Java_Guide](/Java_Guide/#三函数式接口){ .md-button}
+[:material-backburger: /Java_Guide](index.md#三函数式接口){ .md-button}
 
 这篇函数式接口介绍放在lambda之前可能更好，但不想改链接，也或许会加深些印象，而且后面几章都是跟接口有关，就一起吧
 

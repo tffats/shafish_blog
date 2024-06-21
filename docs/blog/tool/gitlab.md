@@ -7,7 +7,7 @@ hide:
   - navigation
 ---
 
-[ :fishing_pole_and_fish: ](/)
+[ :fishing_pole_and_fish: ](../../index.md)
 
 ![](https://file.cdn.shafish.cn/blog/blog/git/%E5%9B%BE%E7%89%87.png){: .zoom}
 

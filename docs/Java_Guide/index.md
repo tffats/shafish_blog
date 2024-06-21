@@ -4,7 +4,7 @@ hide:
   - navigation
 ---
 
-[:material-backburger: /blog](/blog/#2022年文章导航){ .md-button}
+[:material-backburger: /blog](../blog/index.md#2022年文章导航){ .md-button}
 
 Java是门很成熟的语言，拥有一个几乎完美的生态；Java也是个厚重历史的编程语言，相比Golang、Rust等。
 

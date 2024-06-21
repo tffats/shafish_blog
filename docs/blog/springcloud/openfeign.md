@@ -5,7 +5,7 @@ hide:
   - navigation
 ---
 
-[ :fishing_pole_and_fish: ](/)
+[ :fishing_pole_and_fish: ](../../index.md)
 
 > `OpenFeign` 是一个声明式的 HTTP 客户端，它允许开发者以简单的接口定义来集成 `HTTP` 服务，就像调用本地方法一样，无需处理复杂的 `HTTP` 细节。
 > 它是 `Spring Cloud` 的一部分，主要用于简化微服务架构中的服务调用。
