@@ -303,6 +303,14 @@ id_rsa.pub、known_hosts等 配置644权限
 - 复制到`/etc/pacman.d/mirrorlist` 文件开头即可
 - 强制更新镜像（所有软件包列表）：`sudo pacman -Syyu`
 
+### 2.13 时间不准
+
+xx mouth later
+
+``` shell
+sudo timedatectl set-ntp true
+```
+
 ## 三、软件配置
 
 ???+ "vim ~/.config/i3/config"
@@ -1679,6 +1687,20 @@ sudo pacman -S obs-ndi
 ### 3.26 图片编辑软件
 
 `sudo pacman -S gimp`
+
+### 3.27 思维导图 `mind-map`
+
+``` yml
+version: '3'
+
+services:
+  smm:
+    image: shuiche/mind-map
+    container_name: simplemindmap
+    restart: unless-stopped
+    ports:
+      - 8001:8080
+```
 
 ## 四、问题解决
 ### 4.1 开机启动失败

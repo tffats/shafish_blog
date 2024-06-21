@@ -38,6 +38,53 @@ hide:
 
         [:octicons-arrow-right-24: Getting started](blog/tool/httpUtils.md)
 
+
+    -   :fontawesome-brands-java:{ .lg .middle } __代码说明书__
+
+        ---
+
+        ==自用代码片段记录== 
+
+        [:octicons-arrow-right-24: Getting started](blog/tool/java_code.md)
+
+    </div>
+
+??? "收藏夹"
+
+    <div class="grid cards" markdown>
+
+    -   :notepad_spiral:{ .lg .middle } __笔记收藏__
+
+        ---
+
+        自用记录
+
+        [:octicons-arrow-right-24: Getting started](https://note.shafish.cn/share/dtyo3K8tZLDZ){target=_blank}
+
+    -   :simple-materialformkdocs:{ .lg .middle } __mkdocs material使用记录__
+
+        ---
+
+        自用记录
+
+        [:octicons-arrow-right-24: Getting started](newBlog/posts/mkdocs.md)
+
+    -   :fontawesome-brands-docker:{ .lg .middle } __docker操作记录 [更新ing]__
+
+        ---
+
+        自用记录
+
+        [:octicons-arrow-right-24: Getting started](newBlog/posts/docker_config.md)
+
+    -   :fontawesome-brands-docker:{ .lg .middle } __docker容器案例 [更新ing]__
+
+        ---
+
+        自用记录
+
+        [:octicons-arrow-right-24: Getting started](newBlog/posts/docker_note.md)
+
     </div>
 
 ??? "Linux"
@@ -72,7 +119,7 @@ hide:
 
         ---
 
-        自用记录
+        （自用记录）Archlinux 系统安装到日常使用
 
         [:octicons-arrow-right-24: Getting started](newBlog/posts/i3-user-guide.md)
 
@@ -87,35 +134,6 @@ hide:
 
     </div>
 
-??? "收藏夹"
-
-    <div class="grid cards" markdown>
-
-    -   :notepad_spiral:{ .lg .middle } __笔记收藏__
-
-        ---
-
-        自用记录
-
-        [:octicons-arrow-right-24: Getting started](https://note.shafish.cn/share/dtyo3K8tZLDZ){target=_blank}
-
-    -   :simple-materialformkdocs:{ .lg .middle } __mkdocs material使用记录__
-
-        ---
-
-        自用记录
-
-        [:octicons-arrow-right-24: Getting started](newBlog/posts/mkdocs.md)
-
-    -   :fontawesome-brands-docker:{ .lg .middle } __docker记录 [更新ing]__
-
-        ---
-
-        自用记录
-
-        [:octicons-arrow-right-24: Getting started](newBlog/posts/docker_note.md)
-
-    </div>
 
 ??? "Kafka"
 
@@ -152,6 +170,45 @@ hide:
         自用记录
 
         [:octicons-arrow-right-24: Getting started](kafka/shell.md)
+
+    </div>
+
+
+??? "Spring"
+
+    <div class="grid cards" markdown>
+
+    -   :simple-springsecurity:{ .lg .middle } __Spring Authorization Server__
+
+        ---
+
+        （自用记录）Spring Authorization Server 是一个框架，提供 OAuth 2.1 和 OpenID Connect 1.0 规范以及其他相关规范的实现
+
+        [:octicons-arrow-right-24: Getting started](blog/spring/spring_oauth.md)
+
+    </div>
+
+??? "SpringCloud"
+
+    [SpringCloud](https://spring.io/projects/spring-cloud){target=_blank}
+
+    <div class="grid cards" markdown>
+
+    -   :notepad_spiral:{ .lg .middle } __Nacos__
+
+        ---
+
+        （自用记录）微服务配置中心+服务中心
+
+        [:octicons-arrow-right-24: Getting started](blog/springcloud/nacos.md)
+
+    -   :notepad_spiral:{ .lg .middle } __OpenFeign__
+
+        ---
+
+        （自用记录）OpenFeign是 `Spring Cloud` 的一部分，主要用于简化微服务架构中的服务调用，同时可以与负载均衡、服务熔断等组件集成，提供完整微服务调用。说人话就是升级版的 http 请求工具
+
+        [:octicons-arrow-right-24: Getting started](blog/springcloud/openfeign.md)
 
     </div>
 
