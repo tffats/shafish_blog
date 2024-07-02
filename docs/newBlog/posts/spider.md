@@ -3,7 +3,7 @@ title: Scrapy 使用记录
 authors:
     - shafish
 date:
-    created: 2024-06-08
+    created: 2024-06-21
 draft: true    
 categories:
     - scrapy
@@ -68,7 +68,8 @@ echo 'eval "$(pyenv init -)"' >> ~/.profile
 ### 创建python环境
 
 ``` shell title="安装依赖"
-sudo apt update; sudo apt install build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl git libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+sudo apt update
+sudo apt install build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl git libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 ```
 
 ``` shell
@@ -79,7 +80,13 @@ pyenv local spider
 python -V
 ```
 
-三、简单示例
+### 安装scrapy依赖
+
+``` shell
+pip install scrapy selenium scrapy-selenium undetected-chromedriver nodriver
+```
+
+## 三、简单示例
 
 - 1.创建项目
 ``` shell
@@ -88,7 +95,6 @@ scrapy startproject bilibili
 ```
 
 - 2.创建spider
-
 ``` shell
 scrapy genspider quotes_spider https://quotes.toscrape.com
 # 或者直接在 spider 目录下创建文件
@@ -140,7 +146,7 @@ class QuotesSpider(scrapy.Spider):
 scrapy crawl quotes
 ```
 
-四、项目结构
+## 四、项目结构
 
 ``` shell
 scrapy.cfg # 项目根目录下，项目配置文件
@@ -157,9 +163,9 @@ myproject/
         ...
 ```
 
-五、使用selenium
+## 五、使用selenium
 
-- 安装chrome
+### 安装chrome
 
 ``` shell
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -167,10 +173,9 @@ pkg -i google-chrome*.deb # 如果出错，执行下一个命令
 apt-get install -f
 ```
 
-- 安装chromedriver
+### 安装chromedriver
 
 https://googlechromelabs.github.io/chrome-for-testing/
-
 ``` shell
 # 查看谷歌版本号
 google-chrome --version
