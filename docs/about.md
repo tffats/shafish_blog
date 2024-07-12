@@ -28,7 +28,7 @@ hide:
 
 ## 至于本人
 
-平平无奇只骚年白而已。
+平平无奇只 骚年白 而已。
 
 ## 匆匆那年
 
@@ -120,3 +120,5 @@ hide:
         - [x] 仓库移交tffats管理
         - [x] 设置shafish.cn跟tffats.github.io/shafish_blog同步评论
         - [ ] 添加shafish_blog合并到main时code review流程
+
+*[骚年白]: 真的白，只是白的是头发 :flushed:
