@@ -127,3 +127,9 @@ xxxx
 ```
 
 - `rm /var/lib/apt/lists/*`
+
+### 七、lv卷损坏
+
+``` shell
+lvconvert --repair pve/data
+```

@@ -138,4 +138,3 @@
 *[neat]: [ni:t] 整洁的
 *[boutiques]: [bu:ˈti:ks] 精品店
 *[grocery]: [ˈgrəʊsəri] 杂货店
-

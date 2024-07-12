@@ -1014,6 +1014,7 @@ sudo timedatectl set-ntp true
 - `sudo pacman -S deepin-image-viewer deepin-screenshot deepin-file-manager ranger`
 
 还是thunar好用
+
 - `sudo pacman -S thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman`
 - `yay -S thunar-shares-plugin`
 

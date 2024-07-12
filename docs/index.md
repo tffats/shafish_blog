@@ -192,7 +192,7 @@ hide:
 
         （自用记录）Spring Authorization Server 是一个框架，提供 OAuth 2.1 和 OpenID Connect 1.0 规范以及其他相关规范的实现
 
-        [:octicons-arrow-right-24: Getting started](blog/spring/spring_oauth.md)
+        [:octicons-arrow-right-24: Getting started](blog/spring/spring-oauth/oauth2-open.md)
 
     </div>
 
