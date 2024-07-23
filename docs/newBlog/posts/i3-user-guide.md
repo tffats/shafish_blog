@@ -1703,6 +1703,19 @@ services:
       - 8001:8080
 ```
 
+### 3.28 编程交互环境 Jupyter
+https://wiki.archlinux.org/title/Jupyter
+
+```shell
+sudo pacman -S jupyterlab 
+```
+
+### 3.29 数据库管理工具
+
+```shell
+yay -S beekeeper-studio-bin
+```
+
 ## 四、问题解决
 ### 4.1 开机启动失败
 

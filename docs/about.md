@@ -52,7 +52,7 @@ hide:
 
     ![那年6](https://file.cdn.shafish.cn/blog/blog/about/2/4/%E5%9B%BE%E7%89%87.png){loading=lazy align=right : .zoom}
 
-&emsp;&emsp;22年找到了现在这份工作，是家物联网企业，有数字化相关的团队，老夫目前主要优先负责设备/物联平台的对接，物业办公楼的电梯、电表、水表、空调、空开、对讲机、一些行车记录仪都接过，协议包括云云对接、mqtt、modbus、ws，丰富多彩。
+&emsp;&emsp;22年找到了现在这份工作，是家物联网企业，有数字化相关的团队，老夫目前主要优先负责设备/物联平台的对接，物业办公楼的电梯、电表、水表、空调、空开、对讲机、一些行车记录仪都接过，协议包括云云对接、mqtt、modbus、ws~~，丰富多彩~~。
 
 <!-- <figure markdown>
   ![WeChat_Official_Account](https://picture.cdn.shafish.cn/blog/wechat/Official_Account3.png "now啥内容也没有"){ loading=lazy }
