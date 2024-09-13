@@ -260,6 +260,8 @@ i3-gaps已经合并到i3wm 4.23版本，别安装i3-gaps了。
 - `sudo pacman -S alsa-utils alsa-plugins volumeicon`
 - `sudo pacman -S pulseaudio-bluetooth blueman`
 
+切换HDMI外接音频设备输出(视频采集卡用)：`yay -S indicator-sound-switcher` 选择 hdmi 输出即可
+
 ### 2.8 字体
 [https://wiki.archlinuxcn.org/wiki/%E5%AD%97%E4%BD%93](https://wiki.archlinuxcn.org/wiki/%E5%AD%97%E4%BD%93){target=_blank}
 
@@ -1689,6 +1691,9 @@ sudo pacman -S obs-ndi
 
 `sudo pacman -S gimp`
 
+inkscape
+krita
+
 ### 3.27 思维导图 `mind-map`
 
 ``` yml
@@ -1715,6 +1720,47 @@ sudo pacman -S jupyterlab
 ```shell
 yay -S beekeeper-studio-bin
 ```
+
+### 3.30 系统盘制作
+
+``` shell
+yay -S ventoy
+sudo ventoyweb
+```
+
+### 3.31 游戏管理
+
+``` shell
+sudo pacman -S lutris
+```
+- 安装游戏时无法创建目录问题解决（甜菜）：
+https://www.reddit.com/r/Lutris/comments/181ovp6/not_able_to_create_prefix_folders_anymore_steam/
+
+新建目录中创建 xxx.txt
+
+- 运行wine提示 `no such file or directory：xxx/wine` 解决：
+
+安装 lib32-glibc
+
+- 提示Wine 找不到 FreeType 字体库 解决：
+
+本来就安装好的，重装wine
+
+### 3.32 无损放大
+
+``` shell
+yay -S upscayl-bin
+```
+
+### 3.33 动捕、虚拟
+
+inochi-creator inochi-session
+
+https://lunafoxgirlvt.itch.io/inochi-creator
+
+### 3.34 音乐
+
+`sudo pacman -S elisa`
 
 ## 四、问题解决
 ### 4.1 开机启动失败
