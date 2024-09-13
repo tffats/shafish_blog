@@ -93,6 +93,14 @@ hide:
 
         [:octicons-arrow-right-24: Getting started](blog/tool/nginx.md)        
 
+    -   :simple-nginx:{ .lg .middle } __Stable Diffusion ComfyUI__
+
+        ---
+
+        自用记录
+
+        [:octicons-arrow-right-24: Getting started](blog/sd.md)
+
     </div>
 
 ??? "Linux"
