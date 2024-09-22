@@ -273,6 +273,8 @@ i3-gaps已经合并到i3wm 4.23版本，别安装i3-gaps了。
     - `vim ~/.xprofile`
     - `xrandr --dpi 192 &`
 
+- 字体管理：`pacman -S font-manager`
+
 ### 2.9 系统主题
 - `pacman -S arc-icon-theme adwaita-icon-theme capitaine-cursors papirus-icon-theme arc-gtk-theme lxappearance`
 
@@ -1692,7 +1694,7 @@ sudo pacman -S obs-ndi
 `sudo pacman -S gimp`
 
 inkscape
-krita
+sudo pacman -S krita python-pyqt5 qt5-imageformats
 
 ### 3.27 思维导图 `mind-map`
 
@@ -1761,6 +1763,12 @@ https://lunafoxgirlvt.itch.io/inochi-creator
 ### 3.34 音乐
 
 `sudo pacman -S elisa`
+
+### 3.35 视频剪辑
+
+`sudo pacman -S shotcut`
+
+4k屏幕下字体调整：`shotcut --QT_SCALE_FACTOR 1.5`
 
 ## 四、问题解决
 ### 4.1 开机启动失败

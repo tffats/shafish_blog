@@ -415,4 +415,12 @@ services:
         image: mattermost/mattermost-preview
 ```
 
+## 十六、blivechat
+
+``` shell
+docker run --name blivechat -d -p 12450:12450 \
+  --mount source=blivechat-data,target=/mnt/data \
+  xfgryujk/blivechat:v1.9.2
+```
+
 > 更多操作：[https://github.com/shafishcn/ToolMan/tree/master/docker](https://github.com/shafishcn/ToolMan/tree/master/docker){target=_blank}
