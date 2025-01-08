@@ -116,6 +116,15 @@ hide:
         《Mysql是怎样运行的》第一次阅读记录
 
         [:octicons-arrow-right-24: Getting started](blog/Mysql理解.md)
+
+    -   :right_facing_fist:{ .lg .middle } __系统高可用__
+
+        ---
+
+        易学易用，性能出色，适用场景丰富的渐进式 `JavaScript` 框架
+
+        [:octicons-arrow-right-24: Getting started](blog/HA.md)
+      
     </div>
 
 ??? "Linux"
@@ -248,6 +257,20 @@ hide:
         （自用记录） SpringCloudBalancer 是 `Spring Cloud` 的一部分，主要用于实现负载均衡功能，将客户端的请求分配到多个服务实例上，确保系统的稳定性和可扩展性
 
         [:octicons-arrow-right-24: Getting started](blog/springcloud/loadbalancer.md)
+
+    </div>
+
+??? "前端"
+
+    <div class="grid cards" markdown>
+
+    -   :material-vuejs:{ .lg .middle } __VUE__
+
+        ---
+
+        易学易用，性能出色，适用场景丰富的渐进式 `JavaScript` 框架
+
+        [:octicons-arrow-right-24: Getting started](blog/vue_learn.md)
 
     </div>
 
