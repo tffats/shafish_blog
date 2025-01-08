@@ -953,6 +953,13 @@ id_rsa.pub、known_hosts等 配置644权限
             print("▼ " + get_formatted_speed(s.results.download,args.bytes))
         ```
 
+    ???- "script/polybar-speedtest"
+
+        ``` shell
+        https://github.com/nevarman/polybar-calendar
+        for_window [class="pycalendar.py"] floating enable resize set 600 400,move right 330px,move down 70px
+        ```
+
 ### 3.6 qq
 `yay -S linuxqq`
 
