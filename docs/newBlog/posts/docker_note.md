@@ -437,3 +437,112 @@ git clone https://github.com/drawdb-io/drawdb
 docker build -t drawdb .
 docker run -p 3000:80 drawdb
 ```
+
+## 十七、nginx
+
+- 拉取nginx镜像：`docker pull nginx:1.26`
+
+- 配置目录
+
+``` shell
+mkdir /usr/local/nginx
+cd /usr/local/nginx
+mkdir html www logs conf ssl
+```
+
+- 复制默认配置文件
+
+``` shell
+docker run --name nginx -p 9001:80 -d nginx:1.26
+# 将容器nginx.conf文件复制到宿主机
+docker cp nginx:/etc/nginx/nginx.conf /usr/local/nginx/conf/nginx.conf
+# 将容器conf.d文件夹下内容复制到宿主机
+docker cp nginx:/etc/nginx/conf.d /usr/local/nginx/conf/conf.d
+# 将容器中的html文件夹复制到宿主机
+docker cp nginx:/usr/share/nginx/html /usr/local/nginx/
+```
+
+- 配置compose
+
+``` yml title="docker-compose.yml"
+services:
+  nginx:
+    restart: always
+    container_name: nginx
+    image: nginx
+    ports:
+      - 8080:80
+      - 8843:443
+    volumes:
+      - /usr/local/nginx/html:/usr/share/nginx/html
+      - /usr/local/nginx/www:/var/www
+      - /usr/local/nginx/logs:/var/log/nginx
+      - /usr/local/nginx/conf/nginx.conf:/etc/nginx/nginx.conf
+      - /usr/local/nginx/ssl:/etc/nginx/ssl
+      - /usr/local/nginx/conf/conf.d:/etc/nginx/conf.d
+    environment:
+      - NGINX_PORT=80
+      - TZ=Asia/Shanghai
+    privileged: true
+```
+
+| 物理机目录                       | nginx容器目录         |
+| -------------------------------- | --------------------- |
+| /usr/local/nginx/html            | /usr/share/nginx/html |
+| /usr/local/nginx/www             | /var/www              |
+| /usr/local/nginx/logs            | /var/log/nginx        |
+| /usr/local/nginx/conf/nginx.conf | /etc/nginx/nginx.conf |
+| /usr/local/nginx/conf/conf.d     | /etc/nginx/conf.d     |
+| /usr/local/nginx/ssl             | /etc/nginx/ssl        |
+
+## 十八、Acme.sh
+
+- 脚本安装
+
+``` shell
+# 安装 ACME 脚本
+curl https://get.acme.sh | sh
+# 设置acme.sh别名，方便后续使用
+alias acme.sh=~/.acme.sh/acme.sh
+# 设置 ACME 脚本自动更新
+acme.sh --upgrade --auto-upgrade
+# 由于默认CA为ZeroSSL，必须先注册帐户才能颁发新证书，这里更换为Letsencrypt
+acme.sh --set-default-ca --server letsencrypt
+```
+
+- 配置自动dns解析，生成证书
+
+https://github.com/acmesh-official/acme.sh/wiki/dnsapi
+
+``` shell
+export CF_Token='H2phdKc7g3aR7-MjEDoxxx'
+export CF_Zone_ID='cb7962f26f9607014xxx'
+export CF_Account_ID='64914295e3xxx'
+
+acme.sh --issue --dns dns_cf -d test.tffats.top
+
+[Thu Jan  2 04:17:39 EST 2025] Your cert is in: /root/.acme.sh/hub.tf-fats.top_ecc/hub.tf-fats.top.cer
+[Thu Jan  2 04:17:39 EST 2025] Your cert key is in: /root/.acme.sh/hub.tf-fats.top_ecc/hub.tf-fats.top.key
+[Thu Jan  2 04:17:39 EST 2025] The intermediate CA cert is in: /root/.acme.sh/hub.tf-fats.top_ecc/ca.cer
+[Thu Jan  2 04:17:39 EST 2025] And the full-chain cert is in: /root/.acme.sh/hub.tf-fats.top_ecc/fullchain.cer
+```
+
+- 复制证书
+
+``` shell
+mkdir /usr/local/nginx/ssl/test.tffats.top
+
+acme.sh --install-cert -d test.tffats.top \
+--cert-file /usr/local/nginx/ssl/test.tffats.top/cert.pem \
+--key-file /usr/local/nginx/ssl/test.tffats.top/key.pem \
+--fullchain-file /usr/local/nginx/ssl/test.tffats.top/fullchain.pem \
+--reloadcmd "docker exec nginx nginx -s reload"
+```
+
+## 十九、自建docker镜像站点
+
+https://github.com/dqzboy/Docker-Proxy
+
+按文档操作
+
+docker pull hub.tffats.top:8843/library/metatube/metatube-server:1.2.8
