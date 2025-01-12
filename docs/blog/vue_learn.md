@@ -9,7 +9,7 @@ hide:
 
 ### 1. Vue库引入(示例用)
 
-[js文件下载](https://cn.vuejs.org/guide/quick-start.html#using-vue-from-cdn)
+[js文件下载](https://cn.vuejs.org/guide/quick-start.html#using-vue-from-cdn){target=_blank}
 
 === "传统模式"
 
@@ -646,15 +646,285 @@ Done. Now run:
 
 === "组件定义"
 
+    组件可以将UI拆分为独立、可复用的代码片段。就是 `.vue` 结尾的文件，其固有的结构如下示：
+
+    ``` vue title="src/components/admin/Test.vue" linenums="1"
+    <template>
+        test测试
+    </template>
+
+    <script setup>
+
+    </script>
+
+    <style scoped>
+
+    </style>
+    ```
+
 === "组件导入"
+
+    在 `home.vue` 中导入 Test子组件
+
+    ``` vue title="src/views/admin/home.vue" linenums="1" hl_lines="2 6"
+    <template>
+        <Test />
+    </template>
+
+    <script setup>
+    import Test from '@/components/admin/home/Test.vue';
+    </script>
+
+    <style scoped>
+
+    </style>    
+    ```
 
 === "父组件传数据给子组件"
 
+    在 `home.vue` 父组件中传递参数给子组件，有两种方法传参
+    
+    - 在标签中 `key=value` 形式传参
+    - 在标签中 `v-bind="对象"` 形式传参(:为其简写形式)
+
+    ``` vue title="src/views/admin/home.vue" linenums="1" hl_lines="2 4-5"
+    <template>
+        <Test propsName="shafish" propsUrl="shafish.cn"/>
+        home.vue 原来内容
+        <!-- <Test2 v-bind="props"/> -->
+        <Test2 :="props"/>
+    </template>
+
+    <script setup>
+    improt { reactive } from 'vue'
+    import Test from '@/components/admin/home/Test.vue';
+    import Test2 from '@/components/admin/home/Test2.vue';
+
+    const props = reactive({
+        user: "graham",
+        url: "graham.cn"
+    })
+    </script>
+
+    <style scoped>
+
+    </style>    
+    ```
+
+    在 `Test.vue` 子组件中用 `defineProps` 以数组形式取出即可
+
+    ``` vue title="src/components/admin/Test.vue" linenums="1" hl_lines="6"
+    <template>
+        test测试
+    </template>
+
+    <script setup>
+        const props = defineProps(["propsName", "propsUrl"])
+        console.log(props)
+    </script>
+
+    <style scoped>
+
+    </style>
+    ```    
+
+    在 `Test2.vue` 子组件中用 `defineProps` 以对象形式取出即可
+
+    ``` vue title="src/components/admin/Test2.vue" linenums="1" hl_lines="6-13"
+    <template>
+        test2测试
+    </template>
+
+    <script setup>
+        const props = defineProps({
+            user: String,
+            url: {
+                type: String,
+                required: true,
+                default: "graham.cn"
+            }
+        })
+        console.log(props)
+    </script>
+
+    <style scoped>
+
+    </style>
+    ```    
+
 === "子组件传数据给父组件"
+
+    在 `Test3.vue` 子组件中用 `defineEmits` `emits` 中定义好即可
+
+    ``` vue title="src/components/admin/Test3.vue" linenums="1" hl_lines="6-7"
+    <template>
+        test3测试
+    </template>
+
+    <script setup>
+        const emits = defineEmits(["getWeb", "propsUrl"])
+        emits("getWeb", {name: "shafish"} )
+    </script>
+
+    <style scoped>
+
+    </style>
+    ```      
+
+    在父组件中使用 @ 接收对应事件
+
+    ``` vue title="src/views/admin/home.vue" linenums="1" hl_lines="2 8-10"
+    <template>
+        <Test3 @getWeb="emitGetWeb"/>
+    </template>
+
+    <script setup>
+    import Test3 from '@/components/admin/home/Test3.vue';
+
+    const emitGetWeb = (data) => {
+        console.log(data)
+    }
+
+    </script>
+
+    <style scoped>
+
+    </style>    
+    ```      
 
 === "跨组件传数据"
 
+    可以将父组件数据传给其下的所有组件（子组件、孙子组件等等）。
+
+    在父组件中引入 `provide` 进行声明即可
+
+    ``` vue title="src/views/admin/home.vue" linenums="1" hl_lines="6 18"
+    <template>
+        <Test4 />
+    </template>
+
+    <script setup>
+    import { provide } from 'vue'
+    import Test4 from '@/components/admin/home/Test4.vue';
+
+    const web = {
+        name: "shafish",
+        url: "fisha.cn"
+    }
+
+    const userAdd = () => {
+        console.log("add ++")
+    }
+
+    provide("provideWeb", web)
+    provide("provideFuncUserAdd", userAdd)
+
+    </script>
+
+    <style scoped>
+
+    </style>    
+    ```       
+
+    在子组件中引入 `inject` 接收即可。
+
+    ``` vue title="src/components/admin/Test4.vue" linenums="1" hl_lines="9 11"
+    <template>
+        test4测试
+
+        <button @click="userAdd">按钮点击触发父级函数</button>
+
+    </template>
+
+    <script setup>
+        import { inject } from 'vue'
+
+        const web = inject("provideWeb")
+        console.log(web)
+
+        const userAdd = inject("provideFuncUserAdd")
+    </script>
+
+    <style scoped>
+
+    </style>
+    ```   
+
 === "插槽"
+
+    在父组件中定义代码片段，可在子组件中任意位置插入使用。
+
+    - 匿名插槽：在子组件标签中编写内容，子组件对应位置引入 `<slot />` 即可
+    - 具名插槽：在子组件标签中编写template内容，并配置 `v-slot:插槽名称`（简写为 #插槽名称），子组件对应位置引入 `<slot name="插槽名称" />` 即可。其也可接收子组件传递的数据
+
+
+    ``` vue title="src/views/admin/home.vue" linenums="1" hl_lines="3-5 8-11"
+    <template>
+    父组件中内容a
+        <Test5>
+            <a href="shafish.cn"> 子组件Test5中显示的内容 </a>
+        </Test5>
+    父组件中内容b
+        <Test6>
+            <!-- <template v-slot:url> -->
+            <template #url="data">
+                Test6子组件传来的数据：{{data.url}}
+                <a href="shafish.cn"> 子组件Test6中显示的内容 </a>
+            </template>
+        </Test6>
+    父组件中内容c
+    </template>
+
+    <script setup>
+    import Test5 from '@/components/admin/home/Test5.vue';
+    import Test6 from '@/components/admin/home/Test6.vue';
+
+    </script>
+
+    <style scoped>
+
+    </style>    
+    ```        
+    
+    在 Test5子组件中使用匿名插槽
+
+    ``` vue title="src/components/admin/Test5.vue" linenums="1" hl_lines="4"
+    <template>
+        子组件内容a
+
+        <slot />
+
+        子组件内容b
+    </template>
+
+    <script setup>
+
+    </script>
+
+    <style scoped>
+
+    </style>
+    ```   
+
+    在 Test6子组件中使用具名插槽，以 `name="插槽名称"` 形式引入。并且定义 `url` 数据向父组件传递值
+
+    ``` vue title="src/components/admin/Test6.vue" linenums="1" hl_lines="4"
+    <template>
+        子组件内容a
+
+        <slot name="url" url="shafish.cn" />
+
+        子组件内容b
+    </template>
+
+    <script setup>
+
+    </script>
+
+    <style scoped>
+
+    </style>
+    ```   
 
 ## 五、生命周期函数
 
@@ -1288,3 +1558,10 @@ npm install vue-router@4
 
     </style>    
     ```
+
+### 8. 项目打包
+
+``` shell
+# 生成 dist 目录
+npm run build
+```
