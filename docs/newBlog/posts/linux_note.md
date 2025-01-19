@@ -376,4 +376,39 @@ sed  -i 's/(\/)/(..\/..\/index.md)/g' docker_config.md
 sed  -i 's/(\/)/(..\/..\/index.md)/g' `grep (\/) -rl ./`
 ```
 
-- 
+``` shell
+# ...
+
+# Hide default GOPATH
+if [ -d "$HOME/.golang" ] ; then
+    GOPATH="$HOME/.golang"
+fi
+
+# User's local bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$PATH:$HOME/bin"
+fi
+
+# RUST local bin if it exists
+if [ -d "$HOME/bin-rust" ] ; then
+    PATH="$PATH:$HOME/bin-rust"
+fi
+
+# Python local bin if it exists
+if [ -d "$HOME/bin-py" ] ; then
+    PATH="$PATH:$HOME/bin-py"
+fi
+
+# Golang local bin if it exists
+if [ -d "$HOME/bin-go" ] ; then
+    PATH="$PATH:$HOME/bin-go"
+fi
+
+# NodeJs local bin if it exists
+if [ -d "$HOME/bin-js" ] ; then
+    PATH="$PATH:$HOME/bin-js"
+fi
+
+export GOPATH
+export PATH
+```

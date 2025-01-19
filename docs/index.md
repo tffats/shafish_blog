@@ -47,6 +47,14 @@ hide:
 
         [:octicons-arrow-right-24: Getting started](blog/tool/java_code.md)
 
+    -   :material-line-scan:{ .lg .middle } __flyscrape__
+
+        ---
+
+        开源的命令行网页抓取工具，专为不具备高级编程技能的用户设计，旨在简化网页数据提取的过程
+
+        [:octicons-arrow-right-24: Getting started](blog/flyscrape.md)        
+
     </div>
 
 ??? "收藏夹"
