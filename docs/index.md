@@ -280,6 +280,14 @@ hide:
 
         [:octicons-arrow-right-24: Getting started](blog/vue_learn.md)
 
+    -   :material-vuejs:{ .lg .middle } __ES__
+
+        ---
+
+        易学易用，性能出色，适用场景丰富的渐进式 `JavaScript` 框架
+
+        [:octicons-arrow-right-24: Getting started](blog/es6_learn.md)        
+
     </div>
 
 ??? quote "自构建"

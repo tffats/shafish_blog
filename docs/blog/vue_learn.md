@@ -118,6 +118,10 @@ Done. Now run:
 
 [内置指令文档](https://cn.vuejs.org/api/built-in-directives.html#built-in-directives)
 
+=== "插值：{{x x x}}"
+
+    将组件中的响应式数据插入到模板中
+
 === "v-on"
 
     用于监听用户事件，比如鼠标点击、键盘up/down等。`v-on:` 可缩写为 `@`
