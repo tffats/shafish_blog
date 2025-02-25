@@ -1,0 +1,59 @@
+.mindmap-container * {
+  margin: 0;
+  padding: 0;
+}
+#custom-note-popup {
+  position: fixed;
+  width: auto; 
+  max-height: 500px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 1000;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#custom-note-popup .content-header {
+  padding: 12px;
+  background: #03264a;
+  border-bottom: 1px solid #e9ecef;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+#custom-note-popup .content-body {
+  padding: 12px;
+  background: #3a5169;
+  flex: 1;
+  overflow-y: auto;
+  max-height: 400px; /* 滚动区域最大高度 */
+}
+
+/* 美化滚动条 */
+#custom-note-popup .content-body::-webkit-scrollbar {
+  width: 6px;
+}
+#custom-note-popup .content-body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+#custom-note-popup .content-body::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+#custom-note-popup .content-body::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+
+/* 代码块样式增强 */
+#custom-note-popup .content-body pre {
+  padding: 10px;
+  background: #06060602;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+.hidden {
+  display: none;
+}

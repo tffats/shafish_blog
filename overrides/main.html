@@ -44,6 +44,30 @@
 
   <!-- Extra JavaScript (can't be set in mkdocs.yml due to content hash) -->
   <script src="https://cdn.jsdelivr.net/npm/dot@1.1.3/doT.min.js"></script>
+  
   <script src="{{ 'assets/javascripts/extra.js' | url }}"></script>
   <script src="{{ 'assets/javascripts/dot.js' | url }}"></script>
+  <!-- 添加模块化脚本 -->
+   <!-- 添加 ESM 模块化脚本 initMindMap -->
+  <script type="module">
+    import { initMindMap } from "{{ 'assets/javascripts/mindmap-module.js' | url }}";
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.mindmap-container').forEach(async container => {
+        const dataUrl = container.dataset.mindmapDataUrl;
+        if (dataUrl) {
+          const response = await fetch(dataUrl);
+          
+          const data = await response.json();
+          
+          initMindMap(container, data)
+        }
+      });
+    });
+    document.addEventListener('click', (e) => {
+      const popup = document.getElementById('custom-note-popup');
+      if (!popup.contains(e.target)) {
+        popup.classList.add('hidden');
+      }
+    });
+  </script>
 {% endblock %}

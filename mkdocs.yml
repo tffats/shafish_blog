@@ -125,17 +125,21 @@ extra:
   #vssue: shafish
   #generator: false
 
-#extra_css:
+extra_css:
+#   - stylesheets/simpleMindMap.esm.css
+  - stylesheets/custom.css
   #- stylesheets/extra.css
   #- https://file.cdn.shafish.cn/blog/css/vssue.css
   #- https://cdn.jsdelivr.net/npm/xgplayer@3.0.5/dist/index.min.css
   #- https://file.cdn.shafish.cn/blog/css/video-js.min.css
   #- https://file.cdn.shafish.cn/blog/css/video.css
 
-#extra_javascript:
+# extra_javascript:
+  # - javascripts/simpleMindMap.umd.min.js
+  # - javascripts/mindmap.js
   #- https://cdn.jsdelivr.net/npm/xgplayer@3.0.5/dist/index.min.js
   #- https://cdn.jsdelivr.net/npm/dot@1.1.3/doT.min.js
-  #- javascripts/dot.js
+  # - javascripts/dot.js
   #- javascripts/extra.js
   #- javascripts/d.js
   #- https://file.cdn.shafish.cn/blog/js/video.min.js
@@ -204,3 +208,4 @@ nav:
   - Archive: http://archivebox.shafish.cn/" target="_blank
   - Lofimusic: http://lofimusic.shafish.cn/" target="_blank
   - Note: https://note.shafish.cn/" target="_blank
+  - Admin: https://admin.shafish.cn" target="_blank

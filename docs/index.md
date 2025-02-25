@@ -6,9 +6,17 @@ hide:
   - toc
 ---
 
-???+ "计划"
+???+ "梳理导图"
 
-    - [ ] 源码
+    <div class="grid cards" markdown>
+
+    -   :simple-apachekafka:{ .lg .middle } __kafka调优导图__
+
+        ---
+
+        [:octicons-arrow-right-24: Getting started](blog/mind/kafka.md)
+
+    </div>
 
 ??? "工具"
 
