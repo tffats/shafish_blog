@@ -6,7 +6,7 @@ hide:
   - toc
 ---
 
-???+ "梳理导图"
+??? "梳理导图"
 
     <div class="grid cards" markdown>
 
@@ -297,6 +297,23 @@ hide:
         [:octicons-arrow-right-24: Getting started](blog/es6_learn.md)        
 
     </div>
+
+
+??? "大模型"
+
+    <div class="grid cards" markdown>
+
+    -   :simple-apachekafka:{ .lg .middle } __MCP 终极指南__
+
+        ---
+
+        AI 应用层开发的新时代
+
+        [:octicons-arrow-right-24: Getting started](https://guangzhengli.com/blog/zh/model-context-protocol/){target=_blank}
+
+        [视频介绍](https://www.youtube.com/watch?v=McNRkd5CxFY){target=_blank}
+    </div>
+
 
 ??? quote "自构建"
 

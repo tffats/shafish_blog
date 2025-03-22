@@ -1,3 +1,11 @@
+---
+title: ComfyUI 使用 记录
+tags:
+  - comfyui
+hide:
+  - navigation
+---
+
 # ComfyUI
 
 https://github.com/comfyanonymous/ComfyUI
@@ -65,3 +73,9 @@ python main.py
 ### controlnet
 
 https://huggingface.co/lllyasviel/ControlNet-v1-1/tree/main
+
+![](../images/1726307792082278.png)
+
+
+### lora
+

@@ -424,3 +424,65 @@ docker run --name blivechat -d -p 12450:12450 \
 ```
 
 > 更多操作：[https://github.com/shafishcn/ToolMan/tree/master/docker](https://github.com/shafishcn/ToolMan/tree/master/docker){target=_blank}
+
+
+## 十七、打包镜像
+
+``` shell
+docker save -o openresty.tar openresty/openresty:alpine
+docker load < openresty.tar
+```
+
+## Lagrange.Core
+
+--add-host="host.docker.internal:host-gateway"
+docker run -td -p 8080:8080 -v /home/shafish/Data/docker/lagrange:/app/data -e UID=$UID -e GID=$(id -g) ghcr.io/lagrangedev/lagrange.onebot:edge
+
+docker run -td --network host -v /home/shafish/Data/docker/lagrange:/app/data -e UID=$UID -e GID=$(id -g) ghcr.io/lagrangedev/lagrange.onebot:edge
+
+``` json title="appsettings.json"
+{
+    "$schema": "https://raw.githubusercontent.com/LagrangeDev/Lagrange.Core/master/Lagrange.OneBot/Resources/appsettings_schema.json",
+    "Logging": {
+        "LogLevel": {
+            "Default": "Information"
+        }
+    },
+    "SignServerUrl": "https://sign.lagrangecore.org/api/sign/30366",
+    "SignProxyUrl": "",
+    "MusicSignServerUrl": "",
+    "Account": {
+        "Uin": 0,
+        "Password": "",
+        "Protocol": "Linux",
+        "AutoReconnect": true,
+        "GetOptimumServer": true
+    },
+    "Message": {
+        "IgnoreSelf": true,
+        "StringPost": false
+    },
+    "QrCode": {
+        "ConsoleCompatibilityMode": true
+    },
+    "Implementations": [
+        {
+            "Type": "ReverseWebSocket",
+            "Host": "127.0.0.1",
+            "Port": 8080,
+            "Suffix": "/onebot/v11/ws",
+            "ReconnectInterval": 5000,
+            "HeartBeatInterval": 5000,
+            "AccessToken": "shafish"
+        },
+	{
+            "Type": "ForwardWebSocket",
+            "Host": "127.0.0.1",
+            "Port": 8081,
+            "HeartBeatInterval": 5000,
+            "HeartBeatEnable": true,
+            "AccessToken": "shafish"
+        }
+    ]
+}
+```
