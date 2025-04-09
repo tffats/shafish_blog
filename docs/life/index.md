@@ -140,10 +140,18 @@ hide:
 
 ??? "一些运动"
 
+    === "2025-4"
+        - [x] 爬山++
+        ??? note "深圳仙湖植物园"
+            ![](https://picture.cdn.shafish.cn/blog/IMG_20250405_222242.jpg){: .zoom loading=lazy }
+            ![](https://picture.cdn.shafish.cn/blog/IMG_20250406_132359.jpg){: .zoom loading=lazy }
+            ![](https://picture.cdn.shafish.cn/blog/IMG_20250406_141804.jpg){: .zoom loading=lazy }
+            ![](https://picture.cdn.shafish.cn/blog/IMG_20250406_144742.jpg){: .zoom loading=lazy }
+            ![](https://picture.cdn.shafish.cn/blog/IMG_20250406_143102.jpg){: .zoom loading=lazy }
     === "2025-3"
-        - [x] 爬山
+        - [x] 爬山++
         ??? note "深圳梧桐山"
-            ![](https://picture.cdn.shafish.cn/blog/papapa.jpg) 
+            ![](https://picture.cdn.shafish.cn/blog/papapa.jpg){: .zoom loading=lazy }
     === "2024-7"
         - [x] 走楼梯不小心触发〈崴脚〉技能，被迫参加了一场单腿蹦跳类运动
     === "2022-1"
@@ -151,7 +159,7 @@ hide:
     === "2021-12"
         - [x] 爬山
         ??? note "深圳羊台山"
-            ![](https://picture.cdn.shafish.cn/blog/Screenshot_20211226_211857_com.huawei.health.jpg)        
+            ![](https://picture.cdn.shafish.cn/blog/Screenshot_20211226_211857_com.huawei.health.jpg){: .zoom loading=lazy }
 
 ??? "一点感想"
 

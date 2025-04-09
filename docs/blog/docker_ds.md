@@ -1,3 +1,10 @@
+---
+title: 容器命令（AI总结）
+description: linux, docker
+hide:
+  - navigation
+---
+
 在 Docker 中，`docker run` 是启动容器的核心命令，通过它可以配置容器的运行环境、资源限制、网络设置等。以下是 **Docker 容器的完整使用指南**，涵盖常用参数、示例场景及最佳实践：
 
 ---
@@ -146,3 +153,16 @@ docker run -d \
 ---
 
 通过合理组合参数，可以高效管理容器的生命周期、资源分配和数据持久化。建议结合 Docker Compose 或 Kubernetes 进一步简化多容器编排。
+
+### compose更新镜像
+
+``` shell
+# Pull latest version
+docker compose pull
+
+# Stop and remove older version
+docker compose down
+
+# Start the container
+docker compose up -d 
+```

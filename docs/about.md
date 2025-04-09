@@ -55,8 +55,16 @@ hide:
         ![那年6](https://file.cdn.shafish.cn/blog/blog/about/2/4/%E5%9B%BE%E7%89%87.png){loading=lazy align=right : .zoom}
 
     &emsp;&emsp;22年找了份物联网相关的工作，有数字化相关的团队，主要优先负责设备/物联平台的对接，物业办公楼的电梯、电表、水表、空调、空开、对讲机、一些行车记录仪都接过，协议包括云云对接、mqtt、modbus、ws，24年8月离职了，没活干，拖半薪，氛围应该算比较好的一家公司，感觉之后应该比较少能遇到类似，就是业务不赚钱，可惜了，都是尾大不掉的项目。
+
+    ??? quote
     
-    &emsp;&emsp;25年继续找了份物联网相关的工作，工资涨了点，但系属初创公司，刚入职满一周，有加班文化，不好说，估计都会8点后下班。
+        ![那年7](https://file.cdn.shafish.cn/blog/blog/about/fs2.jpg){loading=lazy : .zoom}
+        ![那年8](https://file.cdn.shafish.cn/blog/blog/about/fs4.jpg){loading=lazy : .zoom}
+        ![那年9](https://file.cdn.shafish.cn/blog/blog/about/fs1.jpg){loading=lazy : .zoom}
+        ![那年10](https://file.cdn.shafish.cn/blog/blog/about/fs3.jpg){loading=lazy : .zoom}
+        ![那年11](https://file.cdn.shafish.cn/blog/blog/about/fs6.jpg){loading=lazy : .zoom}
+
+    &emsp;&emsp;25年继续找了份物联网相关的工作，工资涨了点，但系属初创公司{--，刚入职满一周，--}有加班文化，不好说，估计都会8点后下班。（但对打工人来说，有钱就是爹）
 
 <!-- <figure markdown>
   ![WeChat_Official_Account](https://picture.cdn.shafish.cn/blog/wechat/Official_Account3.png "now啥内容也没有"){ loading=lazy }

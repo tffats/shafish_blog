@@ -91,7 +91,7 @@ hide:
 
         自用记录
 
-        [:octicons-arrow-right-24: Getting started](newBlog/posts/docker_config.md)
+        [:octicons-arrow-right-24: Getting started](blog/docker_ds.md)
 
     -   :fontawesome-brands-docker:{ .lg .middle } __docker容器案例 [更新ing]__
 
