@@ -546,3 +546,98 @@ https://github.com/dqzboy/Docker-Proxy
 按文档操作
 
 docker pull hub.tffats.top:8843/library/metatube/metatube-server:1.2.8
+
+
+## 二十、blivechat
+
+``` shell
+docker run --name blivechat -d -p 12450:12450 \
+  --mount source=blivechat-data,target=/mnt/data \
+  xfgryujk/blivechat:v1.9.2
+```
+
+> 更多操作：[https://github.com/shafishcn/ToolMan/tree/master/docker](https://github.com/shafishcn/ToolMan/tree/master/docker){target=_blank}
+
+
+## 二十一、打包镜像
+
+``` shell
+docker save -o openresty.tar openresty/openresty:alpine
+docker load < openresty.tar
+```
+
+## 二十二、Lagrange.Core
+
+``` shell
+docker run -td --network host -v /home/shafish/Data/docker/lagrange:/app/data -e UID=$UID -e GID=$(id -g) ghcr.io/lagrangedev/lagrange.onebot:edge
+```
+
+``` json title="appsettings.json"
+{
+    "$schema": "https://raw.githubusercontent.com/LagrangeDev/Lagrange.Core/master/Lagrange.OneBot/Resources/appsettings_schema.json",
+    "Logging": {
+        "LogLevel": {
+            "Default": "Information"
+        }
+    },
+    "SignServerUrl": "https://sign.lagrangecore.org/api/sign/30366",
+    "SignProxyUrl": "",
+    "MusicSignServerUrl": "",
+    "Account": {
+        "Uin": 0,
+        "Password": "",
+        "Protocol": "Linux",
+        "AutoReconnect": true,
+        "GetOptimumServer": true
+    },
+    "Message": {
+        "IgnoreSelf": true,
+        "StringPost": false
+    },
+    "QrCode": {
+        "ConsoleCompatibilityMode": true
+    },
+    "Implementations": [
+        {
+            "Type": "ReverseWebSocket",
+            "Host": "127.0.0.1",
+            "Port": 8080,
+            "Suffix": "/onebot/v11/ws",
+            "ReconnectInterval": 5000,
+            "HeartBeatInterval": 5000,
+            "AccessToken": "shafish"
+        },
+	{
+            "Type": "ForwardWebSocket",
+            "Host": "127.0.0.1",
+            "Port": 8081,
+            "HeartBeatInterval": 5000,
+            "HeartBeatEnable": true,
+            "AccessToken": "shafish"
+        }
+    ]
+}
+```
+
+## 二十三、n8n
+
+> https://docs.n8n.io/hosting/installation/docker/
+
+``` shell
+services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n:latest
+    container_name: my_n8n
+    restart: unless-stopped
+    environment:
+      TZ: Asia/Shanghai
+      GENERIC_TIMEZONE: Asia/Shanghai
+    ports:
+      - "5678:5678"
+    volumes:
+      - n8n_data:/home/node/.n8n
+
+volumes:
+  n8n_data:
+```
+
