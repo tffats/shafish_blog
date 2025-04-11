@@ -143,7 +143,7 @@ hide:
     === "2025-4"
         - [x] 爬山++
         ??? note "深圳仙湖植物园"
-            ![](https://picture.cdn.shafish.cn/blog/IMG_20250405_222242.jpg){: .zoom loading=lazy }
+            ![nb吧，特意找的角度，手机直出无p图，bro](https://picture.cdn.shafish.cn/blog/IMG_20250405_222242.jpg){: .zoom loading=lazy }
             ![](https://picture.cdn.shafish.cn/blog/IMG_20250406_132359.jpg){: .zoom loading=lazy }
             ![](https://picture.cdn.shafish.cn/blog/IMG_20250406_141804.jpg){: .zoom loading=lazy }
             ![](https://picture.cdn.shafish.cn/blog/IMG_20250406_144742.jpg){: .zoom loading=lazy }
@@ -154,6 +154,13 @@ hide:
             ![](https://picture.cdn.shafish.cn/blog/papapa.jpg){: .zoom loading=lazy }
     === "2024-7"
         - [x] 走楼梯不小心触发〈崴脚〉技能，被迫参加了一场单腿蹦跳类运动
+    === "2023-12"
+        - [x] 骑单车
+        ??? note "惠州十八公里"
+            ![](https://picture.cdn.shafish.cn/blog/life/Image_11665707633516.jpg){: .zoom loading=lazy }
+            ![](https://picture.cdn.shafish.cn/blog/life/Image_11668260708619.jpg){: .zoom loading=lazy }
+            ![](https://picture.cdn.shafish.cn/blog/life/Image_11670717452264.jpg){: .zoom loading=lazy }
+            ![](https://picture.cdn.shafish.cn/blog/life/Image_11675140265075.jpg){: .zoom loading=lazy }
     === "2022-1"
         - [x] 身心健康运动（多体现为坐车）
     === "2021-12"
