@@ -641,3 +641,22 @@ volumes:
   n8n_data:
 ```
 
+## 二十四、RediSearch
+
+``` shell
+docker run -d --name redis-stack -p 6379:6379 -p 8001:8001 -e REDIS_ARGS="--requirepass mypassword" redis/redis-stack:latest
+
+services:
+  redis-stack:
+    image: redis/redis-stack:latest
+    container_name: redis-stack
+    ports:
+      - "6380:6379"
+      - "8001:8001"
+    volumes:
+      - /data/docker/redis-search/data:/data    
+    environment:
+      - REDIS_ARGS=--requirepass 123456
+    restart: unless-stopped
+```
+

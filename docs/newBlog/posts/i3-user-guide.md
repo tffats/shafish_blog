@@ -4,7 +4,7 @@ authors:
     - shafish
 date:
     created: 2023-10-31
-    updated: 2024-01-20
+    updated: 2025-04-21
 categories:
     - archlinx
     - 装机
@@ -1796,7 +1796,7 @@ xev -event button
 xsetwacom --set "Gaomon Gaomon Tablet_1060Pro Pad pad" Button 1 "key b"
 // 
 ```
-
+```
 #!/bin/sh
 xsetwacom –set “HUION Huion Tablet Pad pad” Button 1 key +ctrl +z -z -ctrl
 xsetwacom –set “HUION Huion Tablet Pad pad” Button 2 key +shift +e
@@ -1806,7 +1806,7 @@ xsetwacom –set “HUION Huion Tablet Pad pad” Button 9 key + –
 xsetwacom –set “HUION Huion Tablet Pad pad” Button 10 key + ]
 xsetwacom –set “HUION Huion Tablet Pad pad” Button 11 key + [
 xsetwacom –set “HUION Huion Tablet Pad pad” Button 12 key + m
-
+```
 
 ### 3.37 画图笔记
 
@@ -1842,6 +1842,16 @@ openseeface + inochi session
 notify-send -t 10000 -i '/home/shafish/Pictures/icon/2.png' 'HARDWORK' '工作一个半小时，站起来走走吧。'
 
 zenity --warning --text='工作一个半小时，站起来走走吧。'
+```
+
+### 3.42 solaar罗技鼠标
+
+> https://wiki.archlinux.org/title/Logitech_MX_Master
+
+> https://blog.csdn.net/Modest_WANG/article/details/140636904
+
+``` shell
+sudo pacman -S solaar
 ```
 
 ## 四、问题解决
