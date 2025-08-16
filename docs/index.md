@@ -10,11 +10,17 @@ hide:
 
     <div class="grid cards" markdown>
 
-    -   :simple-apachekafka:{ .lg .middle } __kafka调优导图__
+    -   :simple-apachekafka:{ .lg .middle } __Kafka调优导图__
 
         ---
 
         [:octicons-arrow-right-24: Getting started](blog/mind/kafka.md)
+
+    -   :simple-mqtt:{ .lg .middle } __Mqtt梳理导图__
+
+        ---
+
+        [:octicons-arrow-right-24: Getting started](blog/mind/mqtt.md)
 
     </div>
 
@@ -62,6 +68,14 @@ hide:
         开源的命令行网页抓取工具，专为不具备高级编程技能的用户设计，旨在简化网页数据提取的过程
 
         [:octicons-arrow-right-24: Getting started](blog/flyscrape.md)        
+
+    -   :simple-mqtt:{ .lg .middle } __MQTT__
+
+        ---
+
+        一种轻量级的发布/订阅(publish/subscribe)消息传输协议，特别适合物联网(IoT)和机器对机器(M2M)通信场景
+
+        [:octicons-arrow-right-24: Getting started](blog/tool/mqtt.md)        
 
     </div>
 
