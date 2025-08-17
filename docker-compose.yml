@@ -1,0 +1,9 @@
+services:
+  mkdocs:
+    image: shafish/mkdocs-material:1.2
+    container_name: mkdocs-material
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/docs
+    restart: unless-stopped
