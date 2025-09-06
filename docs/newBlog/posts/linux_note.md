@@ -288,14 +288,19 @@ set fileencodings=utf8,ucs-bom,gbk,cp936,gb2312,gb18030
 
 ## 十八、netstat
 使用netstat报错command not found
-`apt install net-tools`
 
-netstat -aptn
+```shell
+apt install net-tools
+```
+
+`netstat -aptn`
 
 ## 十九、编辑文件时Error opening terminal: alacritty
 
 缺少终端的 `terminfo` 文件
+
 - 使用 `sudo tic -xe alacritty,alacritty-direct extra/alacritty.info` 安装
+
 - 或者 `echo "TERM=xterm-256color ssh" >> ~/.bashrc`即可
 
 ref：[issues](https://github.com/alacritty/alacritty/issues/3360){target=_blank}
@@ -316,7 +321,7 @@ ref：[issues](https://github.com/alacritty/alacritty/issues/3360){target=_blank
 -d, --max-depth=N
     显示子文件夹的深度（层级）
 
-## 十三、cp显示进度
+## 二十一、cp显示进度
 ref: https://cloud.tencent.com/developer/article/2187555
 
 ``` shell
@@ -344,7 +349,7 @@ alias cpg='cpg -g'
 source .zshrc
 ```
 
-## 十四、vdhcoapp
+## 二十二、vdhcoapp
 Video DownloadHelper流媒体下载插件
 
 ``` shell
@@ -354,7 +359,7 @@ curl -sSLf https://github.com/aclap-dev/vdhcoapp/releases/latest/download/instal
 To uninstall, run '~/.local/share/vdhcoapp/vdhcoapp uninstall' and remove '~/.local/share/vdhcoapp'
 ```
 
-## 十五、配置终端代理
+## 二十三、配置终端代理
 
 ``` shell
 export http_proxy="http://192.168.0.109:10001"
@@ -363,7 +368,7 @@ unset http_proxy
 unset https_proxy
 ```
 
-## 十六、批量修改文件内容
+## 二十四、批量修改文件内容
 
 - 单文件修改格式：`sed -i 's/旧内容/新内容/g' 文件路径`
 - 多文件修改格式：
@@ -412,3 +417,21 @@ fi
 export GOPATH
 export PATH
 ```
+
+## 二十五、ssh配置免密登录
+
+- 生成公私钥: `ssh-keygen`
+- 方式一：复制公钥到需要的服务器：`ssh-copy-id -i /root/.ssh/id_rsa.pub root@192.168.0.xxx`
+- 方式二：修改需要的服务器文件：
+```shell
+# cat /root/.ssh/id_rsa.pub
+# 将公钥内容复制到需要登录的服务器 authorized_keys 文件中
+vim /root/.ssh/authorized_keys
+```
+
+## 二十六、pve容器挂载目录
+
+> https://pve.proxmox.com/wiki/Unprivileged_LXC_containers#Using_local_directory_bind_mount_points
+
+- pve中挂载sma到本地：`mount -t cifs -o username=sha,password=xxx //192.168.2.100/samba-movie /data/movie`
+- 将pve目录映射到容器：`pct set 容器标识 -mp0 /data/movie,mp=/shared`
