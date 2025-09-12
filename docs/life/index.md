@@ -66,6 +66,15 @@ hide:
                 - [x] 到手一个99新master 3s鼠标，感觉很好用啊
             - [13]
                 - [x] 国补了一个华为手环10（手腕有点细，锻炼粗点前还是得戴点东西）
+        === "7"
+            - [6]
+                - [x] mac air 诶
+        === "8"
+            - [18]
+                - [x] 我的n5105小主机重新折腾pve，装了最新版，软路由和一大堆lxc
+        === "9"
+            - [8]
+                - [x] hifi蓝牙线
 
     === "2024"
         === "2"
@@ -155,6 +164,11 @@ hide:
 
 ??? "一些运动"
 
+    === "2025-8"
+        - [x] 漫游++
+        ??? note "广州动物园，门票只需20元bro"
+            ![](https://picture.cdn.shafish.cn/blog/life/IMG_20250830_150543.jpg){: .zoom loading=lazy }
+            ![](https://picture.cdn.shafish.cn/blog/life/IMG_20250830_161050.jpg){: .zoom loading=lazy }
     === "2025-4"
         - [x] 爬山++
         ??? note "深圳仙湖植物园"
@@ -222,3 +236,8 @@ hide:
     === "《舞动青春》"        
 
         --8<-- "life/anime/welcome_to_the_Ballroom.md:8:"
+
+??? "封·神"
+
+    === "《灵笼》"
+    === "《高达00》"

@@ -131,14 +131,6 @@ hide:
 
         [:octicons-arrow-right-24: Getting started](blog/sd.md)
 
-    -   :simple-mysql:{ .lg .middle } __Mysql SQL记录__
-
-        ---
-
-        记录常见SQL
-
-        [:octicons-arrow-right-24: Getting started](blog/mysql.md)
-
     -   :simple-mysql:{ .lg .middle } __Mysql记录__
 
         ---
