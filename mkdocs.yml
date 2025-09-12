@@ -1,5 +1,5 @@
 #
-site_name: shafish.cn
+site_name: 格莱姆的日常
 site_url: https://shafish.cn
 site_author: shafish
 site_description: >-
@@ -14,12 +14,13 @@ theme:
   name: material
   custom_dir: overrides
   language: zh
-  logo: https://picture.cdn.shafish.cn/blog/about/head.png
+  logo: https://picture.cdn.shafish.cn/blog/about/mmexport1757131150509.jpg
   # 网站图标
   #font:
     #text: Roboto
     #code: Roboto Mono
   #favicon: assets/favicon.png
+  favicon: assets/mmexport1757131150509.jpg
   # 网站字体
   icon:
     repo: fontawesome/brands/github
@@ -205,8 +206,8 @@ nav:
   - 生活: life/index.md
   - 留言: comments.md
   - 关于: about.md
-  - Archive: http://archivebox.shafish.cn/" target="_blank
-  - Lofimusic: http://lofimusic.shafish.cn/" target="_blank
-  - Note: https://note.shafish.cn/" target="_blank
-  - Admin: https://admin.shafish.cn" target="_blank
+  # - Archive: http://archivebox.shafish.cn/" target="_blank
+  # - Lofimusic: http://lofimusic.shafish.cn/" target="_blank
+  # - Note: https://note.shafish.cn/" target="_blank
+  # - Admin: https://admin.shafish.cn" target="_blank
   - Mind: https://mind.shafish.cn" target="_blank  

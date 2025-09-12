@@ -1,5 +1,5 @@
 ---
-title: "格莱姆的日常"
+title: ""
 # template: no_comment.html
 hide:
   - navigation

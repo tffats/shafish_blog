@@ -431,6 +431,8 @@ vim /root/.ssh/authorized_keys
 
 ## 二十六、pve容器挂载目录
 
+> 老老实实特权容器吧
+
 > https://pve.proxmox.com/wiki/Unprivileged_LXC_containers#Using_local_directory_bind_mount_points
 
 - pve中挂载sma到本地：`mount -t cifs -o username=sha,password=xxx //192.168.2.100/samba-movie /data/movie`
