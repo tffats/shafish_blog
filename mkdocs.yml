@@ -69,7 +69,8 @@ theme:
 plugins:
   - search:
       separator: '[\s\u200b\-]'
-  - tags
+  - tags:
+      tags_slugify_format: "tag:{slug}"
   - git-revision-date-localized:
       type: datetime
       timezone: Asia/Shanghai
@@ -186,8 +187,7 @@ markdown_extensions:
       custom_checkbox: true  
 
 nav:
-  - Bblog:
-    - newBlog/index.md
+  - 分类: tags.md
   #- 技术: blog/index.md
     #- 2022:
      # - blog/2022/index.md
@@ -210,4 +210,6 @@ nav:
   # - Lofimusic: http://lofimusic.shafish.cn/" target="_blank
   # - Note: https://note.shafish.cn/" target="_blank
   # - Admin: https://admin.shafish.cn" target="_blank
+  - Bblog: 
+    - newBlog/index.md
   - Mind: https://mind.shafish.cn" target="_blank  

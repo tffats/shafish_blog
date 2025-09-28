@@ -4,6 +4,8 @@ tags:
   - linux
 hide:
   - navigation
+tags:
+  - Linux
 ---
 
 # i3wm使用记录

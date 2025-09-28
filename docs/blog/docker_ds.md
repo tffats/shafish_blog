@@ -3,6 +3,8 @@ title: 容器命令（AI总结）
 description: linux, docker
 hide:
   - navigation
+tags:
+  - Docker
 ---
 
 在 Docker 中，`docker run` 是启动容器的核心命令，通过它可以配置容器的运行环境、资源限制、网络设置等。以下是 **Docker 容器的完整使用指南**，涵盖常用参数、示例场景及最佳实践：

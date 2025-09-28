@@ -3,6 +3,8 @@ title: 容器日常
 description: linux, docker
 hide:
   - navigation
+tags:
+  - Docker
 ---
 
 !!! note "shafish docker hub"
