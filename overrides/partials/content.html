@@ -1,5 +1,6 @@
 <!--
-  Copyright (c) 2016-2021 Martin Donath <martin.donath@squidfunk.com>
+  Copyright (c) 2016-2025 Martin Donath <martin.donath@squidfunk.com>
+
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to
   deal in the Software without restriction, including without limitation the
@@ -17,78 +18,43 @@
   IN THE SOFTWARE.
 -->
 
-<!-- Edit button -->
-{% if page.edit_url %}
-<a
-  href="{{ page.edit_url }}"
-  title="{{ lang.t('edit.link.title') }}"
-  class="md-content__button md-icon"
->
-  {% include ".icons/material/pencil.svg" %}
-</a>
+<!-- Actions -->
+{% include "partials/actions.html" %}
+
+<!-- Tags -->
+<!-- {% include "partials/tags.html" %} -->
+
+<!-- 安全访问面包屑 if not loop.last -->
+{% if page and page.meta and page.meta.bcs %}  
+  <nav>
+    <div class="nav-wrapper">
+      <div class="col s12">
+        <a href="/" class="breadcrumb">oi</a> > 
+        {% for name, url in page.meta.bcs.items() %}
+          <a href="{{ url }}" class="breadcrumb">{{ name }}</a> > 
+        {% endfor %}
+        <a href="" class="breadcrumb">CUR</a> 
+      </div>
+    </div>
+  </nav>
 {% endif %}
 
 <!--
-  Hack: check whether the content contains a h1 headline. If it
-  doesn't, the page title (or respectively site name) is used
-  as the main headline.
+  Hack: check whether the content contains a h1 headline. If it doesn't, the
+  page title (or respectively site name) is used as the main headline.
 -->
-{% if not "\x3ch1" in page.content %}
+{% if "\u003ch1" not in page.content %}
   <h1>{{ page.title | d(config.site_name, true)}}</h1>
 {% endif %}
 
-<!-- Markdown content -->
+<!-- Page content -->
 {{ page.content }}
 
 <!-- Source file information -->
-{% if page and page.meta and (
-  page.meta.git_revision_date_localized or
-  page.meta.revision_date
-) %}
-  {% include "partials/source-file.html" %}
-{% endif %}
+{% include "partials/source-file.html" %}
 
-<!-- Get setting from mkdocs.yml, but allow page-level overrides -->
-<!-- {% set vssue = config.extra.vssue %}
-{% if page and page.meta and page.meta.vssue is string %}
-  {% set vssue = page.meta.vssue %}
-{% endif %} -->
+<!-- Was this page helpful? -->
+{% include "partials/feedback.html" %}
 
-<!-- Inject Disqus into current page -->
-<!-- {% if not page.is_homepage and vssue %}
-    <div id="vssue"></div> -->
-
-    <!--<link rel="stylesheet" href="https://unpkg.com/vssue/dist/vssue.min.css">
- OR: vue full build (runtime + compiler)  -->
-<!-- <script src="https://unpkg.com/vue/dist/vue.min.js"></script> -->
-<!-- <script src="https://file.cdn.shafish.cn/blog/js/vue.js"></script> -->
-<!-- Vssue Github build -->
-<!-- <script src="https://unpkg.com/vssue/dist/vssue.github.min.js"></script> -->
-<!-- <script src="https://file.cdn.shafish.cn/blog/js/vssue.github.min.js"></script> -->
-
-<!-- <script>
-    new Vue({
-      el: '#vssue',
-   
-      data: {
-        title: options => `${options.prefix}${document.title}`,
-        
-        options: {
-          owner: 'tffats',
-          admins: ['shafishcn'],
-          repo: 'shafish_blog',
-          clientId: '84b1faa2fb960a12022a',
-          clientSecret: 'c1dea07821b8a9378c4567a9581e45920ae6483c', //only required for some of the platforms
-          prefix: '[BlogComment]',
-          labels: ['Vssue'],
-          autoCreateIssue: true,
-          issueContent: ({ url }) =>`这个 Issue 由 Vssue 自动创建，用来存储该页面的评论：${url}`,
-          perPage: 30
-        },
-      },
-
-      template: `<vssue :title="title" :options="options"></vssue>`,
-    })
-</script> -->
-
-{% endif %}
+<!-- Comment system -->
+{% include "partials/comments.html" %}
