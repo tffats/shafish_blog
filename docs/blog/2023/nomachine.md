@@ -1,5 +1,7 @@
 ---
 title: 远程桌面控制
+tags:
+  - 工具
 hide:
   - navigation
 ---

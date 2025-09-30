@@ -1,5 +1,7 @@
 ---
 title: Github Action使用记录
+tags:
+  - Github Action
 hide:
   - navigation
 ---

@@ -1,17 +1,15 @@
 ---
 title: ArchiveBox使用
+description: ArchiveBox使用
+tags:
+  - ArchiveBox
+bcs:
+  "分类": "/tags/#tag:archivebox"
 hide:
   - navigation
 ---
 
 # ArchiveBox使用
-
-[Back](../../index.md#2021年文章导航){ .md-button}
-
-ref: 
-
-- [https://nixintel.info/osint-tools/make-your-own-internet-archive-with-archive-box/](https://nixintel.info/osint-tools/make-your-own-internet-archive-with-archive-box/){target=_blank}
-- [https://github.com/ArchiveBox/ArchiveBox/wiki/Docker](https://github.com/ArchiveBox/ArchiveBox/wiki/Docker){target=_blank}
 
 当你遇见他，感悟他，细心珍藏他，然后毫无疑问地，最终会遗忘了他，我说的是书签，浏览器上保存的那些成白上千的、杂乱的书签。
 
@@ -144,3 +142,9 @@ docker-compose up -d
 ## 三、配置
 
 [https://github.com/ArchiveBox/ArchiveBox/wiki/Configuration](https://github.com/ArchiveBox/ArchiveBox/wiki/Configuration){target=_blank}
+
+
+ref: 
+
+- [https://nixintel.info/osint-tools/make-your-own-internet-archive-with-archive-box/](https://nixintel.info/osint-tools/make-your-own-internet-archive-with-archive-box/){target=_blank}
+- [https://github.com/ArchiveBox/ArchiveBox/wiki/Docker](https://github.com/ArchiveBox/ArchiveBox/wiki/Docker){target=_blank}

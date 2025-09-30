@@ -1,6 +1,8 @@
 ---
-title: trojan
+title: trojan代理
 description: linux, docker, trojan, client, socket5, http
+tags:
+  - 工具
 hide:
   - navigation
 ---

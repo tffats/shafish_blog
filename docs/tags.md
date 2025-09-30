@@ -1,10 +1,8 @@
 ---
+title: OI，全体目光向我看齐
+description: tag 分类
 hide:
   - navigation
 ---
-
-# Tags
-
-Following is a list of relevant tags:
-
+ 
 <!-- material/tags -->

@@ -3,6 +3,8 @@ title: Vue学习记录
 description: vue, node, js
 hide:
   - navigation
+tags:
+  - 前端-Vue
 ---
 
 ## 一、环境搭建

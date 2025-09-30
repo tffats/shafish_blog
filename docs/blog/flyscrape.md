@@ -3,6 +3,8 @@ title: flyscrape
 description: 网页抓取
 hide:
   - navigation
+tags:
+  - 爬虫
 ---
 
 ## 一、简单介绍

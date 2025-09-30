@@ -1,6 +1,8 @@
 ---
 title: Nacos使用教程
 description: SpringCloud, Nacos
+tags:
+  - 后端-Java
 hide:
   - navigation
 ---

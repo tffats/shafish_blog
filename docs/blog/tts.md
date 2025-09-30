@@ -1,7 +1,7 @@
 ---
-title: tts
+title: F5-TTS
 tags:
-  - F5-TTS
+  - Tts
 hide:
   - navigation
 ---

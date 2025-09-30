@@ -1,3 +1,12 @@
+---
+title: 事务
+description: 事务 mysql
+tags:
+  - Mysql
+hide:
+  - navigation
+---
+
 > 事务是一组的逻辑操作，该操作只有执行成功和失败两种状态。
 
 ## 事务的特征

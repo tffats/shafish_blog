@@ -1,6 +1,8 @@
 ---
 title: OpenFeign使用教程
 description: SpringCloud, OpenFeign
+tags:
+  - 后端-Java
 hide:
   - navigation
 ---

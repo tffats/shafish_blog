@@ -1,7 +1,7 @@
 ---
 title: mybatis-plus记录
 tags:
-  - mybatis-plus
+  - Mybatis-plus
 hide:
   - navigation
 ---

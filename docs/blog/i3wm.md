@@ -1,11 +1,9 @@
 ---
 title: i3wm使用记录
 tags:
-  - linux
+  - Linux
 hide:
   - navigation
-tags:
-  - Linux
 ---
 
 # i3wm使用记录

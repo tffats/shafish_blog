@@ -1,5 +1,7 @@
 ---
 title: Jenkins部署[Ubuntu]
+tags:
+  - Jenkins
 hide:
   - navigation
 ---

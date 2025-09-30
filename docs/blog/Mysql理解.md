@@ -1,7 +1,7 @@
 ---
 title: mysql阅读记录
 tags:
-  - mysql
+  - Mysql
 hide:
   - navigation
 ---

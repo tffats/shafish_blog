@@ -3,6 +3,8 @@ title: PVE
 description: linux, pve, 虚拟机
 hide:
   - navigation
+tags:
+  - 虚拟机
 ---
 
 ### 一、显卡直通

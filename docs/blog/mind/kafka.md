@@ -1,6 +1,8 @@
 ---
 title: Kafka调优参数
 description: Kafka
+tags:
+  - 脑图
 hide:
   - navigation
   - toc

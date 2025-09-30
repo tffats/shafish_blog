@@ -1,5 +1,7 @@
 ---
 title: nginx使用记录
+tags:
+  - Nginx
 hide:
   - navigation
 ---

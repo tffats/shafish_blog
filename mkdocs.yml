@@ -1,4 +1,3 @@
-#
 site_name: 格莱姆的日常
 site_url: https://shafish.cn
 site_author: shafish
@@ -45,6 +44,7 @@ theme:
         #name: 开灯
   features:
     #- navigation.instant # without fully reloading the page
+    # - navigation.instant.progress
     - navigation.tracking
     - navigation.tabs # nav top目录显示在标题栏
     - navigation.tabs.sticky
@@ -60,6 +60,7 @@ theme:
     - content.code.annotate
     - header.autohide
     - toc.separate
+    - toc.follow
     - content.code.copy # 代码复制按钮
     - content.action.edit
     - content.action.view

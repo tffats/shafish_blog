@@ -1,7 +1,7 @@
 ---
 title: mysql记录
 tags:
-  - mysql
+  - Mysql
 hide:
   - navigation
 ---

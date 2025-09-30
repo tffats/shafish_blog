@@ -1,7 +1,7 @@
 ---
 title: ComfyUI 使用 记录
 tags:
-  - comfyui
+  - Comfyui
 hide:
   - navigation
 ---
