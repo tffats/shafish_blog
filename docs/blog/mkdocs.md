@@ -4,11 +4,11 @@ tags:
   - Mkdocs
 hide:
   - navigation
+bcs:
+  "分类": "/tags/#tag:Mkdocs"    
 ---
 
 # Mkdocs Material使用记录
-
-[Back](index.md/#2021年文章导航){ .md-button}
 
 ## 一、markdown使用
 

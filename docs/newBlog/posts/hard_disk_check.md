@@ -7,6 +7,8 @@ date:
     updated: 2024-02-02
 categories:
     - hhd
+bcs:
+  "分类": "/tags/#tag:工具"    
 tags:
   - 工具
 ---

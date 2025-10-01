@@ -5,10 +5,9 @@ tags:
   - 后端-Java
 hide:
   - navigation
+bcs:
+  "分类": "/tags/#tag:后端-Java"  
 ---
-
-[ :fishing_pole_and_fish: ](../../index.md)
-
 
 > [`Spring Cloud Loadbalancer`](https://docs.spring.io/spring-cloud-commons/reference/spring-cloud-commons/loadbalancer.html){target=_blank} 是 `Ribbon` 不维护后，Spring cloud 官方提供的一个负载均衡组件，位于 `spring-cloud-commons` 下。Spring Cloud Balancer 提供了多种负载均衡算法的实现，如轮询、随机等，并且可以与Spring Cloud的其他组件（如服务注册与发现）集成使用。通过Spring Cloud Balancer，开发者可以更容易地实现微服务架构中的负载均衡策略，提高系统的性能和可靠性。
 

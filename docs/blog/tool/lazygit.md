@@ -5,10 +5,11 @@ icon: material/emoticon-happy
 #status: new
 hide:
   - navigation
+tags:
+  - Git 
+bcs:
+  "分类": "/tags/#tag:Git"  
 ---
-
-[ :fishing_pole_and_fish: ](../../index.md)
-
 
 ## lazygit基本了解
 

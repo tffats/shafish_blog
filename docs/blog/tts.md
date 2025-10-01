@@ -4,6 +4,8 @@ tags:
   - Tts
 hide:
   - navigation
+bcs:
+  "分类": "/tags/#tag:Tts"     
 ---
 
 ## F5-tts 

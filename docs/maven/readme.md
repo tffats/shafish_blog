@@ -3,6 +3,10 @@ title: Maven摘要记录
 description: linux, maven, java, compile
 hide:
   - navigation
+tags:
+  - 工具
+bcs:
+  "分类": "/tags/#tag:工具"   
 ---
 
 ## 一、maven作用

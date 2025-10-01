@@ -5,9 +5,9 @@ tags:
   - 后端-Java
 hide:
   - navigation
+bcs:
+  "分类": "/tags/#tag:后端-Java"  
 ---
-
-[ :fishing_pole_and_fish: ](../../index.md)
 
 > [Nacos](https://nacos.io/){target=_blank} (Dynamic Naming and Configuration Service) 是一个开源的、易于使用的动态服务发现、配置管理和服务管理平台。
 > 它帮助开发团队实现微服务架构中的服务发现、服务注册、配置管理和流量管理等功能。

@@ -9,6 +9,10 @@ categories:
     - pve
     - 虚拟机
     - linux
+tags:
+  - 工具      
+bcs:
+  "分类": "/tags/#tag:工具"    
 ---
 
 [ :fishing_pole_and_fish: ](../../index.md)

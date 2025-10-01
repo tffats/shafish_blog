@@ -10,6 +10,8 @@ categories:
     - rsync
 tags:
   - Linux
+bcs:
+  "分类": "/tags/#tag:Linux"    
 ---
 
 [ :fishing_pole_and_fish: ](../../index.md)

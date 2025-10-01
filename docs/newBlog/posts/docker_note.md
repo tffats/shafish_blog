@@ -4,13 +4,15 @@ authors:
     - shafish
 date:
     created: 2022-07-10
-    updated: 2023-10-25
+    updated: 2025-10-01
 categories:
     - docker
     - linux
+bcs:
+  "分类": "/tags/#tag:Docker"
+tags:
+  - Docker
 ---
-
-[ :fishing_pole_and_fish: ](../../index.md)
 
 !!! note "shafish docker hub"
     [https://hub.docker.com/u/shafish](https://hub.docker.com/u/shafish){target="_blank"}

@@ -5,6 +5,8 @@ tags:
   - Mysql
 hide:
   - navigation
+bcs:
+  "分类": "/tags/#tag:Mysql"  
 ---
 
 > 事务是一组的逻辑操作，该操作只有执行成功和失败两种状态。

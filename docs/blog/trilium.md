@@ -3,6 +3,10 @@ title: Trilium笔记
 description: trilium, 笔记
 hide:
   - navigation
+tags:
+  - 工具  
+bcs:
+  "分类": "/tags/#tag:工具"   
 ---
 
 > [https://github.com/zadam/trilium](https://github.com/zadam/trilium){target=_blank}

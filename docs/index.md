@@ -183,7 +183,7 @@ hide:
 
         （自用记录）Archlinux 系统安装到日常使用
 
-        [:octicons-arrow-right-24: Getting started](newBlog/posts/i3-user-guide.md)
+        [:octicons-arrow-right-24: Getting started](blog/linux/Archlinx主力机配置记录.md)
 
     -   :material-linux:{ .lg .middle } __PVE__
 

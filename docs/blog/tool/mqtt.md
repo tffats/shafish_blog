@@ -3,6 +3,10 @@ title: MQTT使用
 description: MQTT使用记录
 hide:
   - navigation
+tags:
+  - Mqtt 
+bcs:
+  "分类": "/tags/#tag:Mqtt"  
 ---
 
 ## 一、Broker、调试工具安装

@@ -1,20 +1,14 @@
 ---
 title: Github Action使用记录
 tags:
-  - Github Action
+  - Git
 hide:
   - navigation
+bcs:
+  "分类": "/tags/#tag:Git"  
 ---
 
 # Github Action
-
-[Back](../../index.md#2021年文章导航){ .md-button}
-
-ref:
-
-- [GitHub Actions 入门教程-阮一峰](http://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html){target=_blank}
-- [GitHub Actions官方文档](https://docs.github.com/en/actions/quickstart){target=_blank}
-- [Github Actions语法](https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#about-yaml-syntax-for-workflows){target=_blank}
 
 用法和概念基本都是参考 阮一峰 的那篇文章，所以在这里纯粹是记录下使用。
 
@@ -344,3 +338,9 @@ jobs:
 
   - ci.yml为github page部署：[https://shafishcn.github.io/shafish_blog/](https://shafishcn.github.io/shafish_blog/){target=_blank}
   - server_ci.yml是在下的服务器：[https://shafish.cn/](https://shafish.cn/){target=_blank}
+
+ref:
+
+- [GitHub Actions 入门教程-阮一峰](http://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html){target=_blank}
+- [GitHub Actions官方文档](https://docs.github.com/en/actions/quickstart){target=_blank}
+- [Github Actions语法](https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#about-yaml-syntax-for-workflows){target=_blank}

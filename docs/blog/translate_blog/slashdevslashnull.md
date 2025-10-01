@@ -2,13 +2,13 @@
 title: /dev/null是个啥
 hide:
   - navigation
+tags:
+  - Linux 
+bcs:
+  "分类": "/tags/#tag:Linux"  
 ---
 
 # /dev/null是个啥
-
-[Back](../index.md/#2022年文章导航){ .md-button}
-
-ref: [https://www.putorius.net/introduction-to-dev-null.html](https://www.putorius.net/introduction-to-dev-null.html){target=_blank}
 
 本文介绍下什么是dev/null，以及它是如何使用der。
 
@@ -31,3 +31,7 @@ ref: [https://www.putorius.net/introduction-to-dev-null.html](https://www.putori
 - 消除输出：`stat /etc/passwd > /dev/null`
 - 使用标准error输出：`stat /etc/passwd 2> /dev/null`
 - 快速清除文件内容：`cat /dev/null > xxx.log`或者`cp /dev/null xxx.log `
+
+ref: 
+
+- [https://www.putorius.net/introduction-to-dev-null.html](https://www.putorius.net/introduction-to-dev-null.html){target=_blank}

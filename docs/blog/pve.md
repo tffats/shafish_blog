@@ -5,6 +5,10 @@ hide:
   - navigation
 tags:
   - 虚拟机
+tags:
+  - Pve 
+bcs:
+  "分类": "/tags/#tag:Pve"  
 ---
 
 ### 一、显卡直通

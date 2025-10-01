@@ -3,9 +3,11 @@ title: Spring Authorization Server 使用教程
 description: Spring, Oauth
 hide:
   - navigation
+tags:
+  - 后端-Java  
+bcs:
+  "分类": "/tags/#tag:后端-Java"  
 ---
-
-[ :fishing_pole_and_fish: ](../../../index.md)
 
 > `Spring` 官方前一代 oauth 技术实现是 `Spring Security OAuth`，但现在已经不维护了，官方认为 `Spring Security OAuth` 更像是个产品而不是技术框架，当然还有早期的技术债等原因，所以宣布该项目于2022年5月就终止了。但是后来在社区的强烈需求下，官方还是开启了新的 oauth 落地实现，也就是现在这个 `Spring Authorization Server`。
 

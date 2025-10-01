@@ -4,6 +4,8 @@ tags:
   - Comfyui
 hide:
   - navigation
+bcs:
+  "分类": "/tags/#tag:Comfyui"  
 ---
 
 # ComfyUI

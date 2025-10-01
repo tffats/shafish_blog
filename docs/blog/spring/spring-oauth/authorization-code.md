@@ -3,9 +3,11 @@ title: Spring Authorization Server 授权码模式使用教程
 description: Spring, Oauth
 hide:
   - navigation
+tags:
+  - 后端-Java  
+bcs:
+  "分类": "/tags/#tag:后端-Java"
 ---
-
-[ :fishing_pole_and_fish: ](../../../index.md)
 
 ## 创建示例项目
 

@@ -4,6 +4,8 @@ tags:
   - 工具
 hide:
   - navigation
+bcs:
+  "分类": "/tags/#tag:工具"  
 ---
 
 ## 一、nomachine介绍

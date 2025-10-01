@@ -4,9 +4,9 @@ tags:
   - Mysql
 hide:
   - navigation
+bcs:
+  "分类": "/tags/#tag:Mysql"  
 ---
-
-[ :fishing_pole_and_fish: ](../index.md)
 
 ## 一、了解
 

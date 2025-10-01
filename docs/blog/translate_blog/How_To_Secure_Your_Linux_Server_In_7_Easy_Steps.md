@@ -3,17 +3,13 @@ title: Linux Server7个简单的安全配置
 description:  shafish.cn linux linux安全配置 服务器
 hide:
   - navigation
+tags:
+  - Linux 
+bcs:
+  "分类": "/tags/#tag:Linux"  
 ---
 
 # Linux(Ubuntu) Server7个简单的安全配置
-
-[Back](../index.md/#2022年文章导航){ .md-button}
-
-ref: 
-
-- [https://medium.com/servers-101/how-to-secure-your-linux-server-6026cfcdefd8](https://medium.com/servers-101/how-to-secure-your-linux-server-6026cfcdefd8){target=_blank}
-- [https://sollove.com/2013/03/03/my-first-5-minutes-on-a-server-or-essential-security-for-linux-servers/](https://sollove.com/2013/03/03/my-first-5-minutes-on-a-server-or-essential-security-for-linux-servers/){target=_blank}
-
 
 大多服务器都时不时被攻击过，所以这里介绍几个简单加固linux server系统安全的方法，预防比如：恶意登录、ddos等攻击。
 
@@ -54,3 +50,7 @@ ref:
 - [PSAD](http://www.cipherdyne.org/psad/){target=_blank}
 - [Fail2Ban](https://www.fail2ban.org/){target=_blank}
 
+ref: 
+
+- [https://medium.com/servers-101/how-to-secure-your-linux-server-6026cfcdefd8](https://medium.com/servers-101/how-to-secure-your-linux-server-6026cfcdefd8){target=_blank}
+- [https://sollove.com/2013/03/03/my-first-5-minutes-on-a-server-or-essential-security-for-linux-servers/](https://sollove.com/2013/03/03/my-first-5-minutes-on-a-server-or-essential-security-for-linux-servers/){target=_blank}

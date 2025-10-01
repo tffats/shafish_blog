@@ -1,18 +1,12 @@
 ---
 title: Archlinx主力机配置记录
-authors:
-    - shafish
-date:
-    created: 2023-10-31
-    updated: 2025-04-21
-categories:
-    - archlinx
-    - 装机
 tags:
   - Linux
+hide:
+  - navigation  
+bcs:
+  "分类": "/tags/#tag:Linux"  
 ---
-
-[ :fishing_pole_and_fish: ](../../index.md)
 
 ## 硬件环境
 - CPU:AMD5900X
@@ -1884,43 +1878,3 @@ sudo pacman -S solaar
 *[Rufus]: Window系统下建议的写盘工具
 *[Archlinux镜像]: 选China下载
 *[Silent boot]: 设置完后，下次正常开机确实很快
-
-
-
-
-xR4ZtDNWhBHmbrm2
-
-xR4ZtDNWhBHmbrm2
-
-	2023-04-30 12:11PM	Ubuntu22.04+Nvidia RTX 3060 显卡驱动安装_ubuntu22.04安装显卡驱动_亮话科研的博客-CSDN博客 ubuntu 3060 	❶  📄  💻  🅷  🆆  📦  🆁  🅼  🅶  📼  🏛 	138.0 MB	https://blog.csdn.net/matlab001/article/details/127583689
-	2023-03-11 10:44PM	Gitlab 配置自定义 clone 地址 – 小沉御笔 git 	❶  📄  💻  🅷  🆆  📦  🆁  🅼  🅶  📼  🏛 	63.3 MB	http://ftxtool.org/2021/11/20/326/
-	2023-02-12 6:36PM	403 Forbidden gitlab 	❶  📄  💻  🅷  🆆  📦  🆁  🅼  🅶  📼  🏛 	126.7 MB	https://www.jianshu.com/p/ca7f167e3b0d
-	2023-02-12 1:26AM	Docker入门教程 - Docker入门教程 docker 	❶  📄  💻  🅷  🆆  📦  🆁  🅼  🅶  📼  🏛 	46.8 MB	https://hezhiqiang-book.gitbook.io/docker/
-	2023-02-11 11:41PM	JRebel and xrebel 热部署插件 激活时出现LS client not configued 报错解决_Jamie Chyi的博客-CSDN博客_jrebel激活服务器 JRebel and xrebel 	❶  📄  💻  🅷  🆆  📦  🆁  🅼  🅶  📼  🏛 	86.2 MB	https://blog.csdn.net/qijing19991210/article/details/128913014
-	2023-02-01 11:12PM	多主机docker部署kafka和zookeeper集群+kowl管理系统 | BUG王 docker 跨主机通信 	❶  📄  💻  🅷  🆆  📦  🆁  🅼  🅶  📼  🏛 	81.3 MB	http://www.bingal.com/posts/kafka-zookeeper-kowl-docker/
-	2023-02-01 11:12PM	如何让docker容器和宿主机在一个网段，并组成局域网 转 - 腾讯云开发者社区-腾讯云 docker 跨主机通信 	❶  📄  💻  🅷  🆆  📦  🆁  🅼  🅶  📼  🏛 	99.0 MB	https://cloud.tencent.com/developer/article/1440634
-	2023-02-01 10:53PM	Docker篇（七）: 如何实现 Docker 容器 的跨主机通讯？ - 掘金 docker 跨主机通信 	❶  📄  💻  🅷  🆆  📦  🆁  🅼  🅶  📼  🏛 	177.4 MB	https://juejin.cn/post/6978327313725259812
-	2023-01-30 11:08PM	Docker 部署 IntelliJ Projector，愉快玩耍 Android Studio、Idea、PyCharm 等 Swing 应用_也说 Android的博客-CSDN博客_projector安装 idea brower 	❶  📄  💻  🅷  🆆  📦  🆁  🅼  🅶  📼  🏛 	68.0 MB	https://blog.csdn.net/qq_34908601/article/details/125016915
-	2023-01-25 5:39PM	Docker安装Redis并配置文件启动 - 腾讯云开发者社区-腾讯云 docker redis 	❶  📄  💻  🅷  🆆  📦  🆁  🅼  🅶  📼  🏛 	108.3 MB	https://cloud.tencent.com/developer/article/1997596
-	2023-01-23 4:48PM	Python3 的安装 | 静觅 python3安装 install 	❶  📄  💻  🅷  🆆  📦  🆁  🅼  🅶  📼  🏛 	109.5 MB	https://cuiqingcai.com/30035.html
-	2023-01-21 11:33PM	求openwrt出现“ready-only file system”问题解决办法? - 知乎 openwrt ready-only file system 	❶  📄  💻  🅷  🆆  📦  🆁  🅼  🅶  📼  🏛 	64.1 MB	https://www.zhihu.com/question/27037954
-	2023-01-17 4:44PM	【Linux】宝塔面板开启反向代理后，怎么自动续签Let’s Encrypt免费SSL证书 – 夜路不孤单 bt 反向代理 ssl续签 	❶  📄  💻  🅷  🆆  📦  🆁  🅼  🅶  📼  🏛 	81.2 MB	https://yelubugudan.xyz/2022/06/08/%E3%80%90linux%E3%80%91%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E5%BC%80%E5%90%AF%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E5%90%8E%EF%BC%8C%E6%80%8E%E4%B9%88%E8%87%AA%E5%8A%A8%E7%BB%AD%E7%AD%BElets-encrypt/
-	2022-11-26 3:20PM	【Proxmox VE】PVE 首页显示 CPU、主板、NVME、硬盘 温度等信息 | 秘密基地 pve 	❶  📄  💻  🅷  🆆  📦  🆁  🅼  🅶  📼  🏛 	28.3 MB	https://tty228.github.io/2022/06/18/%E3%80%90Proxmox%20VE%E3%80%91PVE%20%E9%A6%96%E9%A1%B5%E6%98%BE%E7%A4%BA%20CPU%E3%80%81%E4%B8%BB%E6%9D%BF%E3%80%81NVME%E3%80%81%E7%A1%AC%E7%9B%98%20%E6%B8%A9%E5%BA%A6%E7%AD%89%E4%BF%A1%E6%81%AF/
-	2022-10-21 11:45PM	使用Docker快速搭建ZooKeeper集群_51CTO博客_zookeeper集群搭建 zookeeper 	❶  📄  💻  🅷  🆆  📦  🆁  🅼  🅶  📼  🏛 	64.1 MB	https://blog.51cto.com/u_15127674/3320245
-	2022-07-17 1:12AM	post.smzdm.com/p/a5dro4d3 jellyfin 字幕 	❶  📄  💻  🅷  🆆  📦  🆁  🅼  🅶  📼  🏛 	82.4 MB	https://post.smzdm.com/p/a5dro4d3/
-	2022-07-16 10:07PM	【其它】idea 2022.1 超详细破解教程，亲测有效！（Webstorm,Goland,Pycharm,DataGrip等全家桶） - unionline - 博客园 	❶  📄  💻  🅷  🆆  📦  🆁  🅼  🅶  📼  🏛 	3.6 MB	https://www.cnblogs.com/fanbi/p/16227293.html
-	2022-07-12 10:20PM	docker安装elastic search和kibana - 宝树呐 - 博客园 es docker 	❶  📄  💻  🅷  🆆  📦  🆁  🅼  🅶  📼  🏛 	392.4 KB	https://www.cnblogs.com/baoshu/p/16128127.html
-	2022-04-07 9:51PM	I3wm 配置思路 ｜ 千玄洞 i3wm 很sao 	❶  📄  💻  🅷  🆆  📦  🆁  🅼  🅶  📼  🏛 	136.6 MB	https://zjuyk.gitlab.io/posts/i3wm-config/
-	2022-03-28 5:24PM	深入 HTTP/3（一）｜从 QUIC 链接的建立与关闭看协议的演进 · SOFAStack http/3 	❶  📄  💻  🅷  🆆  📦  🆁  🅼  🅶  📼  🏛 	67.9 MB	https://www.sofastack.tech/blog/deeper-into-http/3-evolution-of-the-protocol-from-the-creation-and-closing-of-quic-links/
-	2022-03-27 4:41PM	01-跨域和跨站的基本概念 | Web前端 | Alex Zhong 跨站 跨域 	❶  📄  💻  🅷  🆆  📦  🆁  🅼  🅶  📼  🏛 	99.5 MB	https://alexzhong22c.github.io/2020/05/22/cross-origin-cross-site/
-	2022-02-16 9:47PM	在archlinux中使用蓝牙耳机 - 暗无天日 linux bluetooth 	❶  📄  💻  🅷  🆆  📦  🆁  🅼  🅶  📼  🏛 	259.8 KB	http://blog.lujun9972.win/blog/2017/07/18/%E5%9C%A8archlinux%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%93%9D%E7%89%99%E8%80%B3%E6%9C%BA/
-	2022-01-30 5:33PM	系统运维|如何在 Linux 中实时监控日志文件 linux log 	❶  📄  💻  🅷  🆆  📦  🆁  🅼  🅶  📼  🏛 	837.4 KB	https://linux.cn/article-13733-1.html
-	2022-01-22 8:28PM	【耗时16h总结】最全最细致的吉他基础乐理干货 - 哔哩哔哩 乐理 	❶  📄  💻  🅷  🆆  📦  🆁  🅼  🅶  📼  🏛 	1.3 MB	https://www.bilibili.com/read/cv2693483
-	2022-01-20 8:48PM	i3 设置多屏显示 ｜ 言之凿凿 xrandr多屏设置 	❶  📄  💻  🅷  🆆  📦  🆁  🅼  🅶  📼  🏛 	19.2 MB	https://todebug.com/use-external-display-on-i3wm/
-	2022-01-20 2:00PM	关于更改 lightdm 主题的方法_Hello_wshuo-程序员宝宝 - 程序员宝宝 lightdm-settings 	❶  📄  💻  🅷  🆆  📦  🆁  🅼  🅶  📼  🏛 	410.0 KB	https://www.cxybb.com/article/chouzhou9701/90176122
-	2021-12-31 12:04AM	微服务下的持续集成-Jenkins自动化部署GitHub项目 - 牧小农 - 博客园 jenkins微服务 	❶  📄  💻  🅷  🆆  📦  🆁  🅼  🅶  📼  🏛 	4.7 MB	https://www.cnblogs.com/mingyueyy/p/14008548.html
-	2021-12-31 12:04AM	（一）jenkins + GitHub 实现项目自动化部署 | Laravel China 社区 jenkins+github 	❶  📄  💻  🅷  🆆  📦  🆁  🅼  🅶  📼  🏛 	3.8 MB	https://learnku.com/articles/44764
-	2021-12-29 11:01PM	安装使用 GoldenDict 查词神器 — (Windows/Mac/Linux) 😃 goldendict 	❶  📄  💻  🅷  🆆  📦  🆁  🅼  🅶  📼  🏛 	22.1 MB	https://keatonlao.gitee.io/use-goldendict/
-	2021-12-26 6:12PM	mysql备份利器 Innobackup 大数据备份还原_wanglei_storage的博客-CSDN博客 innobackup备份 	❶  📄  💻  🅷  🆆  📦  🆁  🅼  🅶  📼  🏛 	1.8 MB	https://blog.csdn.net/wanglei_storage/article/details/49430515
-	2021-12-22 9:21PM	使用Github Actions 实现TP6自动化部署 | ThinkPHP-ApiDoc github-action 	❶  📄  💻  🅷  🆆  📦  🆁  🅼  🅶  📼  🏛 	558.5 KB	https://hg-code.gitee.io/thinkphp-apidoc/course/githubActionsDeploy/
-	2021-12-22 12:55AM	GitHub Actions 入门教程 - 阮一峰的网络日志 github-action 	❶  📄  💻  🅷  🆆  📦  🆁  🅼  🅶  📼  🏛 	538.9 KB	http://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html

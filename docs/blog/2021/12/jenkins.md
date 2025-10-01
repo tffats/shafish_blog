@@ -1,20 +1,14 @@
 ---
 title: Jenkins部署[Ubuntu]
 tags:
-  - Jenkins
+  - 工具
 hide:
   - navigation
+bcs:
+  "分类": "/tags/#tag:工具"  
 ---
 
 # Jenkins使用[Ubuntu]
-
-[Back](../../index.md#2021年文章导航){ .md-button}
-
-ref:
-
-- [https://www.jenkins.io/zh/doc/](https://www.jenkins.io/zh/doc/){target=_blank}
-- [https://www.jenkins.io/doc/](https://www.jenkins.io/doc/){target=_blank}
-- [https://www.w3cschool.cn/jenkins/](https://www.w3cschool.cn/jenkins/){target=_blank}
 
 ## 零、开场白
 Jenkins是一款自动化的项目持续集成工具。
@@ -912,3 +906,9 @@ Blue Ocean事实上是一个Jenkins插件集，需要运行在Jenkins 2.7.x或�
 - It appears that your reverse proxy setup is broken--Jenkins的反向代理设置问题
     -  [https://www.jenkins.io/doc/book/system-administration/reverse-proxy-configuration-troubleshooting/](https://www.jenkins.io/doc/book/system-administration/reverse-proxy-configuration-troubleshooting/){target=_blank}
     - [https://www.jenkins.io/doc/book/system-administration/reverse-proxy-configuration-nginx/](https://www.jenkins.io/doc/book/system-administration/reverse-proxy-configuration-nginx/){target=_blank}
+
+ref:
+
+- [https://www.jenkins.io/zh/doc/](https://www.jenkins.io/zh/doc/){target=_blank}
+- [https://www.jenkins.io/doc/](https://www.jenkins.io/doc/){target=_blank}
+- [https://www.w3cschool.cn/jenkins/](https://www.w3cschool.cn/jenkins/){target=_blank}

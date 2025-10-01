@@ -4,11 +4,11 @@ tags:
   - Nginx
 hide:
   - navigation
+bcs:
+  "分类": "/tags/#tag:Nginx"  
 ---
 
 # nginx使用记录
-
-[Back](../../index.md#2021年文章导航){ .md-button}
 
 ???+ abstract
 	仅做笔记，为了有个小小印象。

@@ -5,9 +5,11 @@ icon: material/emoticon-happy
 #status: new
 hide:
   - navigation
+tags:
+  - Git  
+bcs:
+  "分类": "/tags/#tag:Git"  
 ---
-
-[ :fishing_pole_and_fish: ](../../index.md)
 
 ![](https://file.cdn.shafish.cn/blog/blog/git/%E5%9B%BE%E7%89%87.png){: .zoom}
 

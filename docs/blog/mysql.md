@@ -4,6 +4,8 @@ tags:
   - Mysql
 hide:
   - navigation
+bcs:
+  "分类": "/tags/#tag:Mysql"  
 ---
 
 ## 一、ddl

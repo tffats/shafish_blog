@@ -5,6 +5,8 @@ hide:
   - navigation
 tags:
   - 前端-Vue
+bcs:
+  "分类": "/tags/#tag:前端-Vue"  
 ---
 
 ## 一、环境搭建

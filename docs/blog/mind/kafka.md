@@ -6,6 +6,8 @@ tags:
 hide:
   - navigation
   - toc
+bcs:
+  "分类": "/tags/#tag:脑图"  
 ---
 
 <div class="mindmap-container" style="width: 100%; height: 800px"

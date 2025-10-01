@@ -1,9 +1,11 @@
 ---
 title: mybatis-plus记录
 tags:
-  - Mybatis-plus
+  - Mysql
 hide:
   - navigation
+bcs:
+  "分类": "/tags/#tag:Mysql"  
 ---
 
 ## maven依赖

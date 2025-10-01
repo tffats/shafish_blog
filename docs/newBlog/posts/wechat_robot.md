@@ -8,6 +8,10 @@ draft: true
 categories:
     - qq机器人
     - python
+tags:
+  - 工具
+bcs:
+  "分类": "/tags/#tag:工具"
 ---
 
 ## 一、先导

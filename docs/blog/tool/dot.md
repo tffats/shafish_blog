@@ -5,9 +5,11 @@ icon: material/emoticon-happy
 #status: new
 hide:
   - navigation
+tags:
+  - 工具  
+bcs:
+  "分类": "/tags/#tag:工具"
 ---
-
-[ :fishing_pole_and_fish:{ .lg .middle } ](../../index.md)
 
 !!! quote
 
