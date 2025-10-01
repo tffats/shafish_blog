@@ -8,6 +8,8 @@ date:
 categories:
     - archlinx
     - 装机
+tags:
+  - Linux
 ---
 
 [ :fishing_pole_and_fish: ](../../index.md)

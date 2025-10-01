@@ -4,10 +4,12 @@ authors:
     - shafish
 date:
     created: 2022-06-07
-    updated: 2024-01-17
+    updated: 2025-10-01
 categories:
     - linux
     - rsync
+tags:
+  - Linux
 ---
 
 [ :fishing_pole_and_fish: ](../../index.md)
@@ -437,3 +439,15 @@ vim /root/.ssh/authorized_keys
 
 - pve中挂载sma到本地：`mount -t cifs -o username=sha,password=xxx //192.168.2.100/samba-movie /data/movie`
 - 将pve目录映射到容器：`pct set 容器标识 -mp0 /data/movie,mp=/shared`
+
+## 二十七、centos 换源
+
+
+``` shell
+cp /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak
+# wget不可用可以直接复制内容覆盖源文件
+wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+yum clean all
+yum makecache
+yum install vim wget rsync
+```

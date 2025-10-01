@@ -79,7 +79,7 @@ plugins:
       exclude:
         - comments.md
   - rss:
-      match_path: newBlog/posts/.* 
+      match_path: .* 
       # date_from_meta:
       #  as_creation: date
   - blog:

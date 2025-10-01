@@ -99,6 +99,35 @@ docker run [选项] <镜像名称> [命令] [参数]
   docker run --log-driver=json-file --log-opt max-size=10m myapp  # 限制日志大小
   ```
 
+#### **5. 修改数据目录**
+
+- [https://docs.docker.com/engine/daemon](https://docs.docker.com/engine/daemon){target=_black}
+- [https://docs.docker.com/engine/logging/configure](https://docs.docker.com/engine/logging/configure){target=_black}
+
+``` shell
+vim /etc/docker/daemon.json
+{
+  "data-root": "/home/esafe/docker-data",
+  "log-driver": "json-file",
+  "log-opts": {
+    "max-size": "100m",
+    "max-file": "3"
+  }
+}
+```
+
+``` shell
+mkdir /home/xxx/docker-data
+systemctl stop docker
+# 清理容器运行log，如果数据无用的话
+#:>/var/lib/docker/containers/xxxx/xxx-json.log
+rsync -av --progress /var/lib/docker/* /home/xxx/docker-data/
+systemctl daemon-reload
+systemctl start docker.service
+systemctl status docker.service
+docker info | grep "Docker Root Dir"
+```
+
 ---
 
 ### **四、实战示例**

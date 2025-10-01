@@ -7,6 +7,8 @@ date:
     updated: 2024-02-02
 categories:
     - hhd
+tags:
+  - 工具
 ---
 
 很久之前写的，刚好最近又用到 [https://blog.shafish.cn/archives/1670/](https://blog.shafish.cn/archives/1670/){target=_blank}
