@@ -1681,6 +1681,41 @@ sudo systemctl enable smb.service
 sudo systemctl enable nmb.service
 ```
 
+### Samba人教版
+- 服务端
+``` shell
+apt install samba
+vim /etc/samba/smb.conf 
+smbpasswd -a root
+```
+``` title="smb.conf"
+[ssd]
+    path = /mnt/ssd
+    browseable = yes
+    writeable = yes
+    valid users = root
+
+```
+- 客户端
+``` shell
+apt install cifs-utils
+mkdir /share
+# 使用mount命令挂在共享目录，-t协议类型 -o用户名密码  共享目录访问地址  挂载目录
+mount -t cifs -o username=root,password=1234 //192.168.40.133/share /share
+# 或者开机挂载
+//192.168.0.20/ssd /share cifs auto, username=root,password=123456 0 0
+## 或者将账密写入文件
+vim /root/auth.smb
+username=root
+password=1234
+domain=SAMBA
+
+chmod 600 auth.smb
+## 共享目录挂载信息
+vim /etc/fstab
+//192.168.40.133/share  /share cifs    credentials=/root/auth.smb 0 0
+```
+
 ### 3.25 OBS
 
 ``` shell
