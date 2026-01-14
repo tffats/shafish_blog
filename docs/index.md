@@ -77,6 +77,14 @@ hide:
 
         [:octicons-arrow-right-24: Getting started](blog/tool/mqtt.md)        
 
+    -   :simple-ansible:{ .lg .middle } __Ansible__
+
+        ---
+
+         Ansible 是一款开源的自动化运维工具，用于配置管理、应用部署、任务自动化和 IT 编排。
+
+        [:octicons-arrow-right-24: Getting started](blog/tool/ansible.md)        
+
     </div>
 
 ??? "收藏夹"
