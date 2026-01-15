@@ -49,6 +49,8 @@ brew install ansible
 
 [all:vars]
 ansible_ssh_private_key_file=~/.ssh/id_rsa
+ansible_python_interpreter=/usr/bin/python3
+ansible_user=root
 ```
 
 ``` shell title="/opt/homebrew/etc/ansible/ansible.cfg"
@@ -72,6 +74,8 @@ enable_plugins = host_list, script, auto, yaml, ini, toml
 ansible --version
 # 列出所有主机
 ansible all --list-hosts
+# 测试
+ansible tj9 -m ping
 ```
 
 三、
