@@ -461,7 +461,8 @@ yum install vim wget rsync
 ```
 wget https://www.python.org/ftp/python/3.10.19/Python-3.10.19.tar.xz
 # 安装工具库
-yum install -y gcc openssl-devel bzip2-devel libffi-devel zlib-devel
+# yum install -y gcc openssl-devel bzip2-devel libffi-devel zlib-devel
+yum install gcc openssl-devel bzip2-devel libffi-devel zlib-devel wget xz-devel sqlite-devel readline-devel gdbm-devel ncurses-devel tk-devel expat-devel
 tar -xvf Python-3.10.19.tar.xz & cd xxx
 ./configure --enable-optimizations
 make -j 4
