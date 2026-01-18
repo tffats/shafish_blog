@@ -458,7 +458,7 @@ yum install vim wget rsync
 
 >  低版本linux系统源中没有合适python高版本 `apt/yum list python3*`
 
-```
+``` shell
 wget https://www.python.org/ftp/python/3.10.19/Python-3.10.19.tar.xz
 # 安装工具库
 apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget libbz2-dev libexpat1-dev liblzma-dev tk-dev
@@ -471,3 +471,6 @@ make -j 4
 make altinstall
 python3.10 --version
 ```
+
+## 二十九、ansible
+
