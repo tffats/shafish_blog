@@ -7,22 +7,3 @@ services:
     volumes:
       - ./:/docs
     restart: unless-stopped
-
-
-"provider": {
-  "nvidia": {
-   "npm": "@ai-sdk/openai-compatible",
-   "name": "NVIDIA",
-   "options": {
-    "baseURL": "https://integrate.api.nvidia.com/v1"
-   },
-   "models": {
-    "z-ai/glm4.7": {
-     "name": "GLM 4.7"
-    },
-    "minimaxai/minimax-m2.1": {
-      "name": "MiniMax M2.1"
-    }
-   }
-  }
- }
