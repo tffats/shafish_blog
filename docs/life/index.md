@@ -46,7 +46,7 @@ hide:
         
     === "第十篇"
 
-        --8<-- "life/abababa/2-5.md:8:"    
+        --8<-- "life/abababa/2-5.md:8:"
 
 ??? "一些视频"
 
