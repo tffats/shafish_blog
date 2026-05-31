@@ -8,10 +8,10 @@
   "defaultImageSize": "",
   "defaultImageSizeDimension": "width",
   "duplicateNameSeparator": " ",
-  "emptyAttachmentFolderBehavior": "DeleteWithEmptyParents",
+  "emptyFolderBehavior": "DeleteWithEmptyParents",
   "excludePaths": [],
   "excludePathsFromAttachmentCollecting": [],
-  "generatedAttachmentFileName": "file-${date:YYYYMMDDHHmmssSSS}",
+  "generatedAttachmentFileName": "file-${date:{momentJsFormat:'YYYYMMDDHHmmssSSS'}}",
   "includePaths": [],
   "jpegQuality": 0.8,
   "markdownUrlFormat": "assets/${noteFileName}/${generatedAttachmentFileName}",
@@ -28,5 +28,5 @@
   "treatAsAttachmentExtensions": [
     ".excalidraw.md"
   ],
-  "version": "9.26.4"
+  "version": "10.3.4"
 }
